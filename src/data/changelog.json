@@ -1,0 +1,47 @@
+[
+  {
+    "id": "cl-001",
+    "target_id": "c-001",
+    "target_type": "component",
+    "action": "update",
+    "changed_by": "seungshin",
+    "note": "Button 컴포넌트의 hover 상태 색상 대비 개선",
+    "date": "2026-06-01T10:00:00Z"
+  },
+  {
+    "id": "cl-002",
+    "target_id": "c-004",
+    "target_type": "component",
+    "action": "create",
+    "changed_by": "seungshin",
+    "note": "신규 DatePicker 컴포넌트 추가 (beta)",
+    "date": "2026-05-30T16:45:00Z"
+  },
+  {
+    "id": "cl-003",
+    "target_id": "c-002",
+    "target_type": "component",
+    "action": "update",
+    "changed_by": "seungshin",
+    "note": "TextField에 에러 메시지 슬롯 추가",
+    "date": "2026-05-28T14:30:00Z"
+  },
+  {
+    "id": "cl-004",
+    "target_id": "t-001",
+    "target_type": "token",
+    "action": "update",
+    "changed_by": "seungshin",
+    "note": "primary-500 색상 값 미세 조정 (#3B82F6 -> #2563EB로 변경 예정 공지)",
+    "date": "2026-05-20T11:00:00Z"
+  },
+  {
+    "id": "cl-005",
+    "target_id": "c-005",
+    "target_type": "component",
+    "action": "deprecate",
+    "changed_by": "seungshin",
+    "note": "OldModal을 deprecated 상태로 변경, Dialog 사용 권장",
+    "date": "2026-05-10T13:20:00Z"
+  }
+]

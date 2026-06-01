@@ -1,0 +1,57 @@
+[
+  {
+    "id": "c-001",
+    "name": "Button",
+    "category": "Action",
+    "status": "stable",
+    "owner": "seungshin",
+    "figma_link": "https://figma.com/...",
+    "description": "Primary action button used across the application.",
+    "updated_at": "2026-06-01T10:00:00Z",
+    "version": "1.2.0"
+  },
+  {
+    "id": "c-002",
+    "name": "TextField",
+    "category": "Input",
+    "status": "stable",
+    "owner": "seungshin",
+    "figma_link": "https://figma.com/...",
+    "description": "Standard text input field for forms.",
+    "updated_at": "2026-05-28T14:30:00Z",
+    "version": "1.1.0"
+  },
+  {
+    "id": "c-003",
+    "name": "Dropdown",
+    "category": "Input",
+    "status": "stable",
+    "owner": "seungshin",
+    "figma_link": "https://figma.com/...",
+    "description": "Select dropdown component for single or multiple choices.",
+    "updated_at": "2026-05-15T09:15:00Z",
+    "version": "1.0.5"
+  },
+  {
+    "id": "c-004",
+    "name": "DatePicker",
+    "category": "Input",
+    "status": "beta",
+    "owner": "seungshin",
+    "figma_link": "https://figma.com/...",
+    "description": "Calendar-based date selection component.",
+    "updated_at": "2026-05-30T16:45:00Z",
+    "version": "0.9.0"
+  },
+  {
+    "id": "c-005",
+    "name": "OldModal",
+    "category": "Overlay",
+    "status": "deprecated",
+    "owner": "seungshin",
+    "figma_link": "https://figma.com/...",
+    "description": "Legacy modal component. Use Dialog instead.",
+    "updated_at": "2025-12-01T10:00:00Z",
+    "version": "2.0.1"
+  }
+]
