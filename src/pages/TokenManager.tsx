@@ -103,13 +103,12 @@ export default function TokenManager() {
                     <th className="p-4 font-semibold text-gray-600">다크 모드 (Dark)</th>
                   </>
                 )}
-                <th className="p-4 font-semibold text-gray-600 w-24">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
               {filteredTokens.length === 0 ? (
                 <tr>
-                  <td colSpan={activeTier === 'core' ? 3 : 4} className="p-8 text-center text-gray-500">
+                  <td colSpan={activeTier === 'core' ? 2 : 3} className="p-8 text-center text-gray-500">
                     검색 결과가 없습니다.
                   </td>
                 </tr>
@@ -154,10 +153,6 @@ export default function TokenManager() {
                         </td>
                       </>
                     )}
-
-                    <td className="p-4">
-                      <Link to={`/tokens/${token.id}`} className="text-blue-600 hover:text-blue-800 hover:underline text-sm font-medium">상세 보기</Link>
-                    </td>
                   </tr>
                 ))
               )}
