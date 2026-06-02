@@ -79,7 +79,7 @@ export default function TokenDetail() {
                 <span className="text-gray-300">•</span>
                 <span className="text-sm font-medium text-gray-600">{formData.owner || '담당자 미지정'}</span>
                 <span className="text-gray-300">•</span>
-                <span className="text-sm font-bold text-blue-600 capitalize">{formData.tier}</span>
+                <span className="text-sm font-bold text-blue-600 capitalize">{formData.tier || 'core'}</span>
               </div>
             </div>
           )}
@@ -149,7 +149,7 @@ export default function TokenDetail() {
           <section>
             <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">토큰 값 (Value)</h3>
             <div className="bg-gray-50 border border-gray-200 rounded-lg p-5 font-mono text-sm">
-              {formData.tier === 'core' ? (
+              {formData.tier === 'core' || !formData.tier ? (
                 <div className="flex items-center gap-4">
                   <span className="text-gray-500">Value:</span>
                   <span className="font-bold text-gray-900">{typeof formData.value === 'string' ? formData.value : '-'}</span>
