@@ -123,7 +123,9 @@ export default function TokenManager() {
                       ) : cat.id === 'shadow' ? (
                         <div className="w-16 h-16 bg-white border border-gray-100 shadow-lg group-hover:shadow-2xl transition-shadow duration-300 rounded-xl"></div>
                       ) : (
-                        <div className="w-16 h-16 bg-gray-200 mask mask-star-2 group-hover:rotate-45 transition-transform duration-300"></div>
+                        <svg className="w-12 h-12 text-gray-300 group-hover:text-yellow-400 group-hover:rotate-12 transition-all duration-300" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
                       )}
                     </div>
 
@@ -157,7 +159,29 @@ export default function TokenManager() {
                     <tr key={cat.id} className="hover:bg-gray-50 transition-colors cursor-pointer" onClick={() => setSelectedCategory(cat.id)}>
                       <td className="p-4 font-bold text-gray-900 capitalize flex items-center gap-3">
                         <div className="w-8 h-8 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center shrink-0">
-                          {cat.id === 'color' ? <div className="w-4 h-4 rounded-full bg-blue-500"></div> : <span className="font-serif font-bold text-gray-500">Aa</span>}
+                          {cat.id === 'color' ? (
+                            <div className="flex gap-0.5">
+                              <div className="w-2.5 h-2.5 rounded-full bg-blue-500"></div>
+                              <div className="w-2.5 h-2.5 rounded-full bg-green-500"></div>
+                              <div className="w-2.5 h-2.5 rounded-full bg-red-500"></div>
+                            </div>
+                          ) : cat.id === 'typography' ? (
+                            <span className="font-serif font-bold text-gray-700 text-sm">Aa</span>
+                          ) : cat.id === 'spacing' ? (
+                            <div className="flex gap-1 items-center">
+                              <div className="w-0.5 h-3 bg-gray-400"></div>
+                              <div className="w-2 h-0 border-t border-dashed border-gray-400"></div>
+                              <div className="w-0.5 h-3 bg-gray-400"></div>
+                            </div>
+                          ) : cat.id === 'radius' ? (
+                            <div className="w-4 h-4 border-[1.5px] border-gray-400 rounded-md"></div>
+                          ) : cat.id === 'shadow' ? (
+                            <div className="w-4 h-4 bg-white border border-gray-200 shadow-md rounded-sm"></div>
+                          ) : (
+                            <svg className="w-4 h-4 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            </svg>
+                          )}
                         </div>
                         {cat.name}
                       </td>
