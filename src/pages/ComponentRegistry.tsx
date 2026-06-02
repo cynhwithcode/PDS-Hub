@@ -31,22 +31,99 @@ export default function ComponentRegistry() {
     }
   };
 
-  const renderThumbnailSVG = (name: string) => {
-    const lower = name.toLowerCase();
-    if (lower.includes('button')) {
-      return <svg className="w-16 h-16 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><rect x="3" y="6" width="18" height="12" rx="4" /></svg>;
-    } else if (lower.includes('input') || lower.includes('textfield')) {
-      return <svg className="w-16 h-16 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><rect x="3" y="8" width="18" height="8" rx="2" /><path strokeLinecap="round" d="M6 10v4" /></svg>;
-    } else if (lower.includes('modal') || lower.includes('dialog')) {
-      return <svg className="w-16 h-16 text-purple-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><rect x="4" y="4" width="16" height="16" rx="2" /><path strokeLinecap="round" d="M4 10h16M10 4v16" /></svg>;
-    } else if (lower.includes('badge')) {
-      return <svg className="w-16 h-16 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><rect x="6" y="8" width="12" height="8" rx="4" /></svg>;
-    } else if (lower.includes('date') || lower.includes('calendar')) {
-      return <svg className="w-16 h-16 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><rect x="3" y="4" width="18" height="18" rx="2" /><path d="M3 10h18M8 2v4m8-4v4" /></svg>;
-    } else if (lower.includes('dropdown')) {
-      return <svg className="w-16 h-16 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><rect x="3" y="8" width="18" height="8" rx="2" /><path strokeLinecap="round" strokeLinejoin="round" d="M15 11l-3 3-3-3" /></svg>;
+  const renderThumbnailSVG = (id: string) => {
+    switch (id) {
+      case 'c-buttons':
+        return (
+          <svg className="w-32 h-16" viewBox="0 0 128 64" fill="none">
+            {/* Primary */}
+            <rect className="group-hover:fill-[#CC0000] transition-colors duration-300" x="16" y="16" width="28" height="32" rx="6" fill="#E8002D" />
+            {/* Secondary */}
+            <rect x="52" y="16" width="28" height="32" rx="6" stroke="#1A1A1A" strokeWidth="2" />
+            {/* Ghost */}
+            <rect x="92" y="28" width="20" height="8" rx="4" fill="#1A1A1A" opacity="0.4" />
+          </svg>
+        );
+      case 'c-badge':
+        return (
+          <svg className="w-20 h-20" viewBox="0 0 80 80" fill="none">
+            <circle cx="36" cy="44" r="16" fill="#1A1A1A" opacity="0.1" />
+            {/* Bounce animation on hover */}
+            <g className="group-hover:-translate-y-2 group-hover:scale-110 transition-transform duration-300 origin-center">
+              <circle cx="52" cy="28" r="12" fill="#E8002D" />
+              <rect x="47" y="27" width="10" height="2" rx="1" fill="white" />
+            </g>
+          </svg>
+        );
+      case 'c-chips':
+        return (
+          <svg className="w-32 h-16" viewBox="0 0 128 64" fill="none">
+            <rect className="group-hover:scale-110 transition-transform duration-300 origin-center" x="12" y="20" width="30" height="24" rx="12" fill="#E8002D" />
+            <rect x="50" y="20" width="30" height="24" rx="12" stroke="#1A1A1A" strokeWidth="2" />
+            <rect x="88" y="20" width="30" height="24" rx="12" stroke="#1A1A1A" strokeWidth="2" />
+          </svg>
+        );
+      case 'c-textfield':
+        return (
+          <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none">
+            <rect x="12" y="30" width="24" height="6" rx="3" fill="#1A1A1A" opacity="0.8" />
+            <rect x="12" y="42" width="72" height="24" rx="4" stroke="#1A1A1A" strokeWidth="2" />
+            <rect x="12" y="72" width="48" height="4" rx="2" fill="#E8002D" opacity="0.8" />
+          </svg>
+        );
+      case 'c-tab':
+        return (
+          <svg className="w-32 h-24" viewBox="0 0 128 96" fill="none">
+            <rect x="16" y="40" width="24" height="6" rx="3" fill="#E8002D" />
+            <rect x="52" y="40" width="24" height="6" rx="3" fill="#1A1A1A" opacity="0.3" />
+            <rect x="88" y="40" width="24" height="6" rx="3" fill="#1A1A1A" opacity="0.3" />
+            <line x1="10" y1="56" x2="118" y2="56" stroke="#1A1A1A" strokeOpacity="0.1" strokeWidth="2" />
+            <rect className="group-hover:translate-x-[36px] transition-transform duration-300" x="16" y="54" width="24" height="4" fill="#E8002D" />
+          </svg>
+        );
+      case 'c-popup':
+        return (
+          <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none">
+            <rect x="16" y="20" width="64" height="56" rx="6" fill="white" stroke="#1A1A1A" strokeWidth="2" />
+            <rect x="24" y="32" width="32" height="6" rx="3" fill="#1A1A1A" />
+            <rect x="24" y="46" width="48" height="4" rx="2" fill="#1A1A1A" opacity="0.3" />
+            <rect x="24" y="54" width="36" height="4" rx="2" fill="#1A1A1A" opacity="0.3" />
+            <rect x="42" y="66" width="16" height="10" rx="3" fill="#1A1A1A" opacity="0.1" />
+            <rect x="62" y="66" width="10" height="10" rx="3" fill="#E8002D" />
+          </svg>
+        );
+      case 'c-bottomsheet':
+        return (
+          <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none">
+            <rect x="16" y="40" width="64" height="56" rx="8" fill="white" stroke="#1A1A1A" strokeWidth="2" />
+            <rect x="40" y="48" width="16" height="4" rx="2" fill="#1A1A1A" opacity="0.3" />
+            <rect x="24" y="64" width="48" height="6" rx="3" fill="#1A1A1A" opacity="0.1" />
+            <rect x="24" y="76" width="32" height="6" rx="3" fill="#1A1A1A" opacity="0.1" />
+          </svg>
+        );
+      case 'c-error':
+        return (
+          <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none">
+            <circle cx="48" cy="40" r="16" fill="#E8002D" opacity="0.1" stroke="#E8002D" strokeWidth="2" />
+            <rect x="46" y="32" width="4" height="8" rx="2" fill="#E8002D" />
+            <circle cx="48" cy="46" r="2" fill="#E8002D" />
+            <rect x="28" y="68" width="40" height="6" rx="3" fill="#1A1A1A" opacity="0.4" />
+          </svg>
+        );
+      case 'c-policy':
+        return (
+          <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none">
+            <rect x="28" y="16" width="40" height="64" rx="4" fill="white" stroke="#1A1A1A" strokeWidth="2" />
+            <rect x="36" y="32" width="24" height="4" rx="2" fill="#1A1A1A" opacity="0.6" />
+            <rect x="36" y="44" width="20" height="3" rx="1.5" fill="#1A1A1A" opacity="0.3" />
+            <rect x="36" y="52" width="22" height="3" rx="1.5" fill="#1A1A1A" opacity="0.3" />
+            <rect x="36" y="60" width="18" height="3" rx="1.5" fill="#1A1A1A" opacity="0.3" />
+            <rect x="36" y="68" width="16" height="3" rx="1.5" fill="#1A1A1A" opacity="0.3" />
+          </svg>
+        );
+      default:
+        return <div className="text-3xl font-bold text-gray-300">{id.substring(0, 2).toUpperCase()}</div>;
     }
-    return <div className="text-3xl font-bold text-gray-300">{name.substring(0,2).toUpperCase()}</div>;
   };
 
   return (
@@ -131,13 +208,14 @@ export default function ComponentRegistry() {
             <div 
               key={comp.id} 
               onClick={() => navigate(`/components/${comp.id}`)}
-              className="bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col h-full hover:border-blue-400 hover:shadow-md transition-all overflow-hidden cursor-pointer"
+              className="group bg-white rounded-xl shadow-sm border border-gray-100 flex flex-col h-full hover:border-gray-300 hover:shadow-lg hover:scale-[1.01] transition-all duration-300 overflow-hidden cursor-pointer"
             >
               <div 
-                className="h-36 flex items-center justify-center border-b border-gray-100" 
-                style={{ backgroundColor: comp.thumbnail_bg || '#F5F5F5' }}
+                className="h-36 flex items-center justify-center border-b border-gray-100 bg-[#F5F5F5] rounded-t-xl" 
               >
-                {renderThumbnailSVG(comp.name)}
+                <div className="group-hover:-translate-y-1 transition-transform duration-300">
+                  {renderThumbnailSVG(comp.id)}
+                </div>
               </div>
               <div className="p-5 flex flex-col flex-1">
                 <div className="flex justify-between items-start mb-2">
