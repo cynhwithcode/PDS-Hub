@@ -5,6 +5,10 @@ export interface ComponentItem {
   id: string;
   name: string;
   category: string;
+  category_group?: 'Action' | 'Input' | 'Display' | 'Feedback' | 'Navigation';
+  thumbnail_bg?: string;
+  thumbnail_icon?: string;
+  short_description?: string;
   status: 'stable' | 'beta' | 'deprecated';
   owner: string;
   figma_link?: string;
@@ -12,6 +16,12 @@ export interface ComponentItem {
   description: string;
   updated_at: string;
   version: string;
+  anatomy?: { number: number; name: string; description: string }[];
+  variants?: { name: string; description: string; type: 'do' | 'dont' | 'neutral' }[];
+  usage_guidelines?: { type: 'do' | 'dont'; title: string; description: string }[];
+  spec?: { sizes: string[]; notes: string };
+  figma_properties?: { property: string; values: string; default: string }[];
+  version_history?: { version: string; date: string; note: string }[];
   usage_do?: string[];
   usage_dont?: string[];
 }
