@@ -22,7 +22,18 @@ export function useComponents() {
   useEffect(() => {
     const stored = localStorage.getItem('pds_components');
     if (stored) {
-      setComponents(JSON.parse(stored));
+      try {
+        const parsedStored = JSON.parse(stored);
+        if (parsedStored.length !== initialComponents.length) {
+          setComponents(initialComponents as ComponentItem[]);
+          localStorage.setItem('pds_components', JSON.stringify(initialComponents));
+        } else {
+          setComponents(parsedStored);
+        }
+      } catch (e) {
+        setComponents(initialComponents as ComponentItem[]);
+        localStorage.setItem('pds_components', JSON.stringify(initialComponents));
+      }
     } else {
       setComponents(initialComponents as ComponentItem[]);
       localStorage.setItem('pds_components', JSON.stringify(initialComponents));
