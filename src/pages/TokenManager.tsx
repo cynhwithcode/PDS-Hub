@@ -259,16 +259,16 @@ export default function TokenManager() {
             />
             <div className="flex bg-gray-100 p-1 rounded-lg shrink-0">
               <button 
-                onClick={() => setActiveTier('core')}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTier === 'core' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}
-              >
-                Palette (Core)
-              </button>
-              <button 
                 onClick={() => setActiveTier('semantic')}
                 className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTier === 'semantic' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}
               >
                 Semantic
+              </button>
+              <button 
+                onClick={() => setActiveTier('core')}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTier === 'core' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}
+              >
+                Palette (Core)
               </button>
             </div>
           </div>
@@ -301,7 +301,11 @@ export default function TokenManager() {
                         {groupTokens.map(token => (
                           <tr key={token.id} className="hover:bg-gray-50 transition-colors">
                             <td className="p-4 font-mono text-sm text-gray-800">
-                              <code className="bg-gray-100 text-gray-800 px-2.5 py-1 rounded-md border border-gray-200">
+                              <code 
+                                onClick={() => navigator.clipboard.writeText(token.name)}
+                                className="bg-gray-100 text-gray-800 px-2.5 py-1 rounded-md border border-gray-200 cursor-pointer hover:bg-gray-200 hover:text-blue-600 transition-colors"
+                                title="클릭하여 복사"
+                              >
                                 {token.name}
                               </code>
                             </td>
@@ -312,7 +316,13 @@ export default function TokenManager() {
                                     className="w-5 h-5 rounded border border-gray-200 shadow-sm shrink-0" 
                                     style={{ backgroundColor: typeof token.value === 'string' ? token.value : '#fff' }}
                                   ></div>
-                                  <span>{typeof token.value === 'string' ? token.value : '-'}</span>
+                                  <span 
+                                    onClick={() => navigator.clipboard.writeText(typeof token.value === 'string' ? token.value : '')}
+                                    className="cursor-pointer hover:text-blue-600 transition-colors"
+                                    title="클릭하여 복사"
+                                  >
+                                    {typeof token.value === 'string' ? token.value : '-'}
+                                  </span>
                                 </div>
                               </td>
                             ) : (
@@ -323,7 +333,13 @@ export default function TokenManager() {
                                       className="w-5 h-5 rounded border border-gray-200 shadow-sm shrink-0" 
                                       style={{ backgroundColor: typeof token.value === 'object' ? getHexValue(token.value.light) : '#fff' }}
                                     ></div>
-                                    <span>{typeof token.value === 'object' ? token.value.light : '-'}</span>
+                                    <span 
+                                      onClick={() => navigator.clipboard.writeText(typeof token.value === 'object' ? token.value.light : '')}
+                                      className="cursor-pointer hover:text-blue-600 transition-colors"
+                                      title="클릭하여 복사"
+                                    >
+                                      {typeof token.value === 'object' ? token.value.light : '-'}
+                                    </span>
                                   </div>
                                 </td>
                                 <td className="p-4 font-mono text-sm text-gray-700">
@@ -332,7 +348,13 @@ export default function TokenManager() {
                                       className="w-5 h-5 rounded border border-gray-200 shadow-sm shrink-0" 
                                       style={{ backgroundColor: typeof token.value === 'object' ? getHexValue(token.value.dark) : '#fff' }}
                                     ></div>
-                                    <span>{typeof token.value === 'object' ? token.value.dark : '-'}</span>
+                                    <span 
+                                      onClick={() => navigator.clipboard.writeText(typeof token.value === 'object' ? token.value.dark : '')}
+                                      className="cursor-pointer hover:text-blue-600 transition-colors"
+                                      title="클릭하여 복사"
+                                    >
+                                      {typeof token.value === 'object' ? token.value.dark : '-'}
+                                    </span>
                                   </div>
                                 </td>
                               </>
