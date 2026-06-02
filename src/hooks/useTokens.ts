@@ -3,11 +3,19 @@ import initialTokens from '../data/tokens.json';
 
 export interface TokenItem {
   id: string;
-  category: 'color' | 'typography' | 'spacing' | 'radius' | 'shadow';
+  category: string;
+  tier: 'core' | 'semantic';
   name: string;
-  value: string;
+  value: string | { light: string; dark: string };
   description: string;
   updated_at: string;
+  owner?: string;
+  status?: 'stable' | 'beta' | 'deprecated';
+  version?: string;
+  usage_do?: string[];
+  usage_dont?: string[];
+  figma_link?: string;
+  dev_link?: string;
 }
 
 export function useTokens() {
@@ -16,7 +24,12 @@ export function useTokens() {
   useEffect(() => {
     const stored = localStorage.getItem('pds_tokens');
     if (stored) {
-      setTokens(JSON.parse(stored));
+      try {
+        setTokens(JSON.parse(stored));
+      } catch (e) {
+        setTokens(initialTokens as TokenItem[]);
+        localStorage.setItem('pds_tokens', JSON.stringify(initialTokens));
+      }
     } else {
       setTokens(initialTokens as TokenItem[]);
       localStorage.setItem('pds_tokens', JSON.stringify(initialTokens));
