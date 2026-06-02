@@ -283,16 +283,16 @@ export default function TokenManager() {
                 <div key={groupName} className="space-y-4">
                   <h3 className="text-2xl font-bold text-gray-900">{groupName}</h3>
                   <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-                    <table className="w-full text-left">
+                    <table className="w-full text-left table-fixed">
                       <thead className="bg-gray-50 border-b border-gray-100">
                         <tr>
-                          <th className="p-4 font-semibold text-gray-600">이름 (Name)</th>
+                          <th className="p-4 font-semibold text-gray-600 w-1/2">이름 (Name)</th>
                           {activeTier === 'core' ? (
-                            <th className="p-4 font-semibold text-gray-600">값 (Value)</th>
+                            <th className="p-4 font-semibold text-gray-600 w-1/2">값 (Value)</th>
                           ) : (
                             <>
-                              <th className="p-4 font-semibold text-gray-600">라이트 모드 (Light)</th>
-                              <th className="p-4 font-semibold text-gray-600">다크 모드 (Dark)</th>
+                              <th className="p-4 font-semibold text-gray-600 w-1/4">라이트 모드 (Light)</th>
+                              <th className="p-4 font-semibold text-gray-600 w-1/4">다크 모드 (Dark)</th>
                             </>
                           )}
                         </tr>
