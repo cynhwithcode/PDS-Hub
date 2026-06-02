@@ -35,7 +35,8 @@ export default function TokenManager() {
 
   const filteredTokens = useMemo(() => {
     return tokens.filter(t => {
-      const matchTier = t.tier === activeTier;
+      const tokenTier = t.tier || 'core';
+      const matchTier = tokenTier === activeTier;
       const matchSearch = t.name.toLowerCase().includes(searchTerm.toLowerCase());
       const matchCategory = categoryFilter === "all" || t.category === categoryFilter;
       return matchTier && matchSearch && matchCategory;
