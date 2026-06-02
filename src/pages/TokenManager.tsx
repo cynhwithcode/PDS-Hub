@@ -49,11 +49,14 @@ export default function TokenManager() {
     if (!refValue) return '#CBD5E1';
     if (refValue.startsWith('#')) return refValue;
     
-    // ex) "Red/600" -> "red.600", "Coomon/White" -> "coomon.white"
-    const normalizedRef = refValue.toLowerCase().replace('/', '.').replace('-main', '.500-mainmain');
+    // ex) "Red/600" -> "red.600", "Red/500-main" -> "red.500-mainmain"
+    let normalizedRef = refValue.toLowerCase().replace('/', '.');
+    if (normalizedRef.includes('-main')) {
+      normalizedRef = normalizedRef.replace('-main', '-mainmain');
+    }
     
     const coreToken = tokens.find(t => 
-      t.tier === 'core' && t.name.toLowerCase().includes(normalizedRef)
+      t.tier === 'core' && t.name.toLowerCase().endsWith(normalizedRef)
     );
     
     return coreToken && typeof coreToken.value === 'string' ? coreToken.value : '#CBD5E1';
