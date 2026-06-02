@@ -3,55 +3,191 @@
     "id": "c-001",
     "name": "Button",
     "category": "Action",
+    "category_group": "Action",
+    "thumbnail_bg": "#F0F0F0",
+    "thumbnail_icon": "클릭 가능한 액션 요소",
+    "short_description": "사용자의 주요 동작을 유도하는 인터랙션 요소입니다. 화면의 시각적 위계에 맞춰 Primary, Secondary, Ghost 타입으로 나누어 사용합니다.",
     "status": "stable",
     "owner": "seungshin",
     "figma_link": "https://figma.com/...",
     "description": "Primary action button used across the application.",
     "updated_at": "2026-06-01T10:00:00Z",
-    "version": "1.2.0"
+    "version": "1.2.0",
+    "anatomy": [
+      { "number": 1, "name": "Container", "description": "버튼 전체 영역" },
+      { "number": 2, "name": "Label", "description": "버튼 텍스트 영역" }
+    ],
+    "variants": [
+      { "name": "Primary", "description": "주요 액션에 사용. 한 화면당 1개 사용 권장", "type": "do" },
+      { "name": "Secondary", "description": "보조 액션에 사용", "type": "neutral" },
+      { "name": "Ghost", "description": "가장 낮은 위계의 액션. 단독으로 Primary 대신 사용 불가", "type": "dont" }
+    ],
+    "usage_guidelines": [
+      { "type": "do", "title": "시각적 위계에 맞게 사용", "description": "Primary > Secondary > Ghost 순서로 위계를 지킨다." },
+      { "type": "dont", "title": "동일 위계 버튼 나란히 배치 금지", "description": "같은 타입의 버튼을 여러 개 나란히 사용하지 않는다." }
+    ],
+    "spec": {
+      "sizes": ["Small: h-32", "Medium: h-40", "Large: h-48"],
+      "notes": "아이콘은 텍스트 왼쪽에 배치. 단독 아이콘 버튼은 정사각형 비율 유지"
+    },
+    "figma_properties": [
+      { "property": "Type", "values": "Primary, Secondary, Ghost", "default": "Primary" },
+      { "property": "Size", "values": "Small, Medium, Large", "default": "Medium" },
+      { "property": "State", "values": "Default, Hover, Pressed, Disabled", "default": "Default" }
+    ],
+    "version_history": [
+      { "version": "1.2.0", "date": "2026-06-01", "note": "hover 색상 토큰 변경" },
+      { "version": "1.1.0", "date": "2026-03-15", "note": "Ghost 타입 추가" }
+    ]
   },
   {
     "id": "c-002",
     "name": "TextField",
     "category": "Input",
+    "category_group": "Input",
+    "thumbnail_bg": "#F0F0F0",
+    "thumbnail_icon": "텍스트 입력 필드",
+    "short_description": "사용자로부터 텍스트 폼 데이터를 입력받거나 확인할 때 쓰이는 가장 기본적인 요소입니다. 짧은 단일 문장부터 여러 줄의 긴 문장까지 모두 대응 가능합니다.",
     "status": "stable",
     "owner": "seungshin",
     "figma_link": "https://figma.com/...",
     "description": "Standard text input field for forms.",
     "updated_at": "2026-05-28T14:30:00Z",
-    "version": "1.1.0"
+    "version": "1.1.0",
+    "anatomy": [
+      { "number": 1, "name": "Label", "description": "입력 필드의 제목" },
+      { "number": 2, "name": "Input Container", "description": "텍스트가 입력되는 상자" },
+      { "number": 3, "name": "Helper Text", "description": "추가 설명이나 에러 메시지" }
+    ],
+    "variants": [
+      { "name": "Default", "description": "기본 입력 상태", "type": "do" },
+      { "name": "Error", "description": "유효성 검사 실패 시", "type": "neutral" }
+    ],
+    "usage_guidelines": [
+      { "type": "do", "title": "명확한 Label 사용", "description": "사용자가 어떤 정보를 입력해야 하는지 명확히 알 수 있게 Label을 함께 제공한다." },
+      { "type": "dont", "title": "Placeholder에 중요 정보 숨김 금지", "description": "입력 가이드나 중요 정보를 Placeholder에만 넣어두지 않는다." }
+    ],
+    "spec": {
+      "sizes": ["Default: h-48", "Small: h-40"],
+      "notes": "에러 상태일 때는 항상 하단에 Helper Text를 노출해야 한다."
+    },
+    "figma_properties": [
+      { "property": "State", "values": "Default, Focused, Error, Disabled", "default": "Default" },
+      { "property": "Has Icon", "values": "True, False", "default": "False" }
+    ],
+    "version_history": [
+      { "version": "1.1.0", "date": "2026-05-28", "note": "Error 상태 스타일 업데이트" }
+    ]
   },
   {
     "id": "c-003",
     "name": "Dropdown",
     "category": "Input",
+    "category_group": "Input",
+    "thumbnail_bg": "#F0F0F0",
+    "thumbnail_icon": "선택지 목록 메뉴",
+    "short_description": "제한된 공간에서 여러 개의 옵션 중 하나 또는 여러 개를 선택할 수 있게 해주는 선택형 입력 컴포넌트입니다.",
     "status": "stable",
     "owner": "seungshin",
     "figma_link": "https://figma.com/...",
     "description": "Select dropdown component for single or multiple choices.",
     "updated_at": "2026-05-15T09:15:00Z",
-    "version": "1.0.5"
+    "version": "1.0.5",
+    "anatomy": [
+      { "number": 1, "name": "Trigger", "description": "드롭다운을 여는 클릭 영역" },
+      { "number": 2, "name": "Menu List", "description": "열렸을 때 나타나는 옵션 목록" }
+    ],
+    "variants": [
+      { "name": "Single Select", "description": "하나의 항목만 선택 가능", "type": "do" },
+      { "name": "Multi Select", "description": "여러 항목 선택 가능 (체크박스 포함)", "type": "neutral" }
+    ],
+    "usage_guidelines": [
+      { "type": "do", "title": "옵션이 5개 이상일 때 사용", "description": "옵션이 너무 적으면 Radio Button을 사용하는 것이 낫다." },
+      { "type": "dont", "title": "옵션이 15개를 넘는 경우", "description": "옵션이 너무 많으면 검색이 가능한 Combobox 사용을 권장." }
+    ],
+    "spec": {
+      "sizes": ["Menu Max-Height: 240px"],
+      "notes": "메뉴가 화면 밖으로 넘어갈 경우 위쪽으로 열리도록 처리."
+    },
+    "figma_properties": [
+      { "property": "Type", "values": "Single, Multi", "default": "Single" },
+      { "property": "State", "values": "Default, Open, Disabled", "default": "Default" }
+    ],
+    "version_history": [
+      { "version": "1.0.5", "date": "2026-05-15", "note": "Multi Select 버그 수정" }
+    ]
   },
   {
     "id": "c-004",
     "name": "DatePicker",
     "category": "Input",
+    "category_group": "Input",
+    "thumbnail_bg": "#F0F0F0",
+    "thumbnail_icon": "날짜 선택 캘린더",
+    "short_description": "특정 날짜나 기간을 지정해야 할 때 사용하는 컴포넌트입니다. 직관적인 캘린더 형태의 UI를 통해 쉽고 빠른 입력을 돕습니다.",
     "status": "beta",
     "owner": "seungshin",
     "figma_link": "https://figma.com/...",
     "description": "Calendar-based date selection component.",
     "updated_at": "2026-05-30T16:45:00Z",
-    "version": "0.9.0"
+    "version": "0.9.0",
+    "anatomy": [
+      { "number": 1, "name": "Input Field", "description": "선택된 날짜가 표시되는 필드" },
+      { "number": 2, "name": "Calendar Panel", "description": "날짜를 선택할 수 있는 달력 패널" }
+    ],
+    "variants": [
+      { "name": "Single Date", "description": "특정 하루만 선택", "type": "do" },
+      { "name": "Date Range", "description": "시작일과 종료일 선택", "type": "neutral" }
+    ],
+    "usage_guidelines": [
+      { "type": "do", "title": "달력 아이콘 제공", "description": "Input Field 우측에 항상 달력 아이콘을 표시해 DatePicker임을 인지시킨다." },
+      { "type": "dont", "title": "단순 연도 선택 시 사용", "description": "생년월일이나 단순 연도만 선택할 때는 Dropdown이 더 적합하다." }
+    ],
+    "spec": {
+      "sizes": ["Panel Width: 320px"],
+      "notes": "키보드로 날짜를 직접 입력할 수도 있어야 한다 (YYYY-MM-DD)."
+    },
+    "figma_properties": [
+      { "property": "Type", "values": "Single, Range", "default": "Single" },
+      { "property": "Panel", "values": "Hidden, Visible", "default": "Hidden" }
+    ],
+    "version_history": [
+      { "version": "0.9.0", "date": "2026-05-30", "note": "Date Range 기능 추가 및 Beta 릴리즈" }
+    ]
   },
   {
     "id": "c-005",
     "name": "OldModal",
     "category": "Overlay",
+    "category_group": "Display",
+    "thumbnail_bg": "#F0F0F0",
+    "thumbnail_icon": "모달 레이어 팝업",
+    "short_description": "과거에 사용되던 구형 모달 팝업입니다. 현재는 사용이 전면 중단되었으며, 새로운 화면 설계 시 반드시 최신 Dialog 컴포넌트를 사용해 주시기 바랍니다.",
     "status": "deprecated",
     "owner": "seungshin",
     "figma_link": "https://figma.com/...",
     "description": "Legacy modal component. Use Dialog instead.",
     "updated_at": "2025-12-01T10:00:00Z",
-    "version": "2.0.1"
+    "version": "2.0.1",
+    "anatomy": [
+      { "number": 1, "name": "Overlay", "description": "뒷배경 딤 처리 영역" },
+      { "number": 2, "name": "Modal Body", "description": "모달 컨텐츠 래퍼" }
+    ],
+    "variants": [
+      { "name": "Alert", "description": "경고 메시지용 모달", "type": "dont" }
+    ],
+    "usage_guidelines": [
+      { "type": "dont", "title": "신규 화면 적용 금지", "description": "모든 신규 기능에서는 Dialog 컴포넌트를 대신 사용해야 한다." }
+    ],
+    "spec": {
+      "sizes": ["Width: 400px"],
+      "notes": "현재 유지보수만 진행 중."
+    },
+    "figma_properties": [
+      { "property": "Theme", "values": "Light", "default": "Light" }
+    ],
+    "version_history": [
+      { "version": "2.0.1", "date": "2025-12-01", "note": "Deprecated 상태로 변경" }
+    ]
   }
 ]
