@@ -8,6 +8,11 @@ import TokenManager from './pages/TokenManager';
 import TokenDetail from './pages/TokenDetail';
 import Changelog from './pages/Changelog';
 import Search from './pages/Search';
+import Foundation from './pages/foundation/Foundation';
+import FoundationColor from './pages/foundation/FoundationColor';
+import FoundationTypography from './pages/foundation/FoundationTypography';
+import FoundationSpacing from './pages/foundation/FoundationSpacing';
+import FoundationIconography from './pages/foundation/FoundationIconography';
 
 function App() {
   return (
@@ -22,6 +27,11 @@ function App() {
           <Route path="/tokens/:id" element={<TokenDetail />} />
           <Route path="/changelog" element={<Changelog />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/foundation" element={<Foundation />} />
+          <Route path="/foundation/color" element={<FoundationColor />} />
+          <Route path="/foundation/typography" element={<FoundationTypography />} />
+          <Route path="/foundation/spacing" element={<FoundationSpacing />} />
+          <Route path="/foundation/iconography" element={<FoundationIconography />} />
         </Route>
       </Routes>
     </BrowserRouter>

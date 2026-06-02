@@ -5,6 +5,10 @@ export interface ComponentItem {
   id: string;
   name: string;
   category: string;
+  category_group?: 'Action' | 'Input' | 'Display' | 'Feedback' | 'Navigation';
+  thumbnail_bg?: string;
+  thumbnail_icon?: string;
+  short_description?: string;
   status: 'stable' | 'beta' | 'deprecated';
   owner: string;
   figma_link?: string;
