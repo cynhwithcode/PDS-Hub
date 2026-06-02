@@ -16,14 +16,14 @@ export interface ComponentItem {
   description: string;
   updated_at: string;
   version: string;
+  usage_do?: string[];
+  usage_dont?: string[];
   anatomy?: { number: number; name: string; description: string }[];
   variants?: { name: string; description: string; type: 'do' | 'dont' | 'neutral' }[];
   usage_guidelines?: { type: 'do' | 'dont'; title: string; description: string }[];
   spec?: { sizes: string[]; notes: string };
   figma_properties?: { property: string; values: string; default: string }[];
   version_history?: { version: string; date: string; note: string }[];
-  usage_do?: string[];
-  usage_dont?: string[];
 }
 
 export function useComponents() {
@@ -32,7 +32,18 @@ export function useComponents() {
   useEffect(() => {
     const stored = localStorage.getItem('pds_components');
     if (stored) {
-      setComponents(JSON.parse(stored));
+      try {
+        const parsedStored = JSON.parse(stored);
+        if (parsedStored.length !== initialComponents.length) {
+          setComponents(initialComponents as ComponentItem[]);
+          localStorage.setItem('pds_components', JSON.stringify(initialComponents));
+        } else {
+          setComponents(parsedStored);
+        }
+      } catch (e) {
+        setComponents(initialComponents as ComponentItem[]);
+        localStorage.setItem('pds_components', JSON.stringify(initialComponents));
+      }
     } else {
       setComponents(initialComponents as ComponentItem[]);
       localStorage.setItem('pds_components', JSON.stringify(initialComponents));

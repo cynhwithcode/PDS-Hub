@@ -5,6 +5,7 @@ import ComponentRegistry from './pages/ComponentRegistry';
 import ComponentDetail from './pages/ComponentDetail';
 import ComponentNew from './pages/ComponentNew';
 import TokenManager from './pages/TokenManager';
+import TokenDetail from './pages/TokenDetail';
 import Changelog from './pages/Changelog';
 import Search from './pages/Search';
 import Foundation from './pages/foundation/Foundation';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/components/new" element={<ComponentNew />} />
           <Route path="/components/:id" element={<ComponentDetail />} />
           <Route path="/tokens" element={<TokenManager />} />
+          <Route path="/tokens/:id" element={<TokenDetail />} />
           <Route path="/changelog" element={<Changelog />} />
           <Route path="/search" element={<Search />} />
           <Route path="/foundation" element={<Foundation />} />
