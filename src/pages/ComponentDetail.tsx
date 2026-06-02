@@ -51,7 +51,7 @@ export default function ComponentDetail() {
   };
 
   return (
-    <div className="p-10 max-w-4xl mx-auto space-y-8">
+    <div className="p-10 max-w-4xl mx-auto space-y-8" style={{ fontFamily: 'Pretendard, -apple-system, sans-serif' }}>
       <header className="flex justify-between items-start">
         <div>
           <button onClick={() => navigate('/components')} className="text-sm text-gray-500 hover:text-gray-900 mb-4 flex items-center gap-1">
@@ -197,6 +197,201 @@ export default function ComponentDetail() {
               )}
             </section>
           </div>
+
+          {/* Anatomy Section */}
+          {!isEditing && formData.anatomy && formData.anatomy.length > 0 && (
+            <section>
+              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Anatomy</h3>
+              
+              {formData.id === 'c-buttons' && (
+                <div className="bg-[#F5F5F5] rounded-xl p-8 mb-6 flex justify-center items-center relative min-h-[200px] overflow-hidden">
+                  <svg width="240" height="120" viewBox="0 0 240 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible">
+                    {/* Container (1) */}
+                    <rect x="40" y="30" width="160" height="60" rx="8" fill="#3B82F6" opacity="0.1" stroke="#3B82F6" strokeWidth="2" strokeDasharray="4 4" />
+                    {/* Icon (3) */}
+                    <circle cx="70" cy="60" r="12" fill="#9CA3AF" />
+                    {/* Text Label (2) */}
+                    <rect x="95" y="52" width="75" height="16" rx="4" fill="#6B7280" />
+                    {/* Badge 1 (Container) */}
+                    <path d="M40 30 L20 15" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="15" cy="10" r="10" fill="white" stroke="#E5E7EB" />
+                    <text x="15" y="14" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">1</text>
+                    {/* Badge 2 (Text Label) */}
+                    <path d="M132 52 L132 15" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="132" cy="10" r="10" fill="white" stroke="#E5E7EB" />
+                    <text x="132" y="14" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">2</text>
+                    {/* Badge 3 (Icon) */}
+                    <path d="M70 72 L70 95" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="70" cy="100" r="10" fill="white" stroke="#E5E7EB" />
+                    <text x="70" y="104" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">3</text>
+                  </svg>
+                </div>
+              )}
+
+              <div className="overflow-x-auto rounded-lg border border-gray-200">
+                <table className="w-full text-sm text-left">
+                  <thead className="bg-gray-100 text-gray-600 uppercase text-xs">
+                    <tr>
+                      <th className="px-5 py-3 font-bold">번호</th>
+                      <th className="px-5 py-3 font-bold">이름</th>
+                      <th className="px-5 py-3 font-bold">설명</th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white">
+                    {formData.anatomy.map((item, idx) => (
+                      <tr key={idx} className="border-t border-gray-100 even:bg-gray-50 transition-colors">
+                        <td className="px-5 py-3 text-gray-900 font-medium">
+                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-200 text-gray-700 text-xs font-bold">{item.number}</span>
+                        </td>
+                        <td className="px-5 py-3 text-gray-900 font-bold">{item.name}</td>
+                        <td className="px-5 py-3 text-gray-600">{item.description}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          )}
+
+          {/* Variants Section */}
+          {!isEditing && formData.variants && formData.variants.length > 0 && (
+            <section>
+              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Variants</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {formData.variants.map((item, idx) => (
+                  <div key={idx} className="flex flex-col border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
+                    {formData.id === 'c-buttons' && (
+                      <div className="bg-[#F5F5F5] h-32 flex items-center justify-center p-4 border-b border-gray-100">
+                        {item.name === 'Contained' || item.name === 'Primary' ? (
+                          <div className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium text-sm shadow-sm flex items-center gap-2">
+                            <span>Button</span>
+                          </div>
+                        ) : item.name === 'Outlined' || item.name === 'Secondary' ? (
+                          <div className="bg-white text-gray-700 border border-gray-300 px-6 py-2.5 rounded-lg font-medium text-sm shadow-sm flex items-center gap-2">
+                            <span>Button</span>
+                          </div>
+                        ) : item.name === 'Ghost' ? (
+                          <div className="bg-transparent text-blue-600 px-6 py-2.5 rounded-lg font-medium text-sm flex items-center gap-2">
+                            <span>Button</span>
+                          </div>
+                        ) : (
+                          <div className="text-gray-400 text-xs">Preview Area</div>
+                        )}
+                      </div>
+                    )}
+                    <div className={`p-5 border-l-4 flex-1 ${item.type === 'do' ? 'border-green-500' : item.type === 'dont' ? 'border-red-500' : 'border-gray-400'}`}>
+                      <div className="font-bold text-gray-900 mb-2">{item.name}</div>
+                      <div className="text-sm text-gray-600 leading-relaxed">{item.description}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* Usage Guidelines Section */}
+          {!isEditing && formData.usage_guidelines && formData.usage_guidelines.length > 0 && (
+            <section>
+              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Usage Guidelines</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  {formData.usage_guidelines.filter(g => g.type === 'do').map((item, idx) => (
+                    <div key={idx} className="bg-green-50 border-t-4 border-green-500 p-5 rounded-b-lg shadow-sm">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold bg-green-200 text-green-800 rounded-full">DO</span>
+                        <h4 className="font-bold text-green-900 text-sm">{item.title}</h4>
+                      </div>
+                      <p className="text-sm text-green-800 leading-relaxed">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="space-y-4">
+                  {formData.usage_guidelines.filter(g => g.type === 'dont').map((item, idx) => (
+                    <div key={idx} className="bg-red-50 border-t-4 border-red-500 p-5 rounded-b-lg shadow-sm">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold bg-red-200 text-red-800 rounded-full">DON'T</span>
+                        <h4 className="font-bold text-red-900 text-sm">{item.title}</h4>
+                      </div>
+                      <p className="text-sm text-red-800 leading-relaxed">{item.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Spec Section */}
+          {!isEditing && formData.spec && (formData.spec.sizes?.length > 0 || formData.spec.notes) && (
+            <section>
+              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Spec</h3>
+              <div className="bg-white border border-gray-200 p-6 rounded-xl space-y-8">
+                {formData.spec.sizes && formData.spec.sizes.length > 0 && (
+                  <div>
+                    <h4 className="text-xs font-bold text-gray-500 uppercase mb-4 tracking-wider">Sizes</h4>
+                    {formData.id === 'c-buttons' ? (
+                      <div className="flex items-end gap-12 h-32 p-6 bg-[#F5F5F5] rounded-lg">
+                        <div className="flex flex-col items-center gap-3">
+                          <div className="w-16 bg-blue-400 rounded-t-md h-10 shadow-sm"></div>
+                          <span className="text-xs font-bold text-gray-600">Small</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-3">
+                          <div className="w-20 bg-blue-500 rounded-t-md h-14 shadow-sm"></div>
+                          <span className="text-xs font-bold text-gray-600">Medium</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-3">
+                          <div className="w-24 bg-blue-600 rounded-t-md h-16 shadow-sm"></div>
+                          <span className="text-xs font-bold text-gray-600">Large</span>
+                        </div>
+                      </div>
+                    ) : (
+                      <ul className="list-disc list-inside text-sm text-gray-700 space-y-1">
+                        {formData.spec.sizes.map((size, idx) => (
+                          <li key={idx}>{size}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                )}
+                {formData.spec.notes && (
+                  <div>
+                    <h4 className="text-xs font-bold text-gray-500 uppercase mb-2 tracking-wider">Notes</h4>
+                    <p className="text-sm text-gray-700 whitespace-pre-wrap leading-relaxed bg-gray-50 p-4 rounded-lg">{formData.spec.notes}</p>
+                  </div>
+                )}
+              </div>
+            </section>
+          )}
+
+          {/* Figma Properties Section */}
+          {!isEditing && formData.figma_properties && formData.figma_properties.length > 0 && (
+            <section>
+              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Figma Properties</h3>
+              <div className="overflow-hidden rounded-lg border border-gray-200">
+                <table className="w-full text-sm text-left">
+                  <thead className="bg-gray-100 text-gray-600 uppercase text-xs">
+                    <tr>
+                      <th className="px-5 py-3 font-bold">Property</th>
+                      <th className="px-5 py-3 font-bold">Values</th>
+                      <th className="px-5 py-3 font-bold">Default</th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-white">
+                    {formData.figma_properties.map((item, idx) => (
+                      <tr key={idx} className="border-t border-gray-100 even:bg-gray-50 transition-colors hover:bg-gray-50">
+                        <td className="px-5 py-3 text-gray-900 font-bold">{item.property}</td>
+                        <td className="px-5 py-3 text-gray-600">{item.values}</td>
+                        <td className="px-5 py-3">
+                          <span className="bg-blue-100 text-blue-700 font-mono text-xs px-2.5 py-1 rounded-full font-medium inline-block">
+                            {item.default}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          )}
 
           <section>
             <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Links</h3>

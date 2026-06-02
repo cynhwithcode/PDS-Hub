@@ -14,6 +14,12 @@ export interface ComponentItem {
   version: string;
   usage_do?: string[];
   usage_dont?: string[];
+  anatomy?: { number: number; name: string; description: string }[];
+  variants?: { name: string; description: string; type: 'do' | 'dont' | 'neutral' }[];
+  usage_guidelines?: { type: 'do' | 'dont'; title: string; description: string }[];
+  spec?: { sizes: string[]; notes: string };
+  figma_properties?: { property: string; values: string; default: string }[];
+  version_history?: { version: string; date: string; note: string }[];
 }
 
 export function useComponents() {
