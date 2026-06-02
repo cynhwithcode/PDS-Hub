@@ -16,6 +16,7 @@ export default function TokenManager() {
   const [activeTier, setActiveTier] = useState<'core' | 'semantic'>('semantic');
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
   useEffect(() => {
     // 최신 토큰 데이터를 불러오기 위해 기존 로컬스토리지 삭제
@@ -74,41 +75,107 @@ export default function TokenManager() {
         <div className="space-y-6">
           <div className="flex justify-between items-center pt-4">
             <h2 className="text-xl font-bold text-gray-800">Token Categories</h2>
+            <div className="flex bg-gray-100 p-1 rounded-lg">
+              <button 
+                onClick={() => setViewMode('grid')} 
+                className={`p-1.5 rounded-md transition-all ${viewMode === 'grid' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}
+                title="그리드 뷰"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+              </button>
+              <button 
+                onClick={() => setViewMode('list')} 
+                className={`p-1.5 rounded-md transition-all ${viewMode === 'list' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}
+                title="리스트 뷰"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+              </button>
+            </div>
           </div>
           
-          <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-            <table className="w-full text-left">
-              <thead className="bg-gray-50 border-b border-gray-100">
-                <tr>
-                  <th className="p-4 font-semibold text-gray-600">Category</th>
-                  <th className="p-4 font-semibold text-gray-600">Description</th>
-                  <th className="p-4 font-semibold text-gray-600">Tokens</th>
-                  <th className="p-4 font-semibold text-gray-600 w-24">Action</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-100">
-                {categories.map(cat => (
-                  <tr key={cat.id} className="hover:bg-gray-50 transition-colors cursor-pointer" onClick={() => setSelectedCategory(cat.id)}>
-                    <td className="p-4 font-bold text-gray-900 capitalize flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center shrink-0">
-                        {cat.id === 'color' ? <div className="w-4 h-4 rounded-full bg-blue-500"></div> : <span className="font-serif font-bold text-gray-500">Aa</span>}
-                      </div>
-                      {cat.name}
-                    </td>
-                    <td className="p-4 text-gray-500 text-sm">{cat.desc}</td>
-                    <td className="p-4">
-                      <span className="bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full text-xs font-bold">
-                        {tokens.filter(t => t.category === cat.id).length}
+          {viewMode === 'grid' ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {categories.map(cat => {
+                const count = tokens.filter(t => t.category === cat.id).length;
+                return (
+                  <div 
+                    key={cat.id} 
+                    onClick={() => setSelectedCategory(cat.id)}
+                    className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8 flex flex-col h-full hover:border-blue-500 hover:shadow-lg transition-all cursor-pointer group"
+                  >
+                    <div className="h-40 mb-6 bg-gray-50/50 rounded-xl border border-gray-100 flex items-center justify-center overflow-hidden">
+                      {cat.id === 'color' ? (
+                        <div className="flex gap-2">
+                          <div className="w-12 h-12 rounded-full bg-blue-500 shadow-sm group-hover:-translate-y-2 transition-transform duration-300 delay-75"></div>
+                          <div className="w-12 h-12 rounded-full bg-green-500 shadow-sm group-hover:-translate-y-2 transition-transform duration-300 delay-150"></div>
+                          <div className="w-12 h-12 rounded-full bg-red-500 shadow-sm group-hover:-translate-y-2 transition-transform duration-300 delay-200"></div>
+                        </div>
+                      ) : cat.id === 'typography' ? (
+                        <span className="text-6xl font-serif text-gray-800 font-bold tracking-tighter group-hover:scale-110 transition-transform duration-300">Aa</span>
+                      ) : cat.id === 'spacing' ? (
+                        <div className="flex gap-3 items-center group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-1.5 h-12 bg-gray-400 rounded-full"></div>
+                          <div className="w-10 h-12 border-t-2 border-b-2 border-dashed border-gray-400"></div>
+                          <div className="w-1.5 h-12 bg-gray-400 rounded-full"></div>
+                        </div>
+                      ) : cat.id === 'radius' ? (
+                        <div className="w-16 h-16 border-4 border-gray-400 rounded-3xl group-hover:rounded-full transition-all duration-300"></div>
+                      ) : cat.id === 'shadow' ? (
+                        <div className="w-16 h-16 bg-white border border-gray-100 shadow-lg group-hover:shadow-2xl transition-shadow duration-300 rounded-xl"></div>
+                      ) : (
+                        <div className="w-16 h-16 bg-gray-200 mask mask-star-2 group-hover:rotate-45 transition-transform duration-300"></div>
+                      )}
+                    </div>
+
+                    <div className="flex justify-between items-start mb-3">
+                      <h3 className="text-2xl font-bold text-gray-900 capitalize">{cat.name}</h3>
+                      <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-bold">
+                        {count} Tokens
                       </span>
-                    </td>
-                    <td className="p-4">
-                      <button className="text-blue-600 hover:underline text-sm font-medium">열기 &rarr;</button>
-                    </td>
+                    </div>
+                    
+                    <p className="text-gray-500 text-sm leading-relaxed">
+                      {cat.desc}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+              <table className="w-full text-left">
+                <thead className="bg-gray-50 border-b border-gray-100">
+                  <tr>
+                    <th className="p-4 font-semibold text-gray-600">Category</th>
+                    <th className="p-4 font-semibold text-gray-600">Description</th>
+                    <th className="p-4 font-semibold text-gray-600">Tokens</th>
+                    <th className="p-4 font-semibold text-gray-600 w-24">Action</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                  {categories.map(cat => (
+                    <tr key={cat.id} className="hover:bg-gray-50 transition-colors cursor-pointer" onClick={() => setSelectedCategory(cat.id)}>
+                      <td className="p-4 font-bold text-gray-900 capitalize flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-gray-100 border border-gray-200 flex items-center justify-center shrink-0">
+                          {cat.id === 'color' ? <div className="w-4 h-4 rounded-full bg-blue-500"></div> : <span className="font-serif font-bold text-gray-500">Aa</span>}
+                        </div>
+                        {cat.name}
+                      </td>
+                      <td className="p-4 text-gray-500 text-sm">{cat.desc}</td>
+                      <td className="p-4">
+                        <span className="bg-gray-100 text-gray-600 px-2.5 py-1 rounded-full text-xs font-bold">
+                          {tokens.filter(t => t.category === cat.id).length}
+                        </span>
+                      </td>
+                      <td className="p-4">
+                        <button className="text-blue-600 hover:underline text-sm font-medium">열기 &rarr;</button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       ) : (
         <div className="space-y-6">
