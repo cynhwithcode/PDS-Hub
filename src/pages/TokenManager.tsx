@@ -92,18 +92,18 @@ export default function TokenManager() {
 
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
           <table className="w-full text-left">
-            <thead className="bg-gray-800 text-white border-b border-gray-700">
+            <thead className="bg-gray-50 border-b border-gray-100">
               <tr>
-                <th className="p-4 font-semibold text-gray-100">이름 (Name)</th>
+                <th className="p-4 font-semibold text-gray-600">이름 (Name)</th>
                 {activeTier === 'core' ? (
-                  <th className="p-4 font-semibold text-gray-100">값 (Value)</th>
+                  <th className="p-4 font-semibold text-gray-600">값 (Value)</th>
                 ) : (
                   <>
-                    <th className="p-4 font-semibold text-gray-100">라이트 모드 (Light)</th>
-                    <th className="p-4 font-semibold text-gray-100">다크 모드 (Dark)</th>
+                    <th className="p-4 font-semibold text-gray-600">라이트 모드 (Light)</th>
+                    <th className="p-4 font-semibold text-gray-600">다크 모드 (Dark)</th>
                   </>
                 )}
-                <th className="p-4 font-semibold text-gray-100 w-24">Actions</th>
+                <th className="p-4 font-semibold text-gray-600 w-24">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -117,7 +117,7 @@ export default function TokenManager() {
                 filteredTokens.map(token => (
                   <tr key={token.id} className="hover:bg-gray-50 transition-colors">
                     <td className="p-4">
-                      <code className="bg-[#1E1E1E] text-yellow-500 px-3 py-1.5 rounded-lg font-mono text-sm shadow-sm border border-gray-800">
+                      <code className="bg-gray-100 text-gray-800 px-2.5 py-1 rounded-md font-mono text-sm border border-gray-200">
                         {token.name}
                       </code>
                     </td>
