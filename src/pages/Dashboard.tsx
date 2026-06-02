@@ -1,9 +1,10 @@
 import { useComponents } from '../hooks/useComponents';
-import tokensData from '../data/tokens.json';
+import { useTokens } from '../hooks/useTokens';
 import { useChangelog } from '../hooks/useChangelog';
 
 export default function Dashboard() {
   const { components: componentsData } = useComponents();
+  const { tokens: tokensData } = useTokens();
   const { changelog: changelogData } = useChangelog();
 
   const stableCount = componentsData.filter(c => c.status === 'stable').length;
