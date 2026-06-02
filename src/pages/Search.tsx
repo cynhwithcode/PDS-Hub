@@ -26,7 +26,13 @@ export default function Search() {
 
     // Search Tokens
     initialTokens.forEach(t => {
-      if (t.name.toLowerCase().includes(lowerQ) || t.description.toLowerCase().includes(lowerQ) || t.value.toLowerCase().includes(lowerQ)) {
+      let valueStr = "";
+      if (typeof t.value === "string") valueStr = t.value;
+      else if (t.value && typeof t.value === "object") {
+        valueStr = `${(t.value as any).light} ${(t.value as any).dark}`;
+      }
+      
+      if (t.name.toLowerCase().includes(lowerQ) || t.description.toLowerCase().includes(lowerQ) || valueStr.toLowerCase().includes(lowerQ)) {
         newResults.push({ id: t.id, type: "Token", title: t.name, description: t.description });
       }
     });
