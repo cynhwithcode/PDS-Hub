@@ -49,7 +49,6 @@ export default function TokenManager() {
     if (!refValue) return '#CBD5E1';
     if (refValue.startsWith('#')) return refValue;
     
-    // ex) "Red/600" -> "red.600", "Red/500-main" -> "red.500-mainmain"
     let normalizedRef = refValue.toLowerCase().replace('/', '.');
     if (normalizedRef.includes('-main')) {
       normalizedRef = normalizedRef.replace('-main', '-mainmain');
@@ -61,6 +60,39 @@ export default function TokenManager() {
     
     return coreToken && typeof coreToken.value === 'string' ? coreToken.value : '#CBD5E1';
   };
+
+  const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
+
+  const getGroupName = (token: Token): string => {
+    const parts = token.name.split('.');
+    if (token.tier === 'core' && parts.length >= 4) {
+      const topGroup = parts[2];
+      if (['status', 'secondary'].includes(topGroup)) {
+        return `${capitalize(topGroup)} / ${capitalize(parts[3])}`;
+      }
+      return capitalize(topGroup);
+    } else if (token.tier === 'semantic' && parts.length >= 4) {
+      const topGroup = parts[2];
+      if (topGroup === 'status') {
+        if (parts[3] === 'ptos' && parts.length >= 5) {
+          return `Status / PTOS / ${capitalize(parts[4])}`;
+        }
+        return `Status / ${capitalize(parts[3])}`;
+      }
+      return capitalize(topGroup);
+    }
+    return 'Other';
+  };
+
+  const groupedTokens = useMemo(() => {
+    const groups: Record<string, Token[]> = {};
+    filteredTokens.forEach(t => {
+      const groupName = getGroupName(t);
+      if (!groups[groupName]) groups[groupName] = [];
+      groups[groupName].push(t);
+    });
+    return groups;
+  }, [filteredTokens]);
 
   return (
     <div className="p-10 max-w-6xl mx-auto space-y-8">
@@ -218,103 +250,102 @@ export default function TokenManager() {
           </div>
 
           <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 flex flex-col md:flex-row gap-4 items-center">
-          <input 
-            type="text" 
-            placeholder="토큰 이름 검색..." 
-            className="flex-1 w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
-          />
-          
-          <div className="flex bg-gray-100 p-1 rounded-lg w-full md:w-auto">
-            <button
-              onClick={() => setActiveTier('core')}
-              className={`flex-1 md:w-32 py-1.5 text-sm font-medium rounded-md transition-all ${
-                activeTier === 'core' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              Palette (Core)
-            </button>
-            <button
-              onClick={() => setActiveTier('semantic')}
-              className={`flex-1 md:w-32 py-1.5 text-sm font-medium rounded-md transition-all ${
-                activeTier === 'semantic' ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500 hover:text-gray-700'
-              }`}
-            >
-              Semantic
-            </button>
+            <input 
+              type="text" 
+              placeholder="토큰 이름 검색..." 
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="flex-1 bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            />
+            <div className="flex bg-gray-100 p-1 rounded-lg shrink-0">
+              <button 
+                onClick={() => setActiveTier('core')}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTier === 'core' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}
+              >
+                Palette (Core)
+              </button>
+              <button 
+                onClick={() => setActiveTier('semantic')}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTier === 'semantic' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}
+              >
+                Semantic
+              </button>
+            </div>
           </div>
-        </div>
 
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
-          <table className="w-full text-left">
-            <thead className="bg-gray-50 border-b border-gray-100">
-              <tr>
-                <th className="p-4 font-semibold text-gray-600">이름 (Name)</th>
-                {activeTier === 'core' ? (
-                  <th className="p-4 font-semibold text-gray-600">값 (Value)</th>
-                ) : (
-                  <>
-                    <th className="p-4 font-semibold text-gray-600">라이트 모드 (Light)</th>
-                    <th className="p-4 font-semibold text-gray-600">다크 모드 (Dark)</th>
-                  </>
-                )}
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-100">
-              {filteredTokens.length === 0 ? (
-                <tr>
-                  <td colSpan={activeTier === 'core' ? 2 : 3} className="p-8 text-center text-gray-500">
-                    검색 결과가 없습니다.
-                  </td>
-                </tr>
-              ) : (
-                filteredTokens.map(token => (
-                  <tr key={token.id} className="hover:bg-gray-50 transition-colors">
-                    <td className="p-4">
-                      <code className="bg-gray-100 text-gray-800 px-2.5 py-1 rounded-md font-mono text-sm border border-gray-200">
-                        {token.name}
-                      </code>
-                    </td>
-                    
-                    {activeTier === 'core' ? (
-                      <td className="p-4 font-mono text-sm text-gray-700">
-                        <div className="flex items-center gap-3">
-                          <div 
-                            className="w-5 h-5 rounded border border-gray-200 shadow-sm shrink-0" 
-                            style={{ backgroundColor: typeof token.value === 'string' ? token.value : '#fff' }}
-                          ></div>
-                          <span>{typeof token.value === 'string' ? token.value : '-'}</span>
-                        </div>
-                      </td>
-                    ) : (
-                      <>
-                        <td className="p-4 font-mono text-sm text-gray-700">
-                          <div className="flex items-center gap-3">
-                            <div 
-                              className="w-5 h-5 rounded border border-gray-200 shadow-sm shrink-0" 
-                              style={{ backgroundColor: typeof token.value === 'object' ? getHexValue(token.value.light) : '#fff' }}
-                            ></div>
-                            <span>{typeof token.value === 'object' ? token.value.light : '-'}</span>
-                          </div>
-                        </td>
-                        <td className="p-4 font-mono text-sm text-gray-700">
-                          <div className="flex items-center gap-3">
-                            <div 
-                              className="w-5 h-5 rounded border border-gray-200 shadow-sm shrink-0" 
-                              style={{ backgroundColor: typeof token.value === 'object' ? getHexValue(token.value.dark) : '#fff' }}
-                            ></div>
-                            <span>{typeof token.value === 'object' ? token.value.dark : '-'}</span>
-                          </div>
-                        </td>
-                      </>
-                    )}
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
-        </div>
+          <div className="space-y-12">
+            {Object.keys(groupedTokens).length === 0 ? (
+              <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center text-gray-500">
+                검색 결과가 없습니다.
+              </div>
+            ) : (
+              Object.entries(groupedTokens).map(([groupName, groupTokens]) => (
+                <div key={groupName} className="space-y-4">
+                  <h3 className="text-2xl font-bold text-gray-900">{groupName}</h3>
+                  <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                    <table className="w-full text-left">
+                      <thead className="bg-gray-50 border-b border-gray-100">
+                        <tr>
+                          <th className="p-4 font-semibold text-gray-600">이름 (Name)</th>
+                          {activeTier === 'core' ? (
+                            <th className="p-4 font-semibold text-gray-600">값 (Value)</th>
+                          ) : (
+                            <>
+                              <th className="p-4 font-semibold text-gray-600">라이트 모드 (Light)</th>
+                              <th className="p-4 font-semibold text-gray-600">다크 모드 (Dark)</th>
+                            </>
+                          )}
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-100">
+                        {groupTokens.map(token => (
+                          <tr key={token.id} className="hover:bg-gray-50 transition-colors">
+                            <td className="p-4 font-mono text-sm text-gray-800">
+                              <code className="bg-gray-100 text-gray-800 px-2.5 py-1 rounded-md border border-gray-200">
+                                {token.name}
+                              </code>
+                            </td>
+                            {activeTier === 'core' ? (
+                              <td className="p-4 font-mono text-sm text-gray-700">
+                                <div className="flex items-center gap-3">
+                                  <div 
+                                    className="w-5 h-5 rounded border border-gray-200 shadow-sm shrink-0" 
+                                    style={{ backgroundColor: typeof token.value === 'string' ? token.value : '#fff' }}
+                                  ></div>
+                                  <span>{typeof token.value === 'string' ? token.value : '-'}</span>
+                                </div>
+                              </td>
+                            ) : (
+                              <>
+                                <td className="p-4 font-mono text-sm text-gray-700">
+                                  <div className="flex items-center gap-3">
+                                    <div 
+                                      className="w-5 h-5 rounded border border-gray-200 shadow-sm shrink-0" 
+                                      style={{ backgroundColor: typeof token.value === 'object' ? getHexValue(token.value.light) : '#fff' }}
+                                    ></div>
+                                    <span>{typeof token.value === 'object' ? token.value.light : '-'}</span>
+                                  </div>
+                                </td>
+                                <td className="p-4 font-mono text-sm text-gray-700">
+                                  <div className="flex items-center gap-3">
+                                    <div 
+                                      className="w-5 h-5 rounded border border-gray-200 shadow-sm shrink-0" 
+                                      style={{ backgroundColor: typeof token.value === 'object' ? getHexValue(token.value.dark) : '#fff' }}
+                                    ></div>
+                                    <span>{typeof token.value === 'object' ? token.value.dark : '-'}</span>
+                                  </div>
+                                </td>
+                              </>
+                            )}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
         </div>
       )}
     </div>
