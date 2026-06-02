@@ -17,6 +17,13 @@ export default function TokenManager() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
+
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text);
+    setToastMessage(`'${text}' 복사되었습니다!`);
+    setTimeout(() => setToastMessage(null), 2500);
+  };
 
   useEffect(() => {
     // 최신 토큰 데이터를 불러오기 위해 기존 로컬스토리지 삭제
@@ -95,7 +102,19 @@ export default function TokenManager() {
   }, [filteredTokens]);
 
   return (
-    <div className="p-10 max-w-6xl mx-auto space-y-8">
+    <div className="p-10 max-w-6xl mx-auto space-y-8 relative pb-24">
+      {/* Toast Notification */}
+      {toastMessage && (
+        <div className="fixed bottom-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-6 py-3.5 rounded-full shadow-2xl flex items-center gap-3 z-50 transition-all">
+          <div className="bg-green-500 rounded-full p-1">
+            <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <span className="font-semibold text-sm tracking-wide">{toastMessage}</span>
+        </div>
+      )}
+
       <header className="flex justify-between items-end">
         <div>
           <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">Token Registry</h1>
@@ -300,9 +319,9 @@ export default function TokenManager() {
                       <tbody className="divide-y divide-gray-100">
                         {groupTokens.map(token => (
                           <tr key={token.id} className="hover:bg-gray-50 transition-colors">
-                            <td className="p-4 font-mono text-sm text-gray-800">
+                            <td className="p-4 font-mono text-sm text-gray-800 truncate">
                               <code 
-                                onClick={() => navigator.clipboard.writeText(token.name)}
+                                onClick={() => handleCopy(token.name)}
                                 className="bg-gray-100 text-gray-800 px-2.5 py-1 rounded-md border border-gray-200 cursor-pointer hover:bg-gray-200 hover:text-blue-600 transition-colors"
                                 title="클릭하여 복사"
                               >
@@ -310,15 +329,15 @@ export default function TokenManager() {
                               </code>
                             </td>
                             {activeTier === 'core' ? (
-                              <td className="p-4 font-mono text-sm text-gray-700">
+                              <td className="p-4 font-mono text-sm text-gray-700 truncate">
                                 <div className="flex items-center gap-3">
                                   <div 
                                     className="w-5 h-5 rounded border border-gray-200 shadow-sm shrink-0" 
                                     style={{ backgroundColor: typeof token.value === 'string' ? token.value : '#fff' }}
                                   ></div>
                                   <span 
-                                    onClick={() => navigator.clipboard.writeText(typeof token.value === 'string' ? token.value : '')}
-                                    className="cursor-pointer hover:text-blue-600 transition-colors"
+                                    onClick={() => handleCopy(typeof token.value === 'string' ? token.value : '')}
+                                    className="cursor-pointer hover:text-blue-600 transition-colors truncate"
                                     title="클릭하여 복사"
                                   >
                                     {typeof token.value === 'string' ? token.value : '-'}
@@ -327,30 +346,30 @@ export default function TokenManager() {
                               </td>
                             ) : (
                               <>
-                                <td className="p-4 font-mono text-sm text-gray-700">
+                                <td className="p-4 font-mono text-sm text-gray-700 truncate">
                                   <div className="flex items-center gap-3">
                                     <div 
                                       className="w-5 h-5 rounded border border-gray-200 shadow-sm shrink-0" 
                                       style={{ backgroundColor: typeof token.value === 'object' ? getHexValue(token.value.light) : '#fff' }}
                                     ></div>
                                     <span 
-                                      onClick={() => navigator.clipboard.writeText(typeof token.value === 'object' ? token.value.light : '')}
-                                      className="cursor-pointer hover:text-blue-600 transition-colors"
+                                      onClick={() => handleCopy(typeof token.value === 'object' ? token.value.light : '')}
+                                      className="cursor-pointer hover:text-blue-600 transition-colors truncate"
                                       title="클릭하여 복사"
                                     >
                                       {typeof token.value === 'object' ? token.value.light : '-'}
                                     </span>
                                   </div>
                                 </td>
-                                <td className="p-4 font-mono text-sm text-gray-700">
+                                <td className="p-4 font-mono text-sm text-gray-700 truncate">
                                   <div className="flex items-center gap-3">
                                     <div 
                                       className="w-5 h-5 rounded border border-gray-200 shadow-sm shrink-0" 
                                       style={{ backgroundColor: typeof token.value === 'object' ? getHexValue(token.value.dark) : '#fff' }}
                                     ></div>
                                     <span 
-                                      onClick={() => navigator.clipboard.writeText(typeof token.value === 'object' ? token.value.dark : '')}
-                                      className="cursor-pointer hover:text-blue-600 transition-colors"
+                                      onClick={() => handleCopy(typeof token.value === 'object' ? token.value.dark : '')}
+                                      className="cursor-pointer hover:text-blue-600 transition-colors truncate"
                                       title="클릭하여 복사"
                                     >
                                       {typeof token.value === 'object' ? token.value.dark : '-'}
