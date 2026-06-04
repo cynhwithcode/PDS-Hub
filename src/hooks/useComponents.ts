@@ -29,34 +29,20 @@ export interface ComponentItem {
 export function useComponents() {
   const [components, setComponents] = useState<ComponentItem[]>([]);
 
+  // Load fresh data once on mount, ignoring any stale localStorage.
   useEffect(() => {
-    const stored = localStorage.getItem('pds_components');
-    if (stored) {
-      try {
-        const parsedStored = JSON.parse(stored);
-        if (parsedStored.length !== initialComponents.length) {
-          setComponents(initialComponents as ComponentItem[]);
-          localStorage.setItem('pds_components', JSON.stringify(initialComponents));
-        } else {
-          setComponents(parsedStored);
-        }
-      } catch (e) {
-        setComponents(initialComponents as ComponentItem[]);
-        localStorage.setItem('pds_components', JSON.stringify(initialComponents));
-      }
-    } else {
-      setComponents(initialComponents as ComponentItem[]);
-      localStorage.setItem('pds_components', JSON.stringify(initialComponents));
-    }
+    // Clear stale cache to guarantee fresh data.
+    localStorage.removeItem('pds_components');
+    setComponents(initialComponents as ComponentItem[]);
+    // Store fresh copy for future edits.
+    localStorage.setItem('pds_components', JSON.stringify(initialComponents));
   }, []);
 
   const saveComponent = (newComponent: ComponentItem) => {
-    const isExisting = components.find(c => c.id === newComponent.id);
-    let updated: ComponentItem[];
-    if (isExisting) {
-      updated = components.map(c => c.id === newComponent.id ? newComponent : c);
-    } else {
-      updated = [newComponent, ...components];
+    const updated = components.map(c => (c.id === newComponent.id ? newComponent : c));
+    // If component does not exist, prepend it.
+    if (!updated.find(c => c.id === newComponent.id)) {
+      updated.unshift(newComponent);
     }
     setComponents(updated);
     localStorage.setItem('pds_components', JSON.stringify(updated));

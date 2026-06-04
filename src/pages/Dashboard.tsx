@@ -76,7 +76,43 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        {/* DS 커버리지 */}
+        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mt-8">
+          <h2 className="text-sm font-medium text-gray-500">DS 커버리지</h2>
+          <div className="mt-4 flex items-baseline gap-2">
+            <span className="text-4xl font-extrabold text-gray-900">{totalComponents}</span>
+            <span className="text-sm text-gray-500">/ 9</span>
+          </div>
+          <div className="mt-4 w-full bg-gray-200 rounded-full h-2.5">
+            <div className="bg-[#E8002D] h-2.5 rounded-full transition-all duration-500" style={{ width: `${(totalComponents / 9) * 100}%` }}></div>
+          </div>
+        </div>
+
+        {/* 카테고리 분포 */}
+        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mt-8">
+          <h2 className="text-sm font-medium text-gray-500 mb-4">카테고리 분포</h2>
+          {[
+            { label: 'Action', count: componentsData.filter(c => c.category_group === 'Action').length },
+            { label: 'Input', count: componentsData.filter(c => c.category_group === 'Input').length },
+            { label: 'Display', count: componentsData.filter(c => c.category_group === 'Display').length },
+            { label: 'Feedback', count: componentsData.filter(c => c.category_group === 'Feedback').length },
+            { label: 'Navigation', count: componentsData.filter(c => c.category_group === 'Navigation').length },
+          ].map(item => {
+            const percent = totalComponents ? (item.count / totalComponents) * 100 : 0;
+            return (
+              <div key={item.label} className="mb-2">
+                <div className="flex justify-between text-sm mb-1">
+                  <span>{item.label}</span>
+                  <span>{item.count}개</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-3">
+                  <div className="bg-[#E8002D] h-3 rounded-full" style={{ width: `${percent}%` }}></div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Component Status Bar */}
         <section className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
           <h2 className="text-xl font-bold text-gray-900 mb-8">컴포넌트 상태 비율</h2>
