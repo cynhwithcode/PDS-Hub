@@ -1,4 +1,9 @@
-﻿@import 'tailwindcss';
+@import 'tailwindcss';
+
+* {
+  font-family: 'Pretendard', -apple-system, sans-serif;
+  font-weight: 500;
+}
 
 :root {
   --color-background: #FAFAFA;
