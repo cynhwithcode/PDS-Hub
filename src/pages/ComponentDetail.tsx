@@ -58,7 +58,7 @@ export default function ComponentDetail() {
             &larr; 목록으로 돌아가기
           </button>
           {isEditing ? (
-            <input type="text" className="text-3xl font-extrabold text-gray-900 border-b-2 border-blue-500 focus:outline-none bg-transparent" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
+            <input type="text" className="text-3xl font-extrabold text-gray-900 border-b-2 border-[#E8002D] focus:outline-none bg-transparent" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
           ) : (
             <div>
               <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2">{formData.name}</h1>
@@ -78,7 +78,7 @@ export default function ComponentDetail() {
           {isEditing ? (
             <div className="flex gap-2">
               <button onClick={() => setIsEditing(false)} className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 font-medium">취소</button>
-              <button onClick={handleSave} className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium">저장</button>
+              <button onClick={handleSave} className="px-4 py-2 bg-[#E8002D] hover:bg-[#cc0028] rounded-lg text-white font-medium">저장</button>
             </div>
           ) : (
             <button onClick={() => setIsEditing(true)} className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 font-medium transition-colors">
@@ -88,7 +88,7 @@ export default function ComponentDetail() {
         </div>
       </header>
 
-      <div className={`rounded-xl shadow-sm border border-gray-100 overflow-hidden transition-colors duration-300 ${isEditing ? 'bg-blue-50/30 border-blue-200' : 'bg-white'}`}>
+      <div className={`rounded-xl shadow-sm border border-gray-100 overflow-hidden transition-colors duration-300 ${isEditing ? 'bg-[#FFF0F2] border-[#E8002D]/20' : 'bg-white'}`}>
         <div className="p-6 border-b border-gray-100 bg-gray-50 grid grid-cols-2 md:grid-cols-4 gap-6">
           <div>
             <span className="block text-xs font-medium text-gray-500 uppercase tracking-wider mb-1">상태</span>
@@ -207,7 +207,7 @@ export default function ComponentDetail() {
                 <div className="bg-[#F5F5F5] rounded-xl p-8 mb-6 flex justify-center items-center relative min-h-[200px] overflow-hidden">
                   <svg width="240" height="120" viewBox="0 0 240 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible">
                     {/* Container (1) */}
-                    <rect x="40" y="30" width="160" height="60" rx="8" fill="#3B82F6" opacity="0.1" stroke="#3B82F6" strokeWidth="2" strokeDasharray="4 4" />
+                    <rect x="40" y="30" width="160" height="60" rx="8" fill="#E8002D" opacity="0.1" stroke="#E8002D" strokeWidth="2" strokeDasharray="4 4" />
                     {/* Icon (3) */}
                     <circle cx="70" cy="60" r="12" fill="#9CA3AF" />
                     {/* Text Label (2) */}
@@ -263,7 +263,7 @@ export default function ComponentDetail() {
                     {formData.id === 'c-buttons' && (
                       <div className="bg-[#F5F5F5] h-32 flex items-center justify-center p-4 border-b border-gray-100">
                         {item.name === 'Contained' || item.name === 'Primary' ? (
-                          <div className="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-medium text-sm shadow-sm flex items-center gap-2">
+                          <div className="bg-[#E8002D] text-white px-6 py-2.5 rounded-lg font-medium text-sm shadow-sm flex items-center gap-2">
                             <span>Button</span>
                           </div>
                         ) : item.name === 'Outlined' || item.name === 'Secondary' ? (
@@ -271,7 +271,7 @@ export default function ComponentDetail() {
                             <span>Button</span>
                           </div>
                         ) : item.name === 'Ghost' ? (
-                          <div className="bg-transparent text-blue-600 px-6 py-2.5 rounded-lg font-medium text-sm flex items-center gap-2">
+                          <div className="bg-transparent text-[#E8002D] px-6 py-2.5 rounded-lg font-medium text-sm flex items-center gap-2">
                             <span>Button</span>
                           </div>
                         ) : (
@@ -331,15 +331,15 @@ export default function ComponentDetail() {
                     {formData.id === 'c-buttons' ? (
                       <div className="flex items-end gap-12 h-32 p-6 bg-[#F5F5F5] rounded-lg">
                         <div className="flex flex-col items-center gap-3">
-                          <div className="w-16 bg-blue-400 rounded-t-md h-10 shadow-sm"></div>
+                          <div className="w-16 bg-[#E8002D] opacity-40 rounded-t-md h-10 shadow-sm"></div>
                           <span className="text-xs font-bold text-gray-600">Small</span>
                         </div>
                         <div className="flex flex-col items-center gap-3">
-                          <div className="w-20 bg-blue-500 rounded-t-md h-14 shadow-sm"></div>
+                          <div className="w-20 bg-[#E8002D] opacity-70 rounded-t-md h-14 shadow-sm"></div>
                           <span className="text-xs font-bold text-gray-600">Medium</span>
                         </div>
                         <div className="flex flex-col items-center gap-3">
-                          <div className="w-24 bg-blue-600 rounded-t-md h-16 shadow-sm"></div>
+                          <div className="w-24 bg-[#E8002D] rounded-t-md h-16 shadow-sm"></div>
                           <span className="text-xs font-bold text-gray-600">Large</span>
                         </div>
                       </div>
@@ -381,7 +381,7 @@ export default function ComponentDetail() {
                         <td className="px-5 py-3 text-gray-900 font-bold">{item.property}</td>
                         <td className="px-5 py-3 text-gray-600">{item.values}</td>
                         <td className="px-5 py-3">
-                          <span className="bg-blue-100 text-blue-700 font-mono text-xs px-2.5 py-1 rounded-full font-medium inline-block">
+                          <span className="bg-[#FFF0F2] text-[#E8002D] font-mono text-xs px-2.5 py-1 rounded-full font-medium inline-block">
                             {item.default}
                           </span>
                         </td>
@@ -401,7 +401,7 @@ export default function ComponentDetail() {
                 {isEditing ? (
                   <input type="url" className="border border-gray-300 rounded px-3 py-1.5 text-sm w-64" value={formData.figma_link || ''} onChange={e => setFormData({...formData, figma_link: e.target.value})} />
                 ) : (
-                  formData.figma_link ? <a href={formData.figma_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-lg text-sm font-medium transition-colors"><svg className="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>Figma 링크</a> : <span className="text-gray-400 italic text-sm">링크 없음</span>
+                  formData.figma_link ? <a href={formData.figma_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 bg-[#FFF0F2] hover:bg-[#E8002D] text-[#E8002D] hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>Figma 링크</a> : <span className="text-gray-400 italic text-sm">링크 없음</span>
                 )}
               </div>
               
@@ -412,7 +412,7 @@ export default function ComponentDetail() {
                 {isEditing ? (
                   <input type="url" className="border border-gray-300 rounded px-3 py-1.5 text-sm w-64" value={formData.dev_link || ''} onChange={e => setFormData({...formData, dev_link: e.target.value})} />
                 ) : (
-                  formData.dev_link ? <a href={formData.dev_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 bg-gray-100 hover:bg-gray-200 text-gray-800 px-4 py-2 rounded-lg text-sm font-medium transition-colors"><svg className="w-4 h-4 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>개발 문서</a> : <span className="text-gray-400 italic text-sm">링크 없음</span>
+                  formData.dev_link ? <a href={formData.dev_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 bg-[#FFF0F2] hover:bg-[#E8002D] text-[#E8002D] hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>개발 문서</a> : <span className="text-gray-400 italic text-sm">링크 없음</span>
                 )}
               </div>
             </div>
