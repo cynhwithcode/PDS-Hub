@@ -1,5 +1,6 @@
-import { useState, useEffect, useMemo } from "react";
-import initialTokens from "../data/tokens.json";
+import { useState, useMemo, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useTokens } from "../hooks/useTokens";
 
 type Token = {
   id: string;
@@ -12,7 +13,9 @@ type Token = {
 };
 
 export default function TokenManager() {
-  const [tokens, setTokens] = useState<Token[]>([]);
+  const navigate = useNavigate();
+  const { tokens } = useTokens();
+  
   const [activeTier, setActiveTier] = useState<'core' | 'semantic'>('semantic');
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
@@ -24,13 +27,6 @@ export default function TokenManager() {
     setToastMessage(`'${text}' 복사되었습니다!`);
     setTimeout(() => setToastMessage(null), 2500);
   };
-
-  useEffect(() => {
-    // 최신 토큰 데이터를 불러오기 위해 기존 로컬스토리지 삭제
-    localStorage.removeItem("pds_tokens");
-    setTokens(initialTokens as Token[]);
-    localStorage.setItem("pds_tokens", JSON.stringify(initialTokens));
-  }, []);
 
   const categories = [
     { id: 'color', name: 'Color', desc: '브랜드 핵심 색상 및 시맨틱 컬러 정의' },
@@ -57,9 +53,6 @@ export default function TokenManager() {
     if (refValue.startsWith('#')) return refValue;
     
     let normalizedRef = refValue.toLowerCase().replace('/', '.');
-    if (normalizedRef.includes('-main')) {
-      normalizedRef = normalizedRef.replace('-main', '-mainmain');
-    }
     
     const coreToken = tokens.find(t => 
       t.tier === 'core' && t.name.toLowerCase().endsWith(normalizedRef)
@@ -67,6 +60,101 @@ export default function TokenManager() {
     
     return coreToken && typeof coreToken.value === 'string' ? coreToken.value : '#CBD5E1';
   };
+
+  // 타이포그래피 미리보기 렌더링 헬퍼 함수
+  const renderTypographyPreview = (token: Token) => {
+    if (token.category !== 'typography') return null;
+    let size = '16px';
+    let weight = '400';
+    let lineHeight = '1.5';
+    
+    const valStr = typeof token.value === 'string' ? token.value : (typeof token.value === 'object' ? token.value.light : '');
+    
+    if (token.tier === 'semantic') {
+      const parts = valStr.split('/').map(s => s.trim());
+      if (parts.length >= 1) size = parts[0];
+      if (parts.length >= 2) {
+        const w = parts[1].toLowerCase();
+        weight = w.includes('bold') ? (w.includes('semi') ? '600' : '700') : '500';
+      }
+      if (parts.length >= 3) lineHeight = parts[2];
+    } else {
+      if (token.name.includes('.size.')) size = valStr;
+      else if (token.name.includes('.weight.')) weight = valStr;
+      else if (token.name.includes('.lineHeight.')) lineHeight = valStr;
+    }
+
+    return (
+      <div className="flex items-center justify-center overflow-hidden">
+        <span 
+          className="text-gray-900 truncate"
+          style={{ 
+            fontSize: size, 
+            fontWeight: weight, 
+            lineHeight: lineHeight, 
+            fontFamily: "'Pretendard', 'Inter', sans-serif" 
+          }}
+        >
+          Aa
+        </span>
+      </div>
+    );
+  };
+
+  // 스페이싱 미리보기 렌더링 헬퍼 함수
+  const renderSpacingPreview = (token: Token) => {
+    if (token.category !== 'spacing') return null;
+    let sizePx = '0px';
+    const valStr = typeof token.value === 'string' ? token.value : (typeof token.value === 'object' ? token.value.light : '0px');
+    sizePx = valStr;
+
+    return (
+      <div className="flex items-center justify-center overflow-hidden py-2">
+        <div 
+          className="bg-red-500 rounded-sm shadow-sm transition-all duration-300"
+          style={{ width: sizePx, height: sizePx }}
+          title={`Spacing: ${sizePx}`}
+        ></div>
+      </div>
+    );
+  };
+
+  // 레디우스(Radius) 미리보기 렌더링 헬퍼 함수
+  const renderRadiusPreview = (token: Token) => {
+    if (token.category !== 'radius') return null;
+    let radiusPx = '0px';
+    const valStr = typeof token.value === 'string' ? token.value : (typeof token.value === 'object' ? token.value.light : '0px');
+    radiusPx = valStr;
+
+    return (
+      <div className="flex items-center justify-center overflow-hidden py-2">
+        <div 
+          className="w-12 h-12 bg-blue-50 border-2 border-blue-400 shadow-sm transition-all duration-300"
+          style={{ borderRadius: radiusPx }}
+          title={`Radius: ${radiusPx}`}
+        ></div>
+      </div>
+    );
+  };
+
+  const currentCategoryTokens = useMemo(() => {
+    return tokens.filter(t => t.category === selectedCategory);
+  }, [tokens, selectedCategory]);
+
+  const hasSemantic = currentCategoryTokens.some(t => t.tier === 'semantic');
+  const hasCore = currentCategoryTokens.some(t => t.tier === 'core');
+
+  useEffect(() => {
+    if (selectedCategory) {
+      if (!hasSemantic) {
+        setActiveTier('core');
+      } else if (!hasCore) {
+        setActiveTier('semantic');
+      } else {
+        setActiveTier('semantic');
+      }
+    }
+  }, [selectedCategory, hasSemantic, hasCore]);
 
   const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
@@ -120,7 +208,10 @@ export default function TokenManager() {
           <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">Token Registry</h1>
           <p className="text-gray-500 mt-2 text-lg">디자인 시스템 토큰 목록 및 상세 관리</p>
         </div>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-medium transition-colors">
+        <button 
+          onClick={() => navigate('/tokens/new')}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
+        >
           + 신규 토큰 등록하기
         </button>
       </header>
@@ -276,20 +367,22 @@ export default function TokenManager() {
               onChange={(e) => setSearchTerm(e.target.value)}
               className="flex-1 bg-gray-50 border border-gray-200 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             />
-            <div className="flex bg-gray-100 p-1 rounded-lg shrink-0">
-              <button 
-                onClick={() => setActiveTier('semantic')}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTier === 'semantic' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}
-              >
-                Semantic
-              </button>
-              <button 
-                onClick={() => setActiveTier('core')}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTier === 'core' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}
-              >
-                Palette (Core)
-              </button>
-            </div>
+            {hasSemantic && hasCore && (
+              <div className="flex bg-gray-100 p-1 rounded-lg shrink-0">
+                <button 
+                  onClick={() => setActiveTier('semantic')}
+                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTier === 'semantic' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}
+                >
+                  Semantic
+                </button>
+                <button 
+                  onClick={() => setActiveTier('core')}
+                  className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeTier === 'core' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-500 hover:text-gray-700'}`}
+                >
+                  Palette (Core)
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="space-y-12">
@@ -305,14 +398,17 @@ export default function TokenManager() {
                     <table className="w-full text-left table-fixed">
                       <thead className="bg-gray-50 border-b border-gray-100">
                         <tr>
-                          <th className="p-4 font-semibold text-gray-600 w-1/2">이름 (Name)</th>
-                          {activeTier === 'core' ? (
-                            <th className="p-4 font-semibold text-gray-600 w-1/2">값 (Value)</th>
+                          <th className={`p-4 font-semibold text-gray-600 ${['typography', 'spacing', 'radius'].includes(selectedCategory) ? 'w-2/5' : 'w-1/2'}`}>이름 (Name)</th>
+                          {activeTier === 'core' || selectedCategory !== 'color' ? (
+                            <th className={`p-4 font-semibold text-gray-600 ${['typography', 'spacing', 'radius'].includes(selectedCategory) ? 'w-2/5' : 'w-1/2'}`}>값 (Value)</th>
                           ) : (
                             <>
                               <th className="p-4 font-semibold text-gray-600 w-1/4">라이트 모드 (Light)</th>
                               <th className="p-4 font-semibold text-gray-600 w-1/4">다크 모드 (Dark)</th>
                             </>
+                          )}
+                          {['typography', 'spacing', 'radius'].includes(selectedCategory) && (
+                            <th className="p-4 font-semibold text-gray-600 w-1/5 text-center border-l border-gray-100 bg-gray-100/50">미리보기 (Preview)</th>
                           )}
                         </tr>
                       </thead>
@@ -328,19 +424,21 @@ export default function TokenManager() {
                                 {token.name}
                               </code>
                             </td>
-                            {activeTier === 'core' ? (
+                            {activeTier === 'core' || selectedCategory !== 'color' ? (
                               <td className="p-4 font-mono text-sm text-gray-700 truncate">
                                 <div className="flex items-center gap-3">
-                                  <div 
-                                    className="w-5 h-5 rounded border border-gray-200 shadow-sm shrink-0" 
-                                    style={{ backgroundColor: typeof token.value === 'string' ? token.value : '#fff' }}
-                                  ></div>
+                                  {selectedCategory === 'color' && (
+                                    <div 
+                                      className="w-5 h-5 rounded border border-gray-200 shadow-sm shrink-0" 
+                                      style={{ backgroundColor: typeof token.value === 'string' ? token.value : (typeof token.value === 'object' ? getHexValue(token.value.light) : '#fff') }}
+                                    ></div>
+                                  )}
                                   <span 
-                                    onClick={() => handleCopy(typeof token.value === 'string' ? token.value : '')}
+                                    onClick={() => handleCopy(typeof token.value === 'string' ? token.value : (typeof token.value === 'object' ? token.value.light : ''))}
                                     className="cursor-pointer hover:text-blue-600 transition-colors truncate"
                                     title="클릭하여 복사"
                                   >
-                                    {typeof token.value === 'string' ? token.value : '-'}
+                                    {typeof token.value === 'string' ? token.value : (typeof token.value === 'object' ? token.value.light : '-')}
                                   </span>
                                 </div>
                               </td>
@@ -377,6 +475,13 @@ export default function TokenManager() {
                                   </div>
                                 </td>
                               </>
+                            )}
+                            {['typography', 'spacing', 'radius'].includes(selectedCategory) && (
+                              <td className="p-4 text-center border-l border-gray-100 bg-gray-50/50">
+                                {selectedCategory === 'typography' ? renderTypographyPreview(token) : 
+                                 selectedCategory === 'spacing' ? renderSpacingPreview(token) :
+                                 renderRadiusPreview(token)}
+                              </td>
                             )}
                           </tr>
                         ))}
