@@ -63,7 +63,7 @@
     "thumbnail_icon": "",
     "status": "stable",
     "owner": "Phoenixdarts 디자인실 디자인기획팀",
-    "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=86-3068\u0026p=f\u0026t=DaUdAMS6Bo9SIPYQ-11",
+    "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=86-3068&p=f&t=DaUdAMS6Bo9SIPYQ-11",
     "dev_link": "",
     "short_description": "상태값이나 알림 개수 등을 강조하기 위한 작은 라벨.",
     "description": "Badge는 정보의 분류, 상태 표시, 수량 알림 등 다양한 목적에 따라 사용되는 시각적 표시 요소.\n기본 형태를 중심으로 Status Badge, Count Badge, Label Badge 등으로 나뉘며\n각 유형은 정보의 성격과 우선순위에 따라 적절히 선택해 사용.",
@@ -108,7 +108,7 @@
     "thumbnail_icon": "",
     "status": "stable",
     "owner": "Phoenixdarts 디자인실 디자인기획팀",
-    "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=86-3418"
+    "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=86-3418",
     "dev_link": "",
     "short_description": "필터링이나 다중 선택을 위해 콤팩트하게 제공되는 액션 요소.",
     "description": "칩(Chips)은 상태 표시, 필터, 선택 등의 정보를 간결하게 전달하는 UI 컴포넌트.\n사용자의 빠른 인지를 돕기 위해 용도에 따라 명확한 스타일 기준이 적용되며,\n정해진 컴포넌트 형태와 규칙 내에서 사용해야 하고 임의로 스타일을 변경하거나 추가하는 것은 제한됨.",
@@ -160,7 +160,7 @@
     "thumbnail_icon": "",
     "status": "stable",
     "owner": "Phoenixdarts 디자인실 디자인기획팀",
-    "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=88-264&p=f&t=DaUdAMS6Bo9SIPYQ-11"
+    "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=88-264&p=f&t=DaUdAMS6Bo9SIPYQ-11",
     "dev_link": "",
     "short_description": "사용자가 텍스트를 입력하고 편집할 수 있는 폼 구성 요소.",
     "description": "폼 내에서 단일 라인 또는 다중 라인의 텍스트 데이터를 입력받기 위해 사용하는 표준 입력 컴포넌트입니다.",
@@ -185,7 +185,7 @@
     "thumbnail_icon": "",
     "status": "stable",
     "owner": "Phoenixdarts 디자인실 디자인기획팀",
-    "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=151-3023&p=f&t=DaUdAMS6Bo9SIPYQ-11"
+    "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=151-3023&p=f&t=DaUdAMS6Bo9SIPYQ-11",
     "dev_link": "",
     "short_description": "동일한 맥락 안에서 연관된 콘텐츠 뷰를 전환할 때 사용.",
     "description": "Tab 버튼은 다양한 콘텐츠와 화면을 직관적으로 전환할 수 있도록 설계된 UI 요소.\n사용자는 별도의 추가 동작 없이 빠르게 원하는 정보를 탐색할 수 있으며,\n선택된 탭은 명확한 시각적 구분을 통해 현재 위치를 직관적으로 안내함.",
@@ -232,7 +232,7 @@
     "thumbnail_icon": "",
     "status": "stable",
     "owner": "Phoenixdarts 디자인실 디자인기획팀",
-    "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=151-19053&p=f&t=DaUdAMS6Bo9SIPYQ-11"
+    "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=151-19053&p=f&t=DaUdAMS6Bo9SIPYQ-11",
     "dev_link": "",
     "short_description": "사용자의 작업 흐름을 차단하고 중요한 정보를 확인받는 모달.",
     "description": "화면 중앙에 띄워 사용자에게 중요 메시지를 전달하거나 필수적인 행동을 강제할 때 사용하는 컴포넌트입니다.",
@@ -257,7 +257,7 @@
     "thumbnail_icon": "",
     "status": "stable",
     "owner": "Phoenixdarts 디자인실 디자인기획팀",
-    "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=537-453&p=f&t=DaUdAMS6Bo9SIPYQ-11"
+    "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=537-453&p=f&t=DaUdAMS6Bo9SIPYQ-11",
     "dev_link": "",
     "short_description": "모바일 환경에서 화면 하단에서 올라오는 부가 컨텐츠 레이어.",
     "description": "바텀시트(Bottom Sheet)는 화면 아래에 고정되어 현재 있는 화면 위로 관련된 컨텐츠를 표시하는 UI 요소.\n페이지를 이탈하지 않고 동일한 정보 전달이나 복잡한 정보 입력을 요청할 수 있는 대안적 레이아웃으로 사용되며,\n활성화되면 사용자가 기타 페이지 콘텐츠의 상호작용은 차단됨.\n반드시 실습한 상황에서만 사용해야 함.",
