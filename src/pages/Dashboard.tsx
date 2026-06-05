@@ -33,7 +33,7 @@ export default function Dashboard() {
   const deprecatedPercent = (deprecatedCount / totalComponents) * 100;
 
   return (
-    <div className="p-10 max-w-6xl mx-auto space-y-12">
+    <div className="p-10 max-w-6xl mx-auto space-y-12 bg-[#FAFAFA]">
       <header>
         <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">Dashboard</h1>
         <p className="text-gray-500 mt-2 text-lg">피닉스다트 디자인 시스템 현황</p>
@@ -41,11 +41,12 @@ export default function Dashboard() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        {/* 전체 컴포넌트 */}
+        <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
           <h2 className="text-sm font-medium text-gray-500">전체 컴포넌트</h2>
           <div className="mt-4 flex items-baseline gap-2">
             <span className="text-4xl font-extrabold text-gray-900">{totalComponents}</span>
-            <span className="text-sm text-gray-500">개</span>
+            <span className="text-xs text-gray-500">개</span>
           </div>
           <div className="mt-6 flex gap-4 text-sm text-gray-600">
             <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-500"></span>Stable {stableCount}</span>
@@ -54,11 +55,12 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        {/* 전체 토큰 */}
+        <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
           <h2 className="text-sm font-medium text-gray-500">전체 토큰</h2>
           <div className="mt-4 flex items-baseline gap-2">
             <span className="text-4xl font-extrabold text-gray-900">{totalTokens}</span>
-            <span className="text-sm text-gray-500">개</span>
+            <span className="text-xs text-gray-500">개</span>
           </div>
           <div className="mt-6 flex gap-4 text-sm text-gray-600">
             <span className="bg-gray-50 px-2 py-1 rounded-md">Color {colorCount}</span>
@@ -67,36 +69,40 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+        {/* 이번 달 변경 건수 */}
+        <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
           <h2 className="text-sm font-medium text-gray-500">이번 달 변경 건수</h2>
           <div className="mt-4 flex items-baseline gap-2">
             <span className="text-4xl font-extrabold text-gray-900">{changesThisMonth}</span>
-            <span className="text-sm text-gray-500">건</span>
+            <span className="text-xs text-gray-500">건</span>
           </div>
         </div>
       </div>
 
-        {/* DS 커버리지 */}
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mt-8">
-          <h2 className="text-sm font-medium text-gray-500">DS 커버리지</h2>
-          <div className="mt-4 flex items-baseline gap-2">
-            <span className="text-4xl font-extrabold text-gray-900">{totalComponents}</span>
+      {/* DS Coverage & Category Distribution */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* DS Coverage */}
+        <div className="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+          <h2 className="text-sm font-medium text-gray-500 mb-4">DS 커버리지</h2>
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-2xl font-extrabold text-gray-900">{totalComponents}</span>
             <span className="text-sm text-gray-500">/ 9</span>
+            <span className="text-sm font-medium text-gray-900">{Math.round((totalComponents / 9) * 100)}%</span>
           </div>
-          <div className="mt-4 w-full bg-gray-200 rounded-full h-2.5">
-            <div className="bg-[#E8002D] h-2.5 rounded-full transition-all duration-500" style={{ width: `${(totalComponents / 9) * 100}%` }}></div>
+          <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="bg-[#E8002D] h-2 rounded-full transition-all duration-500" style={{ width: `${(totalComponents / 9) * 100}%` }}></div>
           </div>
         </div>
 
-        {/* 카테고리 분포 */}
-        <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mt-8">
+        {/* Category Distribution */}
+        <div className="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
           <h2 className="text-sm font-medium text-gray-500 mb-4">카테고리 분포</h2>
           {[
-            { label: 'Action', count: componentsData.filter(c => c.category_group === 'Action').length },
-            { label: 'Input', count: componentsData.filter(c => c.category_group === 'Input').length },
-            { label: 'Display', count: componentsData.filter(c => c.category_group === 'Display').length },
-            { label: 'Feedback', count: componentsData.filter(c => c.category_group === 'Feedback').length },
-            { label: 'Navigation', count: componentsData.filter(c => c.category_group === 'Navigation').length },
+            { label: 'Action', count: componentsData.filter(c => c.category_group === 'Action').length, color: '#E8002D' },
+            { label: 'Input', count: componentsData.filter(c => c.category_group === 'Input').length, color: '#FF6B6B' },
+            { label: 'Display', count: componentsData.filter(c => c.category_group === 'Display').length, color: '#FF9999' },
+            { label: 'Feedback', count: componentsData.filter(c => c.category_group === 'Feedback').length, color: '#FFB3B3' },
+            { label: 'Navigation', count: componentsData.filter(c => c.category_group === 'Navigation').length, color: '#FFD0D0' },
           ].map(item => {
             const percent = totalComponents ? (item.count / totalComponents) * 100 : 0;
             return (
@@ -105,24 +111,25 @@ export default function Dashboard() {
                   <span>{item.label}</span>
                   <span>{item.count}개</span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-3">
-                  <div className="bg-[#E8002D] h-3 rounded-full" style={{ width: `${percent}%` }}></div>
+                <div className="w-full bg-gray-200 rounded-full h-2.5">
+                  <div className="rounded-full h-2.5" style={{ width: `${percent}%`, backgroundColor: item.color }}></div>
                 </div>
               </div>
             );
           })}
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      </div>
+
+      {/* Component Status & Recent Changes */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Component Status Bar */}
         <section className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
           <h2 className="text-xl font-bold text-gray-900 mb-8">컴포넌트 상태 비율</h2>
-          
           <div className="h-6 w-full flex rounded-full overflow-hidden mb-8 bg-gray-100">
             <div style={{ width: `${stablePercent}%` }} className="bg-green-500 transition-all duration-1000"></div>
             <div style={{ width: `${betaPercent}%` }} className="bg-yellow-500 transition-all duration-1000"></div>
             <div style={{ width: `${deprecatedPercent}%` }} className="bg-red-400 transition-all duration-1000"></div>
           </div>
-
           <div className="space-y-5">
             <div className="flex justify-between items-center p-3 hover:bg-gray-50 rounded-lg transition-colors">
               <div className="flex items-center gap-3">
@@ -153,26 +160,20 @@ export default function Dashboard() {
           <h2 className="text-xl font-bold text-gray-900 mb-8">최근 변경 이력</h2>
           <div className="space-y-8">
             {recentChanges.map((log, index) => {
-              const targetName = log.target_type === 'component' 
+              const targetName = log.target_type === 'component'
                 ? componentsData.find(c => c.id === log.target_id)?.name || log.target_id
                 : tokensData.find(t => t.id === log.target_id)?.name || log.target_id;
-
               return (
                 <div key={log.id} className="relative pl-8">
-                  {/* Timeline line */}
                   {index !== recentChanges.length - 1 && (
                     <div className="absolute left-2.5 top-6 bottom-[-2rem] w-px bg-gray-200"></div>
                   )}
-                  {/* Timeline dot */}
                   <div className="absolute left-1 top-1.5 w-3 h-3 rounded-full bg-white border-2 border-blue-500 shadow-sm z-10"></div>
-                  
                   <div className="flex flex-col gap-1.5">
                     <div className="flex items-center gap-2 text-sm">
                       <span className="text-gray-500 font-medium">{new Date(log.date).toLocaleDateString('ko-KR')}</span>
                       <span className="text-gray-300">•</span>
-                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700">
-                        {targetName}
-                      </span>
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700">{targetName}</span>
                     </div>
                     <p className="text-gray-800 leading-snug">{log.note}</p>
                     <p className="text-xs text-gray-400 mt-1">담당자: {log.changed_by}</p>
