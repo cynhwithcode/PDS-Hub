@@ -253,6 +253,329 @@ export default function ComponentDetail() {
             </section>
           )}
 
+          {/* Element Pattern and Type Sections */}
+          {formData.id === 'c-buttons' && !isEditing && (
+            <>
+              {/* Element Pattern Section */}
+              <section className="py-12">
+                <h3 className="text-xl font-medium mb-3">Element Pattern</h3>
+                <p className="text-sm text-gray-500 mb-6 leading-relaxed">버튼 요소의 구성 패턴을 보여줍니다.</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-[#F5F5F5] rounded-xl p-10">
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="text-xs text-gray-400 mb-4 tracking-wide">Text Only</span>
+                    <div className="flex flex-col gap-2">
+                      <button className="bg-[#E8002D] text-white rounded-lg px-5 py-2">버튼</button>
+                      <button className="border-2 border-[#1A1A1A] text-[#1A1A1A] rounded-lg px-5 py-2">버튼</button>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="text-xs text-gray-400 mb-4 tracking-wide">Icon + Text</span>
+                    <div className="flex flex-col gap-2">
+                      <button className="bg-[#E8002D] text-white rounded-lg px-5 py-2 flex items-center gap-1">
+                        <span className="mr-1">▶</span>버튼
+                      </button>
+                      <button className="border-2 border-[#1A1A1A] text-[#1A1A1A] rounded-lg px-5 py-2 flex items-center gap-1">
+                        <span className="mr-1">▶</span>버튼
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="text-xs text-gray-400 mb-4 tracking-wide">Icon Only</span>
+                    <div className="flex flex-col gap-2">
+                      <button className="bg-[#E8002D] text-white rounded-full w-10 h-10 flex items-center justify-center">▶</button>
+                      <button className="border-2 border-[#1A1A1A] rounded-full w-10 h-10 flex items-center justify-center text-[#1A1A1A]">▶</button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Type Section */}
+              <section className="py-12">
+                <h3 className="text-xl font-medium mb-3">Type</h3>
+                <p className="text-sm text-gray-500 mb-6 leading-relaxed">Button은 사용 목적과 시각적 표현에 따라 Contained, Outlined, Ghost 타입 중 선택해 사용할 수 있습니다.</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">Contained</span>
+                    <div className="flex flex-col gap-2">
+                      <button className="bg-[#E8002D] text-white rounded-lg px-5 py-2">버튼</button>
+                      <button className="bg-[#E8002D] text-white rounded-lg flex items-center gap-1 px-5 py-2">
+                        <span className="mr-1">▶</span>버튼
+                      </button>
+                      <button className="bg-[#E8002D] text-white rounded-full w-10 h-10 flex items-center justify-center">▶</button>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">Outlined</span>
+                    <div className="flex flex-col gap-2">
+                      <button className="border-2 border-[#1A1A1A] text-[#1A1A1A] rounded-lg px-5 py-2">버튼</button>
+                      <button className="border-2 border-[#1A1A1A] text-[#1A1A1A] rounded-lg flex items-center gap-1 px-5 py-2">
+                        <span className="mr-1">▶</span>버튼
+                      </button>
+                      <button className="border-2 border-[#1A1A1A] rounded-full w-10 h-10 flex items-center justify-center text-[#1A1A1A]">▶</button>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">Ghost</span>
+                    <div className="flex flex-col gap-2">
+                      <span className="text-[#1A1A1A] text-sm">버튼</span>
+                      <span className="text-[#1A1A1A] text-sm">Button</span>
+                      <span className="text-[#1A1A1A] text-sm">▶</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Button Anatomy Section */}
+              <section className="py-12">
+                <h3 className="text-xl font-medium mb-3">Button Anatomy</h3>
+                <div className="bg-[#F5F5F5] rounded-xl p-10 my-6 flex justify-center items-center relative min-h-[200px] overflow-hidden">
+                  <svg width="240" height="120" viewBox="0 0 240 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible">
+                    <rect x="40" y="30" width="160" height="60" rx="8" fill="#E8002D" opacity="0.1" stroke="#E8002D" strokeWidth="2" strokeDasharray="4 4" />
+                    <circle cx="70" cy="60" r="12" fill="#9CA3AF" />
+                    <rect x="95" y="52" width="75" height="16" rx="4" fill="#6B7280" />
+                    <path d="M40 30 L20 15" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="15" cy="10" r="10" fill="white" stroke="#E5E7EB" />
+                    <text x="15" y="14" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">1</text>
+                    <path d="M132 52 L132 15" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="132" cy="10" r="10" fill="white" stroke="#E5E7EB" />
+                    <text x="132" y="14" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">2</text>
+                    <path d="M70 72 L70 95" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="70" cy="100" r="10" fill="white" stroke="#E5E7EB" />
+                    <text x="70" y="104" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">3</text>
+                  </svg>
+                </div>
+                <ul className="list-disc list-inside">
+                  <li>Container</li>
+                  <li>Text Label</li>
+                  <li>Icon (Optional)</li>
+                </ul>
+              </section>
+
+              {/* Emphasis Section */}
+              <section className="py-12">
+                <h3 className="text-xl font-medium mb-3">Emphasis</h3>
+                <p className="text-sm text-gray-500 mb-6 leading-relaxed">버튼 강조 단계와 해당 스타일을 보여줍니다.</p>
+                <div className="bg-[#F5F5F5] rounded-xl p-10 flex items-center gap-8">
+                  <svg width="120" height="160" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <polygon points="60,0 0,160 120,160" fill="#E8002D" opacity="0.3" />
+                    <text x="60" y="40" textAnchor="middle" className="text-sm fill-gray-800">High Emphasis</text>
+                    <text x="60" y="80" textAnchor="middle" className="text-sm fill-gray-800">Medium Emphasis</text>
+                    <text x="60" y="120" textAnchor="middle" className="text-sm fill-gray-800">Low Emphasis</text>
+                  </svg>
+                  <div className="flex flex-col gap-4">
+                    <button className="bg-[#E8002D] text-white rounded-lg px-5 py-2">Primary</button>
+                    <button className="bg-[#1A1A1A] text-white rounded-lg px-5 py-2">Secondary</button>
+                    <button className="border-2 border-[#1A1A1A] text-[#1A1A1A] rounded-lg px-5 py-2">Outline</button>
+                  </div>
+                </div>
+              </section>
+
+              {/* State Section */}
+              <section className="py-12">
+                <h3 className="text-xl font-medium mb-3">State</h3>
+                <p className="text-sm text-gray-500 mb-6 leading-relaxed">버튼 상태별 스타일을 보여줍니다.</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">Primary</span>
+                    <div className="grid grid-cols-2 gap-4">
+                      <button className="bg-[#E8002D] text-white rounded-lg px-5 py-2">Contained</button>
+                      <button className="border-2 border-[#1A1A1A] text-[#1A1A1A] rounded-lg px-5 py-2">Outlined</button>
+                      <button className="text-[#1A1A1A] text-sm">Ghost</button>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">Disable</span>
+                    <div className="grid grid-cols-2 gap-4 opacity-40 pointer-events-none">
+                      <button className="bg-[#E8002D] text-white rounded-lg px-5 py-2">Contained</button>
+                      <button className="border-2 border-[#1A1A1A] text-[#1A1A1A] rounded-lg px-5 py-2">Outlined</button>
+                      <button className="text-[#1A1A1A] text-sm">Ghost</button>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">Pressed & Hover</span>
+                    <div className="grid grid-cols-2 gap-4">
+                      <button className="bg-[#E8002D] text-white rounded-lg px-5 py-2 transform hover:scale-95">Contained</button>
+                      <button className="border-2 border-[#1A1A1A] text-[#1A1A1A] rounded-lg px-5 py-2 transform hover:scale-95">Outlined</button>
+                      <button className="text-[#1A1A1A] text-sm transform hover:scale-95">Ghost</button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Size Section */}
+              <section className="py-12">
+                <h3 className="text-xl font-medium mb-3">Size</h3>
+                <p className="text-sm text-gray-500 mb-6 leading-relaxed">버튼 사이즈 변화를 보여줍니다.</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">S</span>
+                    <div className="flex flex-col gap-2">
+                      <button className="bg-[#E8002D] text-white rounded-lg h-7 text-xs px-3">버튼</button>
+                      <button className="border-2 border-[#1A1A1A] text-[#1A1A1A] rounded-lg h-7 text-xs px-3">Outlined</button>
+                      <button className="text-[#1A1A1A] text-xs">Ghost</button>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">M</span>
+                    <div className="flex flex-col gap-2">
+                      <button className="bg-[#E8002D] text-white rounded-lg h-9 text-sm px-4">버튼</button>
+                      <button className="border-2 border-[#1A1A1A] text-[#1A1A1A] rounded-lg h-9 text-sm px-4">Outlined</button>
+                      <button className="text-[#1A1A1A] text-sm">Ghost</button>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">L</span>
+                    <div className="flex flex-col gap-2">
+                      <button className="bg-[#E8002D] text-white rounded-lg h-12 text-base px-6">버튼</button>
+                      <button className="border-2 border-[#1A1A1A] text-[#1A1A1A] rounded-lg h-12 text-base px-6">Outlined</button>
+                      <button className="text-[#1A1A1A] text-base">Ghost</button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Width Section */}
+              <section className="py-12">
+                <h3 className="text-xl font-medium mb-3">Width</h3>
+                <p className="text-sm text-gray-500 mb-6 leading-relaxed">버튼 너비 옵션을 보여줍니다.</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">Fixed</span>
+                    <p className="text-sm text-gray-500 mb-2">버튼 내 텍스트 길이와 관계없이 고정적인 너비</p>
+                    <button className="bg-[#E8002D] text-white rounded-lg w-32 py-2">Fixed</button>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">Flexible</span>
+                    <p className="text-sm text-gray-500 mb-2">버튼 내 텍스트 길이에 따라 유동적인 너비</p>
+                    <button className="bg-[#E8002D] text-white rounded-lg w-auto px-4 py-2">Flexible</button>
+                  </div>
+                </div>
+              </section>
+
+              {/* Usage Guidelines Section */}
+              <section className="py-12">
+                <h3 className="text-xl font-medium mb-3">Usage Guidelines</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="bg-green-50 border border-green-500 p-5 rounded-lg">
+                    <h4 className="font-semibold mb-2">Do</h4>
+                    <ul className="list-disc list-inside space-y-2">
+                      <li>Full Width 버튼은 좌우 마진 20px 유지</li>
+                      <li>버튼 레이블에 구어체 사용 가능</li>
+                      <li>키패드와 결합 시에도 좌우 마진 20px 유지</li>
+                      <li>버튼 간 간격은 배치 방향에 따라 고정값 사용 (수직 8px, 수평 8px)</li>
+                    </ul>
+                  </div>
+                  <div className="bg-red-50 border border-red-500 p-5 rounded-lg">
+                    <h4 className="font-semibold mb-2">Don’t</h4>
+                    <ul className="list-disc list-inside space-y-2">
+                      <li>좌우 마진 없이 버튼을 꽉 채워 배치</li>
+                      <li>모든 버튼에 무분별하게 구어체 사용</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              {/* Text Button Anatomy Section */}
+              <section className="py-12">
+                <h3 className="text-xl font-medium mb-3">Text Button Anatomy</h3>
+                <div className="bg-[#F5F5F5] rounded-xl p-10 my-6 flex justify-center items-center relative min-h-[200px] overflow-hidden">
+                  <svg width="240" height="120" viewBox="0 0 240 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <text x="60" y="60" fontSize="24" fill="#1A1A1A">버튼</text>
+                    <circle cx="180" cy="60" r="12" fill="#9CA3AF" />
+                    <circle cx="30" cy="30" r="10" fill="white" stroke="#E5E7EB" />
+                    <text x="30" y="34" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">1</text>
+                    <circle cx="210" cy="30" r="10" fill="white" stroke="#E5E7EB" />
+                    <text x="210" y="34" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">2</text>
+                  </svg>
+                </div>
+                <ul className="list-disc list-inside">
+                  <li>Label</li>
+                  <li>Icon (Optional)</li>
+                </ul>
+              </section>
+
+              {/* Text Button Size Section */}
+              <section className="py-12">
+                <h3 className="text-xl font-medium mb-3">Size</h3>
+                <p className="text-sm text-gray-500 mb-6 leading-relaxed">텍스트 버튼 사이즈.</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">S</span>
+                    <span className="text-xs text-[#E8002D]">Button</span>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">M</span>
+                    <span className="text-sm text-[#E8002D]">Button</span>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">L</span>
+                    <span className="text-base text-[#E8002D]">Button</span>
+                  </div>
+                </div>
+              </section>
+
+              {/* Icon Button Anatomy Section */}
+              <section className="py-12">
+                <h3 className="text-xl font-medium mb-3">Icon Button Anatomy</h3>
+                <div className="bg-[#F5F5F5] rounded-xl p-10 my-6 flex justify-center items-center relative min-h-[200px] overflow-hidden">
+                  <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="60" cy="60" r="40" fill="#E8002D" opacity="0.1" stroke="#E8002D" strokeWidth="2" />
+                    <circle cx="60" cy="60" r="12" fill="#9CA3AF" />
+                    <circle cx="20" cy="20" r="8" fill="white" stroke="#E5E7EB" />
+                    <text x="20" y="24" fontSize="8" fontWeight="bold" fill="#374151" textAnchor="middle">1</text>
+                    <circle cx="100" cy="20" r="8" fill="white" stroke="#E5E7EB" />
+                    <text x="100" y="24" fontSize="8" fontWeight="bold" fill="#374151" textAnchor="middle">2</text>
+                  </svg>
+                </div>
+                <ul className="list-disc list-inside">
+                  <li>Container</li>
+                  <li>Icon</li>
+                </ul>
+              </section>
+
+              {/* Icon Button Type Section */}
+              <section className="py-12">
+                <h3 className="text-xl font-medium mb-3">Type</h3>
+                <p className="text-sm text-gray-500 mb-6 leading-relaxed">아이콘 버튼 형태.</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-semibold mb-2">Circle</h4>
+                    <div className="flex flex-col items-center gap-4">
+                      <button className="bg-[#E8002D] text-white rounded-full w-10 h-10 flex items-center justify-center">▶</button>
+                      <button className="border-2 border-[#1A1A1A] rounded-full w-10 h-10 flex items-center justify-center text-[#1A1A1A]">▶</button>
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold mb-2">Square</h4>
+                    <div className="flex flex-col items-center gap-4">
+                      <button className="bg-[#E8002D] text-white rounded-lg w-10 h-10 flex items-center justify-center">▶</button>
+                      <button className="border-2 border-[#1A1A1A] rounded-lg w-10 h-10 flex items-center justify-center text-[#1A1A1A]">▶</button>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Icon Button Size Section */}
+              <section className="py-12">
+                <h3 className="text-xl font-medium mb-3">Size</h3>
+                <p className="text-sm text-gray-500 mb-6 leading-relaxed">아이콘 버튼 사이즈.</p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">S</span>
+                    <button className="bg-[#E8002D] text-white rounded-full w-7 h-7 flex items-center justify-center">▶</button>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">M</span>
+                    <button className="bg-[#E8002D] text-white rounded-full w-9 h-9 flex items-center justify-center">▶</button>
+                  </div>
+                  <div className="flex flex-col items-center space-y-2">
+                    <span className="font-semibold mb-1">L</span>
+                    <button className="bg-[#E8002D] text-white rounded-full w-12 h-12 flex items-center justify-center">▶</button>
+                  </div>
+                </div>
+              </section>
+            </>
+          )}
           {/* Variants Section */}
           {!isEditing && formData.variants && formData.variants.length > 0 && (
             <section>
@@ -262,18 +585,26 @@ export default function ComponentDetail() {
                   <div key={idx} className="flex flex-col border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm hover:shadow-md transition-shadow">
                     {formData.id === 'c-buttons' && (
                       <div className="bg-[#F5F5F5] h-32 flex items-center justify-center p-4 border-b border-gray-100">
-                        {item.name === 'Contained' || item.name === 'Primary' ? (
-                          <div className="bg-[#E8002D] text-white px-6 py-2.5 rounded-lg font-medium text-sm shadow-sm flex items-center gap-2">
-                            <span>Button</span>
-                          </div>
-                        ) : item.name === 'Outlined' || item.name === 'Secondary' ? (
-                          <div className="bg-white text-gray-700 border border-gray-300 px-6 py-2.5 rounded-lg font-medium text-sm shadow-sm flex items-center gap-2">
-                            <span>Button</span>
-                          </div>
+                        {item.name === 'Contained' ? (
+                          <button className="bg-[#E8002D] text-white rounded-lg font-medium text-base px-6 py-2.5 shadow-sm flex items-center gap-2 transform transition-transform hover:scale-105">
+                            버튼
+                          </button>
+                        ) : item.name === 'Primary' ? (
+                          <button className="bg-[#E8002D] text-white rounded-lg font-medium text-lg px-8 py-3 shadow-sm flex items-center gap-2 transform transition-transform hover:scale-105">
+                            버튼
+                          </button>
+                        ) : item.name === 'Outlined' ? (
+                          <button className="border border-[#E8002D] text-[#E8002D] rounded-lg font-medium text-base px-6 py-2.5 shadow-sm flex items-center gap-2 transform transition-transform hover:scale-105">
+                            버튼
+                          </button>
+                        ) : item.name === 'Secondary' ? (
+                          <button className="bg-gray-200 text-gray-800 rounded-lg font-medium text-base px-6 py-2.5 shadow-sm flex items-center gap-2 transform transition-transform hover:scale-105">
+                            버튼
+                          </button>
                         ) : item.name === 'Ghost' ? (
-                          <div className="bg-transparent text-[#E8002D] px-6 py-2.5 rounded-lg font-medium text-sm flex items-center gap-2">
-                            <span>Button</span>
-                          </div>
+                          <span className="text-[#E8002D] text-sm">버튼 &gt;</span>
+                        ) : item.name === 'Low' ? (
+                          <span className="text-[#E8002D] text-xs">버튼</span>
                         ) : (
                           <div className="text-gray-400 text-xs">Preview Area</div>
                         )}
