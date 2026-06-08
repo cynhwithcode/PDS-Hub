@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "id": "c-buttons",
     "name": "Buttons",
@@ -12,8 +12,8 @@
     "dev_link": "",
     "short_description": "사용자 액션을 유도하는 핵심 요소. Primary / Secondary / Ghost로 위계 구분.",
     "description": "사용자의 주요 액션을 유도하는 인터랙션 요소. 시각적 위계에 따라 Primary, Secondary, Ghost로 구분.",
-    "created_at": "2026-06-02T10:00:00Z",
-    "updated_at": "2026-06-02T10:00:00Z",
+    "created_at": "2026-06-02",
+    "updated_at": "2026-06-02",
     "version": "1.0.0",
     "anatomy": [
       { "number": 1, "name": "Container", "description": "버튼 전체 영역" },
@@ -50,25 +50,21 @@
       { "property": "Width", "values": "Full, Fixed", "default": "Fixed" },
       { "property": "Icon", "values": "True, False", "default": "False" }
     ],
-    "version_history": [
-      { "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }
-    ]
+    "version_history": [{ "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }]
   },
   {
     "id": "c-badge",
     "name": "Badge",
     "category": "Display",
     "category_group": "Display",
-    "thumbnail_bg": "#F5F5F5",
-    "thumbnail_icon": "",
     "status": "stable",
     "owner": "Phoenixdarts 디자인실 디자인기획팀",
     "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=86-3068&p=f&t=DaUdAMS6Bo9SIPYQ-11",
     "dev_link": "",
-    "short_description": "상태값이나 알림 개수 등을 강조하기 위한 작은 라벨.",
-    "description": "Badge는 정보의 분류, 상태 표시, 수량 알림 등 다양한 목적에 따라 사용되는 시각적 표시 요소.\n기본 형태를 중심으로 Status Badge, Count Badge, Label Badge 등으로 나뉘며\n각 유형은 정보의 성격과 우선순위에 따라 적절히 선택해 사용.",
-    "created_at": "2026-06-02T10:00:00Z",
-    "updated_at": "2026-06-02T10:00:00Z",
+    "short_description": "정보 강조 또는 상태 표시에 사용되는 소형 라벨.",
+    "description": "사용자에게 정보를 강조하거나 특정 요소에 주의를 끌기 위해 사용되는 컴포넌트.",
+    "created_at": "2026-06-02",
+    "updated_at": "2026-06-02",
     "version": "1.0.0",
     "anatomy": [
       { "number": 1, "name": "Container", "description": "뱃지 전체 영역" },
@@ -81,39 +77,35 @@
       { "name": "Icon Badge", "description": "아이콘 포함 뱃지", "type": "neutral" }
     ],
     "usage_guidelines": [
-      { "type": "do", "title": "색상 변경", "description": "서비스 컬러에 맞게 Badge 색상 변경 가능. 서비스 주요 컬러 모드의 레드 계열 컬러 사용 권장" },
-      { "type": "do", "title": "비노출 기준", "description": "카운트 값이 없을 경우 뱃지 비노출. 불필요한 정보 노출 방지를 위해 값이 없는 컴포넌트에 뱃지 비노출 처리" },
-      { "type": "dont", "title": "크기 변경 금지", "description": "제공된 사이즈 외 임의로 크기 변경 금지. S, M, L, XL, XXL 사이즈 범위 내에서만 사용" },
-      { "type": "dont", "title": "'0' 표시 금지", "description": "카운트 값이 없는 경우 badge에 '0'을 표시하지 않도록 설정. 불필요한 정보 노출 방지를 위해 값이 없을 경우 뱃지 컴포넌트는 히든으로 처리" }
+      { "type": "do", "title": "서비스 컬러에 맞게 색상 변경 가능", "description": "서비스 주요 컬러 모드의 레드 계열 컬러 사용 권장" },
+      { "type": "do", "title": "카운트 값이 없을 경우 뱃지 비노출", "description": "불필요한 정보 노출 방지를 위해 값이 없는 컴포넌트에 뱃지 비노출 처리" },
+      { "type": "dont", "title": "제공된 사이즈 외 임의로 크기 변경 금지", "description": "S, M, L, XL, XXL 사이즈 범위 내에서만 사용" },
+      { "type": "dont", "title": "카운트 값이 없는 경우 0 표시 금지", "description": "값이 없을 경우 뱃지 컴포넌트는 히든으로 처리" }
     ],
     "spec": {
-      "sizes": ["S: 4px (Dot) / 16px (Number/Icon)", "M: 8px (Dot) / 18px (Number/Icon)", "L: 10px (Dot) / 24px (Number/Icon)", "XL: 14px (Dot) / 32px (Number/Icon)"],
-      "notes": "두 자리 수 초과 시 99+ 형식의 2-Digits 스타일로 표시하여 가독성 유지.\n배경색 기반의 다크모드와 함께 적용해 Badge의 배경 각색 간의 자연스러운 구분 제공."
+      "sizes": ["S: 4px(Dot)/16px(Number)", "M: 8px(Dot)/18px(Number)", "L: 10px(Dot)/24px(Number)", "XL: 14px(Dot)/32px(Number)"],
+      "notes": "두 자리 수 초과 시 99+ 형식으로 표시."
     },
     "figma_properties": [
       { "property": "Type", "values": "Dot, Number, Icon", "default": "Number" },
       { "property": "Size", "values": "S, M, L, XL", "default": "M" },
       { "property": "Color", "values": "Red, Blue, Green, Custom", "default": "Red" }
     ],
-    "version_history": [
-      { "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }
-    ]
+    "version_history": [{ "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }]
   },
   {
     "id": "c-chips",
     "name": "Chips",
     "category": "Action",
     "category_group": "Action",
-    "thumbnail_bg": "#F5F5F5",
-    "thumbnail_icon": "",
     "status": "stable",
     "owner": "Phoenixdarts 디자인실 디자인기획팀",
     "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=86-3418",
     "dev_link": "",
-    "short_description": "필터링이나 다중 선택을 위해 콤팩트하게 제공되는 액션 요소.",
-    "description": "칩(Chips)은 상태 표시, 필터, 선택 등의 정보를 간결하게 전달하는 UI 컴포넌트.\n사용자의 빠른 인지를 돕기 위해 용도에 따라 명확한 스타일 기준이 적용되며,\n정해진 컴포넌트 형태와 규칙 내에서 사용해야 하고 임의로 스타일을 변경하거나 추가하는 것은 제한됨.",
-    "created_at": "2026-06-02T10:00:00Z",
-    "updated_at": "2026-06-02T10:00:00Z",
+    "short_description": "정보 선택, 필터링, 특정 액션을 유도하는 요소.",
+    "description": "사용자로 하여금 정보, 선택, 콘텐츠의 필터링, 그리고 특정 액션을 유도하는 컴포넌트.",
+    "created_at": "2026-06-02",
+    "updated_at": "2026-06-02",
     "version": "1.0.0",
     "anatomy": [
       { "number": 1, "name": "Container", "description": "칩 전체 영역" },
@@ -123,74 +115,88 @@
     ],
     "variants": [
       { "name": "Text Only", "description": "텍스트만 있는 기본 칩", "type": "neutral" },
-      { "name": "Side Icon", "description": "양쪽 아이콘 포함 칩", "type": "neutral" },
       { "name": "Left Icon", "description": "왼쪽 아이콘 포함 칩", "type": "do" },
       { "name": "Right Icon", "description": "오른쪽 아이콘 포함 칩", "type": "neutral" },
       { "name": "Contained", "description": "채워진 형태. 시각적 우선순위 높음", "type": "do" },
       { "name": "Outlined", "description": "외곽선 형태. Contained보다 낮은 우선순위", "type": "neutral" }
     ],
     "usage_guidelines": [
-      { "type": "do", "title": "타입 선택", "description": "용도에 따라 Contained 또는 Outlined 타입 선택해서 사용" },
-      { "type": "do", "title": "유형 구분", "description": "역할, 상호작용, 시각적 우선순위에 따라 유형 구분해서 사용" },
-      { "type": "do", "title": "일관성 유지", "description": "정해진 Element Pattern 내에서 일관되게 사용" },
-      { "type": "dont", "title": "임의 스타일 변경 금지", "description": "임의로 스타일 변경하거나 추가하는 것 금지" },
-      { "type": "dont", "title": "가이드 외 속성 제한", "description": "역할에 따른 스타일 가이드 외 임의로 스타일 추가/변경 금지" },
-      { "type": "dont", "title": "우선순위 혼용 금지", "description": "Contained와 Outlined 혼용 시 우선순위 고려 없이 사용 금지" }
+      { "type": "do", "title": "용도에 따라 타입 선택", "description": "Contained 또는 Outlined 타입을 용도에 맞게 선택해서 사용" },
+      { "type": "do", "title": "정해진 패턴 내에서 사용", "description": "역할, 상호작용, 시각적 우선순위에 따라 유형 구분" },
+      { "type": "dont", "title": "임의 스타일 변경 금지", "description": "정해진 컴포넌트 형태와 규칙 외 임의로 스타일 변경 금지" },
+      { "type": "dont", "title": "혼용 금지", "description": "Contained와 Outlined 혼용 시 우선순위 고려 없이 사용 금지" }
     ],
     "spec": {
       "sizes": ["S: 소형", "M: 중형 (기본)", "L: 대형"],
-      "notes": "State는 Selected, Unselected, Disabled 3가지로 구분.\n모든 케이스는 정의된 패턴 내에서 일관되게 사용해야 함."
+      "notes": "State는 Selected, Unselected, Disabled 3가지."
     },
     "figma_properties": [
       { "property": "Type", "values": "Contained, Outlined", "default": "Contained" },
-      { "property": "Element", "values": "Text Only, Side Icon, Left Icon, Right Icon", "default": "Text Only" },
+      { "property": "Element", "values": "Text Only, Left Icon, Right Icon", "default": "Text Only" },
       { "property": "State", "values": "Selected, Unselected, Disabled", "default": "Unselected" },
       { "property": "Size", "values": "S, M, L", "default": "M" }
     ],
-    "version_history": [
-      { "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }
-    ]
+    "version_history": [{ "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }]
   },
   {
     "id": "c-textfield",
     "name": "Text Field",
     "category": "Input",
     "category_group": "Input",
-    "thumbnail_bg": "#F5F5F5",
-    "thumbnail_icon": "",
     "status": "stable",
     "owner": "Phoenixdarts 디자인실 디자인기획팀",
     "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=88-264&p=f&t=DaUdAMS6Bo9SIPYQ-11",
     "dev_link": "",
-    "short_description": "사용자가 텍스트를 입력하고 편집할 수 있는 폼 구성 요소.",
-    "description": "폼 내에서 단일 라인 또는 다중 라인의 텍스트 데이터를 입력받기 위해 사용하는 표준 입력 컴포넌트입니다.",
-    "created_at": "2026-06-02T10:00:00Z",
-    "updated_at": "2026-06-02T10:00:00Z",
+    "short_description": "텍스트 입력 및 확인에 사용되는 기본 입력 요소.",
+    "description": "사용자가 한 줄의 텍스트를 입력할 수 있는 UI 컴포넌트. 드롭다운, 삭제 버튼 등의 요소와 함께 사용하여 입력 편의성과 기능성을 높일 수 있음.",
+    "created_at": "2026-06-02",
+    "updated_at": "2026-06-02",
     "version": "1.0.0",
-    "anatomy": [],
-    "variants": [],
-    "usage_guidelines": [],
-    "spec": { "sizes": [], "notes": "" },
-    "figma_properties": [],
-    "version_history": [
-      { "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }
-    ]
+    "anatomy": [
+      { "number": 1, "name": "Label Text", "description": "입력 필드 제목" },
+      { "number": 2, "name": "Info Icon", "description": "추가 정보 아이콘 (Optional)" },
+      { "number": 3, "name": "Input Area", "description": "텍스트 입력 영역" },
+      { "number": 4, "name": "Placeholder", "description": "입력 전 안내 텍스트" },
+      { "number": 5, "name": "Help Text", "description": "도움말 또는 에러 메시지 (Optional)" },
+      { "number": 6, "name": "Clear Icon", "description": "입력 내용 삭제 아이콘" },
+      { "number": 7, "name": "Tailing Icon", "description": "우측 아이콘 (Optional)" }
+    ],
+    "variants": [
+      { "name": "Single Line", "description": "한 줄 텍스트 입력", "type": "do" },
+      { "name": "Text Area", "description": "여러 줄 텍스트 입력. 텍스트량 초과 시 스크롤", "type": "neutral" }
+    ],
+    "usage_guidelines": [
+      { "type": "do", "title": "Label Text와 함께 사용", "description": "사용자가 입력할 내용을 명확히 안내" },
+      { "type": "do", "title": "Help Text 제공", "description": "입력 가이드 또는 에러 메시지 제공" },
+      { "type": "dont", "title": "Placeholder에 중요 정보 금지", "description": "입력 가이드나 중요 정보를 Placeholder에만 넣고 Label 생략 금지" },
+      { "type": "dont", "title": "Overflow 사용 금지", "description": "텍스트 범위 기본 케이스 Overflow 사용 금지" }
+    ],
+    "spec": {
+      "sizes": ["Single Line: 고정 높이", "Text Area: 가변 높이, 최대 높이 고정 후 스크롤"],
+      "notes": "State는 Normal, Complete, Selected, Read Only, Error, Disabled 6가지."
+    },
+    "figma_properties": [
+      { "property": "Type", "values": "Single Line, Text Area", "default": "Single Line" },
+      { "property": "State", "values": "Normal, Complete, Selected, Read Only, Error, Disabled", "default": "Normal" },
+      { "property": "Info Icon", "values": "True, False", "default": "False" },
+      { "property": "Tailing Icon", "values": "True, False", "default": "False" },
+      { "property": "Clear Icon", "values": "True, False", "default": "True" }
+    ],
+    "version_history": [{ "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }]
   },
   {
     "id": "c-tab",
     "name": "Tab",
     "category": "Navigation",
     "category_group": "Navigation",
-    "thumbnail_bg": "#F5F5F5",
-    "thumbnail_icon": "",
     "status": "stable",
     "owner": "Phoenixdarts 디자인실 디자인기획팀",
     "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=151-3023&p=f&t=DaUdAMS6Bo9SIPYQ-11",
     "dev_link": "",
-    "short_description": "동일한 맥락 안에서 연관된 콘텐츠 뷰를 전환할 때 사용.",
-    "description": "Tab 버튼은 다양한 콘텐츠와 화면을 직관적으로 전환할 수 있도록 설계된 UI 요소.\n사용자는 별도의 추가 동작 없이 빠르게 원하는 정보를 탐색할 수 있으며,\n선택된 탭은 명확한 시각적 구분을 통해 현재 위치를 직관적으로 안내함.",
-    "created_at": "2026-06-02T10:00:00Z",
-    "updated_at": "2026-06-02T10:00:00Z",
+    "short_description": "동일 위계의 콘텐츠를 그룹화하고 섹션 간 이동 시 사용.",
+    "description": "다양한 콘텐츠와 화면을 직관적으로 전환할 수 있도록 설계된 UI 요소. 선택된 탭은 명확한 시각적 구분을 통해 현재 위치를 안내.",
+    "created_at": "2026-06-02",
+    "updated_at": "2026-06-02",
     "version": "1.0.0",
     "anatomy": [
       { "number": 1, "name": "Tabs", "description": "탭 전체 컨테이너" },
@@ -201,155 +207,155 @@
     "variants": [
       { "name": "Default", "description": "기본 탭. 고정형", "type": "do" },
       { "name": "Scroll", "description": "스크롤 가능한 탭. 탭이 많을 때 사용", "type": "neutral" },
-      { "name": "Selected", "description": "현재 선택된 탭. 색상 강조 + Selection Indicator 표시", "type": "do" },
-      { "name": "Unselected", "description": "비선택 탭. 페이지 내비에 맞게 균등 배치", "type": "neutral" }
+      { "name": "Selected", "description": "현재 선택된 탭. 색상 강조 + Indicator 표시", "type": "do" },
+      { "name": "Unselected", "description": "비선택 탭", "type": "neutral" }
     ],
     "usage_guidelines": [
-      { "type": "do", "title": "직관적 전환", "description": "다양한 콘텐츠와 화면을 직관적으로 전환할 때 사용" },
-      { "type": "do", "title": "위치 안내", "description": "Selected 상태로 현재 위치를 명확하게 안내" },
-      { "type": "do", "title": "Scroll 타입 활용", "description": "탭이 많을 경우 Scroll 타입 사용" },
-      { "type": "dont", "title": "갑작스러운 전환 금지", "description": "탭 전환 시 애니메이션 없이 갑작스러운 전환 금지" },
-      { "type": "dont", "title": "스크롤 시 고정 해제 금지", "description": "스크롤 시 상단 탭이 고정되지 않도록 구성 금지" }
+      { "type": "do", "title": "콘텐츠 전환 시 사용", "description": "다양한 콘텐츠와 화면을 직관적으로 전환할 때 사용" },
+      { "type": "do", "title": "현재 위치 안내", "description": "Selected 상태로 현재 위치를 명확하게 안내" },
+      { "type": "dont", "title": "갑작스러운 전환 금지", "description": "탭 전환 시 애니메이션 없이 갑작스러운 전환 금지" }
     ],
     "spec": {
       "sizes": ["탭 높이 고정", "Selection Indicator: 하단 라인"],
-      "notes": "Behaviors: 다른 탭 선택 시 Selection Indicator가 새로운 탭으로 이동.\n탭이 전환될 때 해당 탭에 연결된 하단 콘텐츠도 동시에 변경됨.\n스크롤 내리면 상단 탭이 고정되며 스크롤 올리면 헤더와 함께 상단 탭이 나타남."
+      "notes": "스크롤 내리면 상단 탭 고정. 스크롤 올리면 헤더와 함께 상단 탭 나타남."
     },
     "figma_properties": [
       { "property": "Type", "values": "Default, Scroll", "default": "Default" },
       { "property": "State", "values": "Selected, Unselected", "default": "Unselected" }
     ],
-    "version_history": [
-      { "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }
-    ]
+    "version_history": [{ "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }]
   },
   {
     "id": "c-popup",
     "name": "Popup",
     "category": "Feedback",
     "category_group": "Feedback",
-    "thumbnail_bg": "#F5F5F5",
-    "thumbnail_icon": "",
     "status": "stable",
     "owner": "Phoenixdarts 디자인실 디자인기획팀",
     "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=151-19053&p=f&t=DaUdAMS6Bo9SIPYQ-11",
     "dev_link": "",
-    "short_description": "사용자의 작업 흐름을 차단하고 중요한 정보를 확인받는 모달.",
-    "description": "화면 중앙에 띄워 사용자에게 중요 메시지를 전달하거나 필수적인 행동을 강제할 때 사용하는 컴포넌트입니다.",
-    "created_at": "2026-06-02T10:00:00Z",
-    "updated_at": "2026-06-02T10:00:00Z",
+    "short_description": "현재 작업 관련 긴급 정보를 사용자에게 전달하는 요소.",
+    "description": "사용자에게 중요한 정보를 전달하거나 action을 확인받기 위해 사용하는 컴포넌트. Alert Popup과 Toast 두 가지 유형으로 구성.",
+    "created_at": "2026-06-02",
+    "updated_at": "2026-06-02",
     "version": "1.0.0",
-    "anatomy": [],
-    "variants": [],
-    "usage_guidelines": [],
-    "spec": { "sizes": [], "notes": "" },
-    "figma_properties": [],
-    "version_history": [
-      { "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }
-    ]
+    "anatomy": [
+      { "number": 1, "name": "Title", "description": "팝업 타이틀" },
+      { "number": 2, "name": "Sub Text", "description": "서브 문구" },
+      { "number": 3, "name": "Button", "description": "버튼 (1개 또는 2개)" }
+    ],
+    "variants": [
+      { "name": "1 Button", "description": "확인 단일 버튼. 정보 제공용", "type": "do" },
+      { "name": "2 Button", "description": "확인/취소 버튼. 작업 확인용", "type": "do" },
+      { "name": "1 Button + Text Button", "description": "버튼 + 텍스트 버튼 조합", "type": "neutral" },
+      { "name": "Toast 성공", "description": "성공 문구. 초록색", "type": "do" },
+      { "name": "Toast 안내", "description": "안내 문구. 파란색", "type": "neutral" },
+      { "name": "Toast 오류", "description": "오류 문구. 빨간색", "type": "neutral" },
+      { "name": "Toast 경고", "description": "경고 문구. 노란색", "type": "neutral" }
+    ],
+    "usage_guidelines": [
+      { "type": "do", "title": "상황에 맞는 버튼 조합 선택", "description": "Information: 확인/닫기, Action Confirmation: 예/아니오, Cancelable: 확인/취소" },
+      { "type": "dont", "title": "Popup 너비 임의 변경 금지", "description": "Alert Popup 너비 270px 외 임의 변경 금지" },
+      { "type": "dont", "title": "버튼 3개 이상 금지", "description": "버튼 최대 2개까지만 사용" }
+    ],
+    "spec": {
+      "sizes": ["Alert Popup 너비: 270px", "Button: 1개 또는 2개"],
+      "notes": "Toast 타입: 성공/안내/오류/경고 4가지."
+    },
+    "figma_properties": [
+      { "property": "Type", "values": "Alert Popup, Toast", "default": "Alert Popup" },
+      { "property": "Button Combination", "values": "1 Button, 2 Button, 1 Button + Text Button", "default": "2 Button" },
+      { "property": "Toast Type", "values": "Success, Info, Error, Warning", "default": "Success" }
+    ],
+    "version_history": [{ "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }]
   },
   {
     "id": "c-bottomsheet",
     "name": "Bottom Sheet",
     "category": "Feedback",
     "category_group": "Feedback",
-    "thumbnail_bg": "#F5F5F5",
-    "thumbnail_icon": "",
     "status": "stable",
     "owner": "Phoenixdarts 디자인실 디자인기획팀",
     "figma_link": "https://www.figma.com/design/6dNFC76sYE7PABdRxZjtxa/%ED%94%BC%EB%8B%89%EC%8A%A4%EB%8B%A4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8%EC%8B%9C%EC%8A%A4%ED%85%9C--%EC%9E%91%EC%97%85%EC%A4%91-?node-id=537-453&p=f&t=DaUdAMS6Bo9SIPYQ-11",
     "dev_link": "",
-    "short_description": "모바일 환경에서 화면 하단에서 올라오는 부가 컨텐츠 레이어.",
-    "description": "바텀시트(Bottom Sheet)는 화면 아래에 고정되어 현재 있는 화면 위로 관련된 컨텐츠를 표시하는 UI 요소.\n페이지를 이탈하지 않고 동일한 정보 전달이나 복잡한 정보 입력을 요청할 수 있는 대안적 레이아웃으로 사용되며,\n활성화되면 사용자가 기타 페이지 콘텐츠의 상호작용은 차단됨.\n반드시 실습한 상황에서만 사용해야 함.",
-    "created_at": "2026-06-02T10:00:00Z",
-    "updated_at": "2026-06-02T10:00:00Z",
+    "short_description": "페이지 이탈 없이 집중이 필요한 정보를 표시하는 대안 컴포넌트.",
+    "description": "화면 아래에 고정되어 현재 화면 위로 관련된 콘텐츠를 표시하는 UI 요소. 페이지를 이탈하지 않고 정보 전달이나 복잡한 정보 입력을 요청할 수 있음.",
+    "created_at": "2026-06-02",
+    "updated_at": "2026-06-02",
     "version": "1.0.0",
     "anatomy": [
       { "number": 1, "name": "Sheet", "description": "바텀시트 전체 영역" },
       { "number": 2, "name": "Knob", "description": "상단 손잡이" },
-      { "number": 3, "name": "Header Title", "description": "(Optional)" },
-      { "number": 4, "name": "Close Button", "description": "(Optional)" },
+      { "number": 3, "name": "Header Title", "description": "헤더 타이틀 (Optional)" },
+      { "number": 4, "name": "Close Button", "description": "닫기 버튼 (Optional)" },
       { "number": 5, "name": "Contents Area", "description": "콘텐츠 영역" },
-      { "number": 6, "name": "Button", "description": "(Optional)" },
+      { "number": 6, "name": "Button", "description": "버튼 (Optional)" },
       { "number": 7, "name": "Draggable", "description": "드래그 가능 영역" }
     ],
     "variants": [
-      { "name": "A. Basic", "description": "기본형. 헤더/버튼 없음", "type": "do" },
-      { "name": "B. Banner", "description": "배너형", "type": "neutral" },
-      { "name": "C. Nudging", "description": "넛징형", "type": "neutral" },
-      { "name": "D. Nudging + Close", "description": "넛징 + 닫기 버튼", "type": "neutral" }
+      { "name": "Basic", "description": "기본형. 헤더/버튼 없음", "type": "do" },
+      { "name": "Banner", "description": "배너형", "type": "neutral" },
+      { "name": "Nudging", "description": "넛징형", "type": "neutral" },
+      { "name": "Nudging + Close", "description": "넛징 + 닫기 버튼", "type": "neutral" }
     ],
     "usage_guidelines": [
-      { "type": "do", "title": "관련 콘텐츠 표시", "description": "페이지 이탈 없이 관련 콘텐츠 표시할 때 사용" },
-      { "type": "do", "title": "드래그 닫기 제공", "description": "Draggable로 사용자가 직접 닫을 수 있도록 제공" },
-      { "type": "do", "title": "키보드 상황 고려", "description": "키보드 활성화 시 Non-Scrollable / Scrollable 상황에 맞게 사용" },
+      { "type": "do", "title": "페이지 이탈 없이 콘텐츠 표시", "description": "페이지 이탈 없이 관련 콘텐츠 표시할 때 사용" },
+      { "type": "do", "title": "닫기 방법 제공", "description": "Draggable 또는 Close Button으로 사용자가 직접 닫을 수 있도록 제공" },
       { "type": "dont", "title": "남용 금지", "description": "불필요한 상황에서 바텀시트 남용 금지" },
-      { "type": "dont", "title": "중첩 금지", "description": "여러 바텀시트 중첩 사용 금지" },
-      { "type": "dont", "title": "닫기 불가 금지", "description": "Close Button 없이 닫기 방법을 제공하지 않는 것 금지" }
+      { "type": "dont", "title": "중첩 사용 금지", "description": "여러 바텀시트 중첩 사용 금지" }
     ],
     "spec": {
-      "sizes": ["Full gutty: Status Bar 기준으로 Fixed 48px, Draggable 16px", "half gutty: 적절한 높이 설정", "Fixed-Full / Draggable-Full 두 가지 형태"],
-      "notes": "Interaction: Draggable이 아래로 내려갈수록 투명해지며 일정 이상 내려가면 자동으로 닫힘.\nDraggable은 마우스로 drag할 수 있으며 사이즈나 위치를 자유롭게 조정 가능.\nHandlerBar: 클릭하여 닫히지 않음. 핸들링만 가능.\nClose Button: 클릭하여 바텀시트 완전히 닫힘.\nExpand: 드래그 영역 드래그하여 화면 최대/최소 크기로 전환 가능.\nWith Keyboard Non-Scrollable: 텍스트 입력 필드 포함 시 키보드 올라올 때 버튼이 키보드 위로 올라옴.\nWith Keyboard Scrollable: 스크롤 필요 시 콘텐츠 스크롤 가능하며 버튼 고정."
+      "sizes": ["Fixed-Full", "Draggable-Full"],
+      "notes": "Draggable이 아래로 내려갈수록 투명해지며 일정 이상 내려가면 자동으로 닫힘."
     },
     "figma_properties": [
       { "property": "Type", "values": "Basic, Banner, Nudging, Nudging+Close", "default": "Basic" },
       { "property": "Header", "values": "True, False", "default": "False" },
       { "property": "Close Button", "values": "True, False", "default": "False" },
-      { "property": "Button", "values": "True, False", "default": "True" },
-      { "property": "Keyboard", "values": "None, Non-Scrollable, Scrollable", "default": "None" }
+      { "property": "Button", "values": "True, False", "default": "True" }
     ],
-    "version_history": [
-      { "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }
-    ]
+    "version_history": [{ "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }]
   },
   {
     "id": "c-error",
     "name": "Error",
     "category": "Feedback",
     "category_group": "Feedback",
-    "thumbnail_bg": "#F5F5F5",
-    "thumbnail_icon": "",
     "status": "stable",
     "owner": "Phoenixdarts 디자인실 디자인기획팀",
     "figma_link": "",
     "dev_link": "",
-    "short_description": "오류 상황에서 사용자에게 문제를 안내하고 해결책을 제시하는 화면.",
-    "description": "네트워크 에러, 404 등 정상적인 페이지 접근이 불가능할 때 노출되어 사용자 경험 단절을 막아주는 상태 컴포넌트입니다.",
-    "created_at": "2026-06-02T10:00:00Z",
-    "updated_at": "2026-06-02T10:00:00Z",
+    "short_description": "오류 상태를 사용자에게 명확하게 전달하는 컴포넌트.",
+    "description": "시스템 또는 입력 오류 발생 시 사용자에게 상황을 명확히 전달하고 해결 방향을 안내하는 컴포넌트.",
+    "created_at": "2026-06-02",
+    "updated_at": "2026-06-02",
     "version": "1.0.0",
     "anatomy": [],
     "variants": [],
     "usage_guidelines": [],
     "spec": { "sizes": [], "notes": "" },
     "figma_properties": [],
-    "version_history": [
-      { "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }
-    ]
+    "version_history": [{ "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }]
   },
   {
     "id": "c-policy",
     "name": "Policy",
     "category": "Display",
     "category_group": "Display",
-    "thumbnail_bg": "#F5F5F5",
-    "thumbnail_icon": "",
     "status": "stable",
     "owner": "Phoenixdarts 디자인실 디자인기획팀",
     "figma_link": "",
     "dev_link": "",
-    "short_description": "이용약관, 개인정보처리방침 등 정책을 보여주기 위한 텍스트 레이아웃.",
-    "description": "길고 복잡한 법적 고지사항이나 정책들을 가독성 있게 구조화하여 보여주는 전용 디스플레이 컴포넌트입니다.",
-    "created_at": "2026-06-02T10:00:00Z",
-    "updated_at": "2026-06-02T10:00:00Z",
+    "short_description": "약관 및 정책 정보를 구조적으로 표시하는 컴포넌트.",
+    "description": "서비스 이용약관, 개인정보처리방침 등 정책 정보를 사용자에게 명확하게 전달하는 컴포넌트.",
+    "created_at": "2026-06-02",
+    "updated_at": "2026-06-02",
     "version": "1.0.0",
     "anatomy": [],
     "variants": [],
     "usage_guidelines": [],
     "spec": { "sizes": [], "notes": "" },
     "figma_properties": [],
-    "version_history": [
-      { "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }
-    ]
+    "version_history": [{ "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }]
   }
 ]
