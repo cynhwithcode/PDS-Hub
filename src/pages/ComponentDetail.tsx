@@ -257,8 +257,8 @@ export default function ComponentDetail() {
           {formData.id === 'c-buttons' && !isEditing && (
             <>
               {/* Element Pattern Section */}
-              <section className="py-12">
-                <h3 className="text-xl font-medium mb-3">Element Pattern</h3>
+              <section className="border-t border-gray-100 pt-12 mt-12">
+                <h3 className="font-bold text-xl mb-3">Element Pattern</h3>
                 <p className="text-sm text-gray-500 mb-6 leading-relaxed">버튼 요소의 구성 패턴을 보여줍니다.</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-[#F5F5F5] rounded-xl p-10">
                   <div className="flex flex-col items-center space-y-2">
@@ -290,8 +290,8 @@ export default function ComponentDetail() {
               </section>
 
               {/* Type Section */}
-              <section className="py-12">
-                <h3 className="text-xl font-medium mb-3">Type</h3>
+              <section className="border-t border-gray-100 pt-12 mt-12">
+                <h3 className="font-bold text-xl mb-3">Type</h3>
                 <p className="text-sm text-gray-500 mb-6 leading-relaxed">Button은 사용 목적과 시각적 표현에 따라 Contained, Outlined, Ghost 타입 중 선택해 사용할 수 있습니다.</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="flex flex-col items-center space-y-2">
@@ -326,8 +326,8 @@ export default function ComponentDetail() {
               </section>
 
               {/* Button Anatomy Section */}
-              <section className="py-12">
-                <h3 className="text-xl font-medium mb-3">Button Anatomy</h3>
+              <section className="border-t border-gray-100 pt-12 mt-12">
+                <h3 className="font-bold text-xl mb-3">Button Anatomy</h3>
                 <div className="bg-[#F5F5F5] rounded-xl p-10 my-6 flex justify-center items-center relative min-h-[200px] overflow-hidden">
                   <svg width="240" height="120" viewBox="0 0 240 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible">
                     <rect x="40" y="30" width="160" height="60" rx="8" fill="#E8002D" opacity="0.1" stroke="#E8002D" strokeWidth="2" strokeDasharray="4 4" />
@@ -353,7 +353,7 @@ export default function ComponentDetail() {
 
               {/* Emphasis Section */}
               <section className="py-12">
-                <h3 className="text-xl font-medium mb-3">Emphasis</h3>
+                <h3 className="font-bold text-xl mb-3">Emphasis</h3>
                 <p className="text-sm text-gray-500 mb-6 leading-relaxed">버튼 강조 단계와 해당 스타일을 보여줍니다.</p>
                 <div className="bg-[#F5F5F5] rounded-xl p-10 flex items-center gap-8">
                   <svg width="120" height="160" viewBox="0 0 120 160" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -372,7 +372,7 @@ export default function ComponentDetail() {
 
               {/* State Section */}
               <section className="py-12">
-                <h3 className="text-xl font-medium mb-3">State</h3>
+                <h3 className="font-bold text-xl mb-3">State</h3>
                 <p className="text-sm text-gray-500 mb-6 leading-relaxed">버튼 상태별 스타일을 보여줍니다.</p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="flex flex-col items-center space-y-2">
@@ -426,8 +426,8 @@ export default function ComponentDetail() {
                   <div className="flex flex-col items-center space-y-2">
                     <span className="font-semibold mb-1">L</span>
                     <div className="flex flex-col gap-2">
-                      <button className="bg-[#E8002D] text-white rounded-lg h-12 text-base px-6">버튼</button>
-                      <button className="border-2 border-[#1A1A1A] text-[#1A1A1A] rounded-lg h-12 text-base px-6">Outlined</button>
+                      <button className="bg-[#E8002D] text-white rounded-lg h-11 text-base px-6">버튼</button>
+                      <button className="border-2 border-[#1A1A1A] text-[#1A1A1A] rounded-lg h-11 text-base px-6">Outlined</button>
                       <button className="text-[#1A1A1A] text-base">Ghost</button>
                     </div>
                   </div>
@@ -436,7 +436,7 @@ export default function ComponentDetail() {
 
               {/* Width Section */}
               <section className="py-12">
-                <h3 className="text-xl font-medium mb-3">Width</h3>
+                <h3 className="font-bold text-xl mb-3">Width</h3>
                 <p className="text-sm text-gray-500 mb-6 leading-relaxed">버튼 너비 옵션을 보여줍니다.</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex flex-col items-center space-y-2">
@@ -446,38 +446,31 @@ export default function ComponentDetail() {
                   </div>
                   <div className="flex flex-col items-center space-y-2">
                     <span className="font-semibold mb-1">Flexible</span>
-                    <p className="text-sm text-gray-500 mb-2">버튼 내 텍스트 길이에 따라 유동적인 너비</p>
+                    <p className="text-sm text-gray-500">버튼 내 텍스트 길이에 따라 유동적인 너비</p>
                     <button className="bg-[#E8002D] text-white rounded-lg w-auto px-4 py-2">Flexible</button>
                   </div>
-                </div>
-              </section>
-
-              {/* Usage Guidelines Section */}
-              <section className="py-12">
-                <h3 className="text-xl font-medium mb-3">Usage Guidelines</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-green-50 border border-green-500 p-5 rounded-lg">
-                    <h4 className="font-semibold mb-2">Do</h4>
-                    <ul className="list-disc list-inside space-y-2">
-                      <li>Full Width 버튼은 좌우 마진 20px 유지</li>
-                      <li>버튼 레이블에 구어체 사용 가능</li>
-                      <li>키패드와 결합 시에도 좌우 마진 20px 유지</li>
-                      <li>버튼 간 간격은 배치 방향에 따라 고정값 사용 (수직 8px, 수평 8px)</li>
-                    </ul>
-                  </div>
-                  <div className="bg-red-50 border border-red-500 p-5 rounded-lg">
-                    <h4 className="font-semibold mb-2">Don’t</h4>
-                    <ul className="list-disc list-inside space-y-2">
-                      <li>좌우 마진 없이 버튼을 꽉 채워 배치</li>
-                      <li>모든 버튼에 무분별하게 구어체 사용</li>
-                    </ul>
-                  </div>
-                </div>
-              </section>
+      <div className="grid md:grid-cols-2 gap-6">
+        <div className="bg-green-50 border-l-4 border-green-500 p-5 rounded-b-lg shadow-sm">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold bg-green-200 text-green-800 rounded-full">DO</span>
+            <h4 className="font-bold text-green-900 text-sm">명확한 라벨링</h4>
+          </div>
+          <p className="text-sm text-green-800 leading-relaxed">버튼에 명확한 라벨을 제공해 사용자가 목적을 이해하도록 합니다.</p>
+        </div>
+        <div className="bg-red-50 border-l-4 border-red-500 p-5 rounded-b-lg shadow-sm">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="inline-flex items-center justify-center px-2 py-0.5 text-xs font-bold bg-red-200 text-red-800 rounded-full">DON’T</span>
+            <h4 className="font-bold text-red-900 text-sm">과도한 텍스트</h4>
+          </div>
+          <p className="text-sm text-red-800 leading-relaxed">버튼에 과도한 텍스트를 넣어 가독성을 해치지 않도록 합니다.</p>
+        </div>
+      </div>
+  </div>
+</section>
 
               {/* Text Button Anatomy Section */}
-              <section className="py-12">
-                <h3 className="text-xl font-medium mb-3">Text Button Anatomy</h3>
+              <section className="border-t border-gray-100 pt-12 mt-12">
+                <h3 className="font-bold text-xl mb-3">Text Button Anatomy</h3>
                 <div className="bg-[#F5F5F5] rounded-xl p-10 my-6 flex justify-center items-center relative min-h-[200px] overflow-hidden">
                   <svg width="240" height="120" viewBox="0 0 240 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <text x="60" y="60" fontSize="24" fill="#1A1A1A">버튼</text>
@@ -516,7 +509,7 @@ export default function ComponentDetail() {
 
               {/* Icon Button Anatomy Section */}
               <section className="py-12">
-                <h3 className="text-xl font-medium mb-3">Icon Button Anatomy</h3>
+                <h3 className="font-bold text-xl mb-3">Icon Button Anatomy</h3>
                 <div className="bg-[#F5F5F5] rounded-xl p-10 my-6 flex justify-center items-center relative min-h-[200px] overflow-hidden">
                   <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="60" cy="60" r="40" fill="#E8002D" opacity="0.1" stroke="#E8002D" strokeWidth="2" />
