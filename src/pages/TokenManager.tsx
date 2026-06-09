@@ -137,6 +137,48 @@ export default function TokenManager() {
     );
   };
 
+  // 섀도우(Shadow) 미리보기 렌더링 헬퍼 함수
+  const renderShadowPreview = (token: Token) => {
+    if (token.category !== 'shadow') return null;
+    let shadowVal = 'none';
+    const valStr = typeof token.value === 'string' ? token.value : (typeof token.value === 'object' ? token.value.light : 'none');
+    shadowVal = valStr;
+
+    return (
+      <div className="flex items-center justify-center overflow-visible py-4">
+        <div 
+          className="w-16 h-16 bg-white border border-gray-100 rounded-lg transition-all duration-300"
+          style={{ boxShadow: shadowVal }}
+          title={`Shadow: ${shadowVal}`}
+        ></div>
+      </div>
+    );
+  };
+
+  // 아이콘(Iconography) 미리보기 렌더링 헬퍼 함수
+  const renderIconographyPreview = (token: Token) => {
+    if (token.category !== 'iconography') return null;
+    
+    if (token.tier === 'core' && token.name.includes('.size.')) {
+      const sizePx = typeof token.value === 'string' ? token.value : (typeof token.value === 'object' ? token.value.light : '24px');
+      return (
+        <div className="flex items-center justify-center overflow-hidden py-2 text-gray-800">
+          <svg style={{ width: sizePx, height: sizePx }} fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+          </svg>
+        </div>
+      );
+    }
+    
+    // Semantic Domains
+    const domainText = typeof token.value === 'string' ? token.value : (typeof token.value === 'object' ? token.value.light : 'Domain');
+    return (
+      <div className="flex items-center justify-center overflow-hidden py-2">
+        <span className="bg-gray-800 text-white text-xs font-bold px-2.5 py-1 rounded-md">{domainText}</span>
+      </div>
+    );
+  };
+
   const currentCategoryTokens = useMemo(() => {
     return tokens.filter(t => t.category === selectedCategory);
   }, [tokens, selectedCategory]);
@@ -398,16 +440,16 @@ export default function TokenManager() {
                     <table className="w-full text-left table-fixed">
                       <thead className="bg-gray-50 border-b border-gray-100">
                         <tr>
-                          <th className={`p-4 font-semibold text-gray-600 ${['typography', 'spacing', 'radius'].includes(selectedCategory) ? 'w-2/5' : 'w-1/2'}`}>이름 (Name)</th>
+                          <th className={`p-4 font-semibold text-gray-600 ${['typography', 'spacing', 'radius', 'shadow', 'iconography'].includes(selectedCategory) ? 'w-2/5' : 'w-1/2'}`}>이름 (Name)</th>
                           {activeTier === 'core' || selectedCategory !== 'color' ? (
-                            <th className={`p-4 font-semibold text-gray-600 ${['typography', 'spacing', 'radius'].includes(selectedCategory) ? 'w-2/5' : 'w-1/2'}`}>값 (Value)</th>
+                            <th className={`p-4 font-semibold text-gray-600 ${['typography', 'spacing', 'radius', 'shadow', 'iconography'].includes(selectedCategory) ? 'w-2/5' : 'w-1/2'}`}>값 (Value)</th>
                           ) : (
                             <>
                               <th className="p-4 font-semibold text-gray-600 w-1/4">라이트 모드 (Light)</th>
                               <th className="p-4 font-semibold text-gray-600 w-1/4">다크 모드 (Dark)</th>
                             </>
                           )}
-                          {['typography', 'spacing', 'radius'].includes(selectedCategory) && (
+                          {['typography', 'spacing', 'radius', 'shadow', 'iconography'].includes(selectedCategory) && (
                             <th className="p-4 font-semibold text-gray-600 w-1/5 text-center border-l border-gray-100 bg-gray-100/50">미리보기 (Preview)</th>
                           )}
                         </tr>
@@ -476,11 +518,13 @@ export default function TokenManager() {
                                 </td>
                               </>
                             )}
-                            {['typography', 'spacing', 'radius'].includes(selectedCategory) && (
+                            {['typography', 'spacing', 'radius', 'shadow', 'iconography'].includes(selectedCategory) && (
                               <td className="p-4 text-center border-l border-gray-100 bg-gray-50/50">
                                 {selectedCategory === 'typography' ? renderTypographyPreview(token) : 
                                  selectedCategory === 'spacing' ? renderSpacingPreview(token) :
-                                 renderRadiusPreview(token)}
+                                 selectedCategory === 'radius' ? renderRadiusPreview(token) :
+                                 selectedCategory === 'shadow' ? renderShadowPreview(token) :
+                                 renderIconographyPreview(token)}
                               </td>
                             )}
                           </tr>
