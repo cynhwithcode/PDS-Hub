@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
-import Dashboard from './pages/Dashboard';
+// import Dashboard from './pages/Dashboard';
 import ComponentRegistry from './pages/ComponentRegistry';
 import ComponentDetail from './pages/ComponentDetail';
 import ComponentNew from './pages/ComponentNew';
 import TokenManager from './pages/TokenManager';
 import TokenNew from './pages/TokenNew';
 import TokenDetail from './pages/TokenDetail';
-import Changelog from './pages/Changelog';
-import Search from './pages/Search';
+// import Changelog from './pages/Changelog';
+// import Search from './pages/Search';
 
 
 function App() {

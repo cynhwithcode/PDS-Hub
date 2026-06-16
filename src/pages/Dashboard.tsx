@@ -24,9 +24,9 @@ export default function Dashboard() {
     return d.getMonth() === currentMonth && d.getFullYear() === currentYear;
   }).length;
 
-  const recentChanges = [...changelogData]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 5);
+  // const recentChanges = [...changelogData]
+  //   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  //   .slice(0, 5);
 
   const stablePercent = (stableCount / totalComponents) * 100;
   const betaPercent = (betaCount / totalComponents) * 100;
