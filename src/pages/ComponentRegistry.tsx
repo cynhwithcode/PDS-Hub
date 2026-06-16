@@ -135,7 +135,7 @@ export default function ComponentRegistry() {
         </div>
         <Link 
           to="/components/new" 
-          className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
+          className="hidden bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-medium transition-colors"
         >
           + 신규 컴포넌트 등록하기
         </Link>
