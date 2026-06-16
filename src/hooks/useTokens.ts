@@ -25,7 +25,14 @@ export function useTokens() {
     const stored = localStorage.getItem('pds_tokens');
     if (stored) {
       try {
-        setTokens(JSON.parse(stored));
+        const parsed = JSON.parse(stored);
+        // 만약 JSON 파일(최신)에 토큰이 더 많이 추가되었다면 로컬 스토리지를 덮어씌웁니다.
+        if (parsed.length < initialTokens.length) {
+          setTokens(initialTokens as TokenItem[]);
+          localStorage.setItem('pds_tokens', JSON.stringify(initialTokens));
+        } else {
+          setTokens(parsed);
+        }
       } catch (e) {
         setTokens(initialTokens as TokenItem[]);
         localStorage.setItem('pds_tokens', JSON.stringify(initialTokens));
