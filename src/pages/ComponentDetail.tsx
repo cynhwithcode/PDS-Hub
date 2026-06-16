@@ -689,8 +689,222 @@ export default function ComponentDetail() {
             </>
           )}
 
+          {/* ── c-chips 전용 섹션 ── */}
+          {formData.id === 'c-chips' && !isEditing && (
+            <>
+              {/* Chips Anatomy */}
+              <section>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Chips Anatomy</h3>
+                <div className="bg-[#F5F5F5] border border-gray-200 rounded-lg p-10 flex items-center justify-center min-h-[180px]">
+                  <svg width="260" height="90" viewBox="0 0 260 90" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible">
+                    {/* Chip Container dashed */}
+                    <rect x="65" y="25" width="130" height="40" rx="20" fill="#1A1A1A" opacity="0.08" stroke="#1A1A1A" strokeWidth="1.5" strokeDasharray="5 3" />
+                    
+                    {/* Left Icon (circle) */}
+                    <circle cx="85" cy="45" r="8" fill="#9CA3AF" />
+                    
+                    {/* Text Label (rect) */}
+                    <rect x="102" y="38" width="56" height="14" rx="3" fill="#6B7280" />
+                    
+                    {/* Right Icon (circle) */}
+                    <circle cx="175" cy="45" r="8" fill="#9CA3AF" />
+
+                    {/* Callouts */}
+                    {/* Callout 1: Container */}
+                    <line x1="65" y1="25" x2="35" y2="10" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="27" cy="6" r="8" fill="white" stroke="#E5E7EB" />
+                    <text x="27" y="9.5" fontSize="9" fontWeight="bold" fill="#374151" textAnchor="middle">1</text>
+                    
+                    {/* Callout 2: Left Icon */}
+                    <line x1="85" y1="53" x2="85" y2="70" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="85" cy="78" r="8" fill="white" stroke="#E5E7EB" />
+                    <text x="85" y="81.5" fontSize="9" fontWeight="bold" fill="#374151" textAnchor="middle">2</text>
+                    
+                    {/* Callout 3: Text Label */}
+                    <line x1="130" y1="38" x2="130" y2="10" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="130" cy="2" r="8" fill="white" stroke="#E5E7EB" />
+                    <text x="130" y="5.5" fontSize="9" fontWeight="bold" fill="#374151" textAnchor="middle">3</text>
+                    
+                    {/* Callout 4: Right Icon */}
+                    <line x1="175" y1="53" x2="175" y2="70" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="175" cy="78" r="8" fill="white" stroke="#E5E7EB" />
+                    <text x="175" y="81.5" fontSize="9" fontWeight="bold" fill="#374151" textAnchor="middle">4</text>
+                  </svg>
+                </div>
+                <div className="mt-3 text-xs text-gray-500 space-y-0.5">
+                  <p>1. Container</p>
+                  <p>2. Left Icon (Optional)</p>
+                  <p>3. Text Label</p>
+                  <p>4. Right Icon (Optional)</p>
+                </div>
+              </section>
+
+              {/* Element Pattern */}
+              <section>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Element Pattern</h3>
+                <p className="text-xs text-gray-400 mb-4 leading-relaxed">
+                  칩의 요소 구성 패턴을 보여줍니다. 각 패턴은 콘텐츠 특성에 맞게 선택하여 사용하며, 임의로 조합하거나 변경하지 않습니다.
+                </p>
+                <div className="bg-[#F5F5F5] border border-gray-200 rounded-xl p-8">
+                  <div className="grid grid-cols-4 gap-6">
+                    {[
+                      { label: 'Text Only', node: (
+                        <span className="bg-[#1A1A1A] text-white px-4 py-1.5 rounded-full text-xs font-medium inline-flex items-center">Label</span>
+                      )},
+                      { label: 'Both Icon', node: (
+                        <span className="bg-[#1A1A1A] text-white px-3 py-1.5 rounded-full text-xs font-medium inline-flex items-center gap-1.5">
+                          <svg className="w-3 h-3 text-white/80" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                          Label
+                          <svg className="w-2.5 h-2.5 text-white/60 hover:text-white cursor-pointer" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                        </span>
+                      )},
+                      { label: 'Left Icon', node: (
+                        <span className="bg-[#1A1A1A] text-white px-3 py-1.5 rounded-full text-xs font-medium inline-flex items-center gap-1.5">
+                          <svg className="w-3 h-3 text-white/80" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                          Label
+                        </span>
+                      )},
+                      { label: 'Right Icon', node: (
+                        <span className="bg-[#1A1A1A] text-white px-3 py-1.5 rounded-full text-xs font-medium inline-flex items-center gap-1.5">
+                          Label
+                          <svg className="w-2.5 h-2.5 text-white/60 hover:text-white cursor-pointer" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                        </span>
+                      )},
+                    ].map(({ label, node }) => (
+                      <div key={label} className="flex flex-col items-center gap-3">
+                        <span className="text-xs text-gray-500">{label}</span>
+                        {node}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              {/* Types */}
+              <section>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Types</h3>
+                <p className="text-xs text-gray-400 mb-4 leading-relaxed">
+                  칩의 시각적 강조 및 채우기 스타일 가이드를 보여줍니다.
+                </p>
+                <div className="bg-[#F5F5F5] rounded-xl p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Fill type */}
+                  <div className="flex flex-col gap-3">
+                    <span className="text-xs font-semibold text-gray-600">Fill</span>
+                    <div className="flex flex-wrap items-center gap-3 bg-white p-6 rounded-xl border border-gray-200/50 shadow-sm">
+                      <span className="bg-[#1A1A1A] text-white px-4 py-1.5 rounded-full text-xs font-medium inline-flex items-center">Label</span>
+                      <span className="bg-[#1A1A1A] text-white px-3 py-1.5 rounded-full text-xs font-medium inline-flex items-center gap-1.5">
+                        <svg className="w-3 h-3 text-white/80" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        Label
+                      </span>
+                      <span className="bg-[#1A1A1A] text-white px-3 py-1.5 rounded-full text-xs font-medium inline-flex items-center gap-1.5">
+                        Label
+                        <svg className="w-2.5 h-2.5 text-white/60" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                      </span>
+                      <span className="bg-[#1A1A1A] text-white px-3 py-1.5 rounded-full text-xs font-medium inline-flex items-center gap-1.5">
+                        <svg className="w-3 h-3 text-white/80" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        Label
+                        <svg className="w-2.5 h-2.5 text-white/60" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Outline type */}
+                  <div className="flex flex-col gap-3">
+                    <span className="text-xs font-semibold text-gray-600">Outline</span>
+                    <div className="flex flex-wrap items-center gap-3 bg-white p-6 rounded-xl border border-gray-200/50 shadow-sm">
+                      <span className="border border-gray-300 text-gray-800 bg-white px-4 py-1.5 rounded-full text-xs font-medium inline-flex items-center">Label</span>
+                      <span className="border border-gray-300 text-gray-800 bg-white px-3 py-1.5 rounded-full text-xs font-medium inline-flex items-center gap-1.5">
+                        <svg className="w-3 h-3 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        Label
+                      </span>
+                      <span className="border border-gray-300 text-gray-800 bg-white px-3 py-1.5 rounded-full text-xs font-medium inline-flex items-center gap-1.5">
+                        Label
+                        <svg className="w-2.5 h-2.5 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                      </span>
+                      <span className="border border-gray-300 text-gray-800 bg-white px-3 py-1.5 rounded-full text-xs font-medium inline-flex items-center gap-1.5">
+                        <svg className="w-3 h-3 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                        Label
+                        <svg className="w-2.5 h-2.5 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* State */}
+              <section>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">State</h3>
+                <p className="text-xs text-gray-400 mb-4 leading-relaxed">
+                  칩의 상태별(선택 여부, 비활성화 등) 디자인 가이드를 보여줍니다.
+                </p>
+                <div className="bg-[#F5F5F5] rounded-xl p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Select */}
+                  <div className="bg-white border border-gray-200/60 rounded-xl p-6 flex flex-col gap-4 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-1 rounded w-fit uppercase tracking-wider">Select</span>
+                    <div className="flex flex-col gap-2 mt-2">
+                      <span className="border border-gray-800 text-gray-900 bg-white px-3 py-1 rounded-full text-xs font-semibold inline-flex items-center justify-between w-fit gap-2">Label <span className="text-[10px]">✕</span></span>
+                      <span className="border border-gray-800 text-gray-900 bg-white px-3 py-1 rounded-full text-xs font-semibold inline-flex items-center justify-between w-fit gap-2">♥ Label <span className="text-[10px]">✕</span></span>
+                    </div>
+                  </div>
+
+                  {/* Unselect */}
+                  <div className="bg-white border border-gray-200/60 rounded-xl p-6 flex flex-col gap-4 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-1 rounded w-fit uppercase tracking-wider">Unselect</span>
+                    <div className="flex flex-col gap-2 mt-2">
+                      <span className="border border-gray-200 text-gray-400 bg-white px-3 py-1 rounded-full text-xs font-medium inline-flex items-center justify-between w-fit gap-2">Label <span className="text-[10px] text-gray-300">✕</span></span>
+                      <span className="border border-gray-200 text-gray-400 bg-white px-3 py-1 rounded-full text-xs font-medium inline-flex items-center justify-between w-fit gap-2">♥ Label <span className="text-[10px] text-gray-300">✕</span></span>
+                    </div>
+                  </div>
+
+                  {/* Disable */}
+                  <div className="bg-white border border-gray-200/60 rounded-xl p-6 flex flex-col gap-4 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-1 rounded w-fit uppercase tracking-wider">Disabled</span>
+                    <div className="flex flex-col gap-2 mt-2 opacity-40">
+                      <span className="border border-gray-200 text-gray-300 bg-gray-50 px-3 py-1 rounded-full text-xs font-medium inline-flex items-center justify-between w-fit gap-2 cursor-not-allowed">Label <span>✕</span></span>
+                      <span className="border border-gray-200 text-gray-300 bg-gray-50 px-3 py-1 rounded-full text-xs font-medium inline-flex items-center justify-between w-fit gap-2 cursor-not-allowed">♥ Label <span>✕</span></span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Size */}
+              <section>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Size</h3>
+                <p className="text-xs text-gray-400 mb-4 leading-relaxed">칩의 크기는 S / M / L 3가지로 제공됩니다.</p>
+                <div className="bg-[#F5F5F5] rounded-xl p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {/* Size S */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-6 flex flex-col items-center gap-4">
+                    <span className="text-xs font-bold text-gray-400">S (Small)</span>
+                    <div className="flex flex-col gap-2 items-center">
+                      <span className="bg-[#1A1A1A] text-white px-2.5 py-0.5 rounded-full text-[10px] font-medium inline-flex items-center">Label</span>
+                      <span className="border border-gray-300 text-gray-800 bg-white px-2.5 py-0.5 rounded-full text-[10px] font-medium inline-flex items-center">Label</span>
+                    </div>
+                  </div>
+
+                  {/* Size M */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-6 flex flex-col items-center gap-4">
+                    <span className="text-xs font-bold text-gray-400">M (Medium)</span>
+                    <div className="flex flex-col gap-2 items-center">
+                      <span className="bg-[#1A1A1A] text-white px-3 py-1 rounded-full text-xs font-medium inline-flex items-center">Label</span>
+                      <span className="border border-gray-300 text-gray-800 bg-white px-3 py-1 rounded-full text-xs font-medium inline-flex items-center">Label</span>
+                    </div>
+                  </div>
+
+                  {/* Size L */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-6 flex flex-col items-center gap-4">
+                    <span className="text-xs font-bold text-gray-400">L (Large)</span>
+                    <div className="flex flex-col gap-2 items-center">
+                      <span className="bg-[#1A1A1A] text-white px-4 py-1.5 rounded-full text-sm font-medium inline-flex items-center">Label</span>
+                      <span className="border border-gray-300 text-gray-800 bg-white px-4 py-1.5 rounded-full text-sm font-medium inline-flex items-center">Label</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </>
+          )}
+
           {/* Variants Section */}
-          {!isEditing && formData.variants && formData.variants.length > 0 && formData.id !== 'c-buttons' && (
+          {!isEditing && formData.variants && formData.variants.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-chips' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Variants</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
