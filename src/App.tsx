@@ -7,6 +7,7 @@ import ComponentNew from './pages/ComponentNew';
 import TokenManager from './pages/TokenManager';
 import TokenNew from './pages/TokenNew';
 import TokenDetail from './pages/TokenDetail';
+import BadgeDoc from './pages/BadgeDoc';
 // import Changelog from './pages/Changelog';
 // import Search from './pages/Search';
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Navigate to="/tokens" replace />} />
           <Route path="/components" element={<ComponentRegistry />} />
           <Route path="/components/new" element={<ComponentNew />} />
+          <Route path="/components/badge" element={<BadgeDoc />} />
           <Route path="/components/:id" element={<ComponentDetail />} />
           <Route path="/tokens" element={<TokenManager />} />
           <Route path="/tokens/new" element={<TokenNew />} />

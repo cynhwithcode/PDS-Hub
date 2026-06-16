@@ -1,11 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
 export default function Sidebar() {
-  const menuItems = [
-    { name: '토큰', path: '/tokens' },
-    { name: '컴포넌트', path: '/components' },
-  ];
-
   return (
     <aside className="w-64 h-screen bg-white border-r border-gray-200 flex flex-col">
       <div className="p-6 border-b border-gray-100">
@@ -13,21 +8,48 @@ export default function Sidebar() {
         <p className="text-xs text-gray-500 mt-1">Design System Governance</p>
       </div>
       <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
-        {menuItems.map((item) => (
-          <NavLink
-            key={item.path}
-            to={item.path}
-            className={({ isActive }) =>
-              `block px-4 py-3 rounded-xl transition-colors duration-200 ${
-                isActive
-                  ? 'bg-blue-50 text-blue-700 font-medium'
-                  : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
-              }`
-            }
-          >
-            {item.name}
-          </NavLink>
-        ))}
+        {/* 토큰 */}
+        <NavLink
+          to="/tokens"
+          className={({ isActive }) =>
+            `block px-4 py-3 rounded-xl transition-colors duration-200 ${
+              isActive
+                ? 'bg-blue-50 text-blue-700 font-medium'
+                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+            }`
+          }
+        >
+          토큰
+        </NavLink>
+
+        {/* 컴포넌트 */}
+        <NavLink
+          to="/components"
+          end
+          className={({ isActive }) =>
+            `block px-4 py-3 rounded-xl transition-colors duration-200 ${
+              isActive
+                ? 'bg-blue-50 text-blue-700 font-medium'
+                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+            }`
+          }
+        >
+          컴포넌트
+        </NavLink>
+
+        {/* 컴포넌트 하위 – Badge */}
+        <NavLink
+          to="/components/badge"
+          className={({ isActive }) =>
+            `block pl-8 pr-4 py-2 rounded-xl transition-colors duration-200 text-sm ${
+              isActive
+                ? 'bg-blue-50 text-blue-700 font-medium'
+                : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
+            }`
+          }
+        >
+          Badge
+        </NavLink>
       </nav>
     </aside>
   );
