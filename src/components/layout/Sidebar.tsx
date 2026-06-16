@@ -2,11 +2,8 @@ import { NavLink } from 'react-router-dom';
 
 export default function Sidebar() {
   const menuItems = [
-    { name: '대시보드', path: '/' },
-    { name: '컴포넌트', path: '/components' },
     { name: '토큰', path: '/tokens' },
-    { name: '변경로그', path: '/changelog' },
-    { name: '검색', path: '/search' },
+    { name: '컴포넌트', path: '/components' },
   ];
 
   return (
