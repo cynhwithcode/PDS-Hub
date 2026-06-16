@@ -24,9 +24,9 @@ export default function Dashboard() {
     return d.getMonth() === currentMonth && d.getFullYear() === currentYear;
   }).length;
 
-  const recentChanges = [...changelogData]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 5);
+  // const recentChanges = [...changelogData]
+  //   .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  //   .slice(0, 5);
 
   const stablePercent = (stableCount / totalComponents) * 100;
   const betaPercent = (betaCount / totalComponents) * 100;
@@ -41,20 +41,6 @@ export default function Dashboard() {
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* 전체 컴포넌트 */}
-        <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
-          <h2 className="text-sm font-medium text-gray-500">전체 컴포넌트</h2>
-          <div className="mt-4 flex items-baseline gap-2">
-            <span className="text-4xl font-extrabold text-gray-900">{totalComponents}</span>
-            <span className="text-xs text-gray-500">개</span>
-          </div>
-          <div className="mt-6 flex gap-4 text-sm text-gray-600">
-            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-500"></span>Stable {stableCount}</span>
-            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-yellow-500"></span>Beta {betaCount}</span>
-            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-red-400"></span>Deprecated {deprecatedCount}</span>
-          </div>
-        </div>
-
         {/* 전체 토큰 */}
         <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
           <h2 className="text-sm font-medium text-gray-500">전체 토큰</h2>
@@ -66,6 +52,20 @@ export default function Dashboard() {
             <span className="bg-gray-50 px-2 py-1 rounded-md">Color {colorCount}</span>
             <span className="bg-gray-50 px-2 py-1 rounded-md">Typo {typoCount}</span>
             <span className="bg-gray-50 px-2 py-1 rounded-md">Space {spaceCount}</span>
+          </div>
+        </div>
+
+        {/* 전체 컴포넌트 */}
+        <div className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
+          <h2 className="text-sm font-medium text-gray-500">전체 컴포넌트</h2>
+          <div className="mt-4 flex items-baseline gap-2">
+            <span className="text-4xl font-extrabold text-gray-900">{totalComponents}</span>
+            <span className="text-xs text-gray-500">개</span>
+          </div>
+          <div className="mt-6 flex gap-4 text-sm text-gray-600">
+            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-500"></span>Stable {stableCount}</span>
+            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-yellow-500"></span>Beta {betaCount}</span>
+            <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-red-400"></span>Deprecated {deprecatedCount}</span>
           </div>
         </div>
 
@@ -156,33 +156,7 @@ export default function Dashboard() {
         </section>
 
         {/* Recent Changes Timeline */}
-        <section className="bg-white rounded-xl shadow-sm p-8 border border-gray-100">
-          <h2 className="text-xl font-bold text-gray-900 mb-8">최근 변경 이력</h2>
-          <div className="space-y-8">
-            {recentChanges.map((log, index) => {
-              const targetName = log.target_type === 'component'
-                ? componentsData.find(c => c.id === log.target_id)?.name || log.target_id
-                : tokensData.find(t => t.id === log.target_id)?.name || log.target_id;
-              return (
-                <div key={log.id} className="relative pl-8">
-                  {index !== recentChanges.length - 1 && (
-                    <div className="absolute left-2.5 top-6 bottom-[-2rem] w-px bg-gray-200"></div>
-                  )}
-                  <div className="absolute left-1 top-1.5 w-3 h-3 rounded-full bg-white border-2 border-blue-500 shadow-sm z-10"></div>
-                  <div className="flex flex-col gap-1.5">
-                    <div className="flex items-center gap-2 text-sm">
-                      <span className="text-gray-500 font-medium">{new Date(log.date).toLocaleDateString('ko-KR')}</span>
-                      <span className="text-gray-300">•</span>
-                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-50 text-blue-700">{targetName}</span>
-                    </div>
-                    <p className="text-gray-800 leading-snug">{log.note}</p>
-                    <p className="text-xs text-gray-400 mt-1">담당자: {log.changed_by}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+        {/* Recent Changes Timeline hidden for now */}
       </div>
     </div>
   );
