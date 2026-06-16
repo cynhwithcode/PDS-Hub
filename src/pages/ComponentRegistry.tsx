@@ -240,7 +240,7 @@ export default function ComponentRegistry() {
                 </p>
 
                 <div className="text-xs text-gray-500 mb-4 font-medium">
-                  담당: Phoenixdarts 디자인실 디자인기획팀
+                  담당: 디자인실 디자인기획팀
                 </div>
 
                 <div className="flex justify-between items-center pt-4 border-t border-gray-100">
@@ -296,7 +296,7 @@ export default function ComponentRegistry() {
                       {comp.status}
                     </span>
                   </td>
-                  <td className="px-6 py-4">Phoenixdarts 디자인실 디자인기획팀</td>
+                  <td className="px-6 py-4">디자인실 디자인기획팀</td>
                   <td className="px-6 py-4 font-medium">{new Date(comp.updated_at).toLocaleDateString('ko-KR')}</td>
                   <td className="px-6 py-4 text-right">
                     <div className="flex justify-end items-center gap-2">

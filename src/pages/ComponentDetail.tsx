@@ -939,68 +939,68 @@ export default function ComponentDetail() {
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {/* Size S */}
-                  <div className="bg-gray-50 border border-gray-200/50 rounded-xl p-6 flex flex-col items-center gap-4">
+                  <div className="bg-gray-50 border border-gray-200/50 rounded-xl p-4 flex flex-col items-center gap-4">
                     <span className="text-xs font-bold text-gray-400 uppercase tracking-wider self-start pl-1">S (Small)</span>
                     <div className="flex flex-col gap-3 items-center w-full py-2">
                       {/* Fill S */}
-                      <div className="flex flex-wrap gap-2 justify-center">
-                        <span className="bg-[#1A1A1A] text-white px-2.5 py-1 rounded-full text-[10px] font-semibold inline-flex items-center justify-center min-h-[24px]">
+                      <div className="flex flex-nowrap gap-1.5 justify-center w-full">
+                        <span className="bg-[#1A1A1A] text-white px-2.5 py-0.5 rounded-full text-[10px] font-semibold inline-flex items-center justify-center min-h-[24px] whitespace-nowrap">
                           Label
                         </span>
-                        <span className="bg-[#1A1A1A] text-white px-2.5 py-1 rounded-full text-[10px] font-semibold inline-flex items-center gap-1 justify-center min-h-[24px]">
+                        <span className="bg-[#1A1A1A] text-white px-2.5 py-0.5 rounded-full text-[10px] font-semibold inline-flex items-center gap-1 justify-center min-h-[24px] whitespace-nowrap">
                           <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                           Label
                         </span>
-                        <span className="bg-[#1A1A1A] text-white px-2.5 py-1 rounded-full text-[10px] font-semibold inline-flex items-center gap-1 justify-center min-h-[24px]">
+                        <span className="bg-[#1A1A1A] text-white px-2.5 py-0.5 rounded-full text-[10px] font-semibold inline-flex items-center gap-1 justify-center min-h-[24px] whitespace-nowrap">
                           Label
-                          <svg className="w-2 h-2 text-white/80" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                          <svg className="w-2.5 h-2.5 text-white/80" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                         </span>
                       </div>
                       {/* Outline S */}
-                      <div className="flex flex-wrap gap-2 justify-center">
-                        <span className="bg-white border border-gray-300 text-gray-800 px-2.5 py-1 rounded-full text-[10px] font-semibold inline-flex items-center justify-center min-h-[24px]">
+                      <div className="flex flex-nowrap gap-1.5 justify-center w-full">
+                        <span className="bg-white border border-gray-300 text-gray-800 px-2.5 py-0.5 rounded-full text-[10px] font-semibold inline-flex items-center justify-center min-h-[24px] whitespace-nowrap">
                           Label
                         </span>
-                        <span className="bg-white border border-gray-300 text-gray-800 px-2.5 py-1 rounded-full text-[10px] font-semibold inline-flex items-center gap-1 justify-center min-h-[24px]">
+                        <span className="bg-white border border-gray-300 text-gray-800 px-2.5 py-0.5 rounded-full text-[10px] font-semibold inline-flex items-center gap-1 justify-center min-h-[24px] whitespace-nowrap">
                           <svg className="w-2.5 h-2.5 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                           Label
                         </span>
-                        <span className="bg-white border border-gray-300 text-gray-800 px-2.5 py-1 rounded-full text-[10px] font-semibold inline-flex items-center gap-1 justify-center min-h-[24px]">
+                        <span className="bg-white border border-gray-300 text-gray-800 px-2.5 py-0.5 rounded-full text-[10px] font-semibold inline-flex items-center gap-1 justify-center min-h-[24px] whitespace-nowrap">
                           Label
-                          <svg className="w-2 h-2 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                          <svg className="w-2.5 h-2.5 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                         </span>
                       </div>
                     </div>
                   </div>
 
                   {/* Size M */}
-                  <div className="bg-gray-50 border border-gray-200/50 rounded-xl p-6 flex flex-col items-center gap-4">
+                  <div className="bg-gray-50 border border-gray-200/50 rounded-xl p-4 flex flex-col items-center gap-4">
                     <span className="text-xs font-bold text-gray-400 uppercase tracking-wider self-start pl-1">M (Medium)</span>
                     <div className="flex flex-col gap-3 items-center w-full py-2">
                       {/* Fill M */}
-                      <div className="flex flex-wrap gap-2 justify-center">
-                        <span className="bg-[#1A1A1A] text-white px-3.5 py-1 rounded-full text-xs font-semibold inline-flex items-center justify-center min-h-[30px]">
+                      <div className="flex flex-nowrap gap-1.5 justify-center w-full">
+                        <span className="bg-[#1A1A1A] text-white px-2.5 py-1 rounded-full text-xs font-semibold inline-flex items-center justify-center min-h-[28px] whitespace-nowrap">
                           Label
                         </span>
-                        <span className="bg-[#1A1A1A] text-white px-3.5 py-1 rounded-full text-xs font-semibold inline-flex items-center gap-1.5 justify-center min-h-[30px]">
+                        <span className="bg-[#1A1A1A] text-white px-2.5 py-1 rounded-full text-xs font-semibold inline-flex items-center gap-1.5 justify-center min-h-[28px] whitespace-nowrap">
                           <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                           Label
                         </span>
-                        <span className="bg-[#1A1A1A] text-white px-3.5 py-1 rounded-full text-xs font-semibold inline-flex items-center gap-1.5 justify-center min-h-[30px]">
+                        <span className="bg-[#1A1A1A] text-white px-2.5 py-1 rounded-full text-xs font-semibold inline-flex items-center gap-1.5 justify-center min-h-[28px] whitespace-nowrap">
                           Label
                           <svg className="w-2.5 h-2.5 text-white/80" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                         </span>
                       </div>
                       {/* Outline M */}
-                      <div className="flex flex-wrap gap-2 justify-center">
-                        <span className="bg-white border border-gray-300 text-gray-800 px-3.5 py-1 rounded-full text-xs font-semibold inline-flex items-center justify-center min-h-[30px]">
+                      <div className="flex flex-nowrap gap-1.5 justify-center w-full">
+                        <span className="bg-white border border-gray-300 text-gray-800 px-2.5 py-1 rounded-full text-xs font-semibold inline-flex items-center justify-center min-h-[28px] whitespace-nowrap">
                           Label
                         </span>
-                        <span className="bg-white border border-gray-300 text-gray-800 px-3.5 py-1 rounded-full text-xs font-semibold inline-flex items-center gap-1.5 justify-center min-h-[30px]">
+                        <span className="bg-white border border-gray-300 text-gray-800 px-2.5 py-1 rounded-full text-xs font-semibold inline-flex items-center gap-1.5 justify-center min-h-[28px] whitespace-nowrap">
                           <svg className="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                           Label
                         </span>
-                        <span className="bg-white border border-gray-300 text-gray-800 px-3.5 py-1 rounded-full text-xs font-semibold inline-flex items-center gap-1.5 justify-center min-h-[30px]">
+                        <span className="bg-white border border-gray-300 text-gray-800 px-2.5 py-1 rounded-full text-xs font-semibold inline-flex items-center gap-1.5 justify-center min-h-[28px] whitespace-nowrap">
                           Label
                           <svg className="w-2.5 h-2.5 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                         </span>
@@ -1009,35 +1009,35 @@ export default function ComponentDetail() {
                   </div>
 
                   {/* Size L */}
-                  <div className="bg-gray-50 border border-gray-200/50 rounded-xl p-6 flex flex-col items-center gap-4">
+                  <div className="bg-gray-50 border border-gray-200/50 rounded-xl p-4 flex flex-col items-center gap-4">
                     <span className="text-xs font-bold text-gray-400 uppercase tracking-wider self-start pl-1">L (Large)</span>
                     <div className="flex flex-col gap-3 items-center w-full py-2">
                       {/* Fill L */}
-                      <div className="flex flex-wrap gap-2.5 justify-center">
-                        <span className="bg-[#1A1A1A] text-white px-4.5 py-1.5 rounded-full text-sm font-semibold inline-flex items-center justify-center min-h-[36px]">
+                      <div className="flex flex-nowrap gap-1 justify-center w-full">
+                        <span className="bg-[#1A1A1A] text-white px-3 py-1 rounded-full text-xs font-semibold inline-flex items-center justify-center min-h-[32px] whitespace-nowrap">
                           Label
                         </span>
-                        <span className="bg-[#1A1A1A] text-white px-4.5 py-1.5 rounded-full text-sm font-semibold inline-flex items-center gap-1.5 justify-center min-h-[36px]">
-                          <svg className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        <span className="bg-[#1A1A1A] text-white px-3 py-1 rounded-full text-xs font-semibold inline-flex items-center gap-1 justify-center min-h-[32px] whitespace-nowrap">
+                          <svg className="w-3 h-3 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                           Label
                         </span>
-                        <span className="bg-[#1A1A1A] text-white px-4.5 py-1.5 rounded-full text-sm font-semibold inline-flex items-center gap-1.5 justify-center min-h-[36px]">
+                        <span className="bg-[#1A1A1A] text-white px-3 py-1 rounded-full text-xs font-semibold inline-flex items-center gap-1 justify-center min-h-[32px] whitespace-nowrap">
                           Label
-                          <svg className="w-3 h-3 text-white/80" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                          <svg className="w-2.5 h-2.5 text-white/80" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                         </span>
                       </div>
                       {/* Outline L */}
-                      <div className="flex flex-wrap gap-2.5 justify-center">
-                        <span className="bg-white border border-gray-300 text-gray-800 px-4.5 py-1.5 rounded-full text-sm font-semibold inline-flex items-center justify-center min-h-[36px]">
+                      <div className="flex flex-nowrap gap-1 justify-center w-full">
+                        <span className="bg-white border border-gray-300 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold inline-flex items-center justify-center min-h-[32px] whitespace-nowrap">
                           Label
                         </span>
-                        <span className="bg-white border border-gray-300 text-gray-800 px-4.5 py-1.5 rounded-full text-sm font-semibold inline-flex items-center gap-1.5 justify-center min-h-[36px]">
-                          <svg className="w-3.5 h-3.5 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                        <span className="bg-white border border-gray-300 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold inline-flex items-center gap-1 justify-center min-h-[32px] whitespace-nowrap">
+                          <svg className="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                           Label
                         </span>
-                        <span className="bg-white border border-gray-300 text-gray-800 px-4.5 py-1.5 rounded-full text-sm font-semibold inline-flex items-center gap-1.5 justify-center min-h-[36px]">
+                        <span className="bg-white border border-gray-300 text-gray-800 px-3 py-1 rounded-full text-xs font-semibold inline-flex items-center gap-1 justify-center min-h-[32px] whitespace-nowrap">
                           Label
-                          <svg className="w-3 h-3 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                          <svg className="w-2.5 h-2.5 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                         </span>
                       </div>
                     </div>

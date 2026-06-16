@@ -12,7 +12,7 @@ export default function ComponentNew() {
     name: '',
     category_group: 'Action',
     status: 'stable',
-    owner: 'Phoenixdarts 디자인실 디자인기획팀',
+    owner: '디자인실 디자인기획팀',
     short_description: '',
     description: '',
     figma_link: '',
