@@ -16,15 +16,15 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route path="/" element={<Dashboard />} />
+          {/* <Route path="/" element={<Dashboard />} /> */}
           <Route path="/components" element={<ComponentRegistry />} />
           <Route path="/components/new" element={<ComponentNew />} />
           <Route path="/components/:id" element={<ComponentDetail />} />
           <Route path="/tokens" element={<TokenManager />} />
           <Route path="/tokens/new" element={<TokenNew />} />
           <Route path="/tokens/:id" element={<TokenDetail />} />
-          <Route path="/changelog" element={<Changelog />} />
-          <Route path="/search" element={<Search />} />
+          {/* <Route path="/changelog" element={<Changelog />} /> */}
+          {/* <Route path="/search" element={<Search />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>
