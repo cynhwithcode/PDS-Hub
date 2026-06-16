@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 // import Dashboard from './pages/Dashboard';
 import ComponentRegistry from './pages/ComponentRegistry';
@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          {/* <Route path="/" element={<Dashboard />} /> */}
+          <Route path="/" element={<Navigate to="/tokens" replace />} />
           <Route path="/components" element={<ComponentRegistry />} />
           <Route path="/components/new" element={<ComponentNew />} />
           <Route path="/components/:id" element={<ComponentDetail />} />
