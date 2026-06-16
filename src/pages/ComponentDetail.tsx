@@ -356,12 +356,12 @@ export default function ComponentDetail() {
                   </div>
 
                   <div className="bg-white border border-gray-200/60 rounded-xl p-6 flex flex-col gap-4 shadow-sm">
-                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-1 rounded w-fit uppercase tracking-wider">Disable</span>
-                    <div className="flex flex-wrap items-center gap-2 mt-2 opacity-40">
-                      <button className="bg-[#E8002D] text-white rounded-lg text-xs font-medium px-4 py-2 cursor-not-allowed" disabled>버튼</button>
-                      <button className="bg-[#1A1A1A] text-white rounded-lg text-xs font-medium px-4 py-2 cursor-not-allowed" disabled>버튼</button>
-                      <button className="border border-gray-300 bg-white text-gray-800 rounded-lg text-xs font-medium px-4 py-2 cursor-not-allowed" disabled>버튼</button>
-                      <button className="bg-gray-200 text-gray-800 rounded-lg text-xs font-medium px-4 py-2 cursor-not-allowed" disabled>버튼</button>
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-1 rounded w-fit uppercase tracking-wider">Disabled</span>
+                    <div className="flex flex-wrap items-center gap-2 mt-2">
+                      <button className="bg-[#E5E7EB] text-gray-400 rounded-lg text-xs font-medium px-4 py-2 cursor-not-allowed" disabled>버튼</button>
+                      <button className="bg-[#E5E7EB] text-gray-400 rounded-lg text-xs font-medium px-4 py-2 cursor-not-allowed" disabled>버튼</button>
+                      <button className="bg-[#E5E7EB] text-gray-400 rounded-lg text-xs font-medium px-4 py-2 cursor-not-allowed" disabled>버튼</button>
+                      <button className="bg-[#E5E7EB] text-gray-400 rounded-lg text-xs font-medium px-4 py-2 cursor-not-allowed" disabled>버튼</button>
                     </div>
                   </div>
 
