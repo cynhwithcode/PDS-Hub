@@ -603,6 +603,27 @@ export default function ComponentDetail() {
                         )}
                       </div>
                     )}
+                    {formData.id === 'c-badge' && (
+                      <div className="bg-[#F5F5F5] h-32 flex items-center justify-center p-4 border-b border-gray-100">
+                        {item.name === 'Dot Badge' ? (
+                          <span className="w-5 h-5 rounded-full bg-[#E8002D] inline-block" />
+                        ) : item.name === 'Number Badge' ? (
+                          <span className="inline-flex items-center justify-center rounded-full bg-[#E8002D] text-white font-bold text-[11px] px-1.5 h-5 min-w-[1.25rem]">
+                            9
+                          </span>
+                        ) : item.name === 'Icon Badge' ? (
+                          <span className="relative inline-flex">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-gray-700">
+                              <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6 6 0 10-12 0v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                                stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                            <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#E8002D] border border-white" />
+                          </span>
+                        ) : (
+                          <div className="text-gray-400 text-xs">Preview Area</div>
+                        )}
+                      </div>
+                    )}
                     <div className={`p-5 border-l-4 flex-1 ${item.type === 'do' ? 'border-green-500' : item.type === 'dont' ? 'border-red-500' : 'border-gray-400'}`}>
                       <div className="font-bold text-gray-900 mb-2">{item.name}</div>
                       <div className="text-sm text-gray-600 leading-relaxed">{item.description}</div>
@@ -612,6 +633,89 @@ export default function ComponentDetail() {
               </div>
             </section>
           )}
+
+          {/* Badge: Anatomy SVG + Size Grid */}
+          {formData.id === 'c-badge' && !isEditing && (
+            <>
+              {/* Badge Anatomy SVG */}
+              <section>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Badge Anatomy</h3>
+                <div className="bg-[#F5F5F5] rounded-xl p-10 flex items-center justify-center min-h-[180px]">
+                  <svg width="220" height="100" viewBox="0 0 220 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible">
+                    {/* 검정 원 3개 */}
+                    <circle cx="75" cy="25" r="10" fill="#1A1A1A" />
+                    <circle cx="110" cy="25" r="10" fill="#1A1A1A" />
+                    <circle cx="145" cy="25" r="10" fill="#1A1A1A" />
+                    {/* 빨간 원 3개 */}
+                    <circle cx="75" cy="65" r="10" fill="#E8002D" />
+                    <circle cx="110" cy="65" r="10" fill="#E8002D" />
+                    <circle cx="145" cy="65" r="10" fill="#E8002D" />
+                    {/* 번호 콜아웃 – 1 */}
+                    <path d="M55 45 L30 45" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="20" cy="45" r="9" fill="white" stroke="#E5E7EB" />
+                    <text x="20" y="49" fontSize="9" fontWeight="bold" fill="#374151" textAnchor="middle">1</text>
+                    {/* 번호 콜아웃 – 2 */}
+                    <path d="M110 10 L110 -5" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="110" cy="-14" r="9" fill="white" stroke="#E5E7EB" />
+                    <text x="110" y="-10" fontSize="9" fontWeight="bold" fill="#374151" textAnchor="middle">2</text>
+                    {/* 번호 콜아웃 – 3 */}
+                    <path d="M165 65 L190 65" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="200" cy="65" r="9" fill="white" stroke="#E5E7EB" />
+                    <text x="200" y="69" fontSize="9" fontWeight="bold" fill="#374151" textAnchor="middle">3</text>
+                  </svg>
+                </div>
+                <div className="mt-3 text-xs text-gray-500 space-y-0.5">
+                  <p>1. Container</p>
+                  <p>2. Digit Text</p>
+                  <p>3. Icon</p>
+                </div>
+              </section>
+
+              {/* Badge Size Grid */}
+              <section>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Size</h3>
+                <div className="bg-white border border-gray-200 rounded-xl overflow-hidden">
+                  <div className="grid grid-cols-5 bg-gray-100 border-b border-gray-200">
+                    <div className="px-4 py-2 text-xs text-gray-400" />
+                    {(['S', 'M', 'L', 'XL'] as const).map(s => (
+                      <div key={s} className="px-4 py-2 text-xs font-bold text-gray-500 text-center">{s}</div>
+                    ))}
+                  </div>
+                  {[1, 9, 99].map(n => (
+                    <div key={n} className="grid grid-cols-5 border-b border-gray-100 items-center">
+                      <div className="px-4 py-3 text-xs text-gray-400">{n}</div>
+                      {[
+                        { cls: 'h-4 min-w-[1rem] text-[9px]' },
+                        { cls: 'h-5 min-w-[1.25rem] text-[10px]' },
+                        { cls: 'h-6 min-w-[1.5rem] text-xs' },
+                        { cls: 'h-7 min-w-[1.75rem] text-sm' },
+                      ].map(({ cls }, i) => (
+                        <div key={i} className="flex items-center justify-center py-3">
+                          <span className={`inline-flex items-center justify-center rounded-full bg-[#E8002D] text-white font-bold px-1 ${cls}`}>
+                            {n > 99 ? '99+' : n}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                  <div className="grid grid-cols-5 items-center">
+                    <div className="px-4 py-3 text-xs text-gray-400">dot</div>
+                    {[
+                      'w-3 h-3',
+                      'w-4 h-4',
+                      'w-5 h-5',
+                      'w-6 h-6',
+                    ].map((cls, i) => (
+                      <div key={i} className="flex items-center justify-center py-3">
+                        <span className={`rounded-full bg-[#E8002D] inline-block ${cls}`} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            </>
+          )}
+
 
           {/* Usage Guidelines Section */}
           {!isEditing && formData.usage_guidelines && formData.usage_guidelines.length > 0 && (

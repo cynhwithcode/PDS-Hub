@@ -37,19 +37,7 @@ export default function Sidebar() {
           컴포넌트
         </NavLink>
 
-        {/* 컴포넌트 하위 – Badge */}
-        <NavLink
-          to="/components/badge"
-          className={({ isActive }) =>
-            `block pl-8 pr-4 py-2 rounded-xl transition-colors duration-200 text-sm ${
-              isActive
-                ? 'bg-blue-50 text-blue-700 font-medium'
-                : 'text-gray-500 hover:bg-gray-50 hover:text-gray-900'
-            }`
-          }
-        >
-          Badge
-        </NavLink>
+        {/* 컴포넌트 하위 – 서브메뉴 필요 시 여기에 추가 */}
       </nav>
     </aside>
   );
