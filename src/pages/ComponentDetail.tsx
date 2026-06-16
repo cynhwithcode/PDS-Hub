@@ -11,9 +11,6 @@ export default function ComponentDetail() {
   
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState<ComponentItem | null>(null);
-  
-  const [doInput, setDoInput] = useState('');
-  const [dontInput, setDontInput] = useState('');
 
   useEffect(() => {
     const comp = components.find(c => c.id === id);
@@ -138,68 +135,10 @@ export default function ComponentDetail() {
             )}
           </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <section>
-              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2 flex items-center gap-2">
-                <span className="text-green-500">✓</span> Do (사용해야 할 때)
-              </h3>
-              {isEditing ? (
-                <div>
-                  <div className="flex gap-2 mb-2">
-                    <input type="text" className="flex-1 border border-gray-300 rounded px-3 py-1.5 text-sm" value={doInput} onChange={e => setDoInput(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); if (doInput.trim()) { setFormData({...formData, usage_do: [...(formData.usage_do||[]), doInput.trim()]}); setDoInput(''); } } }} />
-                    <button type="button" className="bg-gray-100 px-3 rounded text-sm" onClick={() => { if (doInput.trim()) { setFormData({...formData, usage_do: [...(formData.usage_do||[]), doInput.trim()]}); setDoInput(''); } }}>추가</button>
-                  </div>
-                  <ul className="space-y-2">
-                    {formData.usage_do?.map((item, idx) => (
-                      <li key={idx} className="flex justify-between bg-green-50 px-3 py-2 rounded text-sm text-green-900">
-                        {item} <button onClick={() => setFormData({...formData, usage_do: formData.usage_do?.filter((_, i) => i !== idx)})} className="text-green-700 font-bold">&times;</button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : (
-                <ul className="flex flex-wrap gap-2">
-                  {formData.usage_do && formData.usage_do.length > 0 ? formData.usage_do.map((item, idx) => (
-                    <li key={idx} className="inline-flex items-center gap-1.5 bg-green-100 text-green-800 rounded-full px-4 py-1.5 text-sm font-medium">
-                      <span className="font-bold">✓</span> {item}
-                    </li>
-                  )) : <li className="text-gray-400 italic text-sm">내용이 없습니다.</li>}
-                </ul>
-              )}
-            </section>
 
-            <section>
-              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2 flex items-center gap-2">
-                <span className="text-red-500">✕</span> Don't (사용하면 안 될 때)
-              </h3>
-              {isEditing ? (
-                <div>
-                  <div className="flex gap-2 mb-2">
-                    <input type="text" className="flex-1 border border-gray-300 rounded px-3 py-1.5 text-sm" value={dontInput} onChange={e => setDontInput(e.target.value)} onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); if (dontInput.trim()) { setFormData({...formData, usage_dont: [...(formData.usage_dont||[]), dontInput.trim()]}); setDontInput(''); } } }} />
-                    <button type="button" className="bg-gray-100 px-3 rounded text-sm" onClick={() => { if (dontInput.trim()) { setFormData({...formData, usage_dont: [...(formData.usage_dont||[]), dontInput.trim()]}); setDontInput(''); } }}>추가</button>
-                  </div>
-                  <ul className="space-y-2">
-                    {formData.usage_dont?.map((item, idx) => (
-                      <li key={idx} className="flex justify-between bg-red-50 px-3 py-2 rounded text-sm text-red-900">
-                        {item} <button onClick={() => setFormData({...formData, usage_dont: formData.usage_dont?.filter((_, i) => i !== idx)})} className="text-red-700 font-bold">&times;</button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ) : (
-                <ul className="flex flex-wrap gap-2">
-                  {formData.usage_dont && formData.usage_dont.length > 0 ? formData.usage_dont.map((item, idx) => (
-                    <li key={idx} className="inline-flex items-center gap-1.5 bg-red-100 text-red-800 rounded-full px-4 py-1.5 text-sm font-medium">
-                      <span className="font-bold">✕</span> {item}
-                    </li>
-                  )) : <li className="text-gray-400 italic text-sm">내용이 없습니다.</li>}
-                </ul>
-              )}
-            </section>
-          </div>
 
           {/* Anatomy Section */}
-          {!isEditing && formData.anatomy && formData.anatomy.length > 0 && (
+          {!isEditing && formData.anatomy && formData.anatomy.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-badge' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Anatomy</h3>
               
@@ -346,20 +285,55 @@ export default function ComponentDetail() {
               {/* Emphasis */}
               <section>
                 <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Emphasis</h3>
-                <p className="text-xs text-gray-400 mb-4 leading-relaxed">
-                  버튼 강조 단계에 따라 Contained → Outlined → Ghost 순서로 시각적 무게가 줄어듭니다.
+                <p className="text-xs text-gray-500 mb-4 leading-relaxed">
+                  Button은 사용자의 성공적 작업 수행에 따른 시각적 계층 구조에 차이가 있습니다. 계층 구조에 따른 스타일 가이드를 유의하며, 임의의 스타일 추가 및 사용을 제한합니다.
                 </p>
-                <div className="bg-[#F5F5F5] border border-gray-200 rounded-lg p-8 flex items-center gap-12">
-                  <svg width="100" height="120" viewBox="0 0 100 120" fill="none">
-                    <polygon points="50,5 0,115 100,115" fill="#E8002D" fillOpacity="0.12" stroke="#E8002D" strokeWidth="1.5" />
-                    <text x="50" y="50" fontSize="8" fill="#6B7280" textAnchor="middle">High</text>
-                    <text x="50" y="75" fontSize="8" fill="#6B7280" textAnchor="middle">Medium</text>
-                    <text x="50" y="100" fontSize="8" fill="#6B7280" textAnchor="middle">Low</text>
+                <div className="bg-[#F5F5F5] border border-gray-200 rounded-xl p-10 flex flex-col lg:flex-row items-center justify-center gap-12">
+                  <svg width="260" height="160" viewBox="0 0 260 160" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible flex-shrink-0">
+                    <polygon points="100,10 73,56 127,56" fill="#4B5563" />
+                    <polygon points="73,56 47,103 153,103 127,56" fill="#9CA3AF" />
+                    <polygon points="47,103 20,150 180,150 153,103" fill="#E5E7EB" />
+                    
+                    <line x1="100" y1="33" x2="210" y2="33" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="225" cy="33" r="8" fill="#1A1A1A" />
+                    <text x="225" y="36.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle">1</text>
+                    
+                    <line x1="100" y1="80" x2="210" y2="80" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="225" cy="80" r="8" fill="#1A1A1A" />
+                    <text x="225" y="83.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle">2</text>
+                    
+                    <line x1="100" y1="126" x2="210" y2="126" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="225" cy="126" r="8" fill="#1A1A1A" />
+                    <text x="225" y="129.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle">3</text>
                   </svg>
-                  <div className="flex flex-col gap-3">
-                    <button className="bg-[#E8002D] text-white rounded-lg text-xs font-medium px-6 py-2">Contained (High)</button>
-                    <button className="border border-[#E8002D] text-[#E8002D] rounded-lg text-xs font-medium px-6 py-2">Outlined (Medium)</button>
-                    <button className="text-[#E8002D] text-xs font-medium px-6 py-2">Ghost (Low) &gt;</button>
+
+                  <div className="flex-1 flex flex-col gap-6 w-full max-w-lg">
+                    <div className="flex items-center justify-between gap-6 border-b border-gray-200/50 pb-4">
+                      <div className="flex flex-col">
+                        <span className="text-sm font-bold text-gray-900">High Emphasis</span>
+                        <span className="text-xs text-gray-400">Primary Button</span>
+                      </div>
+                      <button className="bg-[#E8002D] text-white rounded-lg text-sm font-medium w-48 h-10 flex items-center justify-center">버튼</button>
+                    </div>
+
+                    <div className="flex items-center justify-between gap-6 border-b border-gray-200/50 pb-4">
+                      <div className="flex flex-col">
+                        <span className="text-sm font-bold text-gray-900">Medium Emphasis</span>
+                        <span className="text-xs text-gray-400">Secondary Button / Gray Button</span>
+                      </div>
+                      <div className="flex gap-2">
+                        <button className="bg-[#1A1A1A] text-white rounded-lg text-sm font-medium w-24 h-10 flex items-center justify-center">버튼</button>
+                        <button className="bg-gray-200 text-gray-800 rounded-lg text-sm font-medium w-24 h-10 flex items-center justify-center">버튼</button>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center justify-between gap-6">
+                      <div className="flex flex-col">
+                        <span className="text-sm font-bold text-gray-900">Low Emphasis</span>
+                        <span className="text-xs text-gray-400">Outline Button</span>
+                      </div>
+                      <button className="border border-gray-300 bg-white text-gray-800 rounded-lg text-sm font-medium w-48 h-10 flex items-center justify-center">버튼</button>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -367,33 +341,38 @@ export default function ComponentDetail() {
               {/* State */}
               <section>
                 <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">State</h3>
-                <p className="text-xs text-gray-400 mb-4 leading-relaxed">
-                  버튼 상태별 스타일을 보여줍니다. Disabled 상태는 투명도를 40%로 적용합니다.
+                <p className="text-xs text-gray-500 mb-4 leading-relaxed">
+                  Button은 사용자의 성공적 작업 수행에 따른 시각적 계층 구조에 차이가 있습니다. 계층 구조에 따른 스타일 가이드를 유의하며, 임의의 스타일 추가 및 사용을 제한합니다.
                 </p>
-                <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-                  <div className="grid grid-cols-4 bg-gray-100 border-b border-gray-200">
-                    <div className="px-4 py-2 text-xs text-gray-400" />
-                    {['Default', 'Hover / Pressed', 'Disabled'].map(s => (
-                      <div key={s} className="px-4 py-2 text-xs font-bold text-gray-500 text-center">{s}</div>
-                    ))}
+                <div className="bg-[#F5F5F5] rounded-xl p-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="bg-white border border-gray-200/60 rounded-xl p-6 flex flex-col gap-4 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-1 rounded w-fit uppercase tracking-wider">Primary</span>
+                    <div className="flex flex-wrap items-center gap-2 mt-2">
+                      <button className="bg-[#E8002D] text-white rounded-lg text-xs font-medium px-4 py-2">버튼</button>
+                      <button className="bg-[#1A1A1A] text-white rounded-lg text-xs font-medium px-4 py-2">버튼</button>
+                      <button className="border border-gray-300 bg-white text-gray-800 rounded-lg text-xs font-medium px-4 py-2">버튼</button>
+                      <button className="bg-gray-200 text-gray-800 rounded-lg text-xs font-medium px-4 py-2">버튼</button>
+                    </div>
                   </div>
-                  <div className="grid grid-cols-4 border-b border-gray-100 items-center py-4">
-                    <div className="px-4 text-xs text-gray-400">Contained</div>
-                    <div className="flex justify-center"><button className="bg-[#E8002D] text-white rounded-lg text-xs px-4 py-2">버튼</button></div>
-                    <div className="flex justify-center"><button className="bg-[#cc0028] text-white rounded-lg text-xs px-4 py-2 shadow">버튼</button></div>
-                    <div className="flex justify-center"><button className="bg-[#E8002D] text-white rounded-lg text-xs px-4 py-2 opacity-40 cursor-not-allowed">버튼</button></div>
+
+                  <div className="bg-white border border-gray-200/60 rounded-xl p-6 flex flex-col gap-4 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-1 rounded w-fit uppercase tracking-wider">Disable</span>
+                    <div className="flex flex-wrap items-center gap-2 mt-2 opacity-40">
+                      <button className="bg-[#E8002D] text-white rounded-lg text-xs font-medium px-4 py-2 cursor-not-allowed" disabled>버튼</button>
+                      <button className="bg-[#1A1A1A] text-white rounded-lg text-xs font-medium px-4 py-2 cursor-not-allowed" disabled>버튼</button>
+                      <button className="border border-gray-300 bg-white text-gray-800 rounded-lg text-xs font-medium px-4 py-2 cursor-not-allowed" disabled>버튼</button>
+                      <button className="bg-gray-200 text-gray-800 rounded-lg text-xs font-medium px-4 py-2 cursor-not-allowed" disabled>버튼</button>
+                    </div>
                   </div>
-                  <div className="grid grid-cols-4 border-b border-gray-100 items-center py-4">
-                    <div className="px-4 text-xs text-gray-400">Outlined</div>
-                    <div className="flex justify-center"><button className="border border-[#E8002D] text-[#E8002D] rounded-lg text-xs px-4 py-2">버튼</button></div>
-                    <div className="flex justify-center"><button className="border border-[#cc0028] text-[#cc0028] bg-[#E8002D]/5 rounded-lg text-xs px-4 py-2">버튼</button></div>
-                    <div className="flex justify-center"><button className="border border-[#E8002D] text-[#E8002D] rounded-lg text-xs px-4 py-2 opacity-40 cursor-not-allowed">버튼</button></div>
-                  </div>
-                  <div className="grid grid-cols-4 items-center py-4">
-                    <div className="px-4 text-xs text-gray-400">Ghost</div>
-                    <div className="flex justify-center"><button className="text-[#E8002D] text-xs px-4 py-2">버튼 &gt;</button></div>
-                    <div className="flex justify-center"><button className="text-[#cc0028] underline text-xs px-4 py-2">버튼 &gt;</button></div>
-                    <div className="flex justify-center"><button className="text-[#E8002D] text-xs px-4 py-2 opacity-40 cursor-not-allowed">버튼 &gt;</button></div>
+
+                  <div className="bg-white border border-gray-200/60 rounded-xl p-6 flex flex-col gap-4 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-1 rounded w-fit uppercase tracking-wider">Pressed, Hover</span>
+                    <div className="flex flex-wrap items-center gap-2 mt-2">
+                      <button className="bg-[#A3001F] text-white rounded-lg text-xs font-medium px-4 py-2 shadow-inner">버튼</button>
+                      <button className="bg-[#333333] text-white rounded-lg text-xs font-medium px-4 py-2 shadow-inner">버튼</button>
+                      <button className="border border-gray-400 bg-gray-50 text-gray-900 rounded-lg text-xs font-medium px-4 py-2 shadow-inner">버튼</button>
+                      <button className="bg-gray-300 text-gray-900 rounded-lg text-xs font-medium px-4 py-2 shadow-inner">버튼</button>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -423,65 +402,171 @@ export default function ComponentDetail() {
                 <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Width</h3>
                 <p className="text-xs text-gray-400 mb-4 leading-relaxed">버튼 너비는 Fixed(고정)와 Flexible(유동) 두 가지로 구분됩니다.</p>
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-[#F5F5F5] border border-gray-200 rounded-lg p-6 flex flex-col gap-3">
-                    <span className="text-xs font-semibold text-gray-600">Fixed</span>
-                    <p className="text-xs text-gray-400">버튼 내 텍스트 길이와 관계없이 고정적인 너비를 가집니다.</p>
-                    <button className="bg-[#E8002D] text-white rounded-lg text-xs font-medium w-28 py-2">버튼</button>
+                  <div className="bg-[#F5F5F5] border border-gray-200 rounded-lg p-6 flex flex-col gap-3 items-center">
+                    <span className="text-xs font-semibold text-gray-600 self-start">Fixed</span>
+                    <p className="text-xs text-gray-400 self-start">버튼 내 텍스트 길이와 관계없이 고정적인 너비를 가집니다.</p>
+                    <button className="bg-[#E8002D] text-white rounded-lg text-xs font-medium w-28 py-2 mt-2">버튼</button>
                   </div>
-                  <div className="bg-[#F5F5F5] border border-gray-200 rounded-lg p-6 flex flex-col gap-3">
-                    <span className="text-xs font-semibold text-gray-600">Flexible</span>
-                    <p className="text-xs text-gray-400">버튼 내 텍스트 길이에 따라 유동적인 너비를 가집니다.</p>
-                    <button className="bg-[#E8002D] text-white rounded-lg text-xs font-medium px-5 py-2 w-fit">버튼 텍스트 길이에 따라 유동</button>
+                  <div className="bg-[#F5F5F5] border border-gray-200 rounded-lg p-6 flex flex-col gap-3 items-center">
+                    <span className="text-xs font-semibold text-gray-600 self-start">Flexible</span>
+                    <p className="text-xs text-gray-400 self-start">버튼 내 텍스트 길이에 따라 유동적인 너비를 가집니다.</p>
+                    <button className="bg-[#E8002D] text-white rounded-lg text-xs font-medium px-5 py-2 w-fit mt-2">버튼 텍스트 길이에 따라 유동</button>
                   </div>
                 </div>
               </section>
 
               {/* Usage Guidelines */}
               <section>
-                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Usage Guidelines</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">
-                    <div className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-green-600">
-                      <span className="inline-flex items-center justify-center w-4 h-4 rounded-full border-2 border-green-500 text-[9px] font-bold">✓</span>
-                      Do: 명확한 라벨 사용
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Usage Guidelines</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* DO 1 */}
+                  <div className="flex flex-col gap-3">
+                    <div className="flex flex-col">
+                      <h4 className="font-bold text-[#10B981] text-sm mb-1">Do: Full Width 버튼은 좌우 마진 20px 유지</h4>
+                      <p className="text-xs text-gray-500 leading-relaxed">
+                        풀사이즈 버튼 사용 시에는 Safe Area 및 홈 인디케이터를 고려하여, 좌우 마진을 항상 20px로 고정해 적용합니다.
+                      </p>
                     </div>
-                    <div className="bg-gray-50 flex items-center justify-center py-6 border-t border-gray-100">
-                      <button className="bg-[#E8002D] text-white rounded-lg text-xs font-medium px-5 py-2">저장하기</button>
+                    <div className="relative bg-[#F8F9FA] border border-gray-200 rounded-xl h-44 flex items-center justify-center p-4">
+                      <div className="absolute top-3 left-3 bg-[#10B981] text-white w-6 h-6 rounded-full flex items-center justify-center">
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <div className="w-36 h-28 border border-gray-200 rounded-lg bg-white shadow-sm flex flex-col justify-end p-2 pb-3 relative overflow-hidden">
+                        <div className="absolute top-1 left-2 text-[8px] text-gray-300 font-mono">Safe Area (20px Margin)</div>
+                        <div className="bg-[#E8002D] text-white text-[9px] py-1.5 rounded text-center font-medium mx-3">버튼</div>
+                        <div className="absolute bottom-0 left-0 right-0 h-1 bg-black/10"></div>
+                      </div>
                     </div>
-                    <div className="px-4 py-2 text-xs text-gray-500">버튼에 명확한 라벨을 제공해 사용자가 버튼의 목적을 즉시 이해하도록 합니다.</div>
                   </div>
-                  <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">
-                    <div className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-red-500">
-                      <span className="inline-flex items-center justify-center w-4 h-4 rounded-full border-2 border-red-500 text-[9px] font-bold">✕</span>
-                      Don't: 과도한 강조
+
+                  {/* DONT 1 */}
+                  <div className="flex flex-col gap-3">
+                    <div className="flex flex-col">
+                      <h4 className="font-bold text-[#E8002D] text-sm mb-1">Don't: 좌우 마진 없이 버튼을 꽉 채워 배치</h4>
+                      <p className="text-xs text-gray-500 leading-relaxed">
+                        Full Width 버튼이라 하더라도 화면을 가득 채우는 형태로 배치하는 것은 지양하며, 좌우 마진 없이 사용하는 경우는 허용되지 않습니다.
+                      </p>
                     </div>
-                    <div className="bg-gray-50 flex items-center justify-center gap-3 py-6 border-t border-gray-100">
-                      <button className="bg-[#E8002D] text-white rounded-lg text-xs font-medium px-3 py-2">저장</button>
-                      <button className="bg-[#E8002D] text-white rounded-lg text-xs font-medium px-3 py-2">취소</button>
-                      <button className="bg-[#E8002D] text-white rounded-lg text-xs font-medium px-3 py-2">확인</button>
+                    <div className="relative bg-[#F8F9FA] border border-gray-200 rounded-xl h-44 flex items-center justify-center p-4">
+                      <div className="absolute top-3 left-3 bg-[#E8002D] text-white w-6 h-6 rounded-full flex items-center justify-center">
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </div>
+                      <div className="w-36 h-28 border border-gray-200 rounded-lg bg-white shadow-sm flex flex-col justify-end relative overflow-hidden">
+                        <div className="bg-[#E8002D] text-white text-[9px] py-1.5 rounded-t text-center font-medium w-full">버튼</div>
+                        <div className="h-1 bg-black/10"></div>
+                      </div>
                     </div>
-                    <div className="px-4 py-2 text-xs text-gray-500">동일 영역에 Contained 버튼을 여러 개 사용하지 않습니다. 주요 액션은 하나만 강조합니다.</div>
                   </div>
-                  <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">
-                    <div className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-green-600">
-                      <span className="inline-flex items-center justify-center w-4 h-4 rounded-full border-2 border-green-500 text-[9px] font-bold">✓</span>
-                      Do: 위계에 맞는 타입 사용
+
+                  {/* DO 2 */}
+                  <div className="flex flex-col gap-3">
+                    <div className="flex flex-col">
+                      <h4 className="font-bold text-[#10B981] text-sm mb-1">Do: 버튼 레이블에 구어체 사용 가능</h4>
+                      <p className="text-xs text-gray-500 leading-relaxed">
+                        안내성 문구 또는 알림 목적의 버튼에 한해, 구어체나 특수기호를 포함한 표현을 사용하여 사용자에게 보다 친근한 느낌을 전달할 수 있습니다.
+                      </p>
                     </div>
-                    <div className="bg-gray-50 flex items-center justify-center gap-3 py-6 border-t border-gray-100">
-                      <button className="bg-[#E8002D] text-white rounded-lg text-xs font-medium px-4 py-2">확인</button>
-                      <button className="border border-[#E8002D] text-[#E8002D] rounded-lg text-xs font-medium px-4 py-2">취소</button>
+                    <div className="relative bg-[#F8F9FA] border border-gray-200 rounded-xl h-44 flex flex-col items-center justify-center gap-2">
+                      <div className="absolute top-3 left-3 bg-[#10B981] text-white w-6 h-6 rounded-full flex items-center justify-center">
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <button className="bg-[#E8002D] text-white rounded-lg text-[10px] font-medium w-36 py-1.5 text-center">신청하기</button>
+                      <button className="bg-[#E8002D] text-white rounded-lg text-[10px] font-medium w-36 py-1.5 text-center">가입하기</button>
                     </div>
-                    <div className="px-4 py-2 text-xs text-gray-500">주요 액션에는 Contained, 보조 액션에는 Outlined 또는 Ghost를 사용합니다.</div>
                   </div>
-                  <div className="border border-gray-200 rounded-lg overflow-hidden bg-white">
-                    <div className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-red-500">
-                      <span className="inline-flex items-center justify-center w-4 h-4 rounded-full border-2 border-red-500 text-[9px] font-bold">✕</span>
-                      Don't: 너무 긴 텍스트
+
+                  {/* DONT 2 */}
+                  <div className="flex flex-col gap-3">
+                    <div className="flex flex-col">
+                      <h4 className="font-bold text-[#E8002D] text-sm mb-1">Don't: 모든 버튼에 무분별하게 구어체 사용</h4>
+                      <p className="text-xs text-gray-500 leading-relaxed">
+                        버튼 레이블에는 기능과 직접 관련된 명확한 텍스트만 사용해야 하며, 불필요한 구어체, 특수기호, 또는 오해의 소지가 있는 단어는 사용하지 않습니다.
+                      </p>
                     </div>
-                    <div className="bg-gray-50 flex items-center justify-center py-6 border-t border-gray-100">
-                      <button className="bg-[#E8002D] text-white rounded-lg text-xs font-medium px-4 py-2">이 버튼을 눌러 저장하고 다음으로 이동하기</button>
+                    <div className="relative bg-[#F8F9FA] border border-gray-200 rounded-xl h-44 flex flex-col items-center justify-center gap-2">
+                      <div className="absolute top-3 left-3 bg-[#E8002D] text-white w-6 h-6 rounded-full flex items-center justify-center">
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                      </div>
+                      <button className="bg-[#E8002D] text-white rounded-lg text-[10px] font-medium w-44 py-1.5 text-center flex items-center justify-center gap-1">내가 바로 우승자! 🏆</button>
+                      <button className="bg-[#E8002D] text-white rounded-lg text-[10px] font-medium w-44 py-1.5 text-center flex items-center justify-center gap-1">4건의 이벤트 확인하기~!</button>
                     </div>
-                    <div className="px-4 py-2 text-xs text-gray-500">버튼에 과도한 텍스트를 넣어 가독성을 해치지 않도록 합니다. 간결하게 표현합니다.</div>
+                  </div>
+
+                  {/* DO 3 (Keypad) */}
+                  <div className="flex flex-col gap-3">
+                    <div className="flex flex-col">
+                      <h4 className="font-bold text-[#10B981] text-sm mb-1">Do: 키패드와 결합 시에도 Full Width 버튼은 좌우 마진 20px 유지</h4>
+                      <p className="text-xs text-gray-500 leading-relaxed">
+                        키패드와 버튼을 함께 사용할 경우에도 전체 UI의 일관된 여백 기준을 유지하기 위해, Full Width 버튼은 항상 좌우 마진 20px를 적용하여 배치합니다.
+                      </p>
+                    </div>
+                    <div className="relative bg-[#F8F9FA] border border-gray-200 rounded-xl h-44 flex items-center justify-center">
+                      <div className="absolute top-3 left-3 bg-[#10B981] text-white w-6 h-6 rounded-full flex items-center justify-center">
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <div className="w-44 bg-white border border-gray-200 rounded-xl p-2.5 shadow-sm flex flex-col gap-1.5 scale-[0.85]">
+                        <div className="bg-[#E8002D] text-white text-[9px] py-1 rounded text-center font-medium mx-3.5">버튼</div>
+                        <div className="grid grid-cols-3 gap-1 text-center text-[8px] font-bold text-gray-700 bg-gray-50 p-1 rounded">
+                          <div>1</div><div>2</div><div>3</div>
+                          <div>4</div><div>5</div><div>6</div>
+                          <div>7</div><div>8</div><div>9</div>
+                          <div>*</div><div>0</div><div>#</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* DO 4 (Gap spacing) */}
+                  <div className="flex flex-col gap-3">
+                    <div className="flex flex-col">
+                      <h4 className="font-bold text-[#10B981] text-sm mb-1">Do: 버튼 간 간격은 배치 방향에 따라 고정값 사용</h4>
+                      <p className="text-xs text-gray-500 leading-relaxed">
+                        버튼을 수직으로 정렬할 경우 간격은 8px, 수평으로 나란히 배치할 경우 간격은 8px로 고정하여 사용합니다.
+                      </p>
+                    </div>
+                    <div className="relative bg-[#F8F9FA] border border-gray-200 rounded-xl h-44 flex items-center justify-center gap-8">
+                      <div className="absolute top-3 left-3 bg-[#10B981] text-white w-6 h-6 rounded-full flex items-center justify-center">
+                        <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      
+                      {/* Vertical stack */}
+                      <div className="flex flex-col items-center justify-center border border-gray-200 rounded-lg p-2.5 bg-white shadow-sm scale-90">
+                        <div className="flex flex-col items-center">
+                          <div className="bg-[#1A1A1A] text-white text-[8px] w-20 py-1 rounded text-center">버튼</div>
+                          <div className="flex flex-col items-center my-0.5">
+                            <div className="w-[1px] h-1.5 bg-red-400"></div>
+                            <span className="text-[7px] text-red-500 font-bold leading-none">8px</span>
+                            <div className="w-[1px] h-1.5 bg-red-400"></div>
+                          </div>
+                          <div className="bg-[#E8002D] text-white text-[8px] w-20 py-1 rounded text-center">버튼</div>
+                        </div>
+                      </div>
+
+                      {/* Horizontal stack */}
+                      <div className="flex items-center justify-center border border-gray-200 rounded-lg p-2.5 bg-white shadow-sm scale-90">
+                        <div className="flex items-center">
+                          <div className="bg-white border border-gray-300 text-gray-800 text-[8px] w-14 py-1 rounded text-center">버튼</div>
+                          <div className="flex items-center mx-1">
+                            <div className="w-1.5 h-[1px] bg-red-400"></div>
+                            <span className="text-[7px] text-red-500 font-bold px-0.5">8px</span>
+                            <div className="w-1.5 h-[1px] bg-red-400"></div>
+                          </div>
+                          <div className="bg-[#1A1A1A] text-white text-[8px] w-14 py-1 rounded text-center">버튼</div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -605,7 +690,7 @@ export default function ComponentDetail() {
           )}
 
           {/* Variants Section */}
-          {!isEditing && formData.variants && formData.variants.length > 0 && (
+          {!isEditing && formData.variants && formData.variants.length > 0 && formData.id !== 'c-buttons' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Variants</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -762,7 +847,7 @@ export default function ComponentDetail() {
 
 
           {/* Usage Guidelines Section */}
-          {!isEditing && formData.usage_guidelines && formData.usage_guidelines.length > 0 && (
+          {!isEditing && formData.usage_guidelines && formData.usage_guidelines.length > 0 && formData.id !== 'c-buttons' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Usage Guidelines</h3>
               {formData.id === 'c-badge' ? (
