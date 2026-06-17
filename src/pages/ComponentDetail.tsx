@@ -126,14 +126,16 @@ export default function ComponentDetail() {
         </div>
 
         <div className="p-8 space-y-10">
-          <section>
-            <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">설명 (Description)</h3>
-            {isEditing ? (
-              <textarea className="w-full border border-gray-300 rounded-lg px-4 py-2 h-24" value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} />
-            ) : (
-              <p className="text-gray-700 leading-relaxed">{formData.description || '설명이 없습니다.'}</p>
-            )}
-          </section>
+          {((!isEditing && formData.id !== 'c-tab') || isEditing) && (
+            <section>
+              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">설명 (Description)</h3>
+              {isEditing ? (
+                <textarea className="w-full border border-gray-300 rounded-lg px-4 py-2 h-24" value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} />
+              ) : (
+                <p className="text-gray-700 leading-relaxed">{formData.description || '설명이 없습니다.'}</p>
+              )}
+            </section>
+          )}
 
 
 
@@ -1435,7 +1437,7 @@ export default function ComponentDetail() {
           {formData.id === 'c-tab' && !isEditing && (
             <>
               {/* === SECTION 1: TAB HEADER === */}
-              <div className="pt-4 border-b border-gray-200 pb-4 mb-8">
+              <div className="pt-6 border-b border-gray-200 pb-6 mb-12">
                 <h2 className="text-2xl font-extrabold text-gray-900 tracking-tight uppercase">Tab</h2>
                 <p className="text-sm text-gray-500 mt-2 leading-relaxed">
                   탭(Tab)은 동일한 위계의 서로 다른 콘텐츠 섹션을 그룹화하고 간편하게 섹션 간을 이동할 수 있도록 안내하는 내비게이션 UI 컴포넌트입니다.<br />
@@ -1444,7 +1446,7 @@ export default function ComponentDetail() {
               </div>
 
               {/* Anatomy Section */}
-              <section className="space-y-6">
+              <section className="space-y-6 pt-12 border-t border-gray-100 mt-12">
                 <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Anatomy</h3>
                 <div className="bg-gray-50 border border-gray-200/50 rounded-xl p-8 flex justify-center items-center relative min-h-[220px]">
                   <svg width="420" height="180" viewBox="0 0 420 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible">
@@ -1528,7 +1530,7 @@ export default function ComponentDetail() {
               </section>
 
               {/* Variants Section */}
-              <section className="space-y-6">
+              <section className="space-y-8 py-12 border-t border-gray-100">
                 <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Variants</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {/* Default vs Scroll Style */}
@@ -1540,7 +1542,7 @@ export default function ComponentDetail() {
                       <span className="text-[10px] bg-gray-100 text-gray-600 font-bold px-2 py-0.5 rounded tracking-wider uppercase">Default Style (고정형)</span>
                       <div className="border border-gray-200 rounded-lg bg-gray-50 p-4">
                         <div className="bg-white border border-gray-200 flex w-full">
-                          <div className="flex-1 text-center py-3 border-b-2 border-[#E8002D] text-xs font-bold text-gray-900 cursor-pointer">추천</div>
+                          <div className="flex-1 text-center py-3 text-xs font-bold text-[#E8002D] cursor-pointer" style={{ borderBottom: '2px solid #E8002D' }}>추천</div>
                           <div className="flex-1 text-center py-3 text-xs font-medium text-gray-400 cursor-pointer">랭킹</div>
                           <div className="flex-1 text-center py-3 text-xs font-medium text-gray-400 cursor-pointer">이벤트</div>
                         </div>
@@ -1553,7 +1555,7 @@ export default function ComponentDetail() {
                       <span className="text-[10px] bg-gray-100 text-gray-600 font-bold px-2 py-0.5 rounded tracking-wider uppercase">Scroll Style (스크롤형)</span>
                       <div className="border border-gray-200 rounded-lg bg-gray-50 p-4 overflow-hidden">
                         <div className="bg-white border-b border-gray-200 flex overflow-x-auto scrollbar-none relative">
-                          <div className="px-4 py-3 border-b-2 border-[#E8002D] text-xs font-bold text-gray-900 whitespace-nowrap cursor-pointer">추천</div>
+                          <div className="px-4 py-3 text-xs font-bold text-[#E8002D] whitespace-nowrap cursor-pointer" style={{ borderBottom: '2px solid #E8002D' }}>추천</div>
                           <div className="px-4 py-3 text-xs font-medium text-gray-400 whitespace-nowrap cursor-pointer">랭킹</div>
                           <div className="px-4 py-3 text-xs font-medium text-gray-400 whitespace-nowrap cursor-pointer">이벤트</div>
                           <div className="px-4 py-3 text-xs font-medium text-gray-400 whitespace-nowrap cursor-pointer">신곡</div>
@@ -1575,7 +1577,7 @@ export default function ComponentDetail() {
                       {/* Selected State Card */}
                       <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 flex flex-col items-center gap-2">
                         <span className="text-[10px] bg-red-50 text-[#E8002D] border border-red-100 font-bold px-2 py-0.5 rounded uppercase tracking-wider">Selected</span>
-                        <div className="bg-white border border-gray-200 w-full py-3 text-center border-b-2 border-[#E8002D] text-sm font-bold text-gray-900">
+                        <div className="bg-white border border-gray-200 w-full py-3 text-center text-sm font-bold text-[#E8002D]" style={{ borderBottom: '2px solid #E8002D' }}>
                           Active Tab
                         </div>
                         <p className="text-[11px] text-gray-500 text-center leading-relaxed mt-2">글자 색상이 강조되고, 하단에 Brand Red(#E8002D) Indicator 라인이 표시됩니다.</p>
@@ -1595,7 +1597,7 @@ export default function ComponentDetail() {
               </section>
 
               {/* Behaviors: Transition Animation */}
-              <section className="space-y-6">
+              <section className="space-y-6 pt-12 border-t border-gray-100 mt-12">
                 <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Behaviors: 이동 시 애니메이션</h3>
                 <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
                   <p className="text-xs text-gray-500 leading-relaxed mb-6">
@@ -1641,7 +1643,7 @@ export default function ComponentDetail() {
               </section>
 
               {/* Behaviors: Scroll Sticky Action */}
-              <section className="space-y-6">
+              <section className="space-y-6 pt-12 border-t border-gray-100 mt-12">
                 <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Behaviors: 스크롤시 액션 (Sticky Header)</h3>
                 <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
                   <p className="text-xs text-gray-500 leading-relaxed mb-6">
