@@ -1188,8 +1188,8 @@ export default function ComponentDetail() {
                     <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded w-fit uppercase tracking-wider">InActived</span>
                     <div className="space-y-1 mt-1">
                       <label className="block text-xs font-bold text-gray-900">Label</label>
-                      <div className="border-2 border-gray-900 rounded-lg px-3 py-1.5 text-xs text-gray-900 bg-white flex justify-between items-center">
-                        <span>Placeholder<span className="animate-pulse font-normal">|</span></span>
+                      <div className="border border-gray-900 rounded-lg px-3 py-2 text-xs text-gray-900 bg-white flex justify-between items-center">
+                        <span>Placeholder<span className="animate-pulse font-normal text-[#E8002D]">|</span></span>
                         <svg className="w-3.5 h-3.5 text-gray-400 hover:text-gray-900 cursor-pointer" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                       </div>
                     </div>
@@ -1252,7 +1252,7 @@ export default function ComponentDetail() {
                     <div className="border border-gray-300 rounded-lg p-3 bg-white text-xs text-gray-800 font-medium relative h-[120px] flex flex-col justify-between">
                       <div className="overflow-y-auto pr-2 space-y-1 scrollbar-thin scrollbar-thumb-gray-300">
                         <p>안녕하세요.</p>
-                        <p>마트 동호회 가입 한지 1년이 되었습니다.</p>
+                        <p>다트 동호회 가입 한지 1년이 되었습니다.</p>
                         <p>초보자인 저를 환영해 주셔서 정말 감사합니다!</p>
                         <p>망설이시는 초보자 분들도 얼른 가입하세요.</p>
                         <p>추천 :)</p>
@@ -1377,8 +1377,8 @@ export default function ComponentDetail() {
                     <div className="space-y-1 mt-1 flex-1 flex flex-col justify-between">
                       <div>
                         <label className="block text-xs font-bold text-gray-900 mb-1">Label</label>
-                        <div className="border-2 border-gray-900 rounded-lg px-3 py-1.5 text-xs text-gray-900 bg-white h-[80px]">
-                          text<span className="animate-pulse font-normal">|</span>
+                        <div className="border border-gray-900 rounded-lg px-3 py-2 text-xs text-gray-900 bg-white h-[80px]">
+                          text<span className="animate-pulse font-normal text-[#E8002D]">|</span>
                         </div>
                       </div>
                       <span className="text-[10px] text-gray-400 self-end mt-1">7 / 150</span>
