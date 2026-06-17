@@ -2082,7 +2082,7 @@ export default function ComponentDetail() {
                     <path d="M285 193 L291 199 M291 193 L285 199" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" />
 
                     {/* Grid Columns Overlay (5) - covers mockup entire content width */}
-                    <g opacity="0.3">
+                    <g opacity="0.1">
                       <rect x="167" y="10" width="26" height="320" fill="#FFF0F2" />
                       <rect x="200" y="10" width="26" height="320" fill="#FFF0F2" />
                       <rect x="233" y="10" width="26" height="320" fill="#FFF0F2" />
@@ -2166,7 +2166,7 @@ export default function ComponentDetail() {
                   {/* A. Basic */}
                   <div className="flex flex-col items-center gap-2">
                     <span className="text-xs font-bold text-gray-900">A. Basic</span>
-                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[14px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                       {/* Scrim */}
                       <div className="absolute inset-0 bg-black/12 z-10" />
                       
@@ -2194,7 +2194,7 @@ export default function ComponentDetail() {
                       </div>
 
                       {/* Layout Grid Overlay */}
-                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-10 z-25">
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
@@ -2206,7 +2206,7 @@ export default function ComponentDetail() {
                   {/* B. Banner */}
                   <div className="flex flex-col items-center gap-2">
                     <span className="text-xs font-bold text-gray-900">B. Banner</span>
-                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[14px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                       {/* Scrim */}
                       <div className="absolute inset-0 bg-black/12 z-10" />
                       
@@ -2234,7 +2234,7 @@ export default function ComponentDetail() {
                       </div>
 
                       {/* Layout Grid Overlay */}
-                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-10 z-25">
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
@@ -2246,7 +2246,7 @@ export default function ComponentDetail() {
                   {/* C. Nudging */}
                   <div className="flex flex-col items-center gap-2">
                     <span className="text-xs font-bold text-gray-900">C. Nudging</span>
-                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[14px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                       {/* Scrim */}
                       <div className="absolute inset-0 bg-black/12 z-10" />
                       
@@ -2265,7 +2265,7 @@ export default function ComponentDetail() {
                       </div>
 
                       {/* Layout Grid Overlay */}
-                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-10 z-25">
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
@@ -2277,7 +2277,7 @@ export default function ComponentDetail() {
                   {/* D. Nudging + Close */}
                   <div className="flex flex-col items-center gap-2">
                     <span className="text-xs font-bold text-gray-900">D. Nudging + Close</span>
-                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[14px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                       {/* Scrim */}
                       <div className="absolute inset-0 bg-black/12 z-10" />
                       
@@ -2301,7 +2301,7 @@ export default function ComponentDetail() {
                       </div>
 
                       {/* Layout Grid Overlay */}
-                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-10 z-25">
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
@@ -2326,7 +2326,7 @@ export default function ComponentDetail() {
                   {/* Step 1: Half View */}
                   <div className="flex flex-col items-center gap-2">
                     <span className="text-xs font-bold text-gray-500">Half View (시작 상태)</span>
-                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-md">
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[14px] bg-[#3E3E3E] overflow-hidden shadow-md">
                       {/* Scrim */}
                       <div className="absolute inset-0 bg-black/12 z-10" />
                       
@@ -2364,7 +2364,7 @@ export default function ComponentDetail() {
                       </div>
 
                       {/* Layout Grid Overlay */}
-                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-10 z-25">
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
@@ -2376,7 +2376,7 @@ export default function ComponentDetail() {
                   {/* Step 2: Dragging Up */}
                   <div className="flex flex-col items-center gap-2">
                     <span className="text-xs font-bold text-gray-500">Dragging Up (이동 상태)</span>
-                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-md">
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[14px] bg-[#3E3E3E] overflow-hidden shadow-md">
                       {/* Scrim */}
                       <div className="absolute inset-0 bg-black/12 z-10" />
                       
@@ -2415,7 +2415,7 @@ export default function ComponentDetail() {
                       </div>
 
                       {/* Layout Grid Overlay */}
-                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-10 z-25">
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
@@ -2427,7 +2427,7 @@ export default function ComponentDetail() {
                   {/* Step 3: Full View */}
                   <div className="flex flex-col items-center gap-2">
                     <span className="text-xs font-bold text-gray-500">Full View (확장 완료)</span>
-                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-md">
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[14px] bg-[#3E3E3E] overflow-hidden shadow-md">
                       {/* Scrim */}
                       <div className="absolute inset-0 bg-black/12 z-10" />
                       
@@ -2463,7 +2463,7 @@ export default function ComponentDetail() {
                       </div>
 
                       {/* Layout Grid Overlay */}
-                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-10 z-25">
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
@@ -2543,7 +2543,7 @@ export default function ComponentDetail() {
                     {/* Keyboard Closed */}
                     <div className="flex flex-col items-center gap-2">
                       <span className="text-xs font-bold text-gray-500">Keyboard Closed</span>
-                      <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
+                      <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[14px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                         {/* Scrim */}
                         <div className="absolute inset-0 bg-black/12 z-10" />
                         
@@ -2568,7 +2568,7 @@ export default function ComponentDetail() {
                         </div>
 
                         {/* Layout Grid Overlay */}
-                        <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                        <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-10 z-25">
                           <div className="flex-1 bg-[#FFF0F2] h-full" />
                           <div className="flex-1 bg-[#FFF0F2] h-full" />
                           <div className="flex-1 bg-[#FFF0F2] h-full" />
@@ -2580,7 +2580,7 @@ export default function ComponentDetail() {
                     {/* Keyboard Open */}
                     <div className="flex flex-col items-center gap-2">
                       <span className="text-xs font-bold text-gray-500">Keyboard Open</span>
-                      <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
+                      <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[14px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                         {/* Scrim */}
                         <div className="absolute inset-0 bg-black/12 z-10" />
                         
@@ -2634,7 +2634,7 @@ export default function ComponentDetail() {
                         </div>
 
                         {/* Layout Grid Overlay */}
-                        <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                        <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-10 z-25">
                           <div className="flex-1 bg-[#FFF0F2] h-full" />
                           <div className="flex-1 bg-[#FFF0F2] h-full" />
                           <div className="flex-1 bg-[#FFF0F2] h-full" />
@@ -2658,7 +2658,7 @@ export default function ComponentDetail() {
                     {/* Scrollable: Keyboard Closed */}
                     <div className="flex flex-col items-center gap-2">
                       <span className="text-xs font-bold text-gray-500">Normal Scrollable</span>
-                      <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
+                      <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[14px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                         {/* Scrim */}
                         <div className="absolute inset-0 bg-black/12 z-10" />
                         
@@ -2687,7 +2687,7 @@ export default function ComponentDetail() {
                         </div>
 
                         {/* Layout Grid Overlay */}
-                        <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                        <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-10 z-25">
                           <div className="flex-1 bg-[#FFF0F2] h-full" />
                           <div className="flex-1 bg-[#FFF0F2] h-full" />
                           <div className="flex-1 bg-[#FFF0F2] h-full" />
@@ -2699,7 +2699,7 @@ export default function ComponentDetail() {
                     {/* Scrollable: Keyboard Open */}
                     <div className="flex flex-col items-center gap-2">
                       <span className="text-xs font-bold text-gray-500">Keyboard Open</span>
-                      <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
+                      <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[14px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                         {/* Scrim */}
                         <div className="absolute inset-0 bg-black/12 z-10" />
                         
@@ -2754,7 +2754,7 @@ export default function ComponentDetail() {
                         </div>
 
                         {/* Layout Grid Overlay */}
-                        <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                        <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-10 z-25">
                           <div className="flex-1 bg-[#FFF0F2] h-full" />
                           <div className="flex-1 bg-[#FFF0F2] h-full" />
                           <div className="flex-1 bg-[#FFF0F2] h-full" />
@@ -2779,7 +2779,7 @@ export default function ComponentDetail() {
                   {/* Fixed-Full */}
                   <div className="flex flex-col items-center gap-2">
                     <span className="text-xs font-bold text-gray-900">Fixed-Full</span>
-                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-md">
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[14px] bg-[#3E3E3E] overflow-hidden shadow-md">
                       {/* Scrim */}
                       <div className="absolute inset-0 bg-black/12 z-10" />
                       
@@ -2815,7 +2815,7 @@ export default function ComponentDetail() {
                       </div>
 
                       {/* Layout Grid Overlay */}
-                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-10 z-25">
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
@@ -2827,7 +2827,7 @@ export default function ComponentDetail() {
                   {/* Draggable-Full */}
                   <div className="flex flex-col items-center gap-2">
                     <span className="text-xs font-bold text-gray-900">Draggable-Full</span>
-                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-md">
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[14px] bg-[#3E3E3E] overflow-hidden shadow-md">
                       {/* Scrim */}
                       <div className="absolute inset-0 bg-black/12 z-10" />
                       
@@ -2863,7 +2863,7 @@ export default function ComponentDetail() {
                       </div>
 
                       {/* Layout Grid Overlay */}
-                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-10 z-25">
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
                         <div className="flex-1 bg-[#FFF0F2] h-full" />
