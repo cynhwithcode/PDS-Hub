@@ -2040,102 +2040,106 @@ export default function ComponentDetail() {
           {formData.id === 'c-bottomsheet' && !isEditing && (
             <>
               {/* === SECTION 1: BOTTOM SHEET HEADER === */}
-              <div className="pt-6 pb-6 mb-12">
-                <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight uppercase mb-4" style={{ fontFamily: 'Outfit, Pretendard, sans-serif' }}>BOTTOM SHEET</h1>
+              <div className="pt-4 pb-2 mb-4">
+                <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight uppercase mb-3" style={{ fontFamily: 'Outfit, Pretendard, sans-serif' }}>BOTTOM SHEET</h1>
                 <p className="text-sm text-gray-900 leading-relaxed font-semibold">
                   바텀시트(Bottom Sheet)는 화면 하단에 고정되어 현재 또는 이전 화면과 관련된 콘텐츠를 표시하는 UI 요소입니다.<br />
                   페이지를 이탈하지 않고도 중요한 정보 전달이나 복잡한 정보 입력을 요청할 수 있는 대화 상자의 대안으로 사용되며, 활성화되면 사용자와 기존 페이지 콘텐츠의 상호작용은 차단됩니다.<br />
                   따라서 시트는 사용자가 작업을 완료하거나 시트를 닫기 전까지는 이전 페이지로 돌아갈 수 없기 때문에, 반드시 필요한 상황에서만 사용되어야 합니다.
                 </p>
-                <hr className="border-gray-200 mt-8 mb-12" />
+                <hr className="border-gray-200 mt-6 mb-6" />
               </div>
 
               {/* Bottom Sheet Anatomy */}
-              <section className="space-y-6 pt-12 mt-12">
-                <h3 className="text-xl font-bold text-gray-900 tracking-tight mb-6" style={{ fontFamily: 'Pretendard, sans-serif' }}>Bottom Sheet Anatomy</h3>
-                <div className="bg-[#F5F5F5] rounded-xl p-12 flex justify-center items-center relative min-h-[360px] border border-gray-200/30">
+              <section className="space-y-4 pt-2 mt-2">
+                <h3 className="text-xl font-bold text-gray-900 tracking-tight mb-4" style={{ fontFamily: 'Pretendard, sans-serif' }}>Bottom Sheet Anatomy</h3>
+                <div className="bg-[#F5F5F5] rounded-xl p-10 flex justify-center items-center relative min-h-[360px] border border-gray-200/30">
                   <svg width="460" height="340" viewBox="0 0 460 340" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible">
                     <defs>
-                      <filter id="bs-shadow" x="120" y="160" width="220" height="180" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-                        <feDropShadow dx="0" dy="4" stdDeviation="12" floodColor="#000000" floodOpacity="0.08" />
+                      <filter id="bs-shadow" x="140" y="160" width="180" height="170" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                        <feDropShadow dx="0" dy="4" stdDeviation="10" floodColor="#000000" floodOpacity="0.08" />
                       </filter>
                     </defs>
 
-                    {/* Phone Screen Mockup Container */}
-                    <rect x="130" y="20" width="200" height="300" rx="20" fill="#2E2F32" stroke="#D1D5DB" strokeWidth="2" />
+                    {/* Phone Screen Mockup Container (Slender 150x320 ratio) */}
+                    <rect x="155" y="10" width="150" height="320" rx="28" fill="#2E2F32" stroke="#D1D5DB" strokeWidth="2" />
                     
                     {/* Dimmed Scrim (2) */}
-                    <path d="M131 21 H329 V180 H131 Z" fill="#2E2F32" opacity="0.4" />
+                    <path d="M156 11 H304 V170 H156 Z" fill="#2E2F32" opacity="0.4" />
                     
                     {/* Bottom Sheet Card Container (1) */}
                     <g filter="url(#bs-shadow)">
-                      <path d="M131 180 C131 172, 139 164, 147 164 H313 C321 164, 329 172, 329 180 V319 H131 Z" fill="white" />
+                      <path d="M156 329 L156 190 C156 179, 166 170, 176 170 H284 C294 170, 304 179, 304 190 V329 Z" fill="white" />
                     </g>
 
                     {/* Handlebar (7) */}
-                    <rect x="215" y="170" width="30" height="3" rx="1.5" fill="#E5E7EB" />
+                    <rect x="215" y="178" width="30" height="3" rx="1.5" fill="#E5E7EB" />
 
                     {/* Header Title (3) */}
-                    <text x="145" y="196" fontSize="11" fontWeight="bold" fill="#1D1F22" fontFamily="Pretendard, sans-serif">Title</text>
+                    <text x="168" y="200" fontSize="10" fontWeight="bold" fill="#1D1F22" fontFamily="Pretendard, sans-serif">Title</text>
                     
                     {/* Close Button (4) */}
-                    <path d="M305 189 L313 197 M313 189 L305 197" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" />
+                    <path d="M285 193 L291 199 M291 193 L285 199" stroke="#9CA3AF" strokeWidth="1.5" strokeLinecap="round" />
 
-                    {/* Contents Area representation - red grid columns (5) */}
-                    <rect x="145" y="212" width="22" height="60" fill="#FFF0F2" />
-                    <rect x="171" y="212" width="22" height="60" fill="#FFF0F2" />
-                    <rect x="197" y="212" width="22" height="60" fill="#FFF0F2" />
-                    <rect x="223" y="212" width="22" height="60" fill="#FFF0F2" />
-                    <rect x="249" y="212" width="22" height="60" fill="#FFF0F2" />
-                    <rect x="275" y="212" width="22" height="60" fill="#FFF0F2" />
-                    <rect x="301" y="212" width="13" height="60" fill="#FFF0F2" />
+                    {/* Grid Columns Overlay (5) - covers mockup entire content width */}
+                    <g opacity="0.3">
+                      <rect x="167" y="10" width="26" height="320" fill="#FFF0F2" />
+                      <rect x="200" y="10" width="26" height="320" fill="#FFF0F2" />
+                      <rect x="233" y="10" width="26" height="320" fill="#FFF0F2" />
+                      <rect x="266" y="10" width="26" height="320" fill="#FFF0F2" />
+                    </g>
+
+                    {/* Contents Area Placeholders */}
+                    <rect x="167" y="225" width="125" height="3" rx="1.5" fill="#E5E7EB" />
+                    <rect x="167" y="238" width="100" height="3" rx="1.5" fill="#E5E7EB" />
+                    <rect x="167" y="251" width="115" height="3" rx="1.5" fill="#E5E7EB" />
 
                     {/* Button (6) */}
-                    <rect x="145" y="282" width="170" height="24" rx="4" fill="#E8002D" />
-                    <text x="230" y="296" fontSize="9" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">Text</text>
+                    <rect x="167" y="290" width="126" height="24" rx="6" fill="#E8002D" />
+                    <text x="230" y="305" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">Text</text>
 
                     {/* Callouts */}
                     {/* 1. Sheet */}
-                    <path d="M131 240 L80 240" stroke="#9CA3AF" strokeWidth="1" />
-                    <circle cx="131" cy="240" r="2.5" fill="#1A1A1A" />
+                    <path d="M156 240 L80 240" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="156" cy="240" r="2.5" fill="#1A1A1A" />
                     <circle cx="70" cy="240" r="9" fill="#1A1A1A" />
                     <text x="70" y="243.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">1</text>
 
                     {/* 2. Scrim */}
-                    <path d="M260 100 L380 100" stroke="#9CA3AF" strokeWidth="1" />
-                    <circle cx="260" cy="100" r="2.5" fill="#1A1A1A" />
-                    <circle cx="390" cy="100" r="9" fill="#1A1A1A" />
-                    <text x="390" y="103.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">2</text>
+                    <path d="M250 80 L380 80" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="250" cy="80" r="2.5" fill="#1A1A1A" />
+                    <circle cx="390" cy="80" r="9" fill="#1A1A1A" />
+                    <text x="390" y="83.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">2</text>
 
                     {/* 3. Header Title */}
-                    <path d="M150 192 L80 192" stroke="#9CA3AF" strokeWidth="1" />
-                    <circle cx="150" cy="192" r="2.5" fill="#1A1A1A" />
-                    <circle cx="70" cy="192" r="9" fill="#1A1A1A" />
-                    <text x="70" y="195.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">3</text>
+                    <path d="M172 198 L80 198" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="172" cy="198" r="2.5" fill="#1A1A1A" />
+                    <circle cx="70" cy="198" r="9" fill="#1A1A1A" />
+                    <text x="70" y="201.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">3</text>
 
                     {/* 4. Close Button */}
-                    <path d="M309 193 L380 193" stroke="#9CA3AF" strokeWidth="1" />
-                    <circle cx="309" cy="193" r="2.5" fill="#1A1A1A" />
-                    <circle cx="390" cy="193" r="9" fill="#1A1A1A" />
-                    <text x="390" y="196.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">4</text>
+                    <path d="M288 196 L380 196" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="288" cy="196" r="2.5" fill="#1A1A1A" />
+                    <circle cx="390" cy="196" r="9" fill="#1A1A1A" />
+                    <text x="390" y="199.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">4</text>
 
                     {/* 5. Contents area */}
-                    <path d="M310 240 L380 240" stroke="#9CA3AF" strokeWidth="1" />
-                    <circle cx="310" cy="240" r="2.5" fill="#1A1A1A" />
+                    <path d="M280 240 L380 240" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="280" cy="240" r="2.5" fill="#1A1A1A" />
                     <circle cx="390" cy="240" r="9" fill="#1A1A1A" />
                     <text x="390" y="243.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">5</text>
 
                     {/* 6. Button */}
-                    <path d="M315 294 L380 294" stroke="#9CA3AF" strokeWidth="1" />
-                    <circle cx="315" cy="294" r="2.5" fill="#1A1A1A" />
-                    <circle cx="390" cy="294" r="9" fill="#1A1A1A" />
-                    <text x="390" y="297.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">6</text>
+                    <path d="M285 302 L380 302" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="285" cy="302" r="2.5" fill="#1A1A1A" />
+                    <circle cx="390" cy="302" r="9" fill="#1A1A1A" />
+                    <text x="390" y="305.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">6</text>
 
                     {/* 7. Draggable (Handlebar) */}
-                    <path d="M240 171 L380 171" stroke="#9CA3AF" strokeWidth="1" />
-                    <circle cx="240" cy="171" r="2.5" fill="#1A1A1A" />
-                    <circle cx="390" cy="171" r="9" fill="#1A1A1A" />
-                    <text x="390" y="174.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">7</text>
+                    <path d="M230 178 L380 178" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="230" cy="178" r="2.5" fill="#1A1A1A" />
+                    <circle cx="390" cy="178" r="9" fill="#1A1A1A" />
+                    <text x="390" y="181.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">7</text>
                   </svg>
                 </div>
                 
@@ -2150,123 +2154,158 @@ export default function ComponentDetail() {
                 </div>
               </section>
 
-              {/* Scrollable */}
-              <section className="space-y-6 pt-12 border-t border-gray-100 mt-12">
-                <h3 className="text-xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: 'Pretendard, sans-serif' }}>Scrollable</h3>
-                <p className="text-xs text-gray-500 leading-relaxed pl-1 mb-6">
-                  키보드의 높이로 인해 하단 시트의 전체 높이를 표시할 수 없는 경우, 시트 내의 내용을 확인하기 위해 콘텐츠 영역에서 스크롤이 활성화됩니다.
+              {/* Components */}
+              <section className="space-y-6 pt-8 border-t border-gray-100 mt-8">
+                <h3 className="text-xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: 'Pretendard, sans-serif' }}>Components</h3>
+                <p className="text-xs text-gray-500 leading-relaxed pl-1 mb-4">
+                  Sheet는 용도에 따라 A.Basic, B. Banner, C.Nudging, D. Nudging + Close로 구분됩니다.
                 </p>
 
-                <div className="flex flex-wrap gap-12 justify-center bg-[#F5F5F5] border border-gray-200/30 rounded-xl p-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 bg-[#F5F5F5] border border-gray-200/30 rounded-xl p-8 justify-items-center justify-center">
                   
-                  {/* Left: General Scrollable */}
-                  <div className="flex flex-col items-center gap-3">
-                    <span className="text-xs font-bold text-gray-500">Normal Scrollable</span>
-                    <div className="relative w-[180px] h-[320px] border border-gray-300 rounded-3xl bg-[#3E3E3E] overflow-hidden shadow-md">
+                  {/* A. Basic */}
+                  <div className="flex flex-col items-center gap-2">
+                    <span className="text-xs font-bold text-gray-900">A. Basic</span>
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                       {/* Scrim */}
                       <div className="absolute inset-0 bg-black/40 z-10" />
                       
-                      {/* Sheet */}
-                      <div className="absolute bottom-0 left-0 right-0 h-[220px] bg-white rounded-t-2xl flex flex-col z-20 overflow-hidden">
+                      {/* Bottom Sheet */}
+                      <div className="absolute bottom-0 left-0 right-0 h-[180px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
                         {/* Drag Handle */}
-                        <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2" />
+                        <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2 flex-shrink-0" />
                         
                         {/* Header */}
-                        <div className="px-3 pb-2 flex items-center justify-between">
-                          <span className="text-xs font-bold text-gray-900">Title</span>
-                          <span className="text-xs font-medium text-gray-400">✕</span>
+                        <div className="px-3 pb-1.5 flex items-center justify-between flex-shrink-0">
+                          <span className="text-[10px] font-bold text-gray-900">Title</span>
+                          <span className="text-[10px] font-medium text-gray-400">✕</span>
                         </div>
                         
-                        {/* Contents area (scrollable) */}
-                        <div className="flex-1 px-3 overflow-y-auto relative flex gap-1">
-                          {/* Pink Grid Columns to match the mockup */}
-                          {Array.from({ length: 4 }).map((_, i) => (
-                            <div key={i} className="flex-1 bg-red-50/70 h-[200px] border-x border-red-100/30 flex flex-col gap-2 p-0.5">
-                              <div className="h-6 bg-red-100/40 rounded" />
-                              <div className="h-12 bg-red-100/40 rounded" />
-                              <div className="h-8 bg-red-100/40 rounded" />
-                              <div className="h-10 bg-red-100/40 rounded" />
-                            </div>
-                          ))}
-                          {/* Virtual Scrollbar */}
-                          <div className="absolute right-1 top-2 bottom-2 w-0.5 bg-gray-300 rounded-full" />
+                        {/* Content Area placeholder */}
+                        <div className="flex-1 px-3 py-1 space-y-1.5 overflow-hidden z-10">
+                          <div className="h-1.5 bg-gray-100 rounded w-full" />
+                          <div className="h-1.5 bg-gray-100 rounded w-4/5" />
                         </div>
                         
-                        {/* Fixed Button */}
-                        <div className="p-2 bg-white border-t border-gray-50">
+                        {/* Button */}
+                        <div className="p-2 bg-white flex-shrink-0 z-10 border-t border-gray-50">
                           <button className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md">Text</button>
                         </div>
+                      </div>
+
+                      {/* Layout Grid Overlay */}
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
                       </div>
                     </div>
                   </div>
 
-                  {/* Right: Scrollable with Keyboard */}
-                  <div className="flex flex-col items-center gap-3">
-                    <span className="text-xs font-bold text-gray-500">With Keyboard Scrollable</span>
-                    <div className="relative w-[180px] h-[320px] border border-gray-300 rounded-3xl bg-[#3E3E3E] overflow-hidden shadow-md">
+                  {/* B. Banner */}
+                  <div className="flex flex-col items-center gap-2">
+                    <span className="text-xs font-bold text-gray-900">B. Banner</span>
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                       {/* Scrim */}
                       <div className="absolute inset-0 bg-black/40 z-10" />
                       
-                      {/* Sheet (pushed up by keyboard, starts at y=40, height=180px) */}
-                      <div className="absolute bottom-[90px] left-0 right-0 h-[190px] bg-white rounded-t-2xl flex flex-col z-20 overflow-hidden">
-                        {/* Drag Handle */}
-                        <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2" />
-                        
-                        {/* Header */}
-                        <div className="px-3 pb-2 flex items-center justify-between">
-                          <span className="text-xs font-bold text-gray-900">Title</span>
-                          <span className="text-xs font-medium text-gray-400">✕</span>
+                      {/* Bottom Sheet */}
+                      <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
+                        {/* Banner content */}
+                        <div className="flex-1 bg-[#FFF0F2] m-2.5 rounded-lg relative overflow-hidden flex flex-col items-center justify-center text-center p-2 z-10">
+                          <div className="w-full h-full bg-red-100/30 border border-dashed border-red-200/50 rounded flex flex-col items-center justify-center gap-1">
+                            <span className="text-[9px] font-extrabold text-[#E8002D] leading-none">BANNER CONTENT</span>
+                            <span className="text-[7px] text-red-400 font-medium">이벤트 / 알림 배너</span>
+                          </div>
+                          
+                          {/* Banner Page Indicator */}
+                          <div className="absolute bottom-2 right-2 bg-black/75 text-white text-[6px] font-bold px-1.5 py-0.5 rounded-full flex items-center gap-1 scale-90">
+                            <span>1 / 3</span>
+                            <span className="w-1.5 h-1.5 flex items-center justify-center font-mono text-[5px]">‖</span>
+                          </div>
                         </div>
                         
-                        {/* Contents area (scrollable, height is smaller) */}
-                        <div className="flex-1 px-3 overflow-y-auto relative flex gap-1">
-                          {/* Pink Grid Columns to match the mockup */}
-                          {Array.from({ length: 4 }).map((_, i) => (
-                            <div key={i} className="flex-1 bg-red-50/70 h-[200px] border-x border-red-100/30 flex flex-col gap-2 p-0.5">
-                              <div className="h-6 bg-red-100/40 rounded" />
-                              <div className="h-12 bg-red-100/40 rounded" />
-                              <div className="h-8 bg-red-100/40 rounded" />
-                              <div className="h-10 bg-red-100/40 rounded" />
-                            </div>
-                          ))}
-                          {/* Virtual Scrollbar */}
-                          <div className="absolute right-1 top-2 bottom-2 w-0.5 bg-gray-300 rounded-full" />
+                        {/* Bottom Option Bar */}
+                        <div className="px-3 py-2 bg-white border-t border-gray-100 flex justify-between items-center text-[8px] font-bold text-gray-500 z-10">
+                          <button className="hover:text-gray-950 transition-colors">오늘만 그만보기</button>
+                          <button className="hover:text-gray-950 transition-colors">닫기</button>
+                        </div>
+                      </div>
+
+                      {/* Layout Grid Overlay */}
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* C. Nudging */}
+                  <div className="flex flex-col items-center gap-2">
+                    <span className="text-xs font-bold text-gray-900">C. Nudging</span>
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
+                      {/* Scrim */}
+                      <div className="absolute inset-0 bg-black/40 z-10" />
+                      
+                      {/* Bottom Sheet */}
+                      <div className="absolute bottom-0 left-0 right-0 h-[120px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
+                        <div className="w-6 h-0.5 bg-gray-200 rounded-full mx-auto my-1.5 flex-shrink-0" />
+                        
+                        <div className="flex-1 px-3 py-1 space-y-1 overflow-hidden z-10 text-center flex flex-col justify-center">
+                          <span className="text-[8px] font-bold text-gray-900">텍스트만 들어가는 템플릿입니다.</span>
+                          <span className="text-[7px] text-gray-400 leading-tight">상세 길이는 텍스트에 맞춰 자동 조절됩니다.</span>
                         </div>
                         
-                        {/* Fixed Button */}
-                        <div className="p-2 bg-white border-t border-gray-50">
+                        <div className="p-2 bg-white flex-shrink-0 z-10 border-t border-gray-50">
                           <button className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md">Text</button>
                         </div>
                       </div>
+
+                      {/* Layout Grid Overlay */}
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* D. Nudging + Close */}
+                  <div className="flex flex-col items-center gap-2">
+                    <span className="text-xs font-bold text-gray-900">D. Nudging + Close</span>
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
+                      {/* Scrim */}
+                      <div className="absolute inset-0 bg-black/40 z-10" />
                       
-                      {/* Virtual Mobile Keyboard */}
-                      <div className="absolute bottom-0 left-0 right-0 h-[90px] bg-[#EAEBED] border-t border-gray-300 z-30 p-1 flex flex-col justify-between font-sans">
-                        {/* Row 1 */}
-                        <div className="flex justify-between gap-0.5">
-                          {['q','w','e','r','t','y','u','i','o','p'].map(k => (
-                            <div key={k} className="flex-1 bg-white h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">{k}</div>
-                          ))}
+                      {/* Bottom Sheet */}
+                      <div className="absolute bottom-0 left-0 right-0 h-[120px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
+                        <div className="w-6 h-0.5 bg-gray-200 rounded-full mx-auto my-1.5 flex-shrink-0" />
+                        
+                        {/* Close button icon */}
+                        <div className="absolute top-1.5 right-2 flex items-center justify-center w-3 h-3 rounded-full z-30">
+                          <span className="text-[8px] text-gray-400 font-bold leading-none">✕</span>
                         </div>
-                        {/* Row 2 */}
-                        <div className="flex justify-center gap-0.5 px-2">
-                          {['a','s','d','f','g','h','j','k','l'].map(k => (
-                            <div key={k} className="w-[13px] bg-white h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">{k}</div>
-                          ))}
+                        
+                        <div className="flex-1 px-3 py-1 space-y-1 overflow-hidden z-10 text-center flex flex-col justify-center">
+                          <span className="text-[8px] font-bold text-gray-955">텍스트만 들어가는 템플릿입니다.</span>
+                          <span className="text-[7px] text-gray-400 leading-tight">상세 길이는 텍스트에 맞춰 자동 조절됩니다.</span>
                         </div>
-                        {/* Row 3 */}
-                        <div className="flex justify-between gap-0.5 px-0.5">
-                          <div className="w-[18px] bg-gray-300 h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">⇧</div>
-                          {['z','x','c','v','b','n','m'].map(k => (
-                            <div key={k} className="flex-1 bg-white h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">{k}</div>
-                          ))}
-                          <div className="w-[18px] bg-gray-300 h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">⌫</div>
+                        
+                        <div className="p-2 bg-white flex-shrink-0 z-10 border-t border-gray-50">
+                          <button className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md">Text</button>
                         </div>
-                        {/* Row 4 */}
-                        <div className="flex justify-between gap-1 px-1">
-                          <div className="w-[26px] bg-gray-300 h-4.5 rounded flex items-center justify-center text-[5px] font-bold shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">ABC</div>
-                          <div className="flex-1 bg-white h-4.5 rounded flex items-center justify-center text-[5px] text-gray-400 font-bold shadow-[0_0.5px_0_rgba(0,0,0,0.15)]">space</div>
-                          <div className="w-[30px] bg-[#3B82F6] h-4.5 rounded flex items-center justify-center text-[5px] font-bold text-white shadow-[0_0.5px_0_rgba(0,0,0,0.15)]">return</div>
-                        </div>
+                      </div>
+
+                      {/* Layout Grid Overlay */}
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
                       </div>
                     </div>
                   </div>
@@ -2274,101 +2313,161 @@ export default function ComponentDetail() {
                 </div>
               </section>
 
-              {/* Spacing */}
-              <section className="space-y-6 pt-12 border-t border-gray-100 mt-12">
-                <h3 className="text-xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: 'Pretendard, sans-serif' }}>Spacing</h3>
-                <p className="text-xs text-gray-500 leading-relaxed pl-1 mb-6">
-                  Full 높이는 Status Bar 기준으로 Fixed는 48px, Draggable은 16px 간격까지 확장되며, Half 높이는 두 타입 모두 전체 화면 높이의 60%를 사용합니다.
+              {/* Interaction */}
+              <section className="space-y-6 pt-8 border-t border-gray-100 mt-8">
+                <h3 className="text-xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: 'Pretendard, sans-serif' }}>Interaction</h3>
+                <p className="text-xs text-gray-500 leading-relaxed pl-1 mb-4">
+                  Draggable은 화면을 자유롭게 확장하거나 축소하여 콘텐츠를 유연하게 탐색할 수 있는 인터랙션입니다.<br/>
+                  Draggable은 기본적으로 Half 높이로 시작하며, 사용자가 핸들을 위로 끌거나 콘텐츠를 스크롤하면 Full 뷰로 확장됩니다.
                 </p>
 
-                <div className="flex flex-wrap gap-12 justify-center bg-[#F5F5F5] border border-gray-200/30 rounded-xl p-10">
+                <div className="flex flex-wrap gap-8 justify-center bg-[#F5F5F5] border border-gray-200/30 rounded-xl p-10">
                   
-                  {/* Fixed-Full */}
-                  <div className="flex flex-col items-center gap-3">
-                    <span className="text-xs font-bold text-gray-900">Fixed-Full</span>
-                    <div className="relative w-[180px] h-[340px] border border-gray-300 rounded-3xl bg-[#3E3E3E] overflow-hidden shadow-md">
+                  {/* Step 1: Half View */}
+                  <div className="flex flex-col items-center gap-2">
+                    <span className="text-xs font-bold text-gray-500">Half View (시작 상태)</span>
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-md">
                       {/* Scrim */}
                       <div className="absolute inset-0 bg-black/40 z-10" />
                       
-                      {/* Status Bar */}
-                      <div className="absolute top-0 left-0 right-0 h-[20px] bg-black text-white text-[6px] font-bold flex items-center justify-center z-30">
-                        Status Bar
-                      </div>
-                      
-                      {/* Green Spacer 48px */}
-                      <div className="absolute top-[20px] left-0 right-0 h-[48px] bg-[#10B981]/20 border-b border-dashed border-[#10B981] flex items-center justify-center z-20">
-                        <span className="bg-[#10B981] text-white text-[8px] font-extrabold px-1 py-0.5 rounded leading-none scale-90">48</span>
-                      </div>
-                      
                       {/* Sheet */}
-                      <div className="absolute top-[68px] bottom-0 left-0 right-0 bg-white rounded-t-2xl flex flex-col z-20 overflow-hidden">
-                        {/* Drag Handle */}
-                        <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2" />
+                      <div className="absolute bottom-0 left-0 right-0 h-[150px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
+                        <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2 flex-shrink-0" />
                         
-                        {/* Header */}
-                        <div className="px-3 pb-2 flex items-center justify-between">
-                          <span className="text-xs font-bold text-gray-900">Title</span>
-                          <span className="text-xs font-medium text-gray-400">✕</span>
+                        <div className="px-3 pb-1.5 flex items-center justify-between flex-shrink-0">
+                          <span className="text-[10px] font-bold text-gray-900">Title</span>
+                          <span className="text-[10px] font-medium text-gray-400">✕</span>
                         </div>
                         
-                        {/* Contents area (pink columns) */}
-                        <div className="flex-1 px-3 flex gap-1">
-                          {Array.from({ length: 4 }).map((_, i) => (
-                            <div key={i} className="flex-1 bg-red-50/70 h-full border-x border-red-100/30 p-0.5">
-                              <div className="h-full bg-red-100/20 rounded" />
-                            </div>
-                          ))}
+                        {/* Contents area placeholder */}
+                        <div className="flex-1 px-3 py-1 space-y-1.5 overflow-hidden z-10">
+                          <div className="h-1.5 bg-gray-100 rounded w-full" />
+                          <div className="h-1.5 bg-gray-100 rounded w-4/5" />
                         </div>
                         
-                        {/* Fixed Button */}
-                        <div className="p-2 bg-white border-t border-gray-50">
-                          <button className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md">Text</button>
+                        {/* Button */}
+                        <div className="p-2 bg-white flex-shrink-0 z-10 border-t border-gray-50">
+                          <div className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md text-center">Text</div>
                         </div>
+                      </div>
+
+                      {/* Gesture Overlay */}
+                      <div className="absolute top-[125px] left-1/2 transform -translate-x-1/2 z-30 flex flex-col items-center">
+                        <svg width="12" height="20" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-bounce">
+                          <path d="M6 22 L6 2 M2 6 L6 2 L10 6" stroke="#E8002D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-0.5">
+                          <path d="M12 2v10m0 0a3 3 0 0 0 3-3V7M12 12a3 3 0 0 1-3-3V8" stroke="#E8002D" strokeWidth="2" strokeLinecap="round" />
+                          <rect x="7" y="9" width="10" height="11" rx="2" fill="white" stroke="#E8002D" strokeWidth="2" />
+                          <circle cx="12" cy="14" r="1.5" fill="#E8002D" />
+                        </svg>
+                      </div>
+
+                      {/* Layout Grid Overlay */}
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
                       </div>
                     </div>
                   </div>
 
-                  {/* Draggable-Full */}
-                  <div className="flex flex-col items-center gap-3">
-                    <span className="text-xs font-bold text-gray-900">Draggable-Full</span>
-                    <div className="relative w-[180px] h-[340px] border border-gray-300 rounded-3xl bg-[#3E3E3E] overflow-hidden shadow-md">
+                  {/* Step 2: Dragging Up */}
+                  <div className="flex flex-col items-center gap-2">
+                    <span className="text-xs font-bold text-gray-500">Dragging Up (이동 상태)</span>
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-md">
                       {/* Scrim */}
                       <div className="absolute inset-0 bg-black/40 z-10" />
                       
-                      {/* Status Bar */}
-                      <div className="absolute top-0 left-0 right-0 h-[20px] bg-black text-white text-[6px] font-bold flex items-center justify-center z-30">
+                      {/* Sheet */}
+                      <div className="absolute bottom-0 left-0 right-0 h-[220px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
+                        <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2 flex-shrink-0" />
+                        
+                        <div className="px-3 pb-1.5 flex items-center justify-between flex-shrink-0">
+                          <span className="text-[10px] font-bold text-gray-900">Title</span>
+                          <span className="text-[10px] font-medium text-gray-400">✕</span>
+                        </div>
+                        
+                        {/* Contents area placeholder */}
+                        <div className="flex-1 px-3 py-1 space-y-1.5 overflow-hidden z-10">
+                          <div className="h-1.5 bg-gray-100 rounded w-full" />
+                          <div className="h-1.5 bg-gray-100 rounded w-4/5" />
+                          <div className="h-1.5 bg-gray-100 rounded w-5/6" />
+                        </div>
+                        
+                        {/* Button */}
+                        <div className="p-2 bg-white flex-shrink-0 z-10 border-t border-gray-50">
+                          <div className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md text-center">Text</div>
+                        </div>
+                      </div>
+
+                      {/* Gesture Overlay */}
+                      <div className="absolute top-[35px] left-1/2 transform -translate-x-1/2 z-30 flex flex-col items-center">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect x="7" y="10" width="10" height="10" rx="2" fill="white" stroke="#E8002D" strokeWidth="2" />
+                          <path d="M9 10V8a1 1 0 0 1 2 0v2M13 10V7a1 1 0 0 1 2 0v3" stroke="#E8002D" strokeWidth="2" strokeLinecap="round" />
+                          <circle cx="12" cy="15" r="1.5" fill="#E8002D" />
+                        </svg>
+                        <svg width="12" height="30" viewBox="0 0 12 30" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-1">
+                          <path d="M6 28 L6 2 M2 6 L6 2 L10 6" stroke="#E8002D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </div>
+
+                      {/* Layout Grid Overlay */}
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Step 3: Full View */}
+                  <div className="flex flex-col items-center gap-2">
+                    <span className="text-xs font-bold text-gray-500">Full View (확장 완료)</span>
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-md">
+                      {/* Scrim */}
+                      <div className="absolute inset-0 bg-black/40 z-10" />
+                      
+                      {/* Status bar spacer */}
+                      <div className="absolute top-0 left-0 right-0 h-4 bg-black flex items-center justify-center text-white text-[6px] font-bold z-35">
                         Status Bar
                       </div>
-                      
-                      {/* Green Spacer 16px */}
-                      <div className="absolute top-[20px] left-0 right-0 h-[16px] bg-[#10B981]/20 border-b border-dashed border-[#10B981] flex items-center justify-center z-20">
-                        <span className="bg-[#10B981] text-white text-[7px] font-extrabold px-0.5 rounded leading-none scale-75">16</span>
+                      <div className="absolute top-4 left-0 right-0 h-4 bg-[#10B981]/20 border-b border-dashed border-[#10B981] flex items-center justify-center z-25">
+                        <span className="bg-[#10B981] text-white text-[6px] font-bold px-0.5 rounded leading-none scale-75">16px</span>
                       </div>
                       
                       {/* Sheet */}
-                      <div className="absolute top-[36px] bottom-0 left-0 right-0 bg-white rounded-t-2xl flex flex-col z-20 overflow-hidden">
-                        {/* Drag Handle */}
-                        <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2" />
+                      <div className="absolute top-[32px] bottom-0 left-0 right-0 bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
+                        <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2 flex-shrink-0" />
                         
-                        {/* Header */}
-                        <div className="px-3 pb-2 flex items-center justify-between">
-                          <span className="text-xs font-bold text-gray-900">Title</span>
-                          <span className="text-xs font-medium text-gray-400">✕</span>
+                        <div className="px-3 pb-1.5 flex items-center justify-between flex-shrink-0">
+                          <span className="text-[10px] font-bold text-gray-900">Title</span>
+                          <span className="text-[10px] font-medium text-gray-400">✕</span>
                         </div>
                         
-                        {/* Contents area (pink columns) */}
-                        <div className="flex-1 px-3 flex gap-1">
-                          {Array.from({ length: 4 }).map((_, i) => (
-                            <div key={i} className="flex-1 bg-red-50/70 h-full border-x border-red-100/30 p-0.5">
-                              <div className="h-full bg-red-100/20 rounded" />
-                            </div>
-                          ))}
+                        {/* Contents area placeholder */}
+                        <div className="flex-1 px-3 py-1 space-y-1.5 overflow-hidden z-10">
+                          <div className="h-1.5 bg-gray-100 rounded w-full" />
+                          <div className="h-1.5 bg-gray-100 rounded w-4/5" />
+                          <div className="h-1.5 bg-gray-100 rounded w-5/6" />
+                          <div className="h-1.5 bg-gray-100 rounded w-full" />
                         </div>
                         
-                        {/* Fixed Button */}
-                        <div className="p-2 bg-white border-t border-gray-50">
-                          <button className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md">Text</button>
+                        {/* Button */}
+                        <div className="p-2 bg-white flex-shrink-0 z-10 border-t border-gray-50">
+                          <div className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md text-center">Text</div>
                         </div>
+                      </div>
+
+                      {/* Layout Grid Overlay */}
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
                       </div>
                     </div>
                   </div>
@@ -2376,7 +2475,7 @@ export default function ComponentDetail() {
                 </div>
 
                 {/* Spacing & Interactive Behaviors Details */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8" style={{ fontFamily: 'Pretendard, sans-serif' }}>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6" style={{ fontFamily: 'Pretendard, sans-serif' }}>
                   <div className="bg-white border border-gray-200 rounded-xl p-5 shadow-sm space-y-3">
                     <span className="text-sm font-bold text-[#E8002D] flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-[#E8002D]" /> Handlebar (핸들바)
@@ -2429,342 +2528,346 @@ export default function ComponentDetail() {
               </section>
 
               {/* With Keyboard */}
-              <section className="space-y-6 pt-12 border-t border-gray-100 mt-12">
+              <section className="space-y-6 pt-8 border-t border-gray-100 mt-8">
                 <h3 className="text-xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: 'Pretendard, sans-serif' }}>With Keyboard</h3>
-                <h4 className="text-sm font-bold text-gray-800" style={{ fontFamily: 'Pretendard, sans-serif' }}>Non-Scrollable</h4>
-                <p className="text-xs text-gray-500 leading-relaxed pl-1 mb-6">
-                  하단 시트의 작업 중 키보드를 가져올 경우, 키보드 높이에 맞춰 시트가 위로 이동합니다.
+                
+                {/* Non-Scrollable Section */}
+                <div className="space-y-4">
+                  <h4 className="text-sm font-bold text-gray-800" style={{ fontFamily: 'Pretendard, sans-serif' }}>Non-Scrollable</h4>
+                  <p className="text-xs text-gray-500 leading-relaxed pl-1 mb-4">
+                    하단 시트의 작업 중 키보드를 가져올 경우, 키보드 높이에 맞춰 시트가 위로 이동합니다.
+                  </p>
+
+                  <div className="flex flex-wrap gap-12 justify-center bg-[#F5F5F5] border border-gray-200/30 rounded-xl p-8">
+                    
+                    {/* Keyboard Closed */}
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="text-xs font-bold text-gray-500">Keyboard Closed</span>
+                      <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
+                        {/* Scrim */}
+                        <div className="absolute inset-0 bg-black/40 z-10" />
+                        
+                        {/* Sheet */}
+                        <div className="absolute bottom-0 left-0 right-0 h-[150px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
+                          <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2 flex-shrink-0" />
+                          
+                          <div className="px-3 pb-1.5 flex items-center justify-between flex-shrink-0">
+                            <span className="text-[10px] font-bold text-gray-900">Title</span>
+                            <span className="text-[10px] font-medium text-gray-400">✕</span>
+                          </div>
+                          
+                          {/* Contents placeholder */}
+                          <div className="flex-1 px-3 py-1.5 space-y-2 overflow-hidden z-10">
+                            <div className="h-6 bg-gray-50 border border-gray-200 rounded px-1.5 flex items-center text-[7px] text-gray-400 select-none">텍스트를 입력해주세요</div>
+                          </div>
+                          
+                          {/* Button */}
+                          <div className="p-2 bg-white flex-shrink-0 z-10 border-t border-gray-50">
+                            <button className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md">Text</button>
+                          </div>
+                        </div>
+
+                        {/* Layout Grid Overlay */}
+                        <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Keyboard Open */}
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="text-xs font-bold text-gray-500">Keyboard Open</span>
+                      <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
+                        {/* Scrim */}
+                        <div className="absolute inset-0 bg-black/40 z-10" />
+                        
+                        {/* Sheet */}
+                        <div className="absolute bottom-[90px] left-0 right-0 h-[150px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
+                          <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2 flex-shrink-0" />
+                          
+                          <div className="px-3 pb-1.5 flex items-center justify-between flex-shrink-0">
+                            <span className="text-[10px] font-bold text-gray-900">Title</span>
+                            <span className="text-[10px] font-medium text-gray-400">✕</span>
+                          </div>
+                          
+                          {/* Contents placeholder */}
+                          <div className="flex-1 px-3 py-1.5 space-y-2 overflow-hidden z-10">
+                            <div className="h-6 bg-white border border-[#E8002D] rounded px-1.5 flex items-center text-[7px] text-gray-900 select-none relative">
+                              타이핑 중
+                              <span className="w-0.5 h-3 bg-[#E8002D] ml-0.5 animate-pulse" />
+                            </div>
+                          </div>
+                          
+                          {/* Button */}
+                          <div className="p-2 bg-white flex-shrink-0 z-10 border-t border-gray-50">
+                            <button className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md">Text</button>
+                          </div>
+                        </div>
+
+                        {/* Keyboard */}
+                        <div className="absolute bottom-0 left-0 right-0 h-[90px] bg-[#EAEBED] border-t border-gray-300 z-30 p-1 flex flex-col justify-between font-sans">
+                          <div className="flex justify-between gap-0.5">
+                            {['q','w','e','r','t','y','u','i','o','p'].map(k => (
+                              <div key={k} className="flex-1 bg-white h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">{k}</div>
+                            ))}
+                          </div>
+                          <div className="flex justify-center gap-0.5 px-2">
+                            {['a','s','d','f','g','h','j','k','l'].map(k => (
+                              <div key={k} className="w-[13px] bg-white h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">{k}</div>
+                            ))}
+                          </div>
+                          <div className="flex justify-between gap-0.5 px-0.5">
+                            <div className="w-[18px] bg-gray-300 h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">⇧</div>
+                            {['z','x','c','v','b','n','m'].map(k => (
+                              <div key={k} className="flex-1 bg-white h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">{k}</div>
+                            ))}
+                            <div className="w-[18px] bg-gray-300 h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">⌫</div>
+                          </div>
+                          <div className="flex justify-between gap-1 px-1">
+                            <div className="w-[26px] bg-gray-300 h-4.5 rounded flex items-center justify-center text-[5px] font-bold shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-950">ABC</div>
+                            <div className="flex-1 bg-white h-4.5 rounded flex items-center justify-center text-[5px] text-gray-400 font-bold shadow-[0_0.5px_0_rgba(0,0,0,0.15)]">space</div>
+                            <div className="w-[30px] bg-[#3B82F6] h-4.5 rounded flex items-center justify-center text-[5px] font-bold text-white shadow-[0_0.5px_0_rgba(0,0,0,0.15)]">return</div>
+                          </div>
+                        </div>
+
+                        {/* Layout Grid Overlay */}
+                        <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+                {/* Scrollable Section */}
+                <div className="space-y-4 pt-6 border-t border-gray-100 mt-6">
+                  <h4 className="text-sm font-bold text-gray-800" style={{ fontFamily: 'Pretendard, sans-serif' }}>Scrollable</h4>
+                  <p className="text-xs text-gray-500 leading-relaxed pl-1 mb-4">
+                    키보드의 높이로 인해 하단 시트의 전체 높이를 표시할 수 없는 경우, 시트 내의 내용을 확인하기 위해 콘텐츠 영역에서 스크롤이 활성화됩니다.
+                  </p>
+
+                  <div className="flex flex-wrap gap-12 justify-center bg-[#F5F5F5] border border-gray-200/30 rounded-xl p-8">
+                    
+                    {/* Scrollable: Keyboard Closed */}
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="text-xs font-bold text-gray-500">Normal Scrollable</span>
+                      <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
+                        {/* Scrim */}
+                        <div className="absolute inset-0 bg-black/40 z-10" />
+                        
+                        {/* Sheet */}
+                        <div className="absolute bottom-0 left-0 right-0 h-[210px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
+                          <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2 flex-shrink-0" />
+                          
+                          <div className="px-3 pb-1.5 flex items-center justify-between flex-shrink-0">
+                            <span className="text-[10px] font-bold text-gray-900">Title</span>
+                            <span className="text-[10px] font-medium text-gray-400">✕</span>
+                          </div>
+                          
+                          {/* Scrollable Contents Area */}
+                          <div className="flex-1 px-3 py-1 space-y-2 overflow-y-auto relative z-10">
+                            {Array.from({ length: 8 }).map((_, idx) => (
+                              <div key={idx} className="h-1.5 bg-gray-100 rounded w-full" />
+                            ))}
+                            {/* Virtual Scrollbar */}
+                            <div className="absolute right-1 top-2 bottom-2 w-0.5 bg-gray-300 rounded-full" />
+                          </div>
+                          
+                          {/* Button */}
+                          <div className="p-2 bg-white flex-shrink-0 z-10 border-t border-gray-50">
+                            <button className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md">Text</button>
+                          </div>
+                        </div>
+
+                        {/* Layout Grid Overlay */}
+                        <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Scrollable: Keyboard Open */}
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="text-xs font-bold text-gray-500">Keyboard Open</span>
+                      <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
+                        {/* Scrim */}
+                        <div className="absolute inset-0 bg-black/40 z-10" />
+                        
+                        {/* Sheet (pushed up by 90px) */}
+                        <div className="absolute bottom-[90px] left-0 right-0 h-[210px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
+                          <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2 flex-shrink-0" />
+                          
+                          <div className="px-3 pb-1.5 flex items-center justify-between flex-shrink-0">
+                            <span className="text-[10px] font-bold text-gray-900">Title</span>
+                            <span className="text-[10px] font-medium text-gray-400">✕</span>
+                          </div>
+                          
+                          {/* Scrollable Contents Area */}
+                          <div className="flex-1 px-3 py-1 space-y-2 overflow-y-auto relative z-10">
+                            {Array.from({ length: 8 }).map((_, idx) => (
+                              <div key={idx} className="h-1.5 bg-gray-100 rounded w-full" />
+                            ))}
+                            {/* Virtual Scrollbar */}
+                            <div className="absolute right-1 top-2 bottom-2 w-0.5 bg-gray-300 rounded-full" />
+                          </div>
+                          
+                          {/* Button */}
+                          <div className="p-2 bg-white flex-shrink-0 z-10 border-t border-gray-50">
+                            <button className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md">Text</button>
+                          </div>
+                        </div>
+
+                        {/* Keyboard */}
+                        <div className="absolute bottom-0 left-0 right-0 h-[90px] bg-[#EAEBED] border-t border-gray-300 z-30 p-1 flex flex-col justify-between font-sans">
+                          <div className="flex justify-between gap-0.5">
+                            {['q','w','e','r','t','y','u','i','o','p'].map(k => (
+                              <div key={k} className="flex-1 bg-white h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">{k}</div>
+                            ))}
+                          </div>
+                          <div className="flex justify-center gap-0.5 px-2">
+                            {['a','s','d','f','g','h','j','k','l'].map(k => (
+                              <div key={k} className="w-[13px] bg-white h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">{k}</div>
+                            ))}
+                          </div>
+                          <div className="flex justify-between gap-0.5 px-0.5">
+                            <div className="w-[18px] bg-gray-300 h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">⇧</div>
+                            {['z','x','c','v','b','n','m'].map(k => (
+                              <div key={k} className="flex-1 bg-white h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">{k}</div>
+                            ))}
+                            <div className="w-[18px] bg-gray-300 h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">⌫</div>
+                          </div>
+                          <div className="flex justify-between gap-1 px-1">
+                            <div className="w-[26px] bg-gray-300 h-4.5 rounded flex items-center justify-center text-[5px] font-bold shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-955">ABC</div>
+                            <div className="flex-1 bg-white h-4.5 rounded flex items-center justify-center text-[5px] text-gray-400 font-bold shadow-[0_0.5px_0_rgba(0,0,0,0.15)]">space</div>
+                            <div className="w-[30px] bg-[#3B82F6] h-4.5 rounded flex items-center justify-center text-[5px] font-bold text-white shadow-[0_0.5px_0_rgba(0,0,0,0.15)]">return</div>
+                          </div>
+                        </div>
+
+                        {/* Layout Grid Overlay */}
+                        <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                          <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </section>
+
+              {/* Spacing */}
+              <section className="space-y-6 pt-8 border-t border-gray-100 mt-8 mb-8">
+                <h3 className="text-xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: 'Pretendard, sans-serif' }}>Spacing</h3>
+                <p className="text-xs text-gray-500 leading-relaxed pl-1 mb-4">
+                  Full 높이는 Status Bar 기준으로 Fixed는 48px, Draggable은 16px 간격까지 확장되며, Half 높이는 두 타입 모두 전체 화면 높이의 60%를 사용합니다.
                 </p>
 
                 <div className="flex flex-wrap gap-12 justify-center bg-[#F5F5F5] border border-gray-200/30 rounded-xl p-10">
                   
-                  {/* Left: Keyboard Closed */}
-                  <div className="flex flex-col items-center gap-3">
-                    <span className="text-xs font-bold text-gray-500">Keyboard Closed</span>
-                    <div className="relative w-[180px] h-[320px] border border-gray-300 rounded-3xl bg-[#3E3E3E] overflow-hidden shadow-md">
+                  {/* Fixed-Full */}
+                  <div className="flex flex-col items-center gap-2">
+                    <span className="text-xs font-bold text-gray-900">Fixed-Full</span>
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-md">
                       {/* Scrim */}
                       <div className="absolute inset-0 bg-black/40 z-10" />
+                      
+                      {/* Status Bar */}
+                      <div className="absolute top-0 left-0 right-0 h-[20px] bg-black text-white text-[5px] font-bold flex items-center justify-center z-30">
+                        Status Bar
+                      </div>
+                      
+                      {/* Green Spacer 48px */}
+                      <div className="absolute top-[20px] left-0 right-0 h-[48px] bg-[#10B981]/25 border-b border-dashed border-[#10B981] flex items-center justify-center z-20">
+                        <span className="bg-[#10B981] text-white text-[7px] font-extrabold px-1 py-0.5 rounded leading-none scale-75">48</span>
+                      </div>
                       
                       {/* Sheet */}
-                      <div className="absolute bottom-0 left-0 right-0 h-[150px] bg-white rounded-t-2xl flex flex-col z-20 overflow-hidden">
-                        {/* Drag Handle */}
-                        <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2" />
+                      <div className="absolute top-[68px] bottom-0 left-0 right-0 bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
+                        <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2 flex-shrink-0" />
                         
-                        {/* Header */}
-                        <div className="px-3 pb-2 flex items-center justify-between">
-                          <span className="text-xs font-bold text-gray-900">Title</span>
-                          <span className="text-xs font-medium text-gray-400">✕</span>
-                        </div>
-                        
-                        {/* Contents area (pink columns) */}
-                        <div className="flex-1 px-3 flex gap-1">
-                          {Array.from({ length: 4 }).map((_, i) => (
-                            <div key={i} className="flex-1 bg-red-50/70 h-[40px] border-x border-red-100/30 p-0.5">
-                              <div className="h-full bg-red-100/20 rounded" />
-                            </div>
-                          ))}
-                        </div>
-                        
-                        {/* Fixed Button */}
-                        <div className="p-2 bg-white border-t border-gray-50">
-                          <button className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md">Text</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Right: Keyboard Open */}
-                  <div className="flex flex-col items-center gap-3">
-                    <span className="text-xs font-bold text-gray-500">Keyboard Open (Pushed Up)</span>
-                    <div className="relative w-[180px] h-[320px] border border-gray-300 rounded-3xl bg-[#3E3E3E] overflow-hidden shadow-md">
-                      {/* Scrim */}
-                      <div className="absolute inset-0 bg-black/40 z-10" />
-                      
-                      {/* Sheet (pushed up by 90px) */}
-                      <div className="absolute bottom-[90px] left-0 right-0 h-[150px] bg-white rounded-t-2xl flex flex-col z-20 overflow-hidden">
-                        {/* Drag Handle */}
-                        <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2" />
-                        
-                        {/* Header */}
-                        <div className="px-3 pb-2 flex items-center justify-between">
-                          <span className="text-xs font-bold text-gray-900">Title</span>
-                          <span className="text-xs font-medium text-gray-400">✕</span>
-                        </div>
-                        
-                        {/* Contents area (pink columns) */}
-                        <div className="flex-1 px-3 flex gap-1">
-                          {Array.from({ length: 4 }).map((_, i) => (
-                            <div key={i} className="flex-1 bg-red-50/70 h-[40px] border-x border-red-100/30 p-0.5">
-                              <div className="h-full bg-red-100/20 rounded" />
-                            </div>
-                          ))}
-                        </div>
-                        
-                        {/* Fixed Button */}
-                        <div className="p-2 bg-white border-t border-gray-50">
-                          <button className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md">Text</button>
-                        </div>
-                      </div>
-                      
-                      {/* Virtual Mobile Keyboard */}
-                      <div className="absolute bottom-0 left-0 right-0 h-[90px] bg-[#EAEBED] border-t border-gray-300 z-30 p-1 flex flex-col justify-between font-sans">
-                        {/* Row 1 */}
-                        <div className="flex justify-between gap-0.5">
-                          {['q','w','e','r','t','y','u','i','o','p'].map(k => (
-                            <div key={k} className="flex-1 bg-white h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">{k}</div>
-                          ))}
-                        </div>
-                        {/* Row 2 */}
-                        <div className="flex justify-center gap-0.5 px-2">
-                          {['a','s','d','f','g','h','j','k','l'].map(k => (
-                            <div key={k} className="w-[13px] bg-white h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">{k}</div>
-                          ))}
-                        </div>
-                        {/* Row 3 */}
-                        <div className="flex justify-between gap-0.5 px-0.5">
-                          <div className="w-[18px] bg-gray-300 h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">⇧</div>
-                          {['z','x','c','v','b','n','m'].map(k => (
-                            <div key={k} className="flex-1 bg-white h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">{k}</div>
-                          ))}
-                          <div className="w-[18px] bg-gray-300 h-4.5 rounded flex items-center justify-center text-[6px] font-medium shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">⌫</div>
-                        </div>
-                        {/* Row 4 */}
-                        <div className="flex justify-between gap-1 px-1">
-                          <div className="w-[26px] bg-gray-300 h-4.5 rounded flex items-center justify-center text-[5px] font-bold shadow-[0_0.5px_0_rgba(0,0,0,0.15)] text-gray-900">ABC</div>
-                          <div className="flex-1 bg-white h-4.5 rounded flex items-center justify-center text-[5px] text-gray-400 font-bold shadow-[0_0.5px_0_rgba(0,0,0,0.15)]">space</div>
-                          <div className="w-[30px] bg-[#3B82F6] h-4.5 rounded flex items-center justify-center text-[5px] font-bold text-white shadow-[0_0.5px_0_rgba(0,0,0,0.15)]">return</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </section>
-
-              {/* Components */}
-              <section className="space-y-6 pt-12 border-t border-gray-100 mt-12">
-                <h3 className="text-xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: 'Pretendard, sans-serif' }}>Components</h3>
-                <p className="text-xs text-gray-500 leading-relaxed pl-1 mb-6">
-                  Sheet는 용도에 따라 A.Basic, B. Banner, C.Nudging, D. Nudging + Close로 구분됩니다.
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 bg-[#F5F5F5] border border-gray-200/30 rounded-xl p-8 justify-items-center justify-center">
-                  
-                  {/* A. Basic */}
-                  <div className="flex flex-col items-center gap-3">
-                    <span className="text-xs font-bold text-gray-900">A. Basic</span>
-                    <div className="relative w-[170px] h-[280px] border border-gray-300 rounded-2xl bg-[#3E3E3E] overflow-hidden shadow-sm">
-                      <div className="absolute inset-0 bg-black/40 z-10" />
-                      <div className="absolute bottom-0 left-0 right-0 h-[190px] bg-white rounded-t-xl flex flex-col z-20 overflow-hidden">
-                        <div className="w-6 h-0.5 bg-gray-200 rounded-full mx-auto my-1.5" />
-                        <div className="px-3 pb-1 flex items-center justify-between">
+                        <div className="px-3 pb-1.5 flex items-center justify-between flex-shrink-0">
                           <span className="text-[10px] font-bold text-gray-900">Title</span>
                           <span className="text-[10px] font-medium text-gray-400">✕</span>
                         </div>
-                        <div className="flex-1 px-3 flex gap-1">
-                          {Array.from({ length: 4 }).map((_, i) => (
-                            <div key={i} className="flex-1 bg-red-50/70 h-full border-x border-red-100/30 p-0.5">
-                              <div className="h-full bg-red-100/20 rounded" />
-                            </div>
-                          ))}
+                        
+                        {/* Contents placeholder */}
+                        <div className="flex-1 px-3 py-1 space-y-1.5 overflow-hidden z-10">
+                          <div className="h-1.5 bg-gray-100 rounded w-full" />
+                          <div className="h-1.5 bg-gray-100 rounded w-4/5" />
                         </div>
-                        <div className="p-2 bg-white">
+                        
+                        {/* Button */}
+                        <div className="p-2 bg-white flex-shrink-0 z-10 border-t border-gray-50">
                           <button className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md">Text</button>
                         </div>
                       </div>
-                    </div>
-                  </div>
 
-                  {/* B. Banner */}
-                  <div className="flex flex-col items-center gap-3">
-                    <span className="text-xs font-bold text-gray-900">B. Banner</span>
-                    <div className="relative w-[170px] h-[280px] border border-gray-300 rounded-2xl bg-[#3E3E3E] overflow-hidden shadow-sm">
-                      <div className="absolute inset-0 bg-black/40 z-10" />
-                      <div className="absolute bottom-0 left-0 right-0 h-[190px] bg-white rounded-t-xl flex flex-col z-20 overflow-hidden">
-                        <div className="flex-1 bg-[#FFF0F2] m-2.5 rounded-lg relative overflow-hidden flex flex-col items-center justify-center text-center p-2">
-                          <div className="w-full h-full bg-red-100/30 border border-dashed border-red-200 rounded flex flex-col items-center justify-center gap-1">
-                            <span className="text-[10px] font-extrabold text-[#E8002D] leading-none">BANNER CONTENT</span>
-                            <span className="text-[8px] text-red-400 font-medium">이벤트 / 알림 배너 영역</span>
-                          </div>
-                          
-                          <div className="absolute bottom-2 right-2 bg-black/70 text-white text-[7px] font-bold px-1.5 py-0.5 rounded-full flex items-center gap-1 scale-90">
-                            <span>1 / 3</span>
-                            <span className="w-1.5 h-1.5 flex items-center justify-center font-mono text-[6px]">‖</span>
-                          </div>
-                        </div>
-                        
-                        <div className="px-3 py-2.5 bg-white border-t border-gray-100 flex justify-between items-center text-[9px] font-bold text-gray-500">
-                          <button className="hover:text-gray-950 transition-colors">오늘만 그만보기</button>
-                          <button className="hover:text-gray-950 transition-colors">닫기</button>
-                        </div>
+                      {/* Layout Grid Overlay */}
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
                       </div>
                     </div>
                   </div>
 
-                  {/* C. Nudging */}
-                  <div className="flex flex-col items-center gap-3">
-                    <span className="text-xs font-bold text-gray-900">C. Nudging</span>
-                    <div className="relative w-[170px] h-[280px] border border-gray-300 rounded-2xl bg-[#3E3E3E] overflow-hidden shadow-sm">
-                      <div className="absolute inset-0 bg-black/40 z-10" />
-                      <div className="absolute bottom-0 left-0 right-0 h-[130px] bg-white rounded-t-xl flex flex-col z-20 overflow-hidden">
-                        <div className="w-6 h-0.5 bg-gray-200 rounded-full mx-auto my-1.5" />
-                        <div className="flex-1 px-3 flex flex-col justify-center text-center gap-1">
-                          <span className="text-[8px] font-bold text-gray-900">텍스트만 들어가는 템플릿입니다.</span>
-                          <span className="text-[7px] text-gray-400 leading-normal">상세 길이는 텍스트에 맞춰서 자동으로 변경됩니다.</span>
-                        </div>
-                        <div className="p-2 bg-white">
-                          <button className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md">Text</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* D. Nudging + Close */}
-                  <div className="flex flex-col items-center gap-3">
-                    <span className="text-xs font-bold text-gray-900">D. Nudging + Close</span>
-                    <div className="relative w-[170px] h-[280px] border border-gray-300 rounded-2xl bg-[#3E3E3E] overflow-hidden shadow-sm">
-                      <div className="absolute inset-0 bg-black/40 z-10" />
-                      <div className="absolute bottom-0 left-0 right-0 h-[130px] bg-white rounded-t-xl flex flex-col z-20 overflow-hidden">
-                        <div className="w-6 h-0.5 bg-gray-200 rounded-full mx-auto my-1.5" />
-                        <div className="absolute top-2 right-2 flex items-center justify-center w-3 h-3 rounded-full hover:bg-gray-100 pointer-events-auto">
-                          <span className="text-[8px] text-gray-400 font-bold leading-none">✕</span>
-                        </div>
-                        <div className="flex-1 px-3 flex flex-col justify-center text-center gap-1">
-                          <span className="text-[8px] font-bold text-gray-900">텍스트만 들어가는 템플릿입니다.</span>
-                          <span className="text-[7px] text-gray-400 leading-normal">상세 길이는 텍스트에 맞춰서 자동으로 변경됩니다.</span>
-                        </div>
-                        <div className="p-2 bg-white">
-                          <button className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md">Text</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-              </section>
-
-              {/* Interaction */}
-              <section className="space-y-6 pt-12 border-t border-gray-100 mt-12 mb-12">
-                <h3 className="text-xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: 'Pretendard, sans-serif' }}>Interaction</h3>
-                <p className="text-xs text-gray-500 leading-relaxed pl-1 mb-6">
-                  Draggable은 화면을 자유롭게 확장하거나 축소하여 콘텐츠를 유연하게 탐색할 수 있는 인터랙션입니다.<br/>
-                  Draggable은 기본적으로 Half 높이로 시작하며, 사용자가 핸들을 위로 끌거나 콘텐츠를 스크롤하면 Full 뷰로 확장됩니다.
-                </p>
-
-                <div className="flex flex-wrap gap-10 justify-center bg-[#F5F5F5] border border-gray-200/30 rounded-xl p-10">
-                  
-                  {/* Step 1: Half View */}
-                  <div className="flex flex-col items-center gap-3">
-                    <span className="text-xs font-bold text-gray-500">Half View (시작 상태)</span>
-                    <div className="relative w-[180px] h-[320px] border border-gray-300 rounded-3xl bg-[#3E3E3E] overflow-hidden shadow-md">
+                  {/* Draggable-Full */}
+                  <div className="flex flex-col items-center gap-2">
+                    <span className="text-xs font-bold text-gray-900">Draggable-Full</span>
+                    <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-md">
+                      {/* Scrim */}
                       <div className="absolute inset-0 bg-black/40 z-10" />
                       
-                      <div className="absolute bottom-0 left-0 right-0 h-[160px] bg-white rounded-t-2xl flex flex-col z-20 overflow-hidden">
-                        <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2" />
-                        
-                        <div className="px-3 pb-2 flex items-center justify-between">
-                          <span className="text-xs font-bold text-gray-900">Title</span>
-                          <span className="text-xs font-medium text-gray-400">✕</span>
-                        </div>
-                        
-                        <div className="flex-1 px-3 flex gap-1">
-                          {Array.from({ length: 4 }).map((_, i) => (
-                            <div key={i} className="flex-1 bg-red-50/70 h-[50px] border-x border-red-100/30 p-1">
-                              <div className="h-full bg-red-100/20 rounded" />
-                            </div>
-                          ))}
-                        </div>
-                        
-                        <div className="p-3 bg-white border-t border-gray-50">
-                          <div className="w-full bg-[#E8002D] text-white text-[10px] font-bold py-2 rounded-lg text-center">Text</div>
-                        </div>
-                      </div>
-
-                      <div className="absolute top-[115px] left-1/2 transform -translate-x-1/2 z-30 flex flex-col items-center">
-                        <svg width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="animate-bounce">
-                          <path d="M6 22 L6 2 M2 6 L6 2 L10 6" stroke="#E8002D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-1">
-                          <path d="M12 2v10m0 0a3 3 0 0 0 3-3V7M12 12a3 3 0 0 1-3-3V8" stroke="#E8002D" strokeWidth="2" strokeLinecap="round" />
-                          <rect x="7" y="9" width="10" height="11" rx="2" fill="white" stroke="#E8002D" strokeWidth="2" />
-                          <circle cx="12" cy="14" r="1.5" fill="#E8002D" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Step 2: Dragging Up */}
-                  <div className="flex flex-col items-center gap-3">
-                    <span className="text-xs font-bold text-gray-500">Dragging Up (이동 상태)</span>
-                    <div className="relative w-[180px] h-[320px] border border-gray-300 rounded-3xl bg-[#3E3E3E] overflow-hidden shadow-md">
-                      <div className="absolute inset-0 bg-black/40 z-10" />
-                      
-                      <div className="absolute bottom-0 left-0 right-0 h-[240px] bg-white rounded-t-2xl flex flex-col z-20 overflow-hidden">
-                        <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2" />
-                        
-                        <div className="px-3 pb-2 flex items-center justify-between">
-                          <span className="text-xs font-bold text-gray-900">Title</span>
-                          <span className="text-xs font-medium text-gray-400">✕</span>
-                        </div>
-                        
-                        <div className="flex-1 px-3 flex gap-1">
-                          {Array.from({ length: 4 }).map((_, i) => (
-                            <div key={i} className="flex-1 bg-red-50/70 h-[120px] border-x border-red-100/30 p-1">
-                              <div className="h-full bg-red-100/20 rounded" />
-                            </div>
-                          ))}
-                        </div>
-                        
-                        <div className="p-3 bg-white border-t border-gray-50">
-                          <div className="w-full bg-[#E8002D] text-white text-[10px] font-bold py-2 rounded-lg text-center">Text</div>
-                        </div>
-                      </div>
-
-                      <div className="absolute top-[35px] left-1/2 transform -translate-x-1/2 z-30 flex flex-col items-center">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <rect x="7" y="10" width="10" height="10" rx="2" fill="white" stroke="#E8002D" strokeWidth="2" />
-                          <path d="M9 10V8a1 1 0 0 1 2 0v2M13 10V7a1 1 0 0 1 2 0v3" stroke="#E8002D" strokeWidth="2" strokeLinecap="round" />
-                          <circle cx="12" cy="15" r="1.5" fill="#E8002D" />
-                        </svg>
-                        <svg width="12" height="30" viewBox="0 0 12 30" fill="none" xmlns="http://www.w3.org/2000/svg" className="mt-1">
-                          <path d="M6 28 L6 2 M2 6 L6 2 L10 6" stroke="#E8002D" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Step 3: Full View */}
-                  <div className="flex flex-col items-center gap-3">
-                    <span className="text-xs font-bold text-gray-500">Full View (확장 완료)</span>
-                    <div className="relative w-[180px] h-[320px] border border-gray-300 rounded-3xl bg-[#3E3E3E] overflow-hidden shadow-md">
-                      <div className="absolute inset-0 bg-black/40 z-10" />
-                      
-                      <div className="absolute top-0 left-0 right-0 h-4 bg-black flex items-center justify-center text-white text-[6px] font-bold z-30">
+                      {/* Status Bar */}
+                      <div className="absolute top-0 left-0 right-0 h-[20px] bg-black text-white text-[5px] font-bold flex items-center justify-center z-30">
                         Status Bar
                       </div>
-                      <div className="absolute top-4 left-0 right-0 h-4 bg-[#10B981]/20 border-b border-dashed border-[#10B981] flex items-center justify-center z-20">
-                        <span className="bg-[#10B981] text-white text-[7px] font-bold px-1 rounded scale-90 leading-none">16px</span>
+                      
+                      {/* Green Spacer 16px */}
+                      <div className="absolute top-[20px] left-0 right-0 h-[16px] bg-[#10B981]/25 border-b border-dashed border-[#10B981] flex items-center justify-center z-20">
+                        <span className="bg-[#10B981] text-white text-[6px] font-extrabold px-0.5 rounded leading-none scale-75">16</span>
                       </div>
                       
-                      <div className="absolute top-[32px] bottom-0 left-0 right-0 bg-white rounded-t-2xl flex flex-col z-20 overflow-hidden">
-                        <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2" />
+                      {/* Sheet */}
+                      <div className="absolute top-[36px] bottom-0 left-0 right-0 bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
+                        <div className="w-8 h-1 bg-gray-200 rounded-full mx-auto my-2 flex-shrink-0" />
                         
-                        <div className="px-4 pb-2 flex items-center justify-between">
-                          <span className="text-xs font-bold text-gray-900">Title</span>
-                          <span className="text-xs font-medium text-gray-400">✕</span>
+                        <div className="px-3 pb-1.5 flex items-center justify-between flex-shrink-0">
+                          <span className="text-[10px] font-bold text-gray-900">Title</span>
+                          <span className="text-[10px] font-medium text-gray-400">✕</span>
                         </div>
                         
-                        <div className="flex-1 px-4 flex gap-1">
-                          {Array.from({ length: 4 }).map((_, i) => (
-                            <div key={i} className="flex-1 bg-red-50/70 h-[190px] border-x border-red-100/30 p-1">
-                              <div className="h-full bg-red-100/20 rounded" />
-                            </div>
-                          ))}
+                        {/* Contents placeholder */}
+                        <div className="flex-1 px-3 py-1 space-y-1.5 overflow-hidden z-10">
+                          <div className="h-1.5 bg-gray-100 rounded w-full" />
+                          <div className="h-1.5 bg-gray-100 rounded w-4/5" />
                         </div>
                         
-                        <div className="p-3 bg-white border-t border-gray-50">
-                          <div className="w-full bg-[#E8002D] text-white text-[10px] font-bold py-2 rounded-lg text-center">Text</div>
+                        {/* Button */}
+                        <div className="p-2 bg-white flex-shrink-0 z-10 border-t border-gray-50">
+                          <button className="w-full bg-[#E8002D] text-white text-[9px] font-bold py-1.5 rounded-md">Text</button>
                         </div>
+                      </div>
+
+                      {/* Layout Grid Overlay */}
+                      <div className="absolute inset-0 px-3 flex gap-[7px] pointer-events-none opacity-30 z-25">
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
+                        <div className="flex-1 bg-[#FFF0F2] h-full" />
                       </div>
                     </div>
                   </div>
