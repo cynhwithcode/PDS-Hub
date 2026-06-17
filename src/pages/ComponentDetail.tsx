@@ -2065,7 +2065,7 @@ export default function ComponentDetail() {
                     <rect x="155" y="10" width="150" height="320" rx="0" fill="#2E2F32" stroke="#D1D5DB" strokeWidth="2" />
                     
                     {/* Dimmed Scrim (2) */}
-                    <path d="M156 11 H304 V170 H156 Z" fill="#2E2F32" opacity="0.05" />
+                    <path d="M156 11 H304 V170 H156 Z" fill="#2E2F32" opacity="0.12" />
                     
                     {/* Bottom Sheet Card Container (1) */}
                     <g filter="url(#bs-shadow)">
@@ -2168,7 +2168,7 @@ export default function ComponentDetail() {
                     <span className="text-xs font-bold text-gray-900">A. Basic</span>
                     <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                       {/* Scrim */}
-                      <div className="absolute inset-0 bg-black/5 z-10" />
+                      <div className="absolute inset-0 bg-black/12 z-10" />
                       
                       {/* Bottom Sheet */}
                       <div className="absolute bottom-0 left-0 right-0 h-[180px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
@@ -2208,7 +2208,7 @@ export default function ComponentDetail() {
                     <span className="text-xs font-bold text-gray-900">B. Banner</span>
                     <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                       {/* Scrim */}
-                      <div className="absolute inset-0 bg-black/5 z-10" />
+                      <div className="absolute inset-0 bg-black/12 z-10" />
                       
                       {/* Bottom Sheet */}
                       <div className="absolute bottom-0 left-0 right-0 h-[200px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
@@ -2248,7 +2248,7 @@ export default function ComponentDetail() {
                     <span className="text-xs font-bold text-gray-900">C. Nudging</span>
                     <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                       {/* Scrim */}
-                      <div className="absolute inset-0 bg-black/5 z-10" />
+                      <div className="absolute inset-0 bg-black/12 z-10" />
                       
                       {/* Bottom Sheet */}
                       <div className="absolute bottom-0 left-0 right-0 h-[120px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
@@ -2279,7 +2279,7 @@ export default function ComponentDetail() {
                     <span className="text-xs font-bold text-gray-900">D. Nudging + Close</span>
                     <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                       {/* Scrim */}
-                      <div className="absolute inset-0 bg-black/5 z-10" />
+                      <div className="absolute inset-0 bg-black/12 z-10" />
                       
                       {/* Bottom Sheet */}
                       <div className="absolute bottom-0 left-0 right-0 h-[120px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
@@ -2328,7 +2328,7 @@ export default function ComponentDetail() {
                     <span className="text-xs font-bold text-gray-500">Half View (시작 상태)</span>
                     <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-md">
                       {/* Scrim */}
-                      <div className="absolute inset-0 bg-black/5 z-10" />
+                      <div className="absolute inset-0 bg-black/12 z-10" />
                       
                       {/* Sheet */}
                       <div className="absolute bottom-0 left-0 right-0 h-[150px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
@@ -2378,7 +2378,7 @@ export default function ComponentDetail() {
                     <span className="text-xs font-bold text-gray-500">Dragging Up (이동 상태)</span>
                     <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-md">
                       {/* Scrim */}
-                      <div className="absolute inset-0 bg-black/5 z-10" />
+                      <div className="absolute inset-0 bg-black/12 z-10" />
                       
                       {/* Sheet */}
                       <div className="absolute bottom-0 left-0 right-0 h-[220px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
@@ -2429,7 +2429,7 @@ export default function ComponentDetail() {
                     <span className="text-xs font-bold text-gray-500">Full View (확장 완료)</span>
                     <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-md">
                       {/* Scrim */}
-                      <div className="absolute inset-0 bg-black/5 z-10" />
+                      <div className="absolute inset-0 bg-black/12 z-10" />
                       
                       {/* Status bar spacer */}
                       <div className="absolute top-0 left-0 right-0 h-4 bg-black flex items-center justify-center text-white text-[6px] font-bold z-35">
@@ -2545,7 +2545,7 @@ export default function ComponentDetail() {
                       <span className="text-xs font-bold text-gray-500">Keyboard Closed</span>
                       <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                         {/* Scrim */}
-                        <div className="absolute inset-0 bg-black/5 z-10" />
+                        <div className="absolute inset-0 bg-black/12 z-10" />
                         
                         {/* Sheet */}
                         <div className="absolute bottom-0 left-0 right-0 h-[150px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
@@ -2582,7 +2582,7 @@ export default function ComponentDetail() {
                       <span className="text-xs font-bold text-gray-500">Keyboard Open</span>
                       <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                         {/* Scrim */}
-                        <div className="absolute inset-0 bg-black/5 z-10" />
+                        <div className="absolute inset-0 bg-black/12 z-10" />
                         
                         {/* Sheet */}
                         <div className="absolute bottom-[90px] left-0 right-0 h-[150px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
@@ -2660,7 +2660,7 @@ export default function ComponentDetail() {
                       <span className="text-xs font-bold text-gray-500">Normal Scrollable</span>
                       <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                         {/* Scrim */}
-                        <div className="absolute inset-0 bg-black/5 z-10" />
+                        <div className="absolute inset-0 bg-black/12 z-10" />
                         
                         {/* Sheet */}
                         <div className="absolute bottom-0 left-0 right-0 h-[210px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
@@ -2701,7 +2701,7 @@ export default function ComponentDetail() {
                       <span className="text-xs font-bold text-gray-500">Keyboard Open</span>
                       <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-sm">
                         {/* Scrim */}
-                        <div className="absolute inset-0 bg-black/5 z-10" />
+                        <div className="absolute inset-0 bg-black/12 z-10" />
                         
                         {/* Sheet (pushed up by 90px) */}
                         <div className="absolute bottom-[90px] left-0 right-0 h-[210px] bg-white rounded-t-[20px] flex flex-col z-20 overflow-hidden">
@@ -2781,7 +2781,7 @@ export default function ComponentDetail() {
                     <span className="text-xs font-bold text-gray-900">Fixed-Full</span>
                     <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-md">
                       {/* Scrim */}
-                      <div className="absolute inset-0 bg-black/5 z-10" />
+                      <div className="absolute inset-0 bg-black/12 z-10" />
                       
                       {/* Status Bar */}
                       <div className="absolute top-0 left-0 right-0 h-[20px] bg-black text-white text-[5px] font-bold flex items-center justify-center z-30">
@@ -2829,7 +2829,7 @@ export default function ComponentDetail() {
                     <span className="text-xs font-bold text-gray-900">Draggable-Full</span>
                     <div className="relative w-[150px] h-[320px] border border-gray-300 rounded-[28px] bg-[#3E3E3E] overflow-hidden shadow-md">
                       {/* Scrim */}
-                      <div className="absolute inset-0 bg-black/5 z-10" />
+                      <div className="absolute inset-0 bg-black/12 z-10" />
                       
                       {/* Status Bar */}
                       <div className="absolute top-0 left-0 right-0 h-[20px] bg-black text-white text-[5px] font-bold flex items-center justify-center z-30">
