@@ -101,26 +101,7 @@ export default function ComponentRegistry() {
             <rect x="24" y="76" width="32" height="6" rx="3" fill="#1A1A1A" opacity="0.1" />
           </svg>
         );
-      case 'c-error':
-        return (
-          <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none">
-            <circle cx="48" cy="40" r="16" fill="#E8002D" opacity="0.1" stroke="#E8002D" strokeWidth="2" />
-            <rect x="46" y="32" width="4" height="8" rx="2" fill="#E8002D" />
-            <circle cx="48" cy="46" r="2" fill="#E8002D" />
-            <rect x="28" y="68" width="40" height="6" rx="3" fill="#1A1A1A" opacity="0.4" />
-          </svg>
-        );
-      case 'c-policy':
-        return (
-          <svg className="w-24 h-24" viewBox="0 0 96 96" fill="none">
-            <rect x="28" y="16" width="40" height="64" rx="4" fill="white" stroke="#1A1A1A" strokeWidth="2" />
-            <rect x="36" y="32" width="24" height="4" rx="2" fill="#1A1A1A" opacity="0.6" />
-            <rect x="36" y="44" width="20" height="3" rx="1.5" fill="#1A1A1A" opacity="0.3" />
-            <rect x="36" y="52" width="22" height="3" rx="1.5" fill="#1A1A1A" opacity="0.3" />
-            <rect x="36" y="60" width="18" height="3" rx="1.5" fill="#1A1A1A" opacity="0.3" />
-            <rect x="36" y="68" width="16" height="3" rx="1.5" fill="#1A1A1A" opacity="0.3" />
-          </svg>
-        );
+
       default:
         return <div className="text-3xl font-bold text-gray-300">{id.substring(0, 2).toUpperCase()}</div>;
     }

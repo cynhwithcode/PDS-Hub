@@ -1,4 +1,4 @@
-﻿[
+[
   {
     "id": "c-buttons",
     "name": "Buttons",
@@ -314,48 +314,6 @@
       { "property": "Close Button", "values": "True, False", "default": "False" },
       { "property": "Button", "values": "True, False", "default": "True" }
     ],
-    "version_history": [{ "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }]
-  },
-  {
-    "id": "c-error",
-    "name": "Error",
-    "category": "Feedback",
-    "category_group": "Feedback",
-    "status": "stable",
-    "owner": "디자인실 디자인기획팀",
-    "figma_link": "",
-    "dev_link": "",
-    "short_description": "오류 상태를 사용자에게 명확하게 전달하는 컴포넌트.",
-    "description": "시스템 또는 입력 오류 발생 시 사용자에게 상황을 명확히 전달하고 해결 방향을 안내하는 컴포넌트.",
-    "created_at": "2026-06-02",
-    "updated_at": "2026-06-02",
-    "version": "1.0.0",
-    "anatomy": [],
-    "variants": [],
-    "usage_guidelines": [],
-    "spec": { "sizes": [], "notes": "" },
-    "figma_properties": [],
-    "version_history": [{ "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }]
-  },
-  {
-    "id": "c-policy",
-    "name": "Policy",
-    "category": "Display",
-    "category_group": "Display",
-    "status": "stable",
-    "owner": "디자인실 디자인기획팀",
-    "figma_link": "",
-    "dev_link": "",
-    "short_description": "약관 및 정책 정보를 구조적으로 표시하는 컴포넌트.",
-    "description": "서비스 이용약관, 개인정보처리방침 등 정책 정보를 사용자에게 명확하게 전달하는 컴포넌트.",
-    "created_at": "2026-06-02",
-    "updated_at": "2026-06-02",
-    "version": "1.0.0",
-    "anatomy": [],
-    "variants": [],
-    "usage_guidelines": [],
-    "spec": { "sizes": [], "notes": "" },
-    "figma_properties": [],
     "version_history": [{ "version": "1.0.0", "date": "2026-06-02", "note": "초기 등재" }]
   }
 ]
