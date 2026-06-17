@@ -49,40 +49,48 @@ export default function ComponentDetail() {
 
   return (
     <div className="p-10 max-w-4xl mx-auto space-y-8" style={{ fontFamily: 'Pretendard, -apple-system, sans-serif' }}>
-      <header className="flex justify-between items-start">
-        <div>
-          <button onClick={() => navigate('/components')} className="text-sm text-gray-500 hover:text-gray-900 mb-4 flex items-center gap-1">
-            &larr; 목록으로 돌아가기
-          </button>
-          {isEditing ? (
-            <input type="text" className="text-3xl font-extrabold text-gray-900 border-b-2 border-[#E8002D] focus:outline-none bg-transparent" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
-          ) : (
-            <div>
-              <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight mb-2">{formData.name}</h1>
-              <div className="flex items-center gap-3">
-                <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold capitalize border ${getStatusColor(formData.status)}`}>
-                  {formData.status}
-                </span>
-                <span className="text-gray-300">•</span>
-                <span className="text-sm font-medium text-gray-600">v{formData.version}</span>
-                <span className="text-gray-300">•</span>
-                <span className="text-sm font-medium text-gray-600">{formData.owner}</span>
+      <header className="space-y-6">
+        <div className="flex justify-between items-start">
+          <div>
+            <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight">Component Registry</h1>
+            <p className="text-gray-500 mt-2 text-sm">디자인 시스템 컴포넌트 목록 및 상세 관리</p>
+          </div>
+          <div>
+            {isEditing ? (
+              <div className="flex gap-2">
+                <button onClick={() => setIsEditing(false)} className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 font-medium">취소</button>
+                <button onClick={handleSave} className="px-4 py-2 bg-[#E8002D] hover:bg-[#cc0028] rounded-lg text-white font-medium">저장</button>
               </div>
-            </div>
-          )}
+            ) : (
+              <button onClick={() => setIsEditing(true)} className="hidden px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 font-medium transition-colors">
+                편집하기
+              </button>
+            )}
+          </div>
         </div>
-        <div>
-          {isEditing ? (
-            <div className="flex gap-2">
-              <button onClick={() => setIsEditing(false)} className="px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 font-medium">취소</button>
-              <button onClick={handleSave} className="px-4 py-2 bg-[#E8002D] hover:bg-[#cc0028] rounded-lg text-white font-medium">저장</button>
-            </div>
-          ) : (
-            <button onClick={() => setIsEditing(true)} className="hidden px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-gray-700 font-medium transition-colors">
-              편집하기
+
+        {isEditing ? (
+          <div className="border-b border-gray-200 pb-4">
+            <input type="text" className="text-2xl font-bold text-gray-900 border-b-2 border-[#E8002D] focus:outline-none bg-transparent w-full" value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} />
+          </div>
+        ) : (
+          <div className="flex items-center flex-wrap gap-4 text-sm pb-4 border-b border-gray-200">
+            <button onClick={() => navigate('/components')} className="text-gray-500 hover:text-gray-900 font-medium flex items-center gap-2 transition-colors">
+              &larr; 컴포넌트 목록으로
             </button>
-          )}
-        </div>
+            <div className="w-px h-5 bg-gray-300"></div>
+            <span className="text-xl font-bold text-gray-900">{formData.name}</span>
+            <div className="flex items-center gap-2.5 ml-2">
+              <span className={`px-2.5 py-0.5 rounded-full text-xs font-semibold capitalize border ${getStatusColor(formData.status)}`}>
+                {formData.status}
+              </span>
+              <span className="text-gray-300">•</span>
+              <span className="text-sm font-medium text-gray-600">v{formData.version}</span>
+              <span className="text-gray-300">•</span>
+              <span className="text-sm font-medium text-gray-600">{formData.owner}</span>
+            </div>
+          </div>
+        )}
       </header>
 
       <div className={`rounded-xl shadow-sm border border-gray-100 overflow-hidden transition-colors duration-300 ${isEditing ? 'bg-[#FFF0F2] border-[#E8002D]/20' : 'bg-white'}`}>
