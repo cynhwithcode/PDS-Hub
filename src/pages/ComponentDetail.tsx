@@ -138,7 +138,7 @@ export default function ComponentDetail() {
 
 
           {/* Anatomy Section */}
-          {!isEditing && formData.anatomy && formData.anatomy.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-badge' && (
+          {!isEditing && formData.anatomy && formData.anatomy.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-badge' && formData.id !== 'c-textfield' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Anatomy</h3>
               
@@ -1047,8 +1047,392 @@ export default function ComponentDetail() {
             </>
           )}
 
+          {/* ── c-textfield 전용 섹션 ── */}
+          {formData.id === 'c-textfield' && !isEditing && (
+            <>
+              {/* === SECTION 1: TEXT FIELD === */}
+              <div className="pt-4 border-b border-gray-200 pb-4 mb-8">
+                <h2 className="text-2xl font-extrabold text-gray-900 tracking-tight uppercase">Text Field</h2>
+                <p className="text-sm text-gray-500 mt-2 leading-relaxed">
+                  텍스트 필드(Text Field)는 사용자가 한 줄의 텍스트를 입력할 수 있는 UI 컴포넌트입니다.<br />
+                  드롭다운, 삭제 버튼 등의 요소와 함께 사용하여 입력 편의성과 기능성을 높일 수 있습니다.
+                </p>
+              </div>
+
+              {/* Text Field Anatomy */}
+              <section>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Anatomy</h3>
+                <div className="bg-gray-50 border border-gray-200/50 rounded-xl p-8 flex justify-center items-center relative min-h-[220px]">
+                  <svg width="340" height="150" viewBox="0 0 340 150" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible">
+                    {/* Label with * and ? */}
+                    <text x="60" y="24" fontSize="11" fontWeight="700" fill="#1A1A1A" fontFamily="Pretendard, -apple-system, sans-serif">Label</text>
+                    <text x="90" y="22" fontSize="11" fontWeight="700" fill="#E8002D" fontFamily="Pretendard, -apple-system, sans-serif">*</text>
+                    <circle cx="102" cy="20" r="5" fill="#E5E7EB" />
+                    <text x="102" y="23" fontSize="8" fontWeight="bold" fill="#6B7280" textAnchor="middle">?</text>
+
+                    {/* Input Container */}
+                    <rect x="60" y="36" width="220" height="38" rx="6" fill="white" stroke="#D1D5DB" strokeWidth="1.5" />
+                    <text x="70" y="59" fontSize="12" fill="#9CA3AF" fontFamily="Pretendard, -apple-system, sans-serif">Placeholder</text>
+
+                    {/* Clear Icon (x) */}
+                    <circle cx="236" cy="55" r="6" fill="#E5E7EB" />
+                    <path d="M 233 52 L 239 58 M 239 52 L 233 58" stroke="#4B5563" strokeWidth="1.2" strokeLinecap="round" />
+
+                    {/* Search Icon (Q) */}
+                    <circle cx="258" cy="55" r="4.5" stroke="#1A1A1A" strokeWidth="1.5" fill="none" />
+                    <line x1="261.5" y1="58.5" x2="266" y2="63" stroke="#1A1A1A" strokeWidth="1.5" strokeLinecap="round" />
+
+                    {/* Help text */}
+                    <text x="60" y="90" fontSize="10" fill="#9CA3AF" fontFamily="Pretendard, -apple-system, sans-serif">Help text</text>
+
+                    {/* Callouts */}
+                    {/* Callout 1: Label Text */}
+                    <line x1="75" y1="20" x2="35" y2="20" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="25" cy="20" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="25" y="23.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">1</text>
+
+                    {/* Callout 2: Info icon */}
+                    <polyline points="102,12 102,2 135,2" stroke="#9CA3AF" strokeWidth="1" fill="none" />
+                    <circle cx="145" cy="2" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="145" y="5.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">2</text>
+
+                    {/* Callout 3: Input area */}
+                    <line x1="170" y1="36" x2="170" y2="10" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="170" cy="2" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="170" y="5.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">3</text>
+
+                    {/* Callout 4: Value Text */}
+                    <line x1="100" y1="55" x2="20" y2="55" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="10" cy="55" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="10" y="58.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">4</text>
+
+                    {/* Callout 5: Help text */}
+                    <line x1="80" y1="90" x2="80" y2="115" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="80" cy="124" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="80" y="127.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">5</text>
+
+                    {/* Callout 6: Clear Icon */}
+                    <line x1="236" y1="63" x2="236" y2="115" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="236" cy="124" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="236" y="127.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">6</text>
+
+                    {/* Callout 7: Tailing Icon */}
+                    <line x1="262" y1="55" x2="305" y2="55" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="315" cy="55" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="315" y="58.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">7</text>
+                  </svg>
+                </div>
+                <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3 text-xs text-gray-600 font-medium">
+                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                    <span className="w-5 h-5 rounded-full bg-gray-900 text-white flex items-center justify-center text-[10px] font-bold">1</span>
+                    <span>Label Text</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                    <span className="w-5 h-5 rounded-full bg-gray-900 text-white flex items-center justify-center text-[10px] font-bold">2</span>
+                    <span>Info icon (Optional)</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                    <span className="w-5 h-5 rounded-full bg-gray-900 text-white flex items-center justify-center text-[10px] font-bold">3</span>
+                    <span>Input area</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                    <span className="w-5 h-5 rounded-full bg-gray-900 text-white flex items-center justify-center text-[10px] font-bold">4</span>
+                    <span>Value Text</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                    <span className="w-5 h-5 rounded-full bg-gray-900 text-white flex items-center justify-center text-[10px] font-bold">5</span>
+                    <span>Help text (Optional)</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                    <span className="w-5 h-5 rounded-full bg-gray-900 text-white flex items-center justify-center text-[10px] font-bold">6</span>
+                    <span>Clear Icon</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                    <span className="w-5 h-5 rounded-full bg-gray-900 text-white flex items-center justify-center text-[10px] font-bold">7</span>
+                    <span>Tailing Icon (Optional)</span>
+                  </div>
+                </div>
+              </section>
+
+              {/* Text Field State */}
+              <section>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">State</h3>
+                <p className="text-xs text-gray-500 mb-4 leading-relaxed">
+                  텍스트 필드(Text Fields)는 InActive, Active, Disabled, Focused, Error로 분류됩니다. 사용자에게 최종적으로 보여지는 형상은 InActived와 Actived 상태입니다.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-gray-50 p-6 rounded-2xl border border-gray-200/50">
+                  {/* Normal */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-3 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded w-fit uppercase tracking-wider">Normal</span>
+                    <div className="space-y-1 mt-1">
+                      <label className="block text-xs font-bold text-gray-900">Label</label>
+                      <div className="border border-gray-200 rounded-lg px-3 py-2 text-xs text-gray-400 bg-white">
+                        Placeholder
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Complete */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-3 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded w-fit uppercase tracking-wider">Complete</span>
+                    <div className="space-y-1 mt-1">
+                      <label className="block text-xs font-bold text-gray-900">Label</label>
+                      <div className="border border-gray-200 rounded-lg px-3 py-2 text-xs text-gray-900 bg-white">
+                        Value text
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* InActived (Focused/Active) */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-3 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded w-fit uppercase tracking-wider">InActived</span>
+                    <div className="space-y-1 mt-1">
+                      <label className="block text-xs font-bold text-gray-900">Label</label>
+                      <div className="border-2 border-gray-900 rounded-lg px-3 py-1.5 text-xs text-gray-900 bg-white flex justify-between items-center">
+                        <span>Placeholder<span className="animate-pulse font-normal">|</span></span>
+                        <svg className="w-3.5 h-3.5 text-gray-400 hover:text-gray-900 cursor-pointer" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Read Only */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-3 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded w-fit uppercase tracking-wider">Read Only</span>
+                    <div className="space-y-1 mt-1">
+                      <label className="block text-xs font-bold text-gray-900">Label</label>
+                      <div className="border border-gray-100 rounded-lg px-3 py-2 text-xs text-gray-900 bg-gray-50/50">
+                        Value text
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Error */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-3 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded w-fit uppercase tracking-wider">Error</span>
+                    <div className="space-y-1 mt-1">
+                      <label className="block text-xs font-bold text-gray-900">Label</label>
+                      <div className="border border-red-500 rounded-lg px-3 py-2 text-xs text-red-500 bg-white">
+                        Value text
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Disabled */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-3 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded w-fit uppercase tracking-wider">Disabled</span>
+                    <div className="space-y-1 mt-1">
+                      <label className="block text-xs font-bold text-gray-300">Label</label>
+                      <div className="border border-gray-150 rounded-lg px-3 py-2 text-xs text-gray-300 bg-gray-50/50 cursor-not-allowed">
+                        Value text
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Spacer */}
+              <div className="py-6 border-b border-gray-200/80 mb-10" />
+
+              {/* === SECTION 2: TEXT AREA === */}
+              <div className="pt-4 border-b border-gray-200 pb-4 mb-8">
+                <h2 className="text-2xl font-extrabold text-gray-900 tracking-tight uppercase">Text Area</h2>
+                <p className="text-sm text-gray-500 mt-2 leading-relaxed">
+                  Text Area는 텍스트 영역은 한 줄 이상, 즉 여러 줄 텍스트를 입력하기 위한 컴포넌트입니다.<br />
+                  텍스트양이 넘을 경우 줄 바꿈 되어, 높이는 고정되고 커서가 필드 최하단에 도착 시 고정 높이에서 스크롤 됩니다.<br /><br />
+                  <span className="font-semibold text-gray-700">텍스트 영역 기본 케이스인 Overflow 예시입니다.</span>
+                </p>
+              </div>
+
+              {/* Text Area Overflow Example */}
+              <section>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Overflow Case Example</h3>
+                <div className="bg-gray-50 border border-gray-200/50 rounded-xl p-8 flex justify-center items-center">
+                  <div className="w-full max-w-sm bg-white border border-gray-200 rounded-xl p-5 shadow-sm space-y-1.5">
+                    <label className="block text-xs font-bold text-gray-900">동호회 평가 작성</label>
+                    <div className="border border-gray-300 rounded-lg p-3 bg-white text-xs text-gray-800 font-medium relative h-[120px] flex flex-col justify-between">
+                      <div className="overflow-y-auto pr-2 space-y-1 scrollbar-thin scrollbar-thumb-gray-300">
+                        <p>안녕하세요.</p>
+                        <p>마트 동호회 가입 한지 1년이 되었습니다.</p>
+                        <p>초보자인 저를 환영해 주셔서 정말 감사합니다!</p>
+                        <p>망설이시는 초보자 분들도 얼른 가입하세요.</p>
+                        <p>추천 :)</p>
+                      </div>
+                      <span className="text-[10px] text-gray-400 self-end mt-1">7 / 150</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Text Area Anatomy */}
+              <section>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Text Area Anatomy</h3>
+                <div className="bg-gray-50 border border-gray-200/50 rounded-xl p-8 flex justify-center items-center relative min-h-[220px]">
+                  <svg width="300" height="150" viewBox="0 0 300 150" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible">
+                    {/* Label */}
+                    <text x="70" y="24" fontSize="11" fontWeight="700" fill="#1A1A1A" fontFamily="Pretendard, -apple-system, sans-serif">Label</text>
+
+                    {/* Text Area Container */}
+                    <rect x="70" y="34" width="160" height="80" rx="6" fill="white" stroke="#D1D5DB" strokeWidth="1.5" />
+                    <text x="80" y="52" fontSize="11" fill="#9CA3AF" fontFamily="Pretendard, -apple-system, sans-serif">text</text>
+
+                    {/* Scrollbar line on right inside box */}
+                    <line x1="222" y1="40" x2="222" y2="108" stroke="#E5E7EB" strokeWidth="2" strokeLinecap="round" />
+                    <rect x="221" y="50" width="2" height="30" rx="1" fill="#9CA3AF" />
+
+                    {/* Help text */}
+                    <text x="70" y="128" fontSize="9" fill="#9CA3AF" fontFamily="Pretendard, -apple-system, sans-serif">Help text</text>
+
+                    {/* Count */}
+                    <text x="210" y="106" fontSize="8" fill="#9CA3AF" fontFamily="Pretendard, -apple-system, sans-serif" textAnchor="end">7 / 150</text>
+
+                    {/* Callouts */}
+                    {/* Callout 1: Label text */}
+                    <line x1="85" y1="20" x2="40" y2="20" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="30" cy="20" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="30" y="23.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">1</text>
+
+                    {/* Callout 2: Input area */}
+                    <line x1="150" y1="34" x2="150" y2="10" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="150" cy="2" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="150" y="5.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">2</text>
+
+                    {/* Callout 3: Place holder */}
+                    <line x1="85" y1="49" x2="35" y2="49" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="25" cy="49" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="25" y="52.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">3</text>
+
+                    {/* Callout 4: Scroll icon */}
+                    <line x1="222" y1="65" x2="265" y2="65" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="275" cy="65" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="275" y="68.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">4</text>
+
+                    {/* Callout 5: Count */}
+                    <polyline points="195,104 195,132 235,132" stroke="#9CA3AF" strokeWidth="1" fill="none" />
+                    <circle cx="245" cy="132" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="245" y="135.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">5</text>
+                  </svg>
+                </div>
+                <div className="mt-4 grid grid-cols-2 md:grid-cols-5 gap-3 text-xs text-gray-600 font-medium">
+                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                    <span className="w-5 h-5 rounded-full bg-gray-900 text-white flex items-center justify-center text-[10px] font-bold">1</span>
+                    <span>Label text</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                    <span className="w-5 h-5 rounded-full bg-gray-900 text-white flex items-center justify-center text-[10px] font-bold">2</span>
+                    <span>Input area</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                    <span className="w-5 h-5 rounded-full bg-gray-900 text-white flex items-center justify-center text-[10px] font-bold">3</span>
+                    <span>Place holder</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                    <span className="w-5 h-5 rounded-full bg-gray-900 text-white flex items-center justify-center text-[10px] font-bold">4</span>
+                    <span>Scroll icon</span>
+                  </div>
+                  <div className="flex items-center gap-2 bg-gray-50 px-3 py-2 rounded-lg border border-gray-100">
+                    <span className="w-5 h-5 rounded-full bg-gray-900 text-white flex items-center justify-center text-[10px] font-bold">5</span>
+                    <span>Count</span>
+                  </div>
+                </div>
+              </section>
+
+              {/* Text Area State */}
+              <section>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">State</h3>
+                <p className="text-xs text-gray-500 mb-4 leading-relaxed">
+                  텍스트 필드(Text Fields)는 InActive, Active, Disabled, Focused, Error로 분류됩니다. 사용자에게 최종적으로 보여지는 형상은 InActived와 Actived 상태입니다.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 bg-gray-50 p-6 rounded-2xl border border-gray-200/50">
+                  {/* Normal */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-3 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded w-fit uppercase tracking-wider">Normal</span>
+                    <div className="space-y-1 mt-1 flex-1 flex flex-col justify-between">
+                      <div>
+                        <label className="block text-xs font-bold text-gray-900 mb-1">Label</label>
+                        <div className="border border-gray-200 rounded-lg px-3 py-2 text-xs text-gray-400 bg-white h-[80px]">
+                          text
+                        </div>
+                      </div>
+                      <span className="text-[10px] text-gray-400 self-end mt-1">7 / 150</span>
+                    </div>
+                  </div>
+
+                  {/* Complete */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-3 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded w-fit uppercase tracking-wider">Complete</span>
+                    <div className="space-y-1 mt-1 flex-1 flex flex-col justify-between">
+                      <div>
+                        <label className="block text-xs font-bold text-gray-900 mb-1">Label</label>
+                        <div className="border border-gray-200 rounded-lg px-3 py-2 text-xs text-gray-900 bg-white h-[80px]">
+                          text
+                        </div>
+                      </div>
+                      <span className="text-[10px] text-gray-400 self-end mt-1">7 / 150</span>
+                    </div>
+                  </div>
+
+                  {/* InActived */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-3 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded w-fit uppercase tracking-wider">InActived</span>
+                    <div className="space-y-1 mt-1 flex-1 flex flex-col justify-between">
+                      <div>
+                        <label className="block text-xs font-bold text-gray-900 mb-1">Label</label>
+                        <div className="border-2 border-gray-900 rounded-lg px-3 py-1.5 text-xs text-gray-900 bg-white h-[80px]">
+                          text<span className="animate-pulse font-normal">|</span>
+                        </div>
+                      </div>
+                      <span className="text-[10px] text-gray-400 self-end mt-1">7 / 150</span>
+                    </div>
+                  </div>
+
+                  {/* Read Only */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-3 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded w-fit uppercase tracking-wider">Read Only</span>
+                    <div className="space-y-1 mt-1 flex-1 flex flex-col justify-between">
+                      <div>
+                        <label className="block text-xs font-bold text-gray-900 mb-1">Label</label>
+                        <div className="border border-gray-200 rounded-lg px-3 py-2 text-xs text-gray-900 bg-gray-50/50 h-[80px]">
+                          Value text
+                        </div>
+                      </div>
+                      <span className="text-[10px] text-gray-400 self-end mt-1">7 / 150</span>
+                    </div>
+                  </div>
+
+                  {/* Error */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-3 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded w-fit uppercase tracking-wider">Error</span>
+                    <div className="space-y-1 mt-1 flex-1 flex flex-col justify-between">
+                      <div>
+                        <label className="block text-xs font-bold text-gray-900 mb-1">Label</label>
+                        <div className="border border-red-500 rounded-lg px-3 py-2 text-xs text-red-500 bg-white h-[80px]">
+                          text
+                        </div>
+                      </div>
+                      <span className="text-[10px] text-red-500 self-end mt-1 font-semibold">7 / 150</span>
+                    </div>
+                  </div>
+
+                  {/* Disabled */}
+                  <div className="bg-white border border-gray-200 rounded-xl p-5 flex flex-col gap-3 shadow-sm">
+                    <span className="bg-gray-100 text-gray-600 text-[10px] font-bold px-2 py-0.5 rounded w-fit uppercase tracking-wider">Disabled</span>
+                    <div className="space-y-1 mt-1 flex-1 flex flex-col justify-between">
+                      <div>
+                        <label className="block text-xs font-bold text-gray-300 mb-1">Label</label>
+                        <div className="border border-gray-150 rounded-lg px-3 py-2 text-xs text-gray-300 bg-gray-50/50 h-[80px] cursor-not-allowed">
+                          text
+                        </div>
+                      </div>
+                      <span className="text-[10px] text-gray-300 self-end mt-1">7 / 150</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </>
+          )}
+
           {/* Variants Section */}
-          {!isEditing && formData.variants && formData.variants.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-chips' && (
+          {!isEditing && formData.variants && formData.variants.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-chips' && formData.id !== 'c-textfield' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Variants</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1205,7 +1589,7 @@ export default function ComponentDetail() {
 
 
           {/* Usage Guidelines Section */}
-          {!isEditing && formData.usage_guidelines && formData.usage_guidelines.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-chips' && (
+          {!isEditing && formData.usage_guidelines && formData.usage_guidelines.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-chips' && formData.id !== 'c-textfield' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Usage Guidelines</h3>
               {formData.id === 'c-badge' ? (
@@ -1346,7 +1730,7 @@ export default function ComponentDetail() {
           )}
 
           {/* Spec Section */}
-          {!isEditing && formData.spec && (formData.spec.sizes?.length > 0 || formData.spec.notes) && formData.id !== 'c-chips' && (
+          {!isEditing && formData.spec && (formData.spec.sizes?.length > 0 || formData.spec.notes) && formData.id !== 'c-chips' && formData.id !== 'c-textfield' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Spec</h3>
               <div className="bg-white border border-gray-200 p-6 rounded-xl space-y-8">
@@ -1388,7 +1772,7 @@ export default function ComponentDetail() {
           )}
 
           {/* Figma Properties Section */}
-          {!isEditing && formData.figma_properties && formData.figma_properties.length > 0 && (
+          {!isEditing && formData.figma_properties && formData.figma_properties.length > 0 && formData.id !== 'c-textfield' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Figma Properties</h3>
               <div className="overflow-hidden rounded-lg border border-gray-200">
@@ -1418,30 +1802,32 @@ export default function ComponentDetail() {
             </section>
           )}
 
-          <section>
-            <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Links</h3>
-            <div className="flex flex-wrap gap-4 items-center">
-              <div className="flex items-center gap-3">
-                <span className="text-sm font-medium text-gray-500">Figma:</span>
-                {isEditing ? (
-                  <input type="url" className="border border-gray-300 rounded px-3 py-1.5 text-sm w-64" value={formData.figma_link || ''} onChange={e => setFormData({...formData, figma_link: e.target.value})} />
-                ) : (
-                  formData.figma_link ? <a href={formData.figma_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 bg-[#FFF0F2] hover:bg-[#E8002D] text-[#E8002D] hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>Figma 링크</a> : <span className="text-gray-400 italic text-sm">링크 없음</span>
-                )}
+          {formData.id !== 'c-textfield' && (
+            <section>
+              <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Links</h3>
+              <div className="flex flex-wrap gap-4 items-center">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-medium text-gray-500">Figma:</span>
+                  {isEditing ? (
+                    <input type="url" className="border border-gray-300 rounded px-3 py-1.5 text-sm w-64" value={formData.figma_link || ''} onChange={e => setFormData({...formData, figma_link: e.target.value})} />
+                  ) : (
+                    formData.figma_link ? <a href={formData.figma_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 bg-[#FFF0F2] hover:bg-[#E8002D] text-[#E8002D] hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>Figma 링크</a> : <span className="text-gray-400 italic text-sm">링크 없음</span>
+                  )}
+                </div>
+                
+                {!isEditing && <span className="w-px h-6 bg-gray-200 hidden md:block"></span>}
+                
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-medium text-gray-500">Dev Link:</span>
+                  {isEditing ? (
+                    <input type="url" className="border border-gray-300 rounded px-3 py-1.5 text-sm w-64" value={formData.dev_link || ''} onChange={e => setFormData({...formData, dev_link: e.target.value})} />
+                  ) : (
+                    formData.dev_link ? <a href={formData.dev_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 bg-[#FFF0F2] hover:bg-[#E8002D] text-[#E8002D] hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>개발 문서</a> : <span className="text-gray-400 italic text-sm">링크 없음</span>
+                  )}
+                </div>
               </div>
-              
-              {!isEditing && <span className="w-px h-6 bg-gray-200 hidden md:block"></span>}
-              
-              <div className="flex items-center gap-3">
-                <span className="text-sm font-medium text-gray-500">Dev Link:</span>
-                {isEditing ? (
-                  <input type="url" className="border border-gray-300 rounded px-3 py-1.5 text-sm w-64" value={formData.dev_link || ''} onChange={e => setFormData({...formData, dev_link: e.target.value})} />
-                ) : (
-                  formData.dev_link ? <a href={formData.dev_link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 bg-[#FFF0F2] hover:bg-[#E8002D] text-[#E8002D] hover:text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>개발 문서</a> : <span className="text-gray-400 italic text-sm">링크 없음</span>
-                )}
-              </div>
-            </div>
-          </section>
+            </section>
+          )}
         </div>
       </div>
     </div>
