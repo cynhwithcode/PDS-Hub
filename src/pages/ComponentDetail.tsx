@@ -2062,7 +2062,7 @@ export default function ComponentDetail() {
                     </defs>
 
                     {/* Phone Screen Mockup Container (Slender 150x320 ratio) */}
-                    <rect x="155" y="10" width="150" height="320" rx="28" fill="#2E2F32" stroke="#D1D5DB" strokeWidth="2" />
+                    <rect x="155" y="10" width="150" height="320" rx="0" fill="#2E2F32" stroke="#D1D5DB" strokeWidth="2" />
                     
                     {/* Dimmed Scrim (2) */}
                     <path d="M156 11 H304 V170 H156 Z" fill="#2E2F32" opacity="0.4" />
