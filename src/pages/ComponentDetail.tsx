@@ -48,7 +48,7 @@ export default function ComponentDetail() {
   };
 
   return (
-    <div className="p-10 max-w-4xl mx-auto space-y-8" style={{ fontFamily: 'Pretendard, -apple-system, sans-serif' }}>
+    <div className="p-10 max-w-6xl mx-auto space-y-8" style={{ fontFamily: 'Pretendard, -apple-system, sans-serif' }}>
       <header className="space-y-6">
         <div className="flex justify-between items-start">
           <div>

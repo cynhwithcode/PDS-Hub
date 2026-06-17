@@ -54,7 +54,7 @@ export default function TokenDetail() {
   };
 
   return (
-    <div className="p-10 max-w-4xl mx-auto space-y-8">
+    <div className="p-10 max-w-6xl mx-auto space-y-8">
       <header className="space-y-6">
         <div className="flex justify-between items-start">
           <div>
