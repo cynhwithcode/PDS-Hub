@@ -126,7 +126,7 @@ export default function ComponentDetail() {
         </div>
 
         <div className="p-8 space-y-10">
-          {((!isEditing && formData.id !== 'c-tab') || isEditing) && (
+          {((!isEditing && formData.id !== 'c-tab' && formData.id !== 'c-popup') || isEditing) && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">설명 (Description)</h3>
               {isEditing ? (
@@ -140,7 +140,7 @@ export default function ComponentDetail() {
 
 
           {/* Anatomy Section */}
-          {!isEditing && formData.anatomy && formData.anatomy.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-badge' && formData.id !== 'c-textfield' && formData.id !== 'c-tab' && (
+          {!isEditing && formData.anatomy && formData.anatomy.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-badge' && formData.id !== 'c-textfield' && formData.id !== 'c-tab' && formData.id !== 'c-popup' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Anatomy</h3>
               
@@ -1745,8 +1745,299 @@ export default function ComponentDetail() {
             </>
           )}
 
+          {/* ── c-popup 전용 섹션 ── */}
+          {formData.id === 'c-popup' && !isEditing && (
+            <>
+              {/* === SECTION 1: POPUP HEADER === */}
+              <div className="pt-6 pb-6 mb-12">
+                <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight uppercase mb-4" style={{ fontFamily: 'Outfit, Pretendard, sans-serif' }}>POPUP</h1>
+                <p className="text-sm text-gray-900 leading-relaxed font-semibold">
+                  Grid는 일관성을 유지하고 일관성 있는 디자인 경험을 만드는 데 필수적입니다.<br />
+                  피닉스다트에서 사용되는 모든 스크린과 컴포넌트 사이의 Margin을 정의합니다.
+                </p>
+                <hr className="border-gray-200 mt-8 mb-12" />
+              </div>
+
+              {/* Alert Poup Anatomy */}
+              <section className="space-y-6 pt-12 mt-12">
+                <h3 className="text-xl font-bold text-gray-900 tracking-tight mb-6" style={{ fontFamily: 'Pretendard, sans-serif' }}>Alert Poup Anatomy</h3>
+                <div className="bg-[#F5F5F5] rounded-xl p-12 flex justify-center items-center relative min-h-[260px] border border-gray-200/30">
+                  <svg width="420" height="200" viewBox="0 0 420 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible">
+                    <defs>
+                      <filter id="popup-shadow" x="100" y="40" width="220" height="130" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+                        <feDropShadow dx="0" dy="4" stdDeviation="12" floodColor="#000000" floodOpacity="0.06" />
+                      </filter>
+                    </defs>
+
+                    {/* Popup Card Container */}
+                    <g filter="url(#popup-shadow)">
+                      <rect x="110" y="50" width="200" height="110" rx="8" fill="white" />
+                    </g>
+
+                    {/* Title */}
+                    <text x="210" y="78" fontSize="13" fontWeight="bold" fill="#1D1F22" textAnchor="middle" fontFamily="Pretendard, sans-serif">Title</text>
+                    
+                    {/* Sub Text */}
+                    <text x="210" y="96" fontSize="9" fill="#717680" textAnchor="middle" fontFamily="Pretendard, sans-serif">text text</text>
+                    <text x="210" y="108" fontSize="9" fill="#717680" textAnchor="middle" fontFamily="Pretendard, sans-serif">text text</text>
+
+                    {/* Buttons */}
+                    {/* Cancel Button */}
+                    <rect x="122" y="126" width="82" height="24" rx="4" fill="#F3F4F6" />
+                    <text x="163" y="141" fontSize="9" fontWeight="medium" fill="#374151" textAnchor="middle" fontFamily="Pretendard, sans-serif">취소</text>
+
+                    {/* Confirm Button */}
+                    <rect x="216" y="126" width="82" height="24" rx="4" fill="#1A1A1A" />
+                    <text x="257" y="141" fontSize="9" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">확인</text>
+
+                    {/* Callouts */}
+                    {/* 1. Title */}
+                    <path d="M210 50 L210 24" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="210" cy="50" r="2.5" fill="#1A1A1A" />
+                    <circle cx="210" cy="15" r="9" fill="#1A1A1A" />
+                    <text x="210" y="18.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">1</text>
+                    
+                    {/* 2. Sub Text */}
+                    <path d="M235 102 L290 102" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="235" cy="102" r="2.5" fill="#1A1A1A" />
+                    <circle cx="299" cy="102" r="9" fill="#1A1A1A" />
+                    <text x="299" y="105.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">2</text>
+                    
+                    {/* 3. Button */}
+                    <path d="M257 138 L290 138" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="257" cy="138" r="2.5" fill="#1A1A1A" />
+                    <circle cx="299" cy="138" r="9" fill="#1A1A1A" />
+                    <text x="299" y="141.5" fontSize="10" fontWeight="bold" fill="white" textAnchor="middle" fontFamily="Pretendard, sans-serif">3</text>
+                  </svg>
+                </div>
+                
+                <div className="mt-4 text-xs text-gray-500 space-y-1.5 pl-2" style={{ fontFamily: 'Pretendard, sans-serif' }}>
+                  <p>1. Title : 팝업 타이틀이 들어갑니다.</p>
+                  <p>2. Sub Text : 서브 문구가 들어갑니다.</p>
+                  <p>3. Button : 버튼이 들어갑니다.</p>
+                </div>
+              </section>
+
+              {/* Alert Popup Variants & Spacing */}
+              <section className="space-y-6 pt-12 border-t border-gray-100 mt-12">
+                <h3 className="text-xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: 'Pretendard, sans-serif' }}>Alert Popup</h3>
+                <p className="text-xs text-gray-500 leading-relaxed pl-1 mb-6">
+                  Confirm 역할을 하는 버튼은 1개 또는 2개에 한해 사용하며, Popup의 넓이는 270px입니다.
+                </p>
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 bg-[#F5F5F5] border border-gray-200/30 rounded-xl p-10 items-start justify-center">
+                  
+                  {/* 1 Button Card */}
+                  <div className="flex flex-col items-center gap-4">
+                    <span className="text-xs font-bold text-gray-900">1 Button</span>
+                    <div className="bg-white rounded-lg p-5 shadow-lg w-[270px] flex flex-col items-center relative border border-gray-100/50" style={{ filter: 'drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.03))' }}>
+                      
+                      {/* Width Guide: 270px */}
+                      <div className="absolute -top-6 left-0 right-0 flex items-center justify-between pointer-events-none">
+                        <div className="w-px h-2.5 bg-red-500" />
+                        <div className="flex-1 h-px bg-red-500" />
+                        <span className="text-[9px] font-bold text-red-500 bg-red-50 border border-red-200 px-1.5 py-0.5 rounded mx-1 leading-none">270px</span>
+                        <div className="flex-1 h-px bg-red-500" />
+                        <div className="w-px h-2.5 bg-red-500" />
+                      </div>
+
+                      {/* 8px Spacing Guide */}
+                      <div className="absolute top-[40px] left-[152px] w-[16px] h-[8px] flex items-center pointer-events-none">
+                        <div className="h-[3px] w-px bg-red-500" />
+                        <div className="h-px w-full bg-red-500" />
+                        <div className="h-[3px] w-px bg-red-500" />
+                        <span className="absolute left-[18px] text-[8px] font-bold text-white bg-red-500 px-1 rounded scale-90 whitespace-nowrap">8px</span>
+                      </div>
+
+                      {/* 16px Spacing Guide */}
+                      <div className="absolute top-[84px] left-[152px] w-[16px] h-[16px] flex items-center pointer-events-none">
+                        <div className="h-[3px] w-px bg-red-500" />
+                        <div className="h-px w-full bg-red-500" />
+                        <div className="h-[3px] w-px bg-red-500" />
+                        <span className="absolute left-[18px] text-[8px] font-bold text-white bg-red-500 px-1 rounded scale-90 whitespace-nowrap">16px</span>
+                      </div>
+
+                      {/* 20px Padding Guide */}
+                      <div className="absolute right-0 top-[112px] w-[20px] flex items-center pointer-events-none">
+                        <div className="h-2 w-px bg-red-500" />
+                        <div className="h-px w-full bg-red-500" />
+                        <div className="h-2 w-px bg-red-500" />
+                        <span className="absolute right-[12px] text-[8px] font-bold text-white bg-red-500 px-1 rounded scale-90 whitespace-nowrap">20px</span>
+                      </div>
+
+                      {/* Actual Content Layout */}
+                      <span className="font-bold text-sm text-gray-900 mb-2">Title</span>
+                      <div className="text-center text-xs text-gray-400 leading-normal mb-4">
+                        text text<br/>text text
+                      </div>
+                      <button className="bg-black hover:bg-neutral-800 text-white text-xs font-bold w-full py-2.5 rounded-lg transition-colors">확인</button>
+                    </div>
+                  </div>
+
+                  {/* 2 Button Card */}
+                  <div className="flex flex-col items-center gap-4">
+                    <span className="text-xs font-bold text-gray-900">2 Button</span>
+                    <div className="bg-white rounded-lg p-5 shadow-lg w-[270px] flex flex-col items-center relative border border-gray-100/50" style={{ filter: 'drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.03))' }}>
+                      <span className="font-bold text-sm text-gray-900 mb-2">Title</span>
+                      <div className="text-center text-xs text-gray-400 leading-normal mb-4">
+                        text text<br/>text text
+                      </div>
+                      <div className="flex gap-2 w-full">
+                        <button className="bg-[#F3F4F6] hover:bg-gray-200 text-[#374151] text-xs font-medium flex-1 py-2.5 rounded-lg transition-colors">취소</button>
+                        <button className="bg-black hover:bg-neutral-800 text-white text-xs font-bold flex-1 py-2.5 rounded-lg transition-colors">확인</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 1 Button + Text Button Card */}
+                  <div className="flex flex-col items-center gap-4">
+                    <span className="text-xs font-bold text-gray-900">1 Button + Text Button</span>
+                    <div className="bg-white rounded-lg p-5 shadow-lg w-[270px] flex flex-col items-center relative border border-gray-100/50" style={{ filter: 'drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.03))' }}>
+                      <span className="font-bold text-sm text-gray-900 mb-2">Title</span>
+                      <div className="text-center text-xs text-gray-400 leading-normal mb-4">
+                        texttext<br/>texttext
+                      </div>
+                      <button className="bg-black hover:bg-neutral-800 text-white text-xs font-bold w-full py-2.5 rounded-lg mb-2 transition-colors">확인</button>
+                      <button className="text-gray-400 hover:text-gray-600 text-[9px] hover:underline py-1">texttexttext</button>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Popup Types Table */}
+                <div className="overflow-x-auto rounded-lg border border-gray-200 mt-8">
+                  <table className="w-full text-sm text-left">
+                    <thead className="bg-gray-100 text-gray-600 uppercase text-xs">
+                      <tr>
+                        <th className="px-5 py-3.5 font-bold">Type</th>
+                        <th className="px-5 py-3.5 font-bold">Button Combination</th>
+                        <th className="px-5 py-3.5 font-bold">Example Usage</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white">
+                      <tr className="border-t border-gray-100 hover:bg-gray-50 transition-colors">
+                        <td className="px-5 py-3.5 text-gray-900 font-bold">Information (정보 제공)</td>
+                        <td className="px-5 py-3.5 text-gray-600">확인 / 닫기</td>
+                        <td className="px-5 py-3.5 text-gray-600">업데이트가 완료되었습니다.</td>
+                      </tr>
+                      <tr className="border-t border-gray-100 hover:bg-gray-50 transition-colors">
+                        <td className="px-5 py-3.5 text-gray-900 font-bold">Action Confirmation (작업 수행 여부)</td>
+                        <td className="px-5 py-3.5 text-gray-600">예 / 아니오</td>
+                        <td className="px-5 py-3.5 text-gray-600">파일을 삭제하시겠습니까?</td>
+                      </tr>
+                      <tr className="border-t border-gray-100 hover:bg-gray-50 transition-colors">
+                        <td className="px-5 py-3.5 text-gray-900 font-bold">Cancelable Action (취소 가능한 작업)</td>
+                        <td className="px-5 py-3.5 text-gray-600">확인 / 취소</td>
+                        <td className="px-5 py-3.5 text-gray-600">변경사항을 저장하시겠습니까?</td>
+                      </tr>
+                      <tr className="border-t border-gray-100 hover:bg-gray-50 transition-colors">
+                        <td className="px-5 py-3.5 text-gray-900 font-bold">Dangerous Action Warning (위험 작업 경고)</td>
+                        <td className="px-5 py-3.5 text-gray-600">삭제 / 취소</td>
+                        <td className="px-5 py-3.5 text-gray-600">이 데이터를 완전히 삭제하시겠습니까?</td>
+                      </tr>
+                      <tr className="border-t border-gray-100 hover:bg-gray-50 transition-colors">
+                        <td className="px-5 py-3.5 text-gray-900 font-bold">User Navigation (사용자 이동)</td>
+                        <td className="px-5 py-3.5 text-gray-600">나가기 / 취소</td>
+                        <td className="px-5 py-3.5 text-gray-600">이 페이지에서 나가시겠습니까?</td>
+                      </tr>
+                      <tr className="border-t border-gray-100 hover:bg-gray-50 transition-colors">
+                        <td className="px-5 py-3.5 text-gray-900 font-bold">Retry Action (작업 재시도)</td>
+                        <td className="px-5 py-3.5 text-gray-600">재시도 / 취소</td>
+                        <td className="px-5 py-3.5 text-gray-600">업로드에 실패했습니다. 다시 시도하시겠습니까?</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+
+              {/* Toast Anatomy & Types */}
+              <section className="space-y-6 pt-12 border-t border-gray-100 mt-12">
+                <h3 className="text-xl font-bold text-gray-900 tracking-tight" style={{ fontFamily: 'Pretendard, sans-serif' }}>Toast Anatomy</h3>
+                <p className="text-xs text-gray-500 leading-relaxed pl-1 mb-6">
+                  피닉스다트 내 시스템 폰트는 각 OS에 최적화하여 사용하며 쓰임새에 따라 타입 페이스를 최적화합니다.
+                </p>
+
+                {/* Toast Capsules Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 bg-[#F5F5F5] border border-gray-200/30 rounded-xl p-10 justify-center">
+                  
+                  {/* Toast 성공 */}
+                  <div className="flex flex-col items-center gap-3">
+                    <span className="text-xs font-bold text-gray-900">성공</span>
+                    <div className="bg-[#2E3035] text-white rounded-lg px-4 py-3 flex items-center gap-2.5 shadow-lg w-full max-w-[210px] border border-gray-800">
+                      <div className="w-5 h-5 rounded-full bg-[#10B981] flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">✓</div>
+                      <span className="font-medium truncate text-[11px]" style={{ fontFamily: 'Pretendard, sans-serif' }}>성공 문구가 들어갑니다.</span>
+                    </div>
+                  </div>
+
+                  {/* Toast 안내 */}
+                  <div className="flex flex-col items-center gap-3">
+                    <span className="text-xs font-bold text-gray-900">안내</span>
+                    <div className="bg-[#2E3035] text-white rounded-lg px-4 py-3 flex items-center gap-2.5 shadow-lg w-full max-w-[210px] border border-gray-800">
+                      <div className="w-5 h-5 rounded-full bg-[#3B82F6] flex items-center justify-center text-white text-[10px] font-bold font-serif flex-shrink-0">i</div>
+                      <span className="font-medium truncate text-[11px]" style={{ fontFamily: 'Pretendard, sans-serif' }}>안내성 문구가 들어갑니다.</span>
+                    </div>
+                  </div>
+
+                  {/* Toast 오류 */}
+                  <div className="flex flex-col items-center gap-3">
+                    <span className="text-xs font-bold text-gray-900">오류</span>
+                    <div className="bg-[#2E3035] text-white rounded-lg px-4 py-3 flex items-center gap-2.5 shadow-lg w-full max-w-[210px] border border-gray-800">
+                      <div className="w-5 h-5 rounded-full bg-[#EF4444] flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">✕</div>
+                      <span className="font-medium truncate text-[11px]" style={{ fontFamily: 'Pretendard, sans-serif' }}>오류 문구가 들어갑니다.</span>
+                    </div>
+                  </div>
+
+                  {/* Toast 경고 */}
+                  <div className="flex flex-col items-center gap-3">
+                    <span className="text-xs font-bold text-gray-900">경고</span>
+                    <div className="bg-[#2E3035] text-white rounded-lg px-4 py-3 flex items-center gap-2.5 shadow-lg w-full max-w-[210px] border border-gray-800">
+                      <div className="w-5 h-5 rounded-full bg-[#F59E0B] flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">!</div>
+                      <span className="font-medium truncate text-[11px]" style={{ fontFamily: 'Pretendard, sans-serif' }}>경고 문구가 들어갑니다.</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-4 text-xs text-gray-500 space-y-1.5 pl-2" style={{ fontFamily: 'Pretendard, sans-serif' }}>
+                  <p>1. Margin : 외부 기둥의 가장자리와 프레임 사이의 여백입니다.</p>
+                  <p>2. Column : 그리드의 기둥 블록이며 요소를 배치해야 하는 위치를 표시합니다.</p>
+                  <p>3. Gutter : 기둥 사이의 공간이며 너비는 기본 단위의 배수여야 합니다.</p>
+                </div>
+
+                {/* Toast Positions Table */}
+                <div className="overflow-x-auto rounded-lg border border-gray-200 mt-8">
+                  <table className="w-full text-sm text-left">
+                    <thead className="bg-gray-100 text-gray-600 uppercase text-xs">
+                      <tr>
+                        <th className="px-5 py-3.5 font-bold">Position</th>
+                        <th className="px-5 py-3.5 font-bold">Condition</th>
+                        <th className="px-5 py-3.5 font-bold">Example</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white">
+                      <tr className="border-t border-gray-100 hover:bg-gray-50 transition-colors">
+                        <td className="px-5 py-3.5 text-gray-900 font-bold">상단</td>
+                        <td className="px-5 py-3.5 text-gray-600">하단에 중요 UI가 있는 화면</td>
+                        <td className="px-5 py-3.5 text-gray-600">바텀시트, 하단 버튼, 하단 탭바</td>
+                      </tr>
+                      <tr className="border-t border-gray-100 hover:bg-gray-50 transition-colors">
+                        <td className="px-5 py-3.5 text-gray-900 font-bold">하단</td>
+                        <td className="px-5 py-3.5 text-gray-600">상단에 중요 UI가 있는 화면</td>
+                        <td className="px-5 py-3.5 text-gray-600">입력 폼, 상단 액션 영역</td>
+                      </tr>
+                      <tr className="border-t border-gray-100 hover:bg-gray-50 transition-colors">
+                        <td className="px-5 py-3.5 text-gray-900 font-bold">하단 (기본값)</td>
+                        <td className="px-5 py-3.5 text-gray-600">특별한 조건 없을 때</td>
+                        <td className="px-5 py-3.5 text-gray-600">-</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            </>
+          )}
+
           {/* Variants Section */}
-          {!isEditing && formData.variants && formData.variants.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-chips' && formData.id !== 'c-textfield' && formData.id !== 'c-tab' && (
+          {!isEditing && formData.variants && formData.variants.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-chips' && formData.id !== 'c-textfield' && formData.id !== 'c-tab' && formData.id !== 'c-popup' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Variants</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1903,7 +2194,7 @@ export default function ComponentDetail() {
 
 
           {/* Usage Guidelines Section */}
-          {!isEditing && formData.usage_guidelines && formData.usage_guidelines.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-chips' && formData.id !== 'c-textfield' && formData.id !== 'c-tab' && (
+          {!isEditing && formData.usage_guidelines && formData.usage_guidelines.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-chips' && formData.id !== 'c-textfield' && formData.id !== 'c-tab' && formData.id !== 'c-popup' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Usage Guidelines</h3>
               {formData.id === 'c-badge' ? (
@@ -2044,7 +2335,7 @@ export default function ComponentDetail() {
           )}
 
           {/* Spec Section */}
-          {!isEditing && formData.spec && (formData.spec.sizes?.length > 0 || formData.spec.notes) && formData.id !== 'c-chips' && formData.id !== 'c-textfield' && formData.id !== 'c-tab' && (
+          {!isEditing && formData.spec && (formData.spec.sizes?.length > 0 || formData.spec.notes) && formData.id !== 'c-chips' && formData.id !== 'c-textfield' && formData.id !== 'c-tab' && formData.id !== 'c-popup' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Spec</h3>
               <div className="bg-white border border-gray-200 p-6 rounded-xl space-y-8">
@@ -2086,7 +2377,7 @@ export default function ComponentDetail() {
           )}
 
           {/* Figma Properties Section */}
-          {!isEditing && formData.figma_properties && formData.figma_properties.length > 0 && formData.id !== 'c-textfield' && formData.id !== 'c-tab' && (
+          {!isEditing && formData.figma_properties && formData.figma_properties.length > 0 && formData.id !== 'c-textfield' && formData.id !== 'c-tab' && formData.id !== 'c-popup' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Figma Properties</h3>
               <div className="overflow-hidden rounded-lg border border-gray-200">
@@ -2116,7 +2407,7 @@ export default function ComponentDetail() {
             </section>
           )}
 
-          {formData.id !== 'c-textfield' && formData.id !== 'c-tab' && (
+          {formData.id !== 'c-textfield' && formData.id !== 'c-tab' && formData.id !== 'c-popup' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Links</h3>
               <div className="flex flex-wrap gap-4 items-center">
