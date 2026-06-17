@@ -2,7 +2,7 @@ import { NavLink, Link } from 'react-router-dom';
 
 export default function Sidebar() {
   return (
-    <aside className="w-64 h-screen bg-white border-r border-gray-200 flex flex-col">
+    <aside className="w-64 sticky top-0 h-screen bg-white border-r border-gray-200 flex flex-col shrink-0">
       <div className="p-6 border-b border-gray-100">
         <Link to="/tokens" className="block hover:opacity-85 transition-opacity">
           <h1 className="text-2xl font-extrabold text-gray-900 tracking-tight">PDS HUB</h1>
