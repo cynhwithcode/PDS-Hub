@@ -138,7 +138,7 @@ export default function ComponentDetail() {
 
 
           {/* Anatomy Section */}
-          {!isEditing && formData.anatomy && formData.anatomy.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-badge' && formData.id !== 'c-textfield' && (
+          {!isEditing && formData.anatomy && formData.anatomy.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-badge' && formData.id !== 'c-textfield' && formData.id !== 'c-tab' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Anatomy</h3>
               
@@ -1431,8 +1431,320 @@ export default function ComponentDetail() {
             </>
           )}
 
+          {/* ── c-tab 전용 섹션 ── */}
+          {formData.id === 'c-tab' && !isEditing && (
+            <>
+              {/* === SECTION 1: TAB HEADER === */}
+              <div className="pt-4 border-b border-gray-200 pb-4 mb-8">
+                <h2 className="text-2xl font-extrabold text-gray-900 tracking-tight uppercase">Tab</h2>
+                <p className="text-sm text-gray-500 mt-2 leading-relaxed">
+                  탭(Tab)은 동일한 위계의 서로 다른 콘텐츠 섹션을 그룹화하고 간편하게 섹션 간을 이동할 수 있도록 안내하는 내비게이션 UI 컴포넌트입니다.<br />
+                  현재 선택된 상태를 시각적으로 명확히 표시하여 사용자가 현재 위치를 직관적으로 파악하게 돕습니다.
+                </p>
+              </div>
+
+              {/* Anatomy Section */}
+              <section className="space-y-6">
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Anatomy</h3>
+                <div className="bg-gray-50 border border-gray-200/50 rounded-xl p-8 flex justify-center items-center relative min-h-[220px]">
+                  <svg width="420" height="180" viewBox="0 0 420 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible">
+                    {/* Tab Container (Tabs) */}
+                    <rect x="50" y="70" width="320" height="48" rx="0" fill="white" stroke="#E5E7EB" strokeWidth="1" />
+                    
+                    {/* Tab Items */}
+                    {/* Selected Item (Tab 1) */}
+                    <text x="103" y="99" fontSize="14" fontWeight="bold" fill="#1A1A1A" textAnchor="middle" fontFamily="Pretendard, sans-serif">랭킹</text>
+                    {/* Active Indicator */}
+                    <rect x="73" y="115" width="60" height="3" fill="#E8002D" />
+                    
+                    {/* Unselected Items (Tab 2, Tab 3) */}
+                    <text x="210" y="99" fontSize="14" fontWeight="medium" fill="#9CA3AF" textAnchor="middle" fontFamily="Pretendard, sans-serif">이벤트</text>
+                    <text x="317" y="99" fontSize="14" fontWeight="medium" fill="#9CA3AF" textAnchor="middle" fontFamily="Pretendard, sans-serif">마이페이지</text>
+                    
+                    {/* Callout Connections & Badges */}
+                    {/* 1. Tabs (Container) */}
+                    <path d="M50 70 L30 40" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="20" cy="30" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="20" y="33.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">1</text>
+                    
+                    {/* 2. Tab Item (Selected) */}
+                    <path d="M103 85 L103 40" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="103" cy="30" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="103" y="33.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">2</text>
+                    
+                    {/* 3. Tab Item */}
+                    <path d="M210 85 L210 40" stroke="#9CA3AF" strokeWidth="1" />
+                    <circle cx="210" cy="30" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="210" y="33.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">3</text>
+                    
+                    {/* 4. Selection Indicator */}
+                    <path d="M103 116.5 L103 145 L135 145" stroke="#9CA3AF" strokeWidth="1" fill="none" />
+                    <circle cx="145" cy="145" r="9" fill="white" stroke="#D1D5DB" strokeWidth="1" />
+                    <text x="145" y="148.5" fontSize="10" fontWeight="bold" fill="#374151" textAnchor="middle">4</text>
+                  </svg>
+                </div>
+                
+                <div className="overflow-x-auto rounded-lg border border-gray-200">
+                  <table className="w-full text-sm text-left">
+                    <thead className="bg-gray-100 text-gray-600 uppercase text-xs">
+                      <tr>
+                        <th className="px-5 py-3 font-bold">번호</th>
+                        <th className="px-5 py-3 font-bold">이름</th>
+                        <th className="px-5 py-3 font-bold">설명</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white">
+                      <tr className="border-t border-gray-100 even:bg-gray-50 transition-colors">
+                        <td className="px-5 py-3 text-gray-900 font-medium">
+                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-200 text-gray-700 text-xs font-bold">1</span>
+                        </td>
+                        <td className="px-5 py-3 text-gray-900 font-bold">Tabs</td>
+                        <td className="px-5 py-3 text-gray-600">탭 컴포넌트의 전체 영역 및 컨테이너</td>
+                      </tr>
+                      <tr className="border-t border-gray-100 even:bg-gray-50 transition-colors">
+                        <td className="px-5 py-3 text-gray-900 font-medium">
+                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-200 text-gray-700 text-xs font-bold">2</span>
+                        </td>
+                        <td className="px-5 py-3 text-gray-900 font-bold">Tab Item (Selected)</td>
+                        <td className="px-5 py-3 text-gray-600">현재 활성화(선택)되어 화면에 표시되고 있는 탭 요소</td>
+                      </tr>
+                      <tr className="border-t border-gray-100 even:bg-gray-50 transition-colors">
+                        <td className="px-5 py-3 text-gray-900 font-medium">
+                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-200 text-gray-700 text-xs font-bold">3</span>
+                        </td>
+                        <td className="px-5 py-3 text-gray-900 font-bold">Tab Item</td>
+                        <td className="px-5 py-3 text-gray-600">비활성화(선택되지 않은) 상태의 탭 요소</td>
+                      </tr>
+                      <tr className="border-t border-gray-100 even:bg-gray-50 transition-colors">
+                        <td className="px-5 py-3 text-gray-900 font-medium">
+                          <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-200 text-gray-700 text-xs font-bold">4</span>
+                        </td>
+                        <td className="px-5 py-3 text-gray-900 font-bold">Selection Indicator</td>
+                        <td className="px-5 py-3 text-gray-600">현재 선택된 탭을 시각적으로 나타내는 하단 강조 라인 (Brand Red 사용)</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+
+              {/* Variants Section */}
+              <section className="space-y-6">
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Variants</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Default vs Scroll Style */}
+                  <div className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm flex flex-col gap-6">
+                    <h4 className="font-bold text-gray-900 text-sm border-b pb-2">Style: Default vs Scroll</h4>
+                    
+                    {/* Default (Fixed) Model */}
+                    <div className="space-y-2">
+                      <span className="text-[10px] bg-gray-100 text-gray-600 font-bold px-2 py-0.5 rounded tracking-wider uppercase">Default Style (고정형)</span>
+                      <div className="border border-gray-200 rounded-lg bg-gray-50 p-4">
+                        <div className="bg-white border border-gray-200 flex w-full">
+                          <div className="flex-1 text-center py-3 border-b-2 border-[#E8002D] text-xs font-bold text-gray-900 cursor-pointer">추천</div>
+                          <div className="flex-1 text-center py-3 text-xs font-medium text-gray-400 cursor-pointer">랭킹</div>
+                          <div className="flex-1 text-center py-3 text-xs font-medium text-gray-400 cursor-pointer">이벤트</div>
+                        </div>
+                      </div>
+                      <p className="text-xs text-gray-500 leading-relaxed pl-1">탭의 개수가 적고 화면 폭 내에서 균등하게 고정 분할하여 표시할 때 사용합니다.</p>
+                    </div>
+
+                    {/* Scroll Model */}
+                    <div className="space-y-2">
+                      <span className="text-[10px] bg-gray-100 text-gray-600 font-bold px-2 py-0.5 rounded tracking-wider uppercase">Scroll Style (스크롤형)</span>
+                      <div className="border border-gray-200 rounded-lg bg-gray-50 p-4 overflow-hidden">
+                        <div className="bg-white border-b border-gray-200 flex overflow-x-auto scrollbar-none relative">
+                          <div className="px-4 py-3 border-b-2 border-[#E8002D] text-xs font-bold text-gray-900 whitespace-nowrap cursor-pointer">추천</div>
+                          <div className="px-4 py-3 text-xs font-medium text-gray-400 whitespace-nowrap cursor-pointer">랭킹</div>
+                          <div className="px-4 py-3 text-xs font-medium text-gray-400 whitespace-nowrap cursor-pointer">이벤트</div>
+                          <div className="px-4 py-3 text-xs font-medium text-gray-400 whitespace-nowrap cursor-pointer">신곡</div>
+                          <div className="px-4 py-3 text-xs font-medium text-gray-400 whitespace-nowrap cursor-pointer">인기</div>
+                          <div className="px-4 py-3 text-xs font-medium text-gray-400 whitespace-nowrap cursor-pointer">장르</div>
+                          {/* Fade Overlay effect at right side */}
+                          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+                        </div>
+                      </div>
+                      <p className="text-xs text-gray-500 leading-relaxed pl-1">탭이 다수이거나 화면 폭을 초과할 때 스크롤이 가능하도록 사용하며, 하단 전체에 연한 경계선이 제공됩니다.</p>
+                    </div>
+                  </div>
+
+                  {/* Selected vs Unselected State */}
+                  <div className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm flex flex-col gap-6">
+                    <h4 className="font-bold text-gray-900 text-sm border-b pb-2">State: Selected vs Unselected</h4>
+                    
+                    <div className="grid grid-cols-2 gap-4 flex-1 items-center">
+                      {/* Selected State Card */}
+                      <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 flex flex-col items-center gap-2">
+                        <span className="text-[10px] bg-red-50 text-[#E8002D] border border-red-100 font-bold px-2 py-0.5 rounded uppercase tracking-wider">Selected</span>
+                        <div className="bg-white border border-gray-200 w-full py-3 text-center border-b-2 border-[#E8002D] text-sm font-bold text-gray-900">
+                          Active Tab
+                        </div>
+                        <p className="text-[11px] text-gray-500 text-center leading-relaxed mt-2">글자 색상이 강조되고, 하단에 Brand Red(#E8002D) Indicator 라인이 표시됩니다.</p>
+                      </div>
+
+                      {/* Unselected State Card */}
+                      <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 flex flex-col items-center gap-2">
+                        <span className="text-[10px] bg-gray-100 text-gray-500 font-bold px-2 py-0.5 rounded uppercase tracking-wider">Unselected</span>
+                        <div className="bg-white border border-gray-200 w-full py-3 text-center text-sm font-medium text-gray-400">
+                          Inactive Tab
+                        </div>
+                        <p className="text-[11px] text-gray-500 text-center leading-relaxed mt-2">글자 색상이 회색톤으로 비활성화 느낌을 주며, 하단 라인이 비노출 상태입니다.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Behaviors: Transition Animation */}
+              <section className="space-y-6">
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Behaviors: 이동 시 애니메이션</h3>
+                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                  <p className="text-xs text-gray-500 leading-relaxed mb-6">
+                    사용자가 탭을 전환하여 탭 영역이 이동할 때, 하단의 Selection Indicator 바가 부드럽게 늘어났다가 줄어들며 이동하는 인터랙션 효과를 가집니다.
+                  </p>
+                  
+                  <div className="grid grid-cols-3 gap-4">
+                    {/* Stage 1 */}
+                    <div className="bg-gray-50 border border-gray-200/50 rounded-lg p-4 flex flex-col items-center gap-4">
+                      <span className="text-[10px] bg-gray-200 text-gray-600 font-bold px-2 py-0.5 rounded uppercase tracking-wider">1. 시작 지점 (Start)</span>
+                      <div className="bg-white border border-gray-200 rounded px-2 py-3 w-full relative h-16 flex items-center justify-around overflow-hidden">
+                        <span className="text-xs font-bold text-gray-900">Tab A</span>
+                        <span className="text-xs font-medium text-gray-400">Tab B</span>
+                        <div className="absolute bottom-0 left-[20%] w-[25%] h-1 bg-[#E8002D] rounded-t-full transition-all duration-300" />
+                      </div>
+                      <span className="text-[11px] text-gray-500 text-center">Tab A 탭 아래에 인디케이터가 머무름</span>
+                    </div>
+
+                    {/* Stage 2 */}
+                    <div className="bg-gray-50 border border-gray-200/50 rounded-lg p-4 flex flex-col items-center gap-4">
+                      <span className="text-[10px] bg-red-50 text-[#E8002D] font-bold px-2 py-0.5 rounded uppercase tracking-wider">2. 이동 중 (Stretching)</span>
+                      <div className="bg-white border border-gray-200 rounded px-2 py-3 w-full relative h-16 flex items-center justify-around overflow-hidden">
+                        <span className="text-xs font-bold text-gray-600">Tab A</span>
+                        <span className="text-xs font-bold text-gray-600">Tab B</span>
+                        {/* stretched indicator */}
+                        <div className="absolute bottom-0 left-[20%] w-[60%] h-1 bg-[#E8002D] rounded-t-full transition-all duration-300" />
+                      </div>
+                      <span className="text-[11px] text-gray-500 text-center">이동 방향으로 바가 길게 늘어나 슬라이딩</span>
+                    </div>
+
+                    {/* Stage 3 */}
+                    <div className="bg-gray-50 border border-gray-200/50 rounded-lg p-4 flex flex-col items-center gap-4">
+                      <span className="text-[10px] bg-gray-200 text-gray-600 font-bold px-2 py-0.5 rounded uppercase tracking-wider">3. 도착 지점 (End)</span>
+                      <div className="bg-white border border-gray-200 rounded px-2 py-3 w-full relative h-16 flex items-center justify-around overflow-hidden">
+                        <span className="text-xs font-medium text-gray-400">Tab A</span>
+                        <span className="text-xs font-bold text-gray-900">Tab B</span>
+                        <div className="absolute bottom-0 left-[55%] w-[25%] h-1 bg-[#E8002D] rounded-t-full transition-all duration-300" />
+                      </div>
+                      <span className="text-[11px] text-gray-500 text-center">Tab B에 완전히 안착하고 두께와 크기 복원</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              {/* Behaviors: Scroll Sticky Action */}
+              <section className="space-y-6">
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Behaviors: 스크롤시 액션 (Sticky Header)</h3>
+                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                  <p className="text-xs text-gray-500 leading-relaxed mb-6">
+                    모바일 및 웹 브라우저 내에서 스크롤을 조작할 때, 내비게이션 바와 탭의 고정/노출 상태가 능동적으로 제어됩니다.
+                  </p>
+                  
+                  <div className="flex flex-col md:flex-row justify-center items-center gap-16">
+                    {/* Screen 1: Scroll Down */}
+                    <div className="flex flex-col items-center gap-4">
+                      <span className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                        Scroll Down (스크롤 내릴 시)
+                      </span>
+                      <div className="relative">
+                        <svg width="180" height="280" viewBox="0 0 180 280" fill="none" xmlns="http://www.w3.org/2000/svg" className="border border-gray-200 rounded-2xl shadow-sm bg-white overflow-hidden">
+                          {/* Notch/Status Bar */}
+                          <rect x="0" y="0" width="180" height="15" fill="#F9FAFB" />
+                          <circle cx="90" cy="7" r="3" fill="#1A1A1A" />
+                          
+                          {/* Tab Bar (Sticky at y=15, because Header is hidden/slid up) */}
+                          <rect x="0" y="15" width="180" height="32" fill="white" stroke="#F3F4F6" strokeWidth="1" />
+                          <text x="30" y="34" fontSize="9" fontWeight="bold" fill="#E8002D" fontFamily="Pretendard, sans-serif">랭킹</text>
+                          <rect x="15" y="45" width="30" height="2" fill="#E8002D" />
+                          <text x="90" y="34" fontSize="9" fontWeight="medium" fill="#9CA3AF" fontFamily="Pretendard, sans-serif">이벤트</text>
+                          <text x="150" y="34" fontSize="9" fontWeight="medium" fill="#9CA3AF" fontFamily="Pretendard, sans-serif">MY</text>
+                          
+                          {/* Content Area (starts immediately at y=47) */}
+                          <rect x="10" y="57" width="160" height="210" rx="4" fill="#F9FAFB" />
+                          {/* Content text lines inside content area */}
+                          <rect x="20" y="70" width="120" height="8" rx="2" fill="#E5E7EB" />
+                          <rect x="20" y="85" width="140" height="8" rx="2" fill="#E5E7EB" />
+                          <rect x="20" y="100" width="80" height="8" rx="2" fill="#E5E7EB" />
+                          <rect x="20" y="120" width="120" height="8" rx="2" fill="#E5E7EB" />
+                          <rect x="20" y="135" width="140" height="8" rx="2" fill="#E5E7EB" />
+                          <rect x="20" y="150" width="80" height="8" rx="2" fill="#E5E7EB" />
+                        </svg>
+                        
+                        {/* Red Arrow overlay indicating swipe/scroll gesture direction */}
+                        <div className="absolute right-[-30px] top-[100px] flex flex-col items-center gap-1">
+                          <svg width="20" height="50" viewBox="0 0 20 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 5 L10 45 M5 40 L10 45 L15 40" stroke="#E8002D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                          <span className="text-[10px] text-[#E8002D] font-bold">Scroll Down</span>
+                        </div>
+                      </div>
+                      
+                      <div className="text-center space-y-1">
+                        <p className="text-xs font-bold text-gray-800">Header 숨김 + Tab 고정</p>
+                        <p className="text-[11px] text-gray-500">화면을 스크롤 다운(아래로 내리면)할 때는<br/>상단 헤더는 사라지고 Tab만 최상단에 고정됩니다.</p>
+                      </div>
+                    </div>
+
+                    {/* Screen 2: Scroll Up */}
+                    <div className="flex flex-col items-center gap-4">
+                      <span className="text-sm font-bold text-gray-900 flex items-center gap-2">
+                        Scroll Up (스크롤 올릴 시)
+                      </span>
+                      <div className="relative">
+                        <svg width="180" height="280" viewBox="0 0 180 280" fill="none" xmlns="http://www.w3.org/2000/svg" className="border border-gray-200 rounded-2xl shadow-sm bg-white overflow-hidden">
+                          {/* Notch/Status Bar */}
+                          <rect x="0" y="0" width="180" height="15" fill="#F9FAFB" />
+                          <circle cx="90" cy="7" r="3" fill="#1A1A1A" />
+                          
+                          {/* Header (Visible at y=15) */}
+                          <rect x="0" y="15" width="180" height="36" fill="white" stroke="#F3F4F6" strokeWidth="1" />
+                          <text x="90" y="38" fontSize="11" fontWeight="bold" fill="#1A1A1A" textAnchor="middle" fontFamily="Pretendard, sans-serif">Phoenix Dart</text>
+                          
+                          {/* Tab Bar (Visible at y=51) */}
+                          <rect x="0" y="51" width="180" height="32" fill="white" stroke="#F3F4F6" strokeWidth="1" />
+                          <text x="30" y="70" fontSize="9" fontWeight="bold" fill="#E8002D" fontFamily="Pretendard, sans-serif">랭킹</text>
+                          <rect x="15" y="81" width="30" height="2" fill="#E8002D" />
+                          <text x="90" y="70" fontSize="9" fontWeight="medium" fill="#9CA3AF" fontFamily="Pretendard, sans-serif">이벤트</text>
+                          <text x="150" y="70" fontSize="9" fontWeight="medium" fill="#9CA3AF" fontFamily="Pretendard, sans-serif">MY</text>
+                          
+                          {/* Content Area (starts at y=83) */}
+                          <rect x="10" y="93" width="160" height="174" rx="4" fill="#F9FAFB" />
+                          {/* Content text lines inside content area */}
+                          <rect x="20" y="106" width="120" height="8" rx="2" fill="#E5E7EB" />
+                          <rect x="20" y="121" width="140" height="8" rx="2" fill="#E5E7EB" />
+                          <rect x="20" y="136" width="80" height="8" rx="2" fill="#E5E7EB" />
+                        </svg>
+                        
+                        {/* Red Arrow overlay indicating swipe/scroll gesture direction */}
+                        <div className="absolute right-[-30px] top-[100px] flex flex-col items-center gap-1">
+                          <svg width="20" height="50" viewBox="0 0 20 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10 45 L10 5 M5 10 L10 5 L15 10" stroke="#E8002D" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                          <span className="text-[10px] text-[#E8002D] font-bold">Scroll Up</span>
+                        </div>
+                      </div>
+                      
+                      <div className="text-center space-y-1">
+                        <p className="text-xs font-bold text-gray-800">Header 노출 + Tab 노출</p>
+                        <p className="text-[11px] text-gray-500">화면을 스크롤 업(위로 올리면)할 때는<br/>헤더와 Tab 영역이 함께 상단에서 슬라이드 다운되어 노출됩니다.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </>
+          )}
+
           {/* Variants Section */}
-          {!isEditing && formData.variants && formData.variants.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-chips' && formData.id !== 'c-textfield' && (
+          {!isEditing && formData.variants && formData.variants.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-chips' && formData.id !== 'c-textfield' && formData.id !== 'c-tab' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Variants</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -1589,7 +1901,7 @@ export default function ComponentDetail() {
 
 
           {/* Usage Guidelines Section */}
-          {!isEditing && formData.usage_guidelines && formData.usage_guidelines.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-chips' && formData.id !== 'c-textfield' && (
+          {!isEditing && formData.usage_guidelines && formData.usage_guidelines.length > 0 && formData.id !== 'c-buttons' && formData.id !== 'c-chips' && formData.id !== 'c-textfield' && formData.id !== 'c-tab' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Usage Guidelines</h3>
               {formData.id === 'c-badge' ? (
@@ -1730,7 +2042,7 @@ export default function ComponentDetail() {
           )}
 
           {/* Spec Section */}
-          {!isEditing && formData.spec && (formData.spec.sizes?.length > 0 || formData.spec.notes) && formData.id !== 'c-chips' && formData.id !== 'c-textfield' && (
+          {!isEditing && formData.spec && (formData.spec.sizes?.length > 0 || formData.spec.notes) && formData.id !== 'c-chips' && formData.id !== 'c-textfield' && formData.id !== 'c-tab' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Spec</h3>
               <div className="bg-white border border-gray-200 p-6 rounded-xl space-y-8">
@@ -1772,7 +2084,7 @@ export default function ComponentDetail() {
           )}
 
           {/* Figma Properties Section */}
-          {!isEditing && formData.figma_properties && formData.figma_properties.length > 0 && formData.id !== 'c-textfield' && (
+          {!isEditing && formData.figma_properties && formData.figma_properties.length > 0 && formData.id !== 'c-textfield' && formData.id !== 'c-tab' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Figma Properties</h3>
               <div className="overflow-hidden rounded-lg border border-gray-200">
@@ -1802,7 +2114,7 @@ export default function ComponentDetail() {
             </section>
           )}
 
-          {formData.id !== 'c-textfield' && (
+          {formData.id !== 'c-textfield' && formData.id !== 'c-tab' && (
             <section>
               <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-4 border-b pb-2">Links</h3>
               <div className="flex flex-wrap gap-4 items-center">
