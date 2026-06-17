@@ -1447,7 +1447,7 @@ export default function ComponentDetail() {
 
               {/* Anatomy Section */}
               <section className="space-y-6 pt-12 border-t border-gray-100 mt-12">
-                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Anatomy</h3>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-6 border-b pb-2">Anatomy</h3>
                 <div className="bg-gray-50 border border-gray-200/50 rounded-xl p-8 flex justify-center items-center relative min-h-[220px]">
                   <svg width="420" height="180" viewBox="0 0 420 180" fill="none" xmlns="http://www.w3.org/2000/svg" className="overflow-visible">
                     {/* Tab Container (Tabs) */}
@@ -1531,11 +1531,11 @@ export default function ComponentDetail() {
 
               {/* Variants Section */}
               <section className="space-y-8 py-12 border-t border-gray-100">
-                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Variants</h3>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-6 border-b pb-2">Variants</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {/* Default vs Scroll Style */}
                   <div className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm flex flex-col gap-6">
-                    <h4 className="font-bold text-gray-900 text-sm border-b pb-2">Style: Default vs Scroll</h4>
+                    <h4 className="font-bold text-gray-900 text-sm border-b pb-2 mb-6">Style: Default vs Scroll</h4>
                     
                     {/* Default (Fixed) Model */}
                     <div className="space-y-2">
@@ -1571,7 +1571,7 @@ export default function ComponentDetail() {
 
                   {/* Selected vs Unselected State */}
                   <div className="border border-gray-200 rounded-xl p-6 bg-white shadow-sm flex flex-col gap-6">
-                    <h4 className="font-bold text-gray-900 text-sm border-b pb-2">State: Selected vs Unselected</h4>
+                    <h4 className="font-bold text-gray-900 text-sm border-b pb-2 mb-6">State: Selected vs Unselected</h4>
                     
                     <div className="grid grid-cols-2 gap-4 flex-1 items-center">
                       {/* Selected State Card */}
@@ -1598,7 +1598,7 @@ export default function ComponentDetail() {
 
               {/* Behaviors: Transition Animation */}
               <section className="space-y-6 pt-12 border-t border-gray-100 mt-12">
-                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Behaviors: 이동 시 애니메이션</h3>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-6 border-b pb-2">Behaviors: 이동 시 애니메이션</h3>
                 <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
                   <p className="text-xs text-gray-500 leading-relaxed mb-6">
                     사용자가 탭을 전환하여 탭 영역이 이동할 때, 하단의 Selection Indicator 바가 부드럽게 늘어났다가 줄어들며 이동하는 인터랙션 효과를 가집니다.
@@ -1644,7 +1644,7 @@ export default function ComponentDetail() {
 
               {/* Behaviors: Scroll Sticky Action */}
               <section className="space-y-6 pt-12 border-t border-gray-100 mt-12">
-                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-1 border-b pb-2">Behaviors: 스크롤시 액션 (Sticky Header)</h3>
+                <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wider mb-6 border-b pb-2">Behaviors: 스크롤시 액션 (Sticky Header)</h3>
                 <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
                   <p className="text-xs text-gray-500 leading-relaxed mb-6">
                     모바일 및 웹 브라우저 내에서 스크롤을 조작할 때, 내비게이션 바와 탭의 고정/노출 상태가 능동적으로 제어됩니다.
