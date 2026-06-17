@@ -1825,7 +1825,7 @@ export default function ComponentDetail() {
                   Confirm 역할을 하는 버튼은 1개 또는 2개에 한해 사용하며, Popup의 넓이는 270px입니다.
                 </p>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 bg-[#F5F5F5] border border-gray-200/30 rounded-xl p-10 items-start justify-center">
+                <div className="flex flex-wrap gap-8 justify-center bg-[#F5F5F5] border border-gray-200/30 rounded-xl p-10 items-start">
                   
                   {/* 1 Button Card */}
                   <div className="flex flex-col items-center gap-4">
@@ -1842,7 +1842,7 @@ export default function ComponentDetail() {
                       </div>
 
                       {/* 8px Spacing Guide */}
-                      <div className="absolute top-[40px] left-[152px] w-[16px] h-[8px] flex items-center pointer-events-none">
+                      <div className="absolute top-[40px] left-[185px] w-[16px] h-[8px] flex items-center pointer-events-none">
                         <div className="h-[3px] w-px bg-red-500" />
                         <div className="h-px w-full bg-red-500" />
                         <div className="h-[3px] w-px bg-red-500" />
@@ -1850,7 +1850,7 @@ export default function ComponentDetail() {
                       </div>
 
                       {/* 16px Spacing Guide */}
-                      <div className="absolute top-[84px] left-[152px] w-[16px] h-[16px] flex items-center pointer-events-none">
+                      <div className="absolute top-[84px] left-[185px] w-[16px] h-[16px] flex items-center pointer-events-none">
                         <div className="h-[3px] w-px bg-red-500" />
                         <div className="h-px w-full bg-red-500" />
                         <div className="h-[3px] w-px bg-red-500" />
@@ -1958,41 +1958,41 @@ export default function ComponentDetail() {
                 </p>
 
                 {/* Toast Capsules Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 bg-[#F5F5F5] border border-gray-200/30 rounded-xl p-10 justify-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#F5F5F5] border border-gray-200/30 rounded-xl p-10 justify-items-center justify-center max-w-[640px] mx-auto">
                   
                   {/* Toast 성공 */}
-                  <div className="flex flex-col items-center gap-3">
+                  <div className="flex flex-col items-center gap-3 w-full max-w-[250px]">
                     <span className="text-xs font-bold text-gray-900">성공</span>
-                    <div className="bg-[#2E3035] text-white rounded-lg px-4 py-3 flex items-center gap-2.5 shadow-lg w-full max-w-[210px] border border-gray-800">
+                    <div className="bg-gradient-to-r from-[#37655E] to-[#4B5059] text-white rounded-lg px-4 py-3 flex items-center gap-2.5 shadow-lg w-full border border-gray-800/40">
                       <div className="w-5 h-5 rounded-full bg-[#10B981] flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">✓</div>
-                      <span className="font-medium truncate text-[11px]" style={{ fontFamily: 'Pretendard, sans-serif' }}>성공 문구가 들어갑니다.</span>
+                      <span className="font-medium text-[11px] whitespace-nowrap" style={{ fontFamily: 'Pretendard, sans-serif' }}>성공 문구가 들어갑니다.</span>
                     </div>
                   </div>
 
                   {/* Toast 안내 */}
-                  <div className="flex flex-col items-center gap-3">
+                  <div className="flex flex-col items-center gap-3 w-full max-w-[250px]">
                     <span className="text-xs font-bold text-gray-900">안내</span>
-                    <div className="bg-[#2E3035] text-white rounded-lg px-4 py-3 flex items-center gap-2.5 shadow-lg w-full max-w-[210px] border border-gray-800">
+                    <div className="bg-gradient-to-r from-[#334669] to-[#4B5059] text-white rounded-lg px-4 py-3 flex items-center gap-2.5 shadow-lg w-full border border-gray-800/40">
                       <div className="w-5 h-5 rounded-full bg-[#3B82F6] flex items-center justify-center text-white text-[10px] font-bold font-serif flex-shrink-0">i</div>
-                      <span className="font-medium truncate text-[11px]" style={{ fontFamily: 'Pretendard, sans-serif' }}>안내성 문구가 들어갑니다.</span>
+                      <span className="font-medium text-[11px] whitespace-nowrap" style={{ fontFamily: 'Pretendard, sans-serif' }}>안내성 문구가 들어갑니다.</span>
                     </div>
                   </div>
 
                   {/* Toast 오류 */}
-                  <div className="flex flex-col items-center gap-3">
+                  <div className="flex flex-col items-center gap-3 w-full max-w-[250px]">
                     <span className="text-xs font-bold text-gray-900">오류</span>
-                    <div className="bg-[#2E3035] text-white rounded-lg px-4 py-3 flex items-center gap-2.5 shadow-lg w-full max-w-[210px] border border-gray-800">
+                    <div className="bg-gradient-to-r from-[#5C3036] to-[#4B5059] text-white rounded-lg px-4 py-3 flex items-center gap-2.5 shadow-lg w-full border border-gray-800/40">
                       <div className="w-5 h-5 rounded-full bg-[#EF4444] flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">✕</div>
-                      <span className="font-medium truncate text-[11px]" style={{ fontFamily: 'Pretendard, sans-serif' }}>오류 문구가 들어갑니다.</span>
+                      <span className="font-medium text-[11px] whitespace-nowrap" style={{ fontFamily: 'Pretendard, sans-serif' }}>오류 문구가 들어갑니다.</span>
                     </div>
                   </div>
 
                   {/* Toast 경고 */}
-                  <div className="flex flex-col items-center gap-3">
+                  <div className="flex flex-col items-center gap-3 w-full max-w-[250px]">
                     <span className="text-xs font-bold text-gray-900">경고</span>
-                    <div className="bg-[#2E3035] text-white rounded-lg px-4 py-3 flex items-center gap-2.5 shadow-lg w-full max-w-[210px] border border-gray-800">
+                    <div className="bg-gradient-to-r from-[#675A34] to-[#4B5059] text-white rounded-lg px-4 py-3 flex items-center gap-2.5 shadow-lg w-full border border-gray-800/40">
                       <div className="w-5 h-5 rounded-full bg-[#F59E0B] flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">!</div>
-                      <span className="font-medium truncate text-[11px]" style={{ fontFamily: 'Pretendard, sans-serif' }}>경고 문구가 들어갑니다.</span>
+                      <span className="font-medium text-[11px] whitespace-nowrap" style={{ fontFamily: 'Pretendard, sans-serif' }}>경고 문구가 들어갑니다.</span>
                     </div>
                   </div>
                 </div>
